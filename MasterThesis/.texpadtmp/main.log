@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  30 NOV 2015 11:36
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  22 DEC 2015 11:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -913,7 +913,7 @@ File: english.lbx 2015/04/19 v3.0 biblatex localization (PK/JW/AB)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.aux)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -1014,8 +1014,8 @@ LaTeX Info: Redefining \ref on input line 70.
 LaTeX Info: Redefining \pageref on input line 70.
 LaTeX Info: Redefining \nameref on input line 70.
 
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.out)
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.out)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -1031,7 +1031,7 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.bbl)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
 Package biblatex Info: Reference section=0 on input line 70.
 Package biblatex Info: Reference segment=0 on input line 70.
 \c__siunitx_mathsf_int=\count312
@@ -1088,29 +1088,21 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 177.
 
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.toc
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 19.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 19.
- [11])
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [12]
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.lof)
+[11] [12
+
+]
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
-[13
-
-] [14
+[13] [14
 
 ]
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.lot)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
@@ -1131,42 +1123,13 @@ LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
 ] (./Chapters/Chapter1.tex
 Chapter 1.
 --------------------
- 1. Chapter Title Here
+ 1. Introduction
 --------------------
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 27.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 27.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 27.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 31.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 31.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 31.
-[1
+) (./Chapters/Chapter2.tex [1
 
-] [2] [3]
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 136.
- [4]
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10.95> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 168.
- [5]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 196.
- [6]
-Overfull \hbox (9.16711pt too wide) in paragraph at lines 225--225
-[]\T1/pcr/m/n/10 \caption{The effects of treatments X and Y on the four groups 
-studied.}[] 
- []
+] [2
 
-[7]
-File: Figures/Electron.pdf Graphic file (type QTm)
- <use  "Figures/Electron.pdf" > [8] [9]) (./Chapters/Chapter2.tex [10]
+]
 Chapter 2.
 --------------------
  2. Related Work
@@ -1241,9 +1204,11 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter3.tex [11
-
-] [12
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 20.
+) (./Chapters/Chapter3.tex [3] [4
 
 ]
 Chapter 3.
@@ -1320,7 +1285,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [13] [14
+) (./Chapters/Chapter4.tex [5] [6
 
 ]
 Chapter 4.
@@ -1397,21 +1362,22 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [15] [16
+) (./Appendices/AppendixA.tex [7] [8
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [17] [18
+)
 
-]
+LaTeX Warning: Empty bibliography on input line 263.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 267.
- [19]
+[9]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 267.
 
-(/Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.texpadtmp/main.aux)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 267.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 267.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1419,13 +1385,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25124 strings out of 493706
- 461193 string characters out of 6145768
- 622141 words of memory out of 5000000
- 28213 multiletter control sequences out of 15000+600000
- 42905 words of font info for 83 fonts, out of 8000000 for 9000
+ 24898 strings out of 493706
+ 457638 string characters out of 6145768
+ 619259 words of memory out of 5000000
+ 28007 multiletter control sequences out of 15000+600000
+ 30057 words of font info for 53 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,59p,10377b,2245s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,49p,10377b,1496s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/aghosn/Documents/Master/Thesis/Report/MasterThesis/.te
-xpadtmp/main.pdf (43 pages).
+Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
+xpadtmp/main.pdf (33 pages).
