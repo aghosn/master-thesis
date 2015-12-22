@@ -1,0 +1,114 @@
+% Chapter 2
+
+\chapter{Related Work} % Main chapter title
+
+\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter2} 
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+\section{On Stack Replacement, General Principle}
+
+\subsection{Definition \& Overview}
+%Replace some portion of code while it is executing 
+%Used to optimise code that is running 
+%Used to undo an invalid optimisation of the code that is running
+
+\subsection{The origins: SELF debugging}
+%SELF needs aggressive optimisations to have reasonable performance. 
+%But that prevents from debugging
+%Hence OSR enables selective deoptimization at runtime, which provides source level information 
+%That makes some optimisations not available since they are hard to undo (e.g. tail %recursion elimination)
+%Scope descriptors enable mapping between optimised and unoptimised, enables to keep track %of the position in the virtual call tree etc. (will be detailed). 
+%Interrupt points (where, why, how)
+%Function invalidation
+
+\subsection{Why is OSR interesting?}
+%The optimisation case
+     %wait until enough profiling information is gathered to make some new assumptions and improve code quality
+    %Some enable to have several specialised versions of the code live at the same time.
+    %Chaining OSR means that we can keep optimising the code
+%The deoptimization case
+    %This is the real deal. Optimisation is not valid without this counter part. 
+    %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
+    %The real difference: optimisation is for performance, deoptimazation is for correctness.
+
+
+\section{On Stack Replacement \& Virtual Machines}
+\subsection{In Java}
+%Java Hotspot 
+%Graal 
+%Jikes
+
+\subsection{LLVM}
+%What is LLVM? 
+    %Some description of LLVM, putting the emphasis on the fact that it enables to generate native code from LLVM IR, and that many languages have an LLVM compiler (e.g. R, Ruby, Python, Matlab etc.) 
+    %Provides tools and mechanism that we can reuse (e.g. low level optimisations, passes on the code etc.) 
+%Why OSR on LLVM? 
+    %General technique that can be profitable to several languages. 
+    %Don’t need to worry about static optimisations 
+    %Get portability for free
+    %Examples: Webkit & McJit
+
+%probably move that somewhere else
+\section{A Description of Existing Implementations}
+\subsection{The OSR points}
+%Several names for it 
+%what it is: a point in the code from which we can suspend the exec and optimise the current version of the code
+    %Implies that we need a "safe state”, i.e., we need to be able to find an equivalent point in the optimised version
+    %portions of code that don’t have interrupts
+%Guarded vs Unguarded 
+    %Guarding when there is an explicit condition that we can check locally
+    %What if global/External event? 
+        %Some have a map of such points and fix them whenever an external event happens (citing papers e.g., jikes)
+%OSR exits 
+    %What to do when the condition fails? 
+        %Optimisation dependent 
+        %for external requires to correct every callee return landing spots. 
+        %Requires corresponding entry in the unoptimised version
+%Examples from existing implementations 
+    %MCJIt inserter and instrument passes (need a code transformer + OSR Label)
+    %Jikes
+\subsection{The Transition Mechanism}
+%The ideal model 
+    %Being able to stop execution, save the state, generate a new version, fix the state, replace the instruction pointer and resume.
+%The more reasonable case of function calls 
+    %Implemented as a function call 
+    %In SELF: data structures on the side to keep mapping between virtual and physical (might be redundant with 2.1.2)
+    %Jikes: the VARMAP that enables to do it virtually at and across OSR points, registers state etc. 
+    %MCJit: Saving all live variables, instruments code to jump to correct spot in new version by instrumenting the prolog of the function + executing a special block to fix the state etc. 
+    %Rome & Others (to be defined): pass everything as arguments, do a function call and instrument entry point of the function to fix the state and jump to correct continuation point.  
+
+\subsection{Constraints and Limitations}
+%Limits the types of optimisations that can be performed (e.g. tail recursion elimination in SELF) 
+%Limits code motion + Mechanisms extend variable live range
+%Limited spots where we can perform the transition, often limited to function pro/epilogues and loops  
+    %Due to the difficulty of finding/ensuring a mapping between optimised and unoptimised otherwise. 
+%The space complexity 
+    %need to keep additional information around (e.g. variables that were eliminated need to be correctly re-generated when deoptimizing)
+    %Instrumentation increases the code
+\subsection{Generating on the Fly VS Caching}
+%Caching enables to keep several versions around + saves compilation time
+%On the fly: we can keep the same address for the function
+
+\subsection{Discussion}
+%The proposed classification in MCJit (several optimisation, possible deoptimization) 
+%The trade off between performance gain and the compilation & instrumentation costs. 
+%The paradoxal goal of finding a general technique to aggressively specialise code in particular assumption based circumstances. 
+    %By being too general, we actual bring limitations to the implementation 
+    %Assumption based optimisations need to be implemented for the OSR mechanism (e.g., mcjit “transformer” method) 
+        %How to find a correct API that satisfies every possible optimisation that we might want to perform? 
+            %Support external event
+            %Support guards
+%The challenge of code motion 
+
+
+
