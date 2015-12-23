@@ -36,7 +36,7 @@ This differs from a simple Just-In-Time (JIT) compiler, since the recompilation 
 However, both techniques rely on run time profiling data to uncover new optimisation opportunities.
 In this case, OSR is used to improve performance.\\
 
-On-Stack replacement allows a compiler to perform speculative transformations/optimisations.
+On-Stack replacement allows a compiler to perform speculative transformations.
 Some optimisations rely on assumptions that are not bound to hold during the entire execution of a program.
 A simple example is function inlining in an environment where functions can be redefined at any time.
 A regular and correct compiler would not allow to inline a function that might be modified during the execution.
@@ -46,7 +46,6 @@ In this case, OSR is used to preserve correctness.\\
 
 On-Stack replacement is a powerful technique, that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
 In the next subsection, we present the historical origins of On-Stack replacement and detail its most interesting features.\\ %TODO don't like the word feature
-
   
 
 \subsection{The origins: SELF debugging}
@@ -57,6 +56,14 @@ In the next subsection, we present the historical origins of On-Stack replacemen
 %Scope descriptors enable mapping between optimised and unoptimised, enables to keep track %of the position in the virtual call tree etc. (will be detailed). 
 %Interrupt points (where, why, how)
 %Function invalidation
+The SELF programming language is a pure object-oriented programming language.
+SELF relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances(CITE from self paper).
+Therefore, the language's implementation depends on a set of aggressive optimisations to achieve good performances(CITE).
+SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
+Providing source level code interactive debugging is hard in the presence of optimisations.
+Single stepping or obtaining values for certain source level variables might not be possible.
+For a language such as SELF, that heavily relies on aggressive optimisations, implementing a source code level debugger requires new techniques.\\
+In (CITE Holzle), the authors came up with a new mechanism that enables to dynamically de-optimise code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
 
 \subsection{Why is OSR interesting?}
 %The optimisation case
