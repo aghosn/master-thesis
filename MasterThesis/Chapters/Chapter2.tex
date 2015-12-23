@@ -21,6 +21,33 @@
 %Replace some portion of code while it is executing 
 %Used to optimise code that is running 
 %Used to undo an invalid optimisation of the code that is running
+On-Stack replacement (OSR) is a set of techniques that consist in dynamically transferring the execution, at run time, between different pieces of code.
+The action of transferring the execution to another code artefact is called an OSR transition.\\
+
+On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing code, into another version of itself.
+This transformation mechanism has been used to allow the bi-directional transition between different levels of code optimisations.
+We can therefore reduce it to two main purposes: transforming an executing piece of code into a more optimised version of itself, and undoing transformations that were previously performed.
+While similar, these two types of transformation have very different goals.\\
+
+In several virtual machines (CITE PAPERS), some of which will be presented in (REFERENCE), On-Stack replacement has been used to improve the performance of long running functions.
+When the VM identifies a piece of code as being "hot", i.e., it hogs the execution, it suspends its execution, recompiles it to a higher level of optimisation, and transfers the execution to the newly generated version of the function.
+This differs from a simple Just-In-Time (JIT) compiler, since the recompilation takes place during the execution of the function, rather than just before its execution.
+%TODO reformulate
+However, both techniques rely on run time profiling data to uncover new optimisation opportunities.
+In this case, OSR is used to improve performance.\\
+
+On-Stack replacement allows a compiler to perform speculative transformations/optimisations.
+Some optimisations rely on assumptions that are not bound to hold during the entire execution of a program.
+A simple example is function inlining in an environment where functions can be redefined at any time.
+A regular and correct compiler would not allow to inline a function that might be modified during the execution.
+The OSR mechanism, on the other hand, enables to perform such an optimisation.
+Whenever the assumption fails, i.e., the function is redefined, the OSR mechanism will enable to transfer the execution to a corresponding piece of code where the inlining has not been performed.
+In this case, OSR is used to preserve correctness.\\
+
+On-Stack replacement is a powerful technique, that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
+In the next subsection, we present the historical origins of On-Stack replacement and detail its most interesting features.\\ %TODO don't like the word feature
+
+  
 
 \subsection{The origins: SELF debugging}
 %SELF needs aggressive optimisations to have reasonable performance. 
