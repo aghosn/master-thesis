@@ -60,10 +60,25 @@ The SELF programming language is a pure object-oriented programming language.
 SELF relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances(CITE from self paper).
 Therefore, the language's implementation depends on a set of aggressive optimisations to achieve good performances(CITE).
 SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
+
 Providing source level code interactive debugging is hard in the presence of optimisations.
 Single stepping or obtaining values for certain source level variables might not be possible.
 For a language such as SELF, that heavily relies on aggressive optimisations, implementing a source code level debugger requires new techniques.\\
+
 In (CITE Holzle), the authors came up with a new mechanism that enables to dynamically de-optimise code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
+
+In (CITE), Hölzle et al. present the main challenges encountered to provide debugging behaviors, due to the optimisations performed by the SELF compiler. 
+Displaying the stack according to a source-level view is impeded by optimisations such as inlining, register allocation and copy propagation.
+For example, when a function is inlined at a call spot, only a single activation frame is visible, while the source level code expects to see two of them.
+Figure (FIG), taken from (CITE), provides another example of activations discordances between physical and source-level stacks.
+In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', hence disappearing from the physical stack.\\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/Figure1}
+\decoRule
+\caption[physical vs. source-level stacks]{Displaying the stack CITE}
+\end{figure}
+
 
 \subsection{Why is OSR interesting?}
 %The optimisation case
