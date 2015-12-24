@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  24 DEC 2015 14:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  24 DEC 2015 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1253,9 +1253,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
  []
 
 File: Figures/Figure1.png Graphic file (type QTm)
-<use  "Figures/Figure1.png" >) (./Chapters/Chapter3.tex [4] [5] [6
+<use  "Figures/Figure1.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 82--86
 
-]
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 87--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--102
+
+ []
+
+) (./Chapters/Chapter3.tex [5] [6]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1330,7 +1348,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [7] [8
+) (./Chapters/Chapter4.tex [7
+
+] [8
 
 ]
 Chapter 4.
@@ -1432,11 +1452,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  24910 strings out of 493706
  457754 string characters out of 6145768
- 619259 words of memory out of 5000000
+ 620259 words of memory out of 5000000
  28008 multiletter control sequences out of 15000+600000
  31197 words of font info for 52 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,49p,10377b,1604s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,49p,10377b,1603s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (33 pages).
