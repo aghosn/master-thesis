@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  24 DEC 2015 15:10
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 DEC 2015 16:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1273,7 +1273,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--102
 
  []
 
-) (./Chapters/Chapter3.tex [5] [6]
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--123
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 124--130
+
+ []
+
+) (./Chapters/Chapter3.tex [6]
 Chapter 3.
 --------------------
  3. Theoretical Model

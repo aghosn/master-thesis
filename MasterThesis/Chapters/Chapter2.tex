@@ -108,11 +108,25 @@ The de-optimisation process follows 5 steps described in CITE and summed up here
     \item Find the unique new physical PC for each virtual activation and initialise (e.g., return addresses and frame pointers) the physical activations created in the previous step.
     \item Propagate the values for all elements from the optimised to the unoptimised activations.
 \end{enumerate}
- 
 
+Holzle(CITE) also describes \textit{lazy deoptimization}, a technique to deoptimize a stack frame that is not at the current top of the execution stack. 
+Lazy deoptimization defers the deoptimization transformation until control is about to return into the frame, hence enabling deoptimization for any frame located on the stack.\\
 
+Deoptimization at any instruction boundary is hard. 
+It requires to be able to recover the state at every single point of the program.
+Holzle (CITE) relies on a weaker easier restrictions by enabling deoptimization only at certain points called \textit{interrupt points}. 
+At an interrupt point, the program state is guaranteed to be consistent. 
+The paper (CITE) defines two kinds of interrupt points: method prologues, and backward branches (i.e., end of loop bodies).
+Holzle(CITE) therefore estimates the length of the longest code sequence that cannot be interrupted to be a few dozen of instruction, i.e., the average length of a code sequence that does not contain neither a call nor a loop end.
+Interrupt points are also inserted at all possible run time errors to allow better debugging of synchronous events such as arithmetic overflow. 
+The generated debugging information are needed only at interrupt points, which reduces the space used to support basic debugger operations (as opposed to allowing interrupts at any instruction boundary).\\
 
-
+Providing a debugger for SELF limits the set of optimizations that the compiler can support, and decreases the performances of the program when the execution is resumed. 
+Tail recursion elimination saves stack space by replacing a function call with a goto instruction, while fixing the content of registers.
+SELF debugger is unable to reconstruct the stack frames eliminated by this optimization and hence, it is not implemented in the SELF compiler.
+More generally, tail call elimination is one important limitation for the SELF debugger.\\
+The debugger slows down the execution when the user decides to resume. 
+The execution should proceed at full speed, but some stack frames might have been unoptimized, hence implying that a few frames might run slowly right after resuming execution.\\
 
 \subsection{Why is OSR interesting?}
 %The optimisation case
