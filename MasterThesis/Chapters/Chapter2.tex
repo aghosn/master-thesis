@@ -132,12 +132,38 @@ The execution should proceed at full speed, but some stack frames might have bee
 %The optimisation case
      %wait until enough profiling information is gathered to make some new assumptions and improve code quality
     %Some enable to have several specialised versions of the code live at the same time.
-    %Chaining OSR means that we can keep optimising the code
+    %Chaining OSR means that we can keep optimising the code -> depends on profiler
 %The deoptimization case
     %This is the real deal. Optimisation is not valid without this counter part. 
     %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
     %The real difference: optimisation is for performance, deoptimazation is for correctness.
+    
+This section highlights the benefits that On-Stack replacement enables.
+We divide them into two separate cases: OSR with regards to optimization, and OSR for deoptimization.\\
 
+On-Stack replacement increases the power of dynamic compilation.
+OSR enables to differ compilation further in the future than dynamic compilation techniques such as Just-In time (JIT) compilation.
+A function can be recompile while it is executing.
+This enables more aggressive adaptative compilation, i.e., by delaying the point in time when the recompilation is performed, OSR enables to gather more information about the current execution profile. These information can then be used to produce higher quality compiled code, displaying better performances.\\
+For dynamic languages, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
+Code specialization consists in tuning the code to better fit a particular use of the code, hence yielding better performances.
+Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
+One of the main challenges is to identify which version better fits the current execution need.
+This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.\\
+OSR, coupled with an efficient compiler to generate and keep track of specialized functions, enables to uncover new opportunities to fine tune a portion of code.
+While techniques like JIT compilation can generate specialized code at a function level, i.e., before the execution of a function, OSR enables to make such tuning while a function is running.
+For example, in the case of a long running loop inside a function, JIT techniques would need to wait until the function is called anew to improve its run time performance by recompiling it. 
+OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance for the executing program.\\
+OSR is a tool that enables the compiler to recompile and optimize at almost any time during the execution of a program.
+A clever compiler can perform iterative recompilation of the code in order to improve the quality of the generated compiled artefact.
+OSR enables these iteration steps to be closer to each other and potentially converge to a better solution faster than other dynamic compilation techniques.\\
+
+On-Stack replacement's most interesting feature is deoptimization. 
+While optimization enables to increase performance, deoptimization's goal is to preserve correctness of the program that executes.
+OSR allows speculative optimizations which, in turn, weakens the requirements for compiled code correctness. 
+In other words, the compiler can generate aggressively optimized code. 
+Virtually any assumption can be used to generate compiled code and, if the assumption fails, 
+OSR enables to revert back to a safe version during the execution.\\
 
 \section{On Stack Replacement \& Virtual Machines}
 \subsection{In Java}
