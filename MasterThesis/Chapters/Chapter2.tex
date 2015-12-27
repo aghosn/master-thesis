@@ -98,7 +98,19 @@ In order to deoptimize code on demand, SELF debugger needs to recover the unopti
 To do so, it relies on a special data structure, called a \textit{scope descriptor}. 
 The scope descriptors are generated during compilation for each source-level scope. 
 This data structure holds the scope place in the virtual call tree of the physical stack frame and records locations and values of its argument and local variables. 
-It further holds locations or value of its subexpressions. Along with the scope descriptor, the compiler generates a mapping between virtual (i.e, scope descriptor and source position within the scope) and physical program counters (PC). REF is taken from CITE and displays a method suspended at two different points.\\
+It further holds locations or value of its subexpressions. Along with the scope descriptor, the compiler generates a mapping between virtual (i.e, scope descriptor and source position within the scope) and physical program counters (PC).
+Figure \ref{Holzle2} is taken from CITE and displays a method suspended at two different points. 
+At time t1, the stack trace from the debugger displays frame B, hiding the fact that B was inlined inside of A.
+At time t2, D is called by C which is called by A, hence, the debugger displays 3 virtual stack frames instead of only one physical frame.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/Figure2}
+\decoRule
+\caption[Recovering the source-level state]{Recovering the source-level state (from CITE)}
+\label{Holzle2}
+\end{figure}
+
 
 The de-optimisation process follows 5 steps described in CITE and summed up here:
 \begin{enumerate}
