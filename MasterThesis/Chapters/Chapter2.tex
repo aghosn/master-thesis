@@ -199,6 +199,31 @@ The section is divided into two parts: we first presents several solutions that 
     %Don’t need to worry about static optimisations 
     %Get portability for free
     %Examples: Webkit & McJit
+\subsubsection{LLVM, formerly called Low Level Virtual Machine}
+%TODO cite the llvm paper?
+LLVM is a compiler infrastructure providing a set of reusable libraries.
+LLVM provides the middle layers of a compiler system and a large set of optimizations for compile-time, link-time, run-time, and idle-time for arbitrary programming languages.
+These optimizations are performed on an intermediate representation (IR) of the code and yield an optimized IR.
+The LLVM framework also provides tools to convert and link code into machine dependent assembly code for a specific target platform.
+LLVM supports several instruction sets including ARM, MIPS, AMD TeraScale, and x86/x86-64(CITE?).\\
+
+The LLVM intermediary representation is a language-independent set of instructions that also provides a type system.
+The LLVM IR is in static single assignment form (SSA), which requires every variable every variable to be defined before it is used and assigned exactly once. 
+SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction and register allocation.
+The SSA requirement for variables to be assigned only once requires a special mechanism, called a $\phi$-node, one a value depends on which control flow branch was executed before reaching the current variable definition.
+Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/SSAForm}
+\decoRule
+\caption[SSA example]{Example of $\phi$-node in SSA form}
+\label{SSA example}
+\end{figure}
+%TODO exhaustive basic types?
+The LLVM IR type system provides basic types (e.g., integers, floats), and five derived types: pointers, arrays, vectors, structures, and functions.
+Any type construct can then be represented as a combination of these types. 
+
 
 %probably move that somewhere else
 \section{A Description of Existing Implementations}
