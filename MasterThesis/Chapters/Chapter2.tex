@@ -249,10 +249,13 @@ Implementing OSR for LLVM not only serves several languages, but also allows to 
 As explained previously, LLVM supports several instructions sets corresponding to different architectures.
 By implementing OSR in LLVM, we get portability among these platforms for free.\\
 
+
+\subsubsection{Examples of OSR implementation in LLVM}
+
 OSR has been implemented in LLVM in several projects, such as the WebKit web browser engine and the MCJit project.
 In WebKit, OSR and LLVM are part of the four-tier architecture compiler for JavaScript.
 The Fourth-Tier LLVM (FTL) is an LLVM-based Just-In-Time compiler.
-The WebKit run-time flow is described by Figure \ref{FTL}.
+The WebKit run-time compilation flow is described by Figure \ref{FTL}.\\
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/FTL}
@@ -269,7 +272,39 @@ The transition from the first tier to the second one happens when a statement is
 The data flow graph (DFG) JIT is triggered when a statement executes more than a thousand times or a function is called more than sixty-six times.
 The FTL tier relies on LLVM machine code optimizations to generate a fast version of portions of the code.
 In order to hide the costs of the translation to LLVM IR and its compilation time, the FTL is triggered only for long running portions of the code that are currently executing.
-There are two kinds of transitions in WebKit: the ones contained entirely inside the WebKit framework (i.e., transitions 1,2 \& 4 in Figure \ref{FTL}), and the ones that involve LLVM (i.e., 3 \& 5 in Figure \ref{FTL}). 
+There are two kinds of transitions in WebKit: the ones contained entirely inside the WebKit framework (i.e., transitions 1,2 \& 4 in Figure \ref{FTL}), and the ones that involve LLVM (i.e., 3 \& 5 in Figure \ref{FTL}).\\
+
+Transitions to and from LLVM are hard. 
+There is no control over the stack layout or the optimized code produced by LLVM.
+In the case of transition 3, a different LLVM version is generated for each entry point that the framework desires to have inside this function.
+In WebKit, such entry points are located at loop headers. 
+This choice makes sense with regard to the condition to enter the FTL, i.e., transition 3 is taken for long running portions of code that could be improved thanks to LLVM low level optimizations.
+WebKit has to generate a different version for each entry points for two main reasons: LLVM allows only single entry points to functions (going around this limitation would require to modify LLVM IR and implementation), and instrumenting a function with several entry points would impact on the quality and performance of the generated native code by extending the code's length and restricting code motion.\\
+
+Performing transition 3 requires to get the current state of execution and identify the entry point corresponding to the current instruction being executed.
+The DFG dumps its state into a scratch buffer.
+An LLVM function with the correct entry point is then generated, and instrumented such that its first block loads the content of the scratch buffer and correctly reconstructs the state.
+The mapping between the DFG IR nodes and the LLVM IR values is straight forward since both IR's are in SSA.
+A special data structure, called a Stackmap, enables to keep the mapping between LLVM values and registers/spill-slots.\\
+
+Transition 5 is harder as it requires to extract the execution state from LLVM.
+WebKit has two different mechanisms to enables OSR exits: the exit thunk and the invalidation points.
+In the first case, WebKit introduces exit branches at OSR exit points.
+The branch is guarded by an OSR exit condition and is a no-return tail call to a special function that takes all the live non-constant and not accounted for bytecode values.
+The second mechanism enables to remove the guard.
+Since we assume that the portion of code that is instrumented is executed a lot of times, the cost of testing the condition can have a great impact on the overall execution time.
+This mechanism relies on a special LLVM intrinsics, namely patchpoints and stackmap shadow bytes.
+A patchpoint enables to reserve some extra space in the code, filled with nop sleds. 
+When the WebKit framework detects that an exit should be taken, it overwrites the nop sleds with the correct function call to perform the OSR exit.
+This breaks the optimized version of the code which cannot be re-used later on and must be collected.
+The stackmap shadow bytes improves on this technique by allowing to directly overwrite the code, without having any nop sled generated before hand.
+
+WebKit is a project that heavily, and successfully relies on OSR to improve performances.
+The web browser engine is used in Apple Web browser Safari and enables a net improvement of performances why proving to be reliable(CITE?).
+Although successful, it does not provide a general and reusable framework for OSR in LLVM that other projects could reuse.\\
+
+The MCJIT OSR support(CITE) is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
+
  
 
 \section{A Description of Existing Implementations}
