@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 DEC 2015 12:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 DEC 2015 19:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1289,58 +1289,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--135
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--142
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--173
+Underfull \hbox (badness 10000) in paragraph at lines 174--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--180
+Underfull \hbox (badness 10000) in paragraph at lines 178--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--185
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
+Underfull \hbox (badness 10000) in paragraph at lines 190--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--209
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--215
+Underfull \hbox (badness 10000) in paragraph at lines 208--213
 
  []
 
 File: Figures/SSAForm.png Graphic file (type QTm)
 <use  "Figures/SSAForm.png" >
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 220.
+(Font)              <7> on input line 224.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 220.
+(Font)              <5> on input line 224.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./Chapters/Chapter3.tex [8] [9] [10
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 229--231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--240
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 248--251
+
+ []
+
+File: Figures/FTL.png Graphic file (type QTm)
+<use  "Figures/FTL.png" >
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 258--260
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]) (./Chapters/Chapter3.tex [10]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1415,7 +1432,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [11] [12
+) (./Chapters/Chapter4.tex [11
+
+] [12
 
 ]
 Chapter 4.
@@ -1515,13 +1534,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24926 strings out of 493706
- 457984 string characters out of 6145768
+ 24929 strings out of 493706
+ 458011 string characters out of 6145768
  620259 words of memory out of 5000000
- 28022 multiletter control sequences out of 15000+600000
+ 28024 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,49p,10377b,1605s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,49p,10377b,1607s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (37 pages).

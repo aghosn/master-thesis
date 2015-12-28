@@ -76,7 +76,7 @@ In this figure, the source-level stack contains activations that were inlined by
 \centering
 \includegraphics[scale=0.5]{Figures/Figure1}
 \decoRule
-\caption[physical vs. source-level stacks]{Displaying the stack CITE}
+\caption[physical vs. source-level stacks]{Displaying the stack CITE.}
 \end{figure}
 
 Single-stepping is another important feature for a debugger. 
@@ -107,7 +107,7 @@ At time t2, D is called by C which is called by A, hence, the debugger displays 
 \centering
 \includegraphics[scale=0.5]{Figures/Figure2}
 \decoRule
-\caption[Recovering the source-level state]{Recovering the source-level state (from CITE)}
+\caption[Recovering the source-level state]{Recovering the source-level state (from CITE).}
 \label{Holzle2}
 \end{figure}
 
@@ -136,7 +136,8 @@ The generated debugging information are needed only at interrupt points, which r
 Providing a debugger for SELF limits the set of optimizations that the compiler can support, and decreases the performances of the program when the execution is resumed. 
 Tail recursion elimination saves stack space by replacing a function call with a goto instruction, while fixing the content of registers.
 SELF debugger is unable to reconstruct the stack frames eliminated by this optimization and hence, it is not implemented in the SELF compiler.
-More generally, tail call elimination is one important limitation for the SELF debugger.\\
+More generally, tail call elimination is one important limitation for the SELF debugger.
+
 The debugger slows down the execution when the user decides to resume. 
 The execution should proceed at full speed, but some stack frames might have been unoptimized, hence implying that a few frames might run slowly right after resuming execution.\\
 
@@ -157,16 +158,19 @@ We divide them into two separate cases: OSR with regards to optimization, and OS
 On-Stack replacement increases the power of dynamic compilation.
 OSR enables to differ compilation further in the future than dynamic compilation techniques such as Just-In time (JIT) compilation.
 A function can be recompile while it is executing.
-This enables more aggressive adaptative compilation, i.e., by delaying the point in time when the recompilation is performed, OSR enables to gather more information about the current execution profile. These information can then be used to produce higher quality compiled code, displaying better performances.\\
+This enables more aggressive adaptative compilation, i.e., by delaying the point in time when the recompilation is performed, OSR enables to gather more information about the current execution profile. These information can then be used to produce higher quality compiled code, displaying better performances.
+
 For dynamic languages, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
 Code specialization consists in tuning the code to better fit a particular use of the code, hence yielding better performances.
 Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
 One of the main challenges is to identify which version better fits the current execution need.
-This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.\\
+This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.
+
 OSR, coupled with an efficient compiler to generate and keep track of specialized functions, enables to uncover new opportunities to fine tune a portion of code.
 While techniques like JIT compilation can generate specialized code at a function level, i.e., before the execution of a function, OSR enables to make such tuning while a function is running.
 For example, in the case of a long running loop inside a function, JIT techniques would need to wait until the function is called anew to improve its run time performance by recompiling it. 
-OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance for the executing program.\\
+OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance for the executing program.
+
 OSR is a tool that enables the compiler to recompile and optimize at almost any time during the execution of a program.
 A clever compiler can perform iterative recompilation of the code in order to improve the quality of the generated compiled artefact.
 OSR enables these iteration steps to be closer to each other and potentially converge to a better solution faster than other dynamic compilation techniques.\\
@@ -198,7 +202,7 @@ The section is divided into two parts: we first presents several solutions that 
     %General technique that can be profitable to several languages. 
     %Don’t need to worry about static optimisations 
     %Get portability for free
-    %Examples: Webkit & McJit
+    %Examples: WebKit & McJit
 \subsubsection{LLVM, formerly called Low Level Virtual Machine}
 %TODO cite the llvm paper?
 LLVM is a compiler infrastructure providing a set of reusable libraries.
@@ -211,21 +215,63 @@ The LLVM intermediary representation is a language-independent set of instructio
 The LLVM IR is in static single assignment form (SSA), which requires every variable every variable to be defined before it is used and assigned exactly once. 
 SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction and register allocation.
 The SSA requirement for variables to be assigned only once requires a special mechanism, called a $\phi$-node, one a value depends on which control flow branch was executed before reaching the current variable definition.
-Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.\\
+Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/SSAForm}
 \decoRule
-\caption[SSA example]{Example of $\phi$-node in SSA form}
+\caption[SSA example]{Example of $\phi$-node in SSA form.}
 \label{SSA example}
 \end{figure}
+
 %TODO exhaustive basic types?
 The LLVM IR type system provides basic types (e.g., integers, floats), and five derived types: pointers, arrays, vectors, structures, and functions.
-Any type construct can then be represented as a combination of these types. 
+Any type construct can then be represented as a combination of these types.\\
 
+%TODO reformulate/restructure this §
+The LLVM framework is a versatile tool that enables to implement many programming languages paradigms.
+LLVM compilers exist for several mainstream/popular languages such as Java, Python, Objective-C, and Ruby have an LLVM compiler.
+Other languages, like Haskell, Scala, Swift, Rust, Ada, and Fortran also have an LLVM compiler implementation.
+LLVM basic types enable to support object-oriented languages, such as Java and Python, dynamically typed languages like R or statically typed like Scala.
+LLVM also enables to model functional languages such as Haskell, as well as imperative ones. 
+Furthermore, it supports reflection and, thanks to dynamic linking, modular languages (e.g., Haskell).
+The tools provided enable static compilation as well as dynamic compilation techniques such as Just-In-Time compilation (JIT).\\
 
-%probably move that somewhere else
+\subsubsection{Why On-Stack replacement in LLVM is interesting}
+On-Stack replacement high-level mechanism is language-independent.
+Therefore, implementing OSR as a clean modular addition to LLVM would enable developers to leverage this feature in many programming languages, without requiring them to write a new compiler from scratch.
+Furthermore, as explained in \ref{WhyOSRInteresting}, OSR is a useful tool for dynamic and adaptative optimizations.
+LLVM already provides implementations for many compiler optimizations(CITE) and tools to allow dynamic recompilation of code.
+Developers can therefore focus on language specific challenges, such as efficient profilers and new speculative systems, rather than on the optimizations and OSR implementations.
+
+Implementing OSR for LLVM not only serves several languages, but also allows to provide a solution for several target platforms.
+As explained previously, LLVM supports several instructions sets corresponding to different architectures.
+By implementing OSR in LLVM, we get portability among these platforms for free.\\
+
+OSR has been implemented in LLVM in several projects, such as the WebKit web browser engine and the MCJit project.
+In WebKit, OSR and LLVM are part of the four-tier architecture compiler for JavaScript.
+The Fourth-Tier LLVM (FTL) is an LLVM-based Just-In-Time compiler.
+The WebKit run-time flow is described by Figure \ref{FTL}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/FTL}
+\decoRule
+\caption[The WebKit FTL]{The WebKit Four-tier optimization flow.}
+\label{FTL}
+\end{figure}
+ 
+Forward arrows represent \textit{OSR entries}, i.e., a transformation that yields a more optimized version of the code at run-time.
+Backward arrows correspond to \textit{OSR exits}, i.e., a transformation that yields a less optimized version of the code at run-time.
+The low level interpreter (LLInt) is used for low latency start up.
+The baseline JIT generates WebKit bytecode with no optimization enabled.
+The transition from the first tier to the second one happens when a statement is executed more than a hundred times or a function is called more than six times.
+The data flow graph (DFG) JIT is triggered when a statement executes more than a thousand times or a function is called more than sixty-six times.
+The FTL tier relies on LLVM machine code optimizations to generate a fast version of portions of the code.
+In order to hide the costs of the translation to LLVM IR and its compilation time, the FTL is triggered only for long running portions of the code that are currently executing.
+There are two kinds of transitions in WebKit: the ones contained entirely inside the WebKit framework (i.e., transitions 1,2 \& 4 in Figure \ref{FTL}), and the ones that involve LLVM (i.e., 3 \& 5 in Figure \ref{FTL}). 
+ 
+
 \section{A Description of Existing Implementations}
 \subsection{The OSR points}
 %Several names for it 
