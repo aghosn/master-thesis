@@ -7,6 +7,11 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Recovering the source-level state}}{6}{figure.caption.14}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces SSA example}}{9}{figure.caption.25}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces The WebKit FTL}}{10}{figure.caption.28}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces OSR classification}}{12}{figure.caption.34}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Retrofitting an existing JIT with OSR support}}{12}{figure.caption.35}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces A CFG of a loop with no OSR point}}{13}{figure.caption.40}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{13}{figure.caption.41}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{14}{figure.caption.42}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

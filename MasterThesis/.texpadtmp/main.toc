@@ -16,15 +16,15 @@
 \contentsline {subsubsection}{LLVM, formerly called Low Level Virtual Machine}{8}{section*.24}
 \contentsline {subsubsection}{Why On-Stack replacement in LLVM is interesting}{9}{section*.26}
 \contentsline {subsubsection}{Examples of OSR implementation in LLVM}{9}{section*.27}
-\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{11}{section.34}
-\contentsline {subsection}{\numberline {2.3.1}The OSR points}{11}{subsection.35}
-\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{11}{subsection.36}
-\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{11}{subsection.37}
-\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{11}{subsection.38}
-\contentsline {subsection}{\numberline {2.3.5}Discussion}{11}{subsection.39}
-\contentsline {chapter}{\numberline {3}Theoretical Model}{13}{chapter.40}
-\contentsline {section}{\numberline {3.1}The OSR points}{13}{section.41}
-\contentsline {section}{\numberline {3.2}The Transition Mechanism}{13}{section.42}
-\contentsline {section}{\numberline {3.3}Constaints}{13}{section.43}
-\contentsline {chapter}{\numberline {4}Implementation}{15}{chapter.44}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{17}{appendix.45}
+\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{13}{section.43}
+\contentsline {subsection}{\numberline {2.3.1}The OSR points}{13}{subsection.44}
+\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{13}{subsection.45}
+\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{13}{subsection.46}
+\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{13}{subsection.47}
+\contentsline {subsection}{\numberline {2.3.5}Discussion}{13}{subsection.48}
+\contentsline {chapter}{\numberline {3}Theoretical Model}{15}{chapter.49}
+\contentsline {section}{\numberline {3.1}The OSR points}{15}{section.50}
+\contentsline {section}{\numberline {3.2}The Transition Mechanism}{15}{section.51}
+\contentsline {section}{\numberline {3.3}Constaints}{15}{section.52}
+\contentsline {chapter}{\numberline {4}Implementation}{17}{chapter.53}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{19}{appendix.54}
