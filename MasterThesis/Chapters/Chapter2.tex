@@ -303,11 +303,22 @@ WebKit is a project that heavily, and successfully relies on OSR to improve perf
 The web browser engine is used in Apple Web browser Safari and enables a net improvement of performances why proving to be reliable(CITE?).
 Although successful, it does not provide a general and reusable framework for OSR in LLVM that other projects could reuse.\\
 
-The MCJIT OSR support(CITE) is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
+The MCJIT OSR support(CITE) is an attempt at providing an OSR library compatible with the standard LLVM implementation.
+Lameed \& Hendren claim to have come up with a clean modular, and re-usable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
+There implementation answers to five challenges, listed in the paper CITE and that we reproduce here:\\ 
+
+\begin{enumerate}
+    \item Identifying correct interrupt points and using the current LLVM IR to represent them.
+    \item Using the LLVM tools to correctly transform the IR while preserving a correct control flow graph. 
+    \item Making a new version of a function available at the same address as the old one.
+    \item Providing a clean API for the OSR library, that is compatible with LLVM's inlining capabilities.
+    \item Integrating OSR without modifying the LLVM installation.
+\end{enumerate}
+
 
  
 
-\section{A Description of Existing Implementations}
+\section{A High-Level Description of Existing Solutions}
 \subsection{The OSR points}
 %Several names for it 
 %what it is: a point in the code from which we can suspend the exec and optimise the current version of the code
