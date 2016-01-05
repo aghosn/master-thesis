@@ -349,13 +349,7 @@ The instrumentation saves the live values and creates a descriptor that contains
     \item A pointer to the control version of the function, i.e., a copy of the old version of the function.
     \item A variable mapping between the original version and the control version.
     \item The set of live variables at the OSR points. 
-\end{enumerate}
-Figures REFS gives an example of OSR instrumentation at a loop header.
-LH1 is the loop header. 
-LB is the body of the loop and LE the loop exit. 
-Figure \ref{BaseCFG} control flow graph (CFG) is the original CFG. 
-Figure \ref{InsertCFG} is the resulting CFG after the Inserter is executed.
-Figure REF's CFG corresponds to the result of the OSR pass.\\
+\end{enumerate}\\
 
 \begin{figure}[h]
 \centering
@@ -379,13 +373,64 @@ Figure REF's CFG corresponds to the result of the OSR pass.\\
 \decoRule
 \caption[The transformed CFG of the loop in Figure \ref{InsertCFG} after the OSR Pass]{The transformed CFG of the loop in Figure \ref{InsertCFG} after the OSR Pass from CITE.}
 \label{OSRPassCFG}
+\end{figure}\\
+
+Figures \ref{BaseCFG}, \ref{InsertCFG}, and \ref{OSRPassCFG} give an example of OSR instrumentation at a loop header.
+LH1 is the loop header. 
+LB is the body of the loop and LE the loop exit. 
+Figure \ref{BaseCFG} control flow graph (CFG) is the original CFG. 
+Figure \ref{InsertCFG} is the resulting CFG after the Inserter is executed.
+Figure \ref{OSRPassCFG}'s CFG corresponds to the result of the OSR pass.
+The \textit{recompile} call in the OSR block recompiles \textit{f} using the correct code transformer.
+Then \textit{f} calls itself, executing the new version of the function.
+This works since the new version lives at the same address as the previous one and is instrumented to jump to the correct instruction, i.e., the one corresponding to the current point at which OSR was triggered.
+Figure \ref{FCFG} represents the CFG of \textit{f} before the OSR instrumentation.
+Figure \ref{InstFCFG} shows the instrumentation of \textit{f} that enables to jump to the correct instruction in the middle of the function. 
+A prolog entry block is inserted at the function header.
+This block checks the \textit{OSR flag} to know if an OSR transition is being performed.
+If that is the case, it branches to the prolog block that restores the state before resuming the execution at the correct instruction.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/FCFG}
+\decoRule
+\caption[A CFG of a running function before inserting the blocks for state recovery]{A CFG of a running function before inserting the blocks for state recovery, from CITE.}
+\label{FCFG}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Figures/FOptCFG}
+\decoRule
+\caption[The CFG of the loop represented in Figure \ref{FCFG} after inserting the state recovery blocks, form CITE.]{The CFG of the loop represented in Figure \ref{FCFG} after inserting the state recovery blocks, form CITE.}
+\label{InstFCFG}
+\end{figure}\\
 
+%TODO critic of the paper.
+The OSR implementation proposed in CITE presents interesting features.
+The implementation is done entirely at the LLVM IR, hence making it language-independent.
+Furthermore, since the transformation function is provided by the user, any kind of language specific transformation can be used during the OSR.
+As a result, MCJit OSR support is an interesting modular OSR library.
 
+On the other hand, this library does not allow to have several versions of the same function, live at the same time.
+This restriction can impede the overall performance of the program by extending the scope in which an assumption on which we base the transformation must hold.
+For example, a portion of the code, call it \textit{A}, can trigger an OSR, while portion \textit{B} is such that the assumption on which the optimization is based does not hold.
+The choice that the user has is to either optimize for A, and deoptimize for B, or to prevent A from optimizing by enlarging the scope in which the assumption is supposed to hold.
+None of these solutions is good if \textit{A} and \textit{B} are executed many times, one after the other.
+We will either lose a lot of execution time performing OSR, or keep executing \textit{A} without optimization.
 
+In the paper, the deoptimization process is not described. 
+It is implied that it relies on the same set of tools provided by the framework as the optimization process, but no example is provided.
+As explained in \ref{WhyOSRInteresting}, deoptimization is the most interesting feature of OSR, as it is required to preserve correctness.
+Being able to identify where a function should exit is a hard task.
+The MCJit library does not provide tools to ease this process and leaves the responsibility to the developer to instrument his functions correctly in order to exit to the correct landing pad.
 
-
+To the best of our knowledge, MCJit OSR library is not currently used in production or any important project.
+As mentioned earlier, WebKit is efficiently integrated in Apple Safari's web browser, which provides useful feedback on its performances.
+The lack of usage of MCJit OSR library prevents us from collecting performance results and assess its efficiency.
+Furthermore, the experimental evaluation in CITE relies on an example that seems artificial for our use of OSR. 
+The case study presents a dynamic inliner that decides to inline a function call if the function is less than 20 basic blocks long, or if it is less than 50 basic blocks long and has an interpreter environment associated with its body. 
+This requirement for inlining is one that can be checked statically and, hence, seems a little artificial.\\
 
 \section{A High-Level Description of Existing Solutions}
 \subsection{The OSR points}

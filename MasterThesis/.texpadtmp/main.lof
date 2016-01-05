@@ -12,6 +12,8 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces A CFG of a loop with no OSR point}}{13}{figure.caption.40}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{13}{figure.caption.41}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{14}{figure.caption.42}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{14}{figure.caption.43}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form CITE.}}{15}{figure.caption.44}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
