@@ -19,28 +19,28 @@
 
 \subsection{Definition \& Overview}
 %Replace some portion of code while it is executing 
-%Used to optimise code that is running 
-%Used to undo an invalid optimisation of the code that is running
+%Used to optimize code that is running 
+%Used to undo an invalid optimization of the code that is running
 On-Stack replacement (OSR) is a set of techniques that consist in dynamically transferring the execution, at run time, between different pieces of code.
 The action of transferring the execution to another code artefact is called an OSR transition.\\
 
 On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing code, into another version of itself.
-This transformation mechanism has been used to allow the bi-directional transition between different levels of code optimisations.
-We can therefore reduce it to two main purposes: transforming an executing piece of code into a more optimised version of itself, and undoing transformations that were previously performed.
+This transformation mechanism has been used to allow the bi-directional transition between different levels of code optimizations.
+We can therefore reduce it to two main purposes: transforming an executing piece of code into a more optimized version of itself, and undoing transformations that were previously performed.
 While similar, these two types of transformation have very different goals.\\
 
 In several virtual machines (CITE PAPERS), some of which will be presented in (REFERENCE), On-Stack replacement has been used to improve the performance of long running functions.
-When the VM identifies a piece of code as being "hot", i.e., it hogs the execution, it suspends its execution, recompiles it to a higher level of optimisation, and transfers the execution to the newly generated version of the function.
+When the VM identifies a piece of code as being "hot", i.e., it hogs the execution, it suspends its execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
 This differs from a simple Just-In-Time (JIT) compiler, since the recompilation takes place during the execution of the function, rather than just before its execution.
 %TODO reformulate
-However, both techniques rely on run time profiling data to uncover new optimisation opportunities.
+However, both techniques rely on run time profiling data to uncover new optimization opportunities.
 In this case, OSR is used to improve performance.\\
 
 On-Stack replacement allows a compiler to perform speculative transformations.
-Some optimisations rely on assumptions that are not bound to hold during the entire execution of a program.
+Some optimizations rely on assumptions that are not bound to hold during the entire execution of a program.
 A simple example is function inlining in an environment where functions can be redefined at any time.
 A regular and correct compiler would not allow to inline a function that might be modified during the execution.
-The OSR mechanism, on the other hand, enables to perform such an optimisation.
+The OSR mechanism, on the other hand, enables to perform such an optimization.
 Whenever the assumption fails, i.e., the function is redefined, the OSR mechanism will enable to transfer the execution to a corresponding piece of code where the inlining has not been performed.
 In this case, OSR is used to preserve correctness.\\
 
@@ -49,26 +49,26 @@ In the next subsection, we present the historical origins of On-Stack replacemen
   
 
 \subsection{The origins: SELF debugging}
-%SELF needs aggressive optimisations to have reasonable performance. 
+%SELF needs aggressive optimizations to have reasonable performance. 
 %But that prevents from debugging
 %Hence OSR enables selective deoptimization at runtime, which provides source level information 
-%That makes some optimisations not available since they are hard to undo (e.g. tail %recursion elimination)
-%Scope descriptors enable mapping between optimised and unoptimised, enables to keep track %of the position in the virtual call tree etc. (will be detailed). 
+%That makes some optimizations not available since they are hard to undo (e.g. tail %recursion elimination)
+%Scope descriptors enable mapping between optimized and unoptimized, enables to keep track %of the position in the virtual call tree etc. (will be detailed). 
 %Interrupt points (where, why, how)
 %Function invalidation
 The SELF programming language is a pure object-oriented programming language.
 SELF relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances(CITE from self paper).
-Therefore, the language's implementation depends on a set of aggressive optimisations to achieve good performances(CITE).
+Therefore, the language's implementation depends on a set of aggressive optimizations to achieve good performances(CITE).
 SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
 
-Providing source level code interactive debugging is hard in the presence of optimisations.
+Providing source level code interactive debugging is hard in the presence of optimizations.
 Single stepping or obtaining values for certain source level variables might not be possible.
-For a language such as SELF, that heavily relies on aggressive optimisations, implementing a source code level debugger requires new techniques.\\
+For a language such as SELF, that heavily relies on aggressive optimizations, implementing a source code level debugger requires new techniques.\\
 
-In (CITE Holzle), the authors came up with a new mechanism that enables to dynamically de-optimise code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
+In (CITE Holzle), the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
 
-In (CITE), Hölzle et al. present the main challenges encountered to provide debugging behaviours, due to the optimisations performed by the SELF compiler. 
-Displaying the stack according to a source-level view is impeded by optimisations such as inlining, register allocation and copy propagation.
+In (CITE), Hölzle et al. present the main challenges encountered to provide debugging behaviours, due to the optimizations performed by the SELF compiler. 
+Displaying the stack according to a source-level view is impeded by optimizations such as inlining, register allocation and copy propagation.
 For example, when a function is inlined at a call spot, only a single activation frame is visible, while the source level code expects to see two of them.
 Figure (FIG), taken from (CITE), provides another example of activations discordances between physical and source-level stacks.
 In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', hence disappearing from the physical stack.\\
@@ -82,14 +82,14 @@ In this figure, the source-level stack contains activations that were inlined by
 Single-stepping is another important feature for a debugger. 
 It requires to identify and execute the next machine instruction that corresponds to the source operation.
 Holzle(cite) highlights the impact of code motion and instruction scheduling on the machine instruction layout. 
-Such optimisations re-order, merge, intersperse and sometimes delete source-level operations, therefore preventing a straight forward implementation of single-stepping for the debugger.\\
+Such optimizations re-order, merge, intersperse and sometimes delete source-level operations, therefore preventing a straight forward implementation of single-stepping for the debugger.\\
 
-Compiler optimisations prevent dynamic changes from being performed in the debugger.
+Compiler optimizations prevent dynamic changes from being performed in the debugger.
 Holzle(CITE) identifies two separate issues: changing variable values, and modifying procedures (i.e., functions).
 To illustrate the first case, Holzle CITE relies on an example where a variable is assigned the sum of two other variables.
 The compiler identifies the two variables as being constants and replaces the addition by a direct constant assignment.
 A debugger that allows to change variable values at run time would then yield a non correct behaviour if the user modifies one of the two variables. 
-This problem does not arise in the case of unoptimised code since the addition is still present. 
+This problem does not arise in the case of unoptimized code since the addition is still present. 
 For procedures, Holzle CITE describes an example where a function has been inlined by the compiler, but redefined by the user in the debugger.\\
 
 Holzle(CITE) distinguishes two possible states for compiled code: \textit{optimized}, which can be suspended at widely-spaced interrupt points, from which we can reconstruct source-level state, and \textit{unoptimized}, that can be suspended at any source-level operation and is not subjected to any of the above debugging restrictions.\\
@@ -112,13 +112,13 @@ At time t2, D is called by C which is called by A, hence, the debugger displays 
 \end{figure}
 
 
-The de-optimisation process follows 5 steps described in CITE and summed up here:
+The de-optimization process follows 5 steps described in CITE and summed up here:
 \begin{enumerate}
     \item Save the physical stack frame and remove it from the run time stack.
     \item Determine the virtual activations in the physical one, the local variables and the virtual PC.
-    \item Generate completely unoptimised compiled methods an physical activations for each virtual one.
+    \item Generate completely unoptimized compiled methods an physical activations for each virtual one.
     \item Find the unique new physical PC for each virtual activation and initialise (e.g., return addresses and frame pointers) the physical activations created in the previous step.
-    \item Propagate the values for all elements from the optimised to the unoptimised activations.
+    \item Propagate the values for all elements from the optimized to the unoptimized activations.
 \end{enumerate}
 
 Holzle(CITE) also describes \textit{lazy deoptimization}, a technique to deoptimize a stack frame that is not at the current top of the execution stack. 
@@ -143,14 +143,14 @@ The execution should proceed at full speed, but some stack frames might have bee
 
 \subsection{Why is OSR interesting?}
 \label{WhyOSRInteresting}
-%The optimisation case
+%The optimization case
      %wait until enough profiling information is gathered to make some new assumptions and improve code quality
     %Some enable to have several specialised versions of the code live at the same time.
     %Chaining OSR means that we can keep optimising the code -> depends on profiler
 %The deoptimization case
-    %This is the real deal. Optimisation is not valid without this counter part. 
+    %This is the real deal. optimization is not valid without this counter part. 
     %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
-    %The real difference: optimisation is for performance, deoptimazation is for correctness.
+    %The real difference: optimization is for performance, deoptimazation is for correctness.
     
 This section highlights the benefits that On-Stack replacement enables.
 We divide them into two separate cases: OSR with regards to optimization, and OSR for deoptimization.\\
@@ -197,10 +197,10 @@ The section is divided into two parts: we first presents several solutions that 
 \subsection{LLVM}
 %What is LLVM? 
     %Some description of LLVM, putting the emphasis on the fact that it enables to generate native code from LLVM IR, and that many languages have an LLVM compiler (e.g. R, Ruby, Python, Matlab etc.) 
-    %Provides tools and mechanism that we can reuse (e.g. low level optimisations, passes on the code etc.) 
+    %Provides tools and mechanism that we can reuse (e.g. low level optimizations, passes on the code etc.) 
 %Why OSR on LLVM? 
     %General technique that can be profitable to several languages. 
-    %Don’t need to worry about static optimisations 
+    %Don’t need to worry about static optimizations 
     %Get portability for free
     %Examples: WebKit & McJit
 \subsubsection{LLVM, formerly called Low Level Virtual Machine}
@@ -434,9 +434,10 @@ This requirement for inlining is one that can be checked statically and, hence, 
 
 \section{A High-Level Description of Existing Solutions}
 \subsection{The OSR points}
+%TODO do a definition case for that
 %Several names for it 
-%what it is: a point in the code from which we can suspend the exec and optimise the current version of the code
-    %Implies that we need a "safe state”, i.e., we need to be able to find an equivalent point in the optimised version
+%what it is: a point in the code from which we can suspend the exec and optimize the current version of the code
+    %Implies that we need a "safe state”, i.e., we need to be able to find an equivalent point in the optimized version
     %portions of code that don’t have interrupts
 %Guarded vs Unguarded 
     %Guarding when there is an explicit condition that we can check locally
@@ -444,12 +445,45 @@ This requirement for inlining is one that can be checked statically and, hence, 
         %Some have a map of such points and fix them whenever an external event happens (citing papers e.g., jikes)
 %OSR exits 
     %What to do when the condition fails? 
-        %Optimisation dependent 
+        %optimization dependent 
         %for external requires to correct every callee return landing spots. 
-        %Requires corresponding entry in the unoptimised version
+        %Requires corresponding entry in the unoptimized version
 %Examples from existing implementations 
     %MCJIt inserter and instrument passes (need a code transformer + OSR Label)
     %Jikes
+The OSR mechanism is enabled at specific instruction boundaries in the user's code.
+Depending on the OSR implementation, these points can be sparse, restricted to special points in the control flow, or associated with special framework dependent data.
+%TODO not sure next sentence is needed.
+This section presents different implementations of such points in the available literature.
+In the examples of OSR implementations given so far (CITE SECTIONS), they have been called \textit{interrupt points}(CITE), \textit{OSR entries}, and \textit{OSR exits}(CITE).
+In the reminder of this paper, we will refer to such points as \textit{OSR points}, as defined in Definition \ref{OSRPointDefinition}.
+
+\begin{definition}\label{OSRPointDefinition}
+An OSR point is a portion of code that belongs to the OSR instrumentation.
+It is located at an instruction boundary at which the program can be suspended.
+OSR points can correspond to several instructions inserted by the OSR framework and enable to switch the execution from one version of the code to another.
+\end{definition}
+
+There is a further distinction between OSR points that are responsible for optimising the code, and the ones that are used to unoptimize.
+For that, we will use the same terminology as in WebKit and MCJit(CITE).
+%TODO reformulate definitions
+\begin{definition}\label{OSREntryDefinition}
+An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
+They are used in the optimization process.
+\end{definition}
+
+\begin{definition}
+An OSR exit is an OSR point that enables to exit the current version of the code when it is invalidated.
+OSR exits are responsible for preserving the correctness of the program.
+They are used in the deoptimization process.
+\end{definition}
+
+%TODO continue this part by explaining why we need it to be safe
+An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., the execution of the program can be suspended without modifying the program's behaviour.
+COMPLETE
+
+
+
 \subsection{The Transition Mechanism}
 %The ideal model 
     %Being able to stop execution, save the state, generate a new version, fix the state, replace the instruction pointer and resume.
@@ -461,10 +495,10 @@ This requirement for inlining is one that can be checked statically and, hence, 
     %Rome & Others (to be defined): pass everything as arguments, do a function call and instrument entry point of the function to fix the state and jump to correct continuation point.  
 
 \subsection{Constraints and Limitations}
-%Limits the types of optimisations that can be performed (e.g. tail recursion elimination in SELF) 
+%Limits the types of optimizations that can be performed (e.g. tail recursion elimination in SELF) 
 %Limits code motion + Mechanisms extend variable live range
 %Limited spots where we can perform the transition, often limited to function pro/epilogues and loops  
-    %Due to the difficulty of finding/ensuring a mapping between optimised and unoptimised otherwise. 
+    %Due to the difficulty of finding/ensuring a mapping between optimized and unoptimized otherwise. 
 %The space complexity 
     %need to keep additional information around (e.g. variables that were eliminated need to be correctly re-generated when deoptimizing)
     %Instrumentation increases the code
@@ -473,12 +507,12 @@ This requirement for inlining is one that can be checked statically and, hence, 
 %On the fly: we can keep the same address for the function
 
 \subsection{Discussion}
-%The proposed classification in MCJit (several optimisation, possible deoptimization) 
+%The proposed classification in MCJit (several optimization, possible deoptimization) 
 %The trade off between performance gain and the compilation & instrumentation costs. 
 %The paradoxal goal of finding a general technique to aggressively specialise code in particular assumption based circumstances. 
     %By being too general, we actual bring limitations to the implementation 
-    %Assumption based optimisations need to be implemented for the OSR mechanism (e.g., mcjit “transformer” method) 
-        %How to find a correct API that satisfies every possible optimisation that we might want to perform? 
+    %Assumption based optimizations need to be implemented for the OSR mechanism (e.g., mcjit “transformer” method) 
+        %How to find a correct API that satisfies every possible optimization that we might want to perform? 
             %Support external event
             %Support guards
 %The challenge of code motion 

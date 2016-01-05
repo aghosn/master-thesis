@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 JAN 2016 09:48
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 JAN 2016 11:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,6 +671,7 @@ Package hyperref Info: Option `hypertexnames' set `false' on input line 394.
 Package hyperref Info: Option `colorlinks' set `true' on input line 394.
 Package hyperref Info: Option `unicode' set `true' on input line 394.
 Package hyperref Info: Option `breaklinks' set `true' on input line 394.
+\c@definition=\count159
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -699,7 +700,7 @@ AB)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count159
+\lrq@indent=\count160
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -707,41 +708,41 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count160
-\c@listtotal=\count161
-\c@listcount=\count162
-\c@liststart=\count163
-\c@liststop=\count164
-\c@citecount=\count165
-\c@citetotal=\count166
-\c@multicitecount=\count167
-\c@multicitetotal=\count168
-\c@instcount=\count169
-\c@maxnames=\count170
-\c@minnames=\count171
-\c@maxitems=\count172
-\c@minitems=\count173
-\c@citecounter=\count174
-\c@savedcitecounter=\count175
-\c@uniquelist=\count176
-\c@uniquename=\count177
-\c@refsection=\count178
-\c@refsegment=\count179
-\c@maxextrayear=\count180
-\c@maxextraalpha=\count181
-\c@abbrvpenalty=\count182
-\c@highnamepenalty=\count183
-\c@lownamepenalty=\count184
-\c@maxparens=\count185
-\c@parenlevel=\count186
-\blx@tempcnta=\count187
-\blx@tempcntb=\count188
-\blx@tempcntc=\count189
-\blx@maxsection=\count190
-\blx@maxsegment=\count191
-\blx@notetype=\count192
-\blx@parenlevel@text=\count193
-\blx@parenlevel@foot=\count194
+\c@tabx@nest=\count161
+\c@listtotal=\count162
+\c@listcount=\count163
+\c@liststart=\count164
+\c@liststop=\count165
+\c@citecount=\count166
+\c@citetotal=\count167
+\c@multicitecount=\count168
+\c@multicitetotal=\count169
+\c@instcount=\count170
+\c@maxnames=\count171
+\c@minnames=\count172
+\c@maxitems=\count173
+\c@minitems=\count174
+\c@citecounter=\count175
+\c@savedcitecounter=\count176
+\c@uniquelist=\count177
+\c@uniquename=\count178
+\c@refsection=\count179
+\c@refsegment=\count180
+\c@maxextrayear=\count181
+\c@maxextraalpha=\count182
+\c@abbrvpenalty=\count183
+\c@highnamepenalty=\count184
+\c@lownamepenalty=\count185
+\c@maxparens=\count186
+\c@parenlevel=\count187
+\blx@tempcnta=\count188
+\blx@tempcntb=\count189
+\blx@tempcntc=\count190
+\blx@maxsection=\count191
+\blx@maxsegment=\count192
+\blx@notetype=\count193
+\blx@parenlevel@text=\count194
+\blx@parenlevel@foot=\count195
 \labelnumberwidth=\skip69
 \labelalphawidth=\skip70
 \shorthandwidth=\skip71
@@ -753,75 +754,75 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \bibhang=\skip77
 \blx@auxin=\read2
 \blx@auxout=\write3
-\c@mincomprange=\count195
-\c@maxcomprange=\count196
-\c@mincompwidth=\count197
-\c@labelname=\count198
-\c@savedlabelname=\count199
-\c@author=\count200
-\c@savedauthor=\count201
-\c@shortauthor=\count202
-\c@savedshortauthor=\count203
-\c@editor=\count204
-\c@savededitor=\count205
-\c@editora=\count206
-\c@savededitora=\count207
-\c@editorb=\count208
-\c@savededitorb=\count209
-\c@editorc=\count210
-\c@savededitorc=\count211
-\c@shorteditor=\count212
-\c@savedshorteditor=\count213
-\c@bookauthor=\count214
-\c@savedbookauthor=\count215
-\c@translator=\count216
-\c@savedtranslator=\count217
-\c@annotator=\count218
-\c@savedannotator=\count219
-\c@commentator=\count220
-\c@savedcommentator=\count221
-\c@introduction=\count222
-\c@savedintroduction=\count223
-\c@foreword=\count224
-\c@savedforeword=\count225
-\c@afterword=\count226
-\c@savedafterword=\count227
-\c@holder=\count228
-\c@savedholder=\count229
-\c@namea=\count230
-\c@savednamea=\count231
-\c@nameb=\count232
-\c@savednameb=\count233
-\c@namec=\count266
-\c@savednamec=\count267
-\c@institution=\count268
-\c@savedinstitution=\count269
-\c@language=\count270
-\c@savedlanguage=\count271
-\c@location=\count272
-\c@savedlocation=\count273
-\c@organization=\count274
-\c@savedorganization=\count275
-\c@origlocation=\count276
-\c@savedoriglocation=\count277
-\c@origpublisher=\count278
-\c@savedorigpublisher=\count279
-\c@pageref=\count280
-\c@savedpageref=\count281
-\c@publisher=\count282
-\c@savedpublisher=\count283
-\c@lista=\count284
-\c@savedlista=\count285
-\c@listb=\count286
-\c@savedlistb=\count287
-\c@listc=\count288
-\c@savedlistc=\count289
-\c@listd=\count290
-\c@savedlistd=\count291
-\c@liste=\count292
-\c@savedliste=\count293
-\c@listf=\count294
-\c@savedlistf=\count295
+\c@mincomprange=\count196
+\c@maxcomprange=\count197
+\c@mincompwidth=\count198
+\c@labelname=\count199
+\c@savedlabelname=\count200
+\c@author=\count201
+\c@savedauthor=\count202
+\c@shortauthor=\count203
+\c@savedshortauthor=\count204
+\c@editor=\count205
+\c@savededitor=\count206
+\c@editora=\count207
+\c@savededitora=\count208
+\c@editorb=\count209
+\c@savededitorb=\count210
+\c@editorc=\count211
+\c@savededitorc=\count212
+\c@shorteditor=\count213
+\c@savedshorteditor=\count214
+\c@bookauthor=\count215
+\c@savedbookauthor=\count216
+\c@translator=\count217
+\c@savedtranslator=\count218
+\c@annotator=\count219
+\c@savedannotator=\count220
+\c@commentator=\count221
+\c@savedcommentator=\count222
+\c@introduction=\count223
+\c@savedintroduction=\count224
+\c@foreword=\count225
+\c@savedforeword=\count226
+\c@afterword=\count227
+\c@savedafterword=\count228
+\c@holder=\count229
+\c@savedholder=\count230
+\c@namea=\count231
+\c@savednamea=\count232
+\c@nameb=\count233
+\c@savednameb=\count266
+\c@namec=\count267
+\c@savednamec=\count268
+\c@institution=\count269
+\c@savedinstitution=\count270
+\c@language=\count271
+\c@savedlanguage=\count272
+\c@location=\count273
+\c@savedlocation=\count274
+\c@organization=\count275
+\c@savedorganization=\count276
+\c@origlocation=\count277
+\c@savedoriglocation=\count278
+\c@origpublisher=\count279
+\c@savedorigpublisher=\count280
+\c@pageref=\count281
+\c@savedpageref=\count282
+\c@publisher=\count283
+\c@savedpublisher=\count284
+\c@lista=\count285
+\c@savedlista=\count286
+\c@listb=\count287
+\c@savedlistb=\count288
+\c@listc=\count289
+\c@savedlistc=\count290
+\c@listd=\count291
+\c@savedlistd=\count292
+\c@liste=\count293
+\c@savedliste=\count294
+\c@listf=\count295
+\c@savedlistf=\count296
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -833,13 +834,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 
-\c@textcitecount=\count296
-\c@textcitetotal=\count297
-\c@textcitemaxnames=\count298
-\c@biburlnumpenalty=\count299
-\c@biburlucpenalty=\count300
-\c@biburllcpenalty=\count301
-\c@smartand=\count302
+\c@textcitecount=\count297
+\c@textcitetotal=\count298
+\c@textcitemaxnames=\count299
+\c@biburlnumpenalty=\count300
+\c@biburlucpenalty=\count301
+\c@biburllcpenalty=\count302
+\c@smartand=\count303
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -857,8 +858,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count303
-\c@bbx:relatedtotal=\count304
+\c@bbx:relatedcount=\count304
+\c@bbx:relatedtotal=\count305
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -881,12 +882,12 @@ File: biblatex.cfg
 )))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2015/04/15 v5.1e context-sensitive quotations (JAW)
-\csq@reset=\count305
-\csq@gtype=\count306
-\csq@glevel=\count307
-\csq@qlevel=\count308
-\csq@maxlvl=\count309
-\csq@tshold=\count310
+\csq@reset=\count306
+\csq@gtype=\count307
+\csq@glevel=\count308
+\csq@qlevel=\count309
+\csq@maxlvl=\count310
+\csq@tshold=\count311
 \csq@ltx@everypar=\toks21
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -1008,7 +1009,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count311
+\c@section@level=\count312
 )
 LaTeX Info: Redefining \ref on input line 70.
 LaTeX Info: Redefining \pageref on input line 70.
@@ -1034,14 +1035,14 @@ Package biblatex Info: ... file 'main.bbl' found.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
 Package biblatex Info: Reference section=0 on input line 70.
 Package biblatex Info: Reference segment=0 on input line 70.
-\c__siunitx_mathsf_int=\count312
+\c__siunitx_mathsf_int=\count313
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 70.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 70.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 70.
-\c__siunitx_mathtt_int=\count313
+\c__siunitx_mathtt_int=\count314
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 87.
 [1
@@ -1468,9 +1469,12 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[13] [14]) (./Chapters/Chapter3.tex [15] [16
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 428--434
 
-]
+ []
+
+[14] [15]) (./Chapters/Chapter3.tex [16]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1545,7 +1549,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [17] [18
+) (./Chapters/Chapter4.tex [17
+
+] [18
 
 ]
 Chapter 4.
@@ -1645,13 +1651,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24950 strings out of 493706
- 458352 string characters out of 6145768
- 621259 words of memory out of 5000000
- 28038 multiletter control sequences out of 15000+600000
+ 24959 strings out of 493706
+ 458479 string characters out of 6145768
+ 621379 words of memory out of 5000000
+ 28047 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,49p,10377b,1614s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,49p,10377b,1640s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (43 pages).

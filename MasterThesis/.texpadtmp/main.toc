@@ -18,13 +18,13 @@
 \contentsline {subsubsection}{Examples of OSR implementation in LLVM}{9}{section*.27}
 \contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{15}{section.45}
 \contentsline {subsection}{\numberline {2.3.1}The OSR points}{15}{subsection.46}
-\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{15}{subsection.47}
-\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{15}{subsection.48}
-\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{15}{subsection.49}
-\contentsline {subsection}{\numberline {2.3.5}Discussion}{15}{subsection.50}
-\contentsline {chapter}{\numberline {3}Theoretical Model}{17}{chapter.51}
-\contentsline {section}{\numberline {3.1}The OSR points}{17}{section.52}
-\contentsline {section}{\numberline {3.2}The Transition Mechanism}{17}{section.53}
-\contentsline {section}{\numberline {3.3}Constaints}{17}{section.54}
-\contentsline {chapter}{\numberline {4}Implementation}{19}{chapter.55}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{21}{appendix.56}
+\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{16}{subsection.50}
+\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{16}{subsection.51}
+\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{16}{subsection.52}
+\contentsline {subsection}{\numberline {2.3.5}Discussion}{16}{subsection.53}
+\contentsline {chapter}{\numberline {3}Theoretical Model}{17}{chapter.54}
+\contentsline {section}{\numberline {3.1}The OSR points}{17}{section.55}
+\contentsline {section}{\numberline {3.2}The Transition Mechanism}{17}{section.56}
+\contentsline {section}{\numberline {3.3}Constaints}{17}{section.57}
+\contentsline {chapter}{\numberline {4}Implementation}{19}{chapter.58}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{21}{appendix.59}
