@@ -197,10 +197,10 @@ On-Stack replacement has been used in several virtual machines based on the JVM.
 BETTER INTRODUCTION\\
 
 \subsubsection{Java HotSpot}
-The Java HotSpot Performance Engine (CITE) is a Java virtual machine developed and maintained by Oracle.
+The Java HotSpot Performance Engine(CITE web) is a Java virtual machine developed and maintained by Oracle.
 The Java HotSpot VM provides features such as a class loader, a bytecode interpreter, Client and Server virtual machines, several garbage collectors, just-in-time compilation and adaptive optimizations.\\
 
-The Java HotSpot Engine supports On-Stack replacement in order to provide efficient deoptimization.
+The Java HotSpot Engine supports on-stack replacement in order to provide efficient deoptimization\cite{paleczny2001java}.
 When a class loading invalidates an optimization decision, such as a call inlining, the methods relying on this decision need to be deoptimized.
 Threads that are executing in a method that needs to be deoptimized are stopped as soon as they reach a safepoint.
 The JVM state is recorded as an input of safepoints and procedure calls.
@@ -227,7 +227,7 @@ The OSR transition is divided into three steps:
     \item Transfer the execution in the suspended thread to a new compiled code.
 \end{enumerate}
 \citean{fink2003design} generates the target function by compiling a specialized version of the method for each activation that is replaced, as well as a new version for future invocations.
-In other words, instead of allowing multiple entry points per function like (CITE MCJIT and HotSpot), this JikesRVM OSR implementation generates a specialized version of the target function that has only one entry point, corresponding to the instruction from which the OSR transition was triggered.
+In other words, instead of allowing multiple entry points per function \cite{lameed2013modular, paleczny2001java}, this JikesRVM OSR implementation generates a specialized version of the target function that has only one entry point, corresponding to the instruction from which the OSR transition was triggered.
 Each such method contains a special \textit{prologue}, responsible for saving values into locals and loading values on the stack.
 OSR transitions can be taken at special points, called \textit{OSR points}, introduced by the optimizing compiler and that correspond to points where the running activation may be interrupted.
 The implementation makes a distinction between unconditional and conditional OSR points.
@@ -235,7 +235,8 @@ An OSR point is implemented as call that takes all live variables as arguments.
 This constraints some optimizations such as dead code elimination, load elimination, store elimination and code motion by extending the liveness scope of some variables.
 An OSR point transfers control to an exit block, i.e., it can be viewed as a non-return call.\\
 
-%The second
+\citean{soman2006efficient} proposed a general-purpose OSR mechanism, for JikesRVM, that presents less restrictions for compiler optimizations than the previous approach, while decoupling the OSR implementation from the optimization process.
+
 
 
 \subsection{LLVM}

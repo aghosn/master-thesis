@@ -21,12 +21,12 @@
 \contentsline {subsubsection}{LLVM, formerly called Low Level Virtual Machine}{9}{section*.32}
 \contentsline {subsubsection}{Why On-Stack replacement in LLVM is interesting}{10}{section*.34}
 \contentsline {subsubsection}{Examples of OSR implementation in LLVM}{11}{section*.35}
-\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{16}{section.53}
-\contentsline {subsection}{\numberline {2.3.1}The OSR points}{16}{subsection.54}
-\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{17}{subsection.58}
-\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{17}{subsection.59}
-\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{17}{subsection.60}
-\contentsline {subsection}{\numberline {2.3.5}Discussion}{17}{subsection.61}
+\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{17}{section.53}
+\contentsline {subsection}{\numberline {2.3.1}The OSR points}{17}{subsection.54}
+\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{18}{subsection.58}
+\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{18}{subsection.59}
+\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{18}{subsection.60}
+\contentsline {subsection}{\numberline {2.3.5}Discussion}{18}{subsection.61}
 \contentsline {chapter}{\numberline {3}Theoretical Model}{19}{chapter.62}
 \contentsline {section}{\numberline {3.1}The pontential deoptimization targets}{19}{section.63}
 \contentsline {subsection}{\numberline {3.1.1}The Interpreter}{19}{subsection.64}

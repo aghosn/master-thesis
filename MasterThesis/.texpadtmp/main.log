@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  11 JAN 2016 13:44
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  11 JAN 2016 14:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1339,87 +1339,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--237
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
-
- []
-
-File: Figures/SSAForm.png Graphic file (type QTm)
-<use  "Figures/SSAForm.png" >
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 268.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 268.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 273--275
+Underfull \hbox (badness 10000) in paragraph at lines 253--258
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 277--284
+File: Figures/SSAForm.png Graphic file (type QTm)
+ <use  "Figures/SSAForm.png" >
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 269.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 269.
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--295
+Underfull \hbox (badness 10000) in paragraph at lines 278--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--296
 
  []
 
 [10]
 File: Figures/FTL.png Graphic file (type QTm)
  <use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 305--307
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 306--308
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--320
+Underfull \hbox (badness 10000) in paragraph at lines 312--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--327
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--333
+Underfull \hbox (badness 10000) in paragraph at lines 322--328
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 346--349
+Underfull \hbox (badness 10000) in paragraph at lines 329--334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--353
+Underfull \hbox (badness 10000) in paragraph at lines 347--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--364
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
+
+ []
+
+[12]
 File: Figures/OSRClassification.png Graphic file (type QTm)
-<use  "Figures/OSRClassification.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ <use  "Figures/OSRClassification.png" >
 File: Figures/MCJitArchitecture.png Graphic file (type QTm)
-<use  "Figures/MCJitArchitecture.png" > [12] [13]
 
-./Chapters/Chapter2.tex:397: LaTeX Error: There's no line here to end.
+<use  "Figures/MCJitArchitecture.png" > [13]
+
+./Chapters/Chapter2.tex:398: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.397 
+l.398 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1436,20 +1432,20 @@ File: Figures/OSRPassCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter2.tex:421: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:422: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.421 
+l.422 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--436
+Underfull \hbox (badness 10000) in paragraph at lines 423--437
 
  []
 
@@ -1462,42 +1458,40 @@ File: Figures/FOptCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter2.tex:452: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:453: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.452 
+l.453 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 472--478
+Underfull \hbox (badness 10000) in paragraph at lines 473--479
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 513--516
+Underfull \hbox (badness 10000) in paragraph at lines 514--517
 
  []
 
 
-Overfull \hbox (2.71999pt too wide) in paragraph at lines 517--525
+Overfull \hbox (2.71999pt too wide) in paragraph at lines 518--526
 \T1/ppl/m/n/10.95 and the Jikes RVM OSR im-ple-men-ta-tion(CITE) dis-tin-guish 
 OSR points that are guarded,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--525
+Underfull \hbox (badness 10000) in paragraph at lines 518--526
 
  []
 
-) (./Chapters/Chapter3.tex [17] [18
-
-]
+) (./Chapters/Chapter3.tex [17] [18]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1572,7 +1566,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [19] [20
+) (./Chapters/Chapter4.tex [19
+
+] [20
 
 ]
 Chapter 4.
@@ -1671,10 +1667,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25045 strings out of 493706
- 459951 string characters out of 6145768
- 619962 words of memory out of 5000000
- 28136 multiletter control sequences out of 15000+600000
+ 25048 strings out of 493706
+ 460035 string characters out of 6145768
+ 618962 words of memory out of 5000000
+ 28139 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,11n,51p,10377b,2244s stack positions out of 5000i,500n,10000p,200000b,80000s

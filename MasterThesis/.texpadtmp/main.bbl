@@ -75,6 +75,87 @@
   \field{year}{1992}
 \endentry
 
+\entry{lameed2013modular}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lameed}{L.}%
+     {Nurudeen~A}{N.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hendren}{H.}%
+     {Laurie~J}{L.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{LNAHLJ1}
+  \strng{fullhash}{LNAHLJ1}
+  \field{sortinit}{L}
+  \field{booktitle}{ACM SIGPLAN Notices}
+  \field{number}{7}
+  \field{pages}{143\bibrangedash 154}
+  \field{title}{A modular approach to on-stack replacement in LLVM}
+  \field{volume}{48}
+  \field{year}{2013}
+\endentry
+
+\entry{paleczny2001java}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Paleczny}{P.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vick}{V.}%
+     {Christopher}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Click}{C.}%
+     {Cliff}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {USENIX Association}%
+  }
+  \strng{namehash}{PMVCCC1}
+  \strng{fullhash}{PMVCCC1}
+  \field{sortinit}{P}
+  \field{booktitle}{Proceedings of the 2001 Symposium on Java TM Virtual
+  Machine Research and Technology Symposium-Volume 1}
+  \field{pages}{1\bibrangedash 1}
+  \field{title}{The java hotspot TM server compiler}
+  \field{year}{2001}
+\endentry
+
+\entry{soman2006efficient}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Soman}{S.}%
+     {Sunil}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Krintz}{K.}%
+     {Chandra}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SSKC1}
+  \strng{fullhash}{SSKC1}
+  \field{sortinit}{S}
+  \field{booktitle}{Software Engineering Research and Practice}
+  \field{pages}{925\bibrangedash 932}
+  \field{title}{Efficient and General On-Stack Replacement for Aggressive
+  Program Specialization.}
+  \field{year}{2006}
+\endentry
+
 \lossort
 \endlossort
 
