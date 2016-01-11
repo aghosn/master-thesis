@@ -401,6 +401,7 @@ breaklinks=true,
 %    PERSONAL COMMANDS
 %----------------------------------------------------------------------------------------
 \newtheorem{definition}{Definition}[section]
+\newcommand{\citean}[1]{\citeauthor{#1}\cite{#1}}
 %----------------------------------------------------------------------------------------
 
 

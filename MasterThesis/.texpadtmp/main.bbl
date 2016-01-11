@@ -16,6 +16,65 @@
   {}
 \endgroup
 
+\entry{fink2003design}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Fink}{F.}%
+     {Stephen~J}{S.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qian}{Q.}%
+     {Feng}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {IEEE Computer Society}%
+  }
+  \strng{namehash}{FSJQF1}
+  \strng{fullhash}{FSJQF1}
+  \field{sortinit}{F}
+  \field{booktitle}{Proceedings of the international symposium on Code
+  generation and optimization: feedback-directed and runtime optimization}
+  \field{pages}{241\bibrangedash 252}
+  \field{title}{Design, implementation and evaluation of adaptive recompilation
+  with on-stack replacement}
+  \field{year}{2003}
+\endentry
+
+\entry{holzle1992debugging}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {H{\"o}lzle}{H.}%
+     {Urs}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chambers}{C.}%
+     {Craig}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ungar}{U.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{HUCCUD1}
+  \strng{fullhash}{HUCCUD1}
+  \field{sortinit}{H}
+  \field{booktitle}{ACM Sigplan Notices}
+  \field{number}{7}
+  \field{pages}{32\bibrangedash 43}
+  \field{title}{Debugging optimized code with dynamic deoptimization}
+  \field{volume}{27}
+  \field{year}{1992}
+\endentry
+
 \lossort
 \endlossort
 

@@ -58,30 +58,30 @@ In the next subsection, we present the historical origins of On-Stack replacemen
 %Function invalidation
 The SELF programming language is a pure object-oriented programming language.
 SELF relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances(CITE from self paper).
-Therefore, the language's implementation depends on a set of aggressive optimizations to achieve good performances(CITE).
+Therefore, the language's implementation depends on a set of aggressive optimizations to achieve good performances\cite{holzle1992debugging}.
 SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
 
 Providing source level code interactive debugging is hard in the presence of optimizations.
 Single stepping or obtaining values for certain source level variables might not be possible.
 For a language such as SELF, that heavily relies on aggressive optimizations, implementing a source code level debugger requires new techniques.\\
 
-In (CITE Holzle), the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
+In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
 
-In (CITE), Hölzle et al. present the main challenges encountered to provide debugging behaviours, due to the optimizations performed by the SELF compiler. 
+\citean{holzle1992debugging} present the main challenges encountered to provide debugging behaviours, due to the optimizations performed by the SELF compiler. 
 Displaying the stack according to a source-level view is impeded by optimizations such as inlining, register allocation and copy propagation.
 For example, when a function is inlined at a call spot, only a single activation frame is visible, while the source level code expects to see two of them.
-Figure (FIG), taken from (CITE), provides another example of activations discordances between physical and source-level stacks.
+Figure (FIG), taken from \cite{holzle1992debugging}, provides another example of activations discordances between physical and source-level stacks.
 In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', hence disappearing from the physical stack.\\
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Figure1}
 \decoRule
-\caption[physical vs. source-level stacks]{Displaying the stack CITE.}
+\caption[physical vs. source-level stacks]{Displaying the stack, figure from \cite{holzle1992debugging}.}
 \end{figure}
 
 Single-stepping is another important feature for a debugger. 
 It requires to identify and execute the next machine instruction that corresponds to the source operation.
-Holzle(cite) highlights the impact of code motion and instruction scheduling on the machine instruction layout. 
+\citean{holzle1992debugging} highlights the impact of code motion and instruction scheduling on the machine instruction layout. 
 Such optimizations re-order, merge, intersperse and sometimes delete source-level operations, therefore preventing a straight forward implementation of single-stepping for the debugger.\\
 
 Compiler optimizations prevent dynamic changes from being performed in the debugger.
@@ -193,6 +193,50 @@ The section is divided into two parts: we first presents several solutions that 
 %Java Hotspot 
 %Graal 
 %Jikes
+On-Stack replacement has been used in several virtual machines based on the JVM.
+BETTER INTRODUCTION\\
+
+\subsubsection{Java HotSpot}
+The Java HotSpot Performance Engine (CITE) is a Java virtual machine developed and maintained by Oracle.
+The Java HotSpot VM provides features such as a class loader, a bytecode interpreter, Client and Server virtual machines, several garbage collectors, just-in-time compilation and adaptive optimizations.\\
+
+The Java HotSpot Engine supports On-Stack replacement in order to provide efficient deoptimization.
+When a class loading invalidates an optimization decision, such as a call inlining, the methods relying on this decision need to be deoptimized.
+Threads that are executing in a method that needs to be deoptimized are stopped as soon as they reach a safepoint.
+The JVM state is recorded as an input of safepoints and procedure calls.
+This implies, as a side effect, that the entire JVM state is marked as "live" at a safepoint, hence extending the live range of some values.
+The Java HotSpot Engine then extracts the native frame corresponding to this execution trace, and converts it into a byte code interpreter frame.
+The execution of the method then continues in the interpreter.
+UNCOMMON TRAPS
+
+\subsubsection{Graal}
+\subsubsection{The Jikes RVM}
+The Jikes Research Virtual Machine (RVM)(REF) is an open source, self hosted, i.e., it is entirely implemented in Java, virtual machine for Java programs.
+%TODO compile only from Qian.
+It provides advanced state-of-the-art features such as dynamic compilation, adaptive optimizations, garbage collection, thread scheduling, and synchronization (CITE).\\
+
+Jikes RVM is an extensible framework in which different On-Stack replacement techniques have been implemented.
+%The first
+\citean{fink2003design} implemented OSR support in JikesRVM. 
+Their implementation relies on JVM scope descriptor, associated to method activation frames.
+A scope descriptor contains the thread running the activation, the bytecode index that corresponds to the program counter, values of all local and stack locations, and a reference to the activation's stack frame.
+The OSR transition is divided into three steps: 
+\begin{enumerate}
+    \item Extract the compiler-independent state from a suspended thread. 
+    \item Generate the new code for the suspended activation.
+    \item Transfer the execution in the suspended thread to a new compiled code.
+\end{enumerate}
+\citean{fink2003design} generates the target function by compiling a specialized version of the method for each activation that is replaced, as well as a new version for future invocations.
+In other words, instead of allowing multiple entry points per function like (CITE MCJIT and HotSpot), this JikesRVM OSR implementation generates a specialized version of the target function that has only one entry point, corresponding to the instruction from which the OSR transition was triggered.
+Each such method contains a special \textit{prologue}, responsible for saving values into locals and loading values on the stack.
+OSR transitions can be taken at special points, called \textit{OSR points}, introduced by the optimizing compiler and that correspond to points where the running activation may be interrupted.
+The implementation makes a distinction between unconditional and conditional OSR points.
+An OSR point is implemented as call that takes all live variables as arguments. 
+This constraints some optimizations such as dead code elimination, load elimination, store elimination and code motion by extending the liveness scope of some variables.
+An OSR point transfers control to an exit block, i.e., it can be viewed as a non-return call.\\
+
+%The second
+
 
 \subsection{LLVM}
 %What is LLVM? 

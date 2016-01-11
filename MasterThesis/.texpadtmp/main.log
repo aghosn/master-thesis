@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 JAN 2016 16:49
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  11 JAN 2016 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -842,17 +842,11 @@ File: biblatex.def
 \c@biburllcpenalty=\count302
 \c@smartand=\count303
 )
-Package biblatex Info: Trying to load natbib compatibility...
-Package biblatex Info: ... file 'blx-natbib.def' found.
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/blx-natbib.def
-File: blx-natbib.def 2015/04/19 v3.0 biblatex compatibility (PK/JW/AB)
-)
-Package biblatex Info: Trying to load bibliography style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.bbx' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-File: authoryear.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
@@ -861,18 +855,22 @@ File: standard.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
 \c@bbx:relatedcount=\count304
 \c@bbx:relatedtotal=\count305
 ))
-Package biblatex Info: Trying to load citation style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.cbx' found.
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-File: authoryear.cbx 2015/04/19 v3.0 biblatex citation style (PK/JW/AB)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2015/04/19 v3.0 biblatex citation style (PK/JW/AB)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -1089,18 +1087,19 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 177.
 
-(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
+[11])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-[11] [12
-
-]
+ [12]
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
-[13] [14
+[13
+
+] [14
 
 ]
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lot)
@@ -1320,71 +1319,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--192
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--213
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 229--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--257
 
  []
 
 File: Figures/SSAForm.png Graphic file (type QTm)
 <use  "Figures/SSAForm.png" >
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 224.
+(Font)              <7> on input line 268.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 224.
+(Font)              <5> on input line 268.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--240
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 248--251
-
- []
-
-File: Figures/FTL.png Graphic file (type QTm)
-<use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 261--263
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--276
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 277--283
+Underfull \hbox (badness 10000) in paragraph at lines 277--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--289
+Underfull \hbox (badness 10000) in paragraph at lines 292--295
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 302--305
+File: Figures/FTL.png Graphic file (type QTm)
+ <use  "Figures/FTL.png" >
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 305--307
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--309
+Underfull \hbox (badness 10000) in paragraph at lines 321--327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--320
+Underfull \hbox (badness 10000) in paragraph at lines 328--333
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 346--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
 
  []
 
@@ -1394,19 +1411,15 @@ File: Figures/OSRClassification.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: Figures/MCJitArchitecture.png Graphic file (type QTm)
-<use  "Figures/MCJitArchitecture.png" >
+<use  "Figures/MCJitArchitecture.png" > [12] [13]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11]
-
-./Chapters/Chapter2.tex:353: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:397: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.353 
+l.397 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1414,83 +1427,77 @@ or  <return>  to continue without it.
 
 File: Figures/BaseCFG.png Graphic file (type QTm)
 <use  "Figures/BaseCFG.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: Figures/InsertCFG.png Graphic file (type QTm)
-<use  "Figures/InsertCFG.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ <use  "Figures/InsertCFG.png" >
 File: Figures/OSRPassCFG.png Graphic file (type QTm)
+
 <use  "Figures/OSRPassCFG.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter2.tex:377: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:421: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.377 
+l.421 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--392
-
- []
-
-[12]
-File: Figures/FCFG.png Graphic file (type QTm)
- <use  "Figures/FCFG.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: Figures/FOptCFG.png Graphic file (type QTm)
-<use  "Figures/FOptCFG.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-./Chapters/Chapter2.tex:408: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.408 
-      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 428--434
+Underfull \hbox (badness 10000) in paragraph at lines 422--436
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 469--472
+File: Figures/FCFG.png Graphic file (type QTm)
+ <use  "Figures/FCFG.png" >
+File: Figures/FOptCFG.png Graphic file (type QTm)
+ <use  "Figures/FOptCFG.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+./Chapters/Chapter2.tex:452: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.452 
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 472--478
 
  []
 
-[15]
-Overfull \hbox (2.71999pt too wide) in paragraph at lines 473--481
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 513--516
+
+ []
+
+
+Overfull \hbox (2.71999pt too wide) in paragraph at lines 517--525
 \T1/ppl/m/n/10.95 and the Jikes RVM OSR im-ple-men-ta-tion(CITE) dis-tin-guish 
 OSR points that are guarded,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--481
+Underfull \hbox (badness 10000) in paragraph at lines 517--525
 
  []
 
-) (./Chapters/Chapter3.tex [16]
+) (./Chapters/Chapter3.tex [17] [18
+
+]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1565,9 +1572,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter4.tex [17
-
-] [18
+) (./Chapters/Chapter4.tex [19] [20
 
 ]
 Chapter 4.
@@ -1644,19 +1649,18 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [19] [20
+) (./Appendices/AppendixA.tex [21] [22
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-)
+) [23] [24
 
-LaTeX Warning: Empty bibliography on input line 246.
-
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 250.
-[21]
+ [25]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 250.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -1667,13 +1671,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24962 strings out of 493706
- 458515 string characters out of 6145768
- 621379 words of memory out of 5000000
- 28050 multiletter control sequences out of 15000+600000
+ 25045 strings out of 493706
+ 459951 string characters out of 6145768
+ 619962 words of memory out of 5000000
+ 28136 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,49p,10377b,1614s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,51p,10377b,2244s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (43 pages).
+xpadtmp/main.pdf (47 pages).
