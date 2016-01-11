@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 JAN 2016 11:11
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 JAN 2016 16:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1124,6 +1124,8 @@ Chapter 1.
 --------------------
  1. Introduction
 --------------------
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 20.
 ) (./Chapters/Chapter2.tex [1
 
 ] [2
@@ -1203,8 +1205,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 20.
 
@@ -1474,7 +1474,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 428--434
 
  []
 
-[14] [15]) (./Chapters/Chapter3.tex [16]
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 469--472
+
+ []
+
+[15]
+Overfull \hbox (2.71999pt too wide) in paragraph at lines 473--481
+\T1/ppl/m/n/10.95 and the Jikes RVM OSR im-ple-men-ta-tion(CITE) dis-tin-guish 
+OSR points that are guarded,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--481
+
+ []
+
+) (./Chapters/Chapter3.tex [16]
 Chapter 3.
 --------------------
  3. Theoretical Model
@@ -1651,13 +1667,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24959 strings out of 493706
- 458479 string characters out of 6145768
+ 24962 strings out of 493706
+ 458515 string characters out of 6145768
  621379 words of memory out of 5000000
- 28047 multiletter control sequences out of 15000+600000
+ 28050 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,49p,10377b,1640s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,49p,10377b,1614s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (43 pages).
