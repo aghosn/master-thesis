@@ -1,0 +1,47 @@
+% Chapter 3
+
+\chapter{Theoretical Model} % TODO find another title
+
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter3}
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%---------------------------------------------------------------------------------------- 
+
+Introduce Section by saying we focus on deoptimization for our model and GOAL.
+\section{The pontential deoptimization targets}
+\subsection{The Interpreter}
+%requirements
+%advantages
+%disadvantages
+\subsection{The Base function}
+%requirements
+%advantages
+%disadvantages
+\subsection{The Less Optimized function}
+%requirements
+%advantages
+%disadvantages
+
+\section{Versioning}
+\subsection{A base function \& an instrumented base function}
+%Base is LLVM IR -> not executed.
+%Instrumented is such that entry points for each OSR exit, and all the OSR entries
+%The order does not matter according to Rome dudes ... is that true ???
+    %if yes then always possible to find an equivalent in another version
+
+\subsection{Transitions between different versions}
+%talk about the different trees i.e., chaining optimizations
+
+\subsection{The space vs. time trade-off}
+%keeping stuff around -> bad space
+%generating everything when we need it -> bad time
+
+\section{Our Model for Deoptimization}

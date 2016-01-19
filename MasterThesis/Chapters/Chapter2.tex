@@ -124,6 +124,8 @@ An OSR point has to be located at a point of the code where the state is \textit
 For example, as explained before, the SELF debugger considers points at method prologues and at the end of loop bodies.
 An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.\\
 
+\subsubsection{Guarded \& Unguarded}
+
 An OSR point can be guarded or unguarded.
 The WebKit OSR framework (CITE) and the Jikes RVM OSR implementation(CITE) distinguish OSR points that are guarded, i.e., there is a boolean condition wrapping the execution of the point, from unguarded ones.
 A guarded OSR point is such that the framework has enough information locally to test whether or not an OSR transition should be taken.
@@ -132,6 +134,8 @@ As a result, implementations likes WebKit and Jikes RVM OSR provide a second mec
 In WebKit, an unguarded OSR point is a portion of the code that can be overwritten on some external condition, and hence instrumented to trigger an unconditional transition to another version whenever it is re-written.
 It also enables to lazily define the transition, i.e., the instrumentation that enables to jump out of the current version can be added just before being executed.
 TALK ABOUT IN JIKES\\
+
+\subsubsection{OSR Entries \& OSR Exits}
 
 There is a further distinction between OSR points that are responsible for optimising the code, and the ones that are used to unoptimize.
 For that, we will use the same terminology as in WebKit and MCJit(CITE).
@@ -148,20 +152,45 @@ They are used in the deoptimization process.
 \end{definition}
 
 CONTINUE
-\subsubsection{Guarded \& Unguarded}
-\subsubsection{Entries \& Exits}
 
 \subsection{The Transition Mechanism}
-\subsubsection{High-Level Steps}
-\subsubsection{The Ideal transition}
+The OSR mechanism can be narrowed down to its core functionality: allowing a transition at run time between two compiled versions of the same source code.
+This transition mechanism is therefore the cornerstone of any OSR implementation.
+This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.
+The section then provides a machine-level description of the ideal OSR implementation, before introducing a slightly higher-level description of an OSR transition.\\
+
+\subsubsection{High-Level requirements for OSR transitions}
+%OSR transition is a mapping
+    % mapping = reconstruct the state 
+        %what it means to reconstruct the state: live values
+        % what if opt introduces new values ?
+    %mapping = find the correct instruction to which
+%An OSR transition is transparent
+    %Should be triggered without the user intervention
+    %Requires to deviate from regular execution path. 
+%OSR transition can be biderectional
+
+An OSR transition relies on a mapping between two program points and their respective states.
+Such a mapping is possible only if all the information available at the starting site is sufficient to reconstruct the state expected at the landing site.
+
+
+\subsubsection{The ideal transition}
+%low-level transition description.
+%hit the point
+    %save the register content.
+    %modify the stack to have expected values, calls made by the other function
+    %put register content
+    %modify program counter and resume execution
+%Hard if do not have complete control over the execution platform, and still need to be able to understand machine level meaning of the code etc.
+
 \subsubsection{Transition as a Function call}
 Single entry point.
 Multiple entry points.
 
 \subsection{Caching vs. Generating on the Fly}
-\subsection{One version}
-\subsection{Multiple Versions}
-\subsection{Discussion}
+\subsubsection{One version}
+\subsubsection{Multiple Versions}
+\subsubsection{Discussion}
 time vs. space, reusability etc.
 
 \section{The Deoptimization case}
