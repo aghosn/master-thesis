@@ -15,28 +15,27 @@
 \contentsline {section}{\numberline {2.2}On Stack Replacement \& Virtual Machines}{8}{section.23}
 \contentsline {subsection}{\numberline {2.2.1}In Java}{8}{subsection.24}
 \contentsline {subsubsection}{Java HotSpot}{8}{section*.25}
-\contentsline {subsubsection}{Graal}{8}{section*.26}
-\contentsline {subsubsection}{The Jikes RVM}{8}{section*.27}
-\contentsline {subsection}{\numberline {2.2.2}LLVM}{9}{subsection.31}
-\contentsline {subsubsection}{LLVM, formerly called Low Level Virtual Machine}{9}{section*.32}
-\contentsline {subsubsection}{Why On-Stack replacement in LLVM is interesting}{10}{section*.34}
-\contentsline {subsubsection}{Examples of OSR implementation in LLVM}{11}{section*.35}
-\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{17}{section.53}
-\contentsline {subsection}{\numberline {2.3.1}The OSR points}{17}{subsection.54}
-\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{18}{subsection.58}
-\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{18}{subsection.59}
-\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{18}{subsection.60}
-\contentsline {subsection}{\numberline {2.3.5}Discussion}{18}{subsection.61}
-\contentsline {chapter}{\numberline {3}Theoretical Model}{19}{chapter.62}
-\contentsline {section}{\numberline {3.1}The pontential deoptimization targets}{19}{section.63}
-\contentsline {subsection}{\numberline {3.1.1}The Interpreter}{19}{subsection.64}
-\contentsline {subsection}{\numberline {3.1.2}The Base function}{19}{subsection.65}
-\contentsline {subsection}{\numberline {3.1.3}The Less Optimized function}{19}{subsection.66}
-\contentsline {section}{\numberline {3.2}Versioning}{19}{section.67}
-\contentsline {subsection}{\numberline {3.2.1}A base function \& an instrumented base function}{19}{subsection.68}
-\contentsline {subsection}{\numberline {3.2.2}Transitions between different versions}{19}{subsection.69}
-\contentsline {subsection}{\numberline {3.2.3}The space vs. time trade-off}{19}{subsection.70}
-\contentsline {section}{\numberline {3.3}Our Model for Deoptimization}{19}{section.71}
-\contentsline {chapter}{\numberline {4}Implementation}{21}{chapter.72}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.73}
-\contentsline {chapter}{Bibliography}{25}{appendix*.74}
+\contentsline {subsubsection}{The Jikes RVM}{8}{section*.26}
+\contentsline {subsection}{\numberline {2.2.2}LLVM}{10}{subsection.30}
+\contentsline {subsubsection}{LLVM, formerly called Low Level Virtual Machine}{10}{section*.31}
+\contentsline {subsubsection}{Why On-Stack replacement in LLVM is interesting}{11}{section*.33}
+\contentsline {subsubsection}{Examples of OSR implementation in LLVM}{11}{section*.34}
+\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{16}{section.52}
+\contentsline {subsection}{\numberline {2.3.1}The OSR points}{16}{subsection.53}
+\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{18}{subsection.57}
+\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{18}{subsection.58}
+\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{18}{subsection.59}
+\contentsline {subsection}{\numberline {2.3.5}Discussion}{18}{subsection.60}
+\contentsline {chapter}{\numberline {3}Theoretical Model}{19}{chapter.61}
+\contentsline {section}{\numberline {3.1}The pontential deoptimization targets}{19}{section.62}
+\contentsline {subsection}{\numberline {3.1.1}The Interpreter}{19}{subsection.63}
+\contentsline {subsection}{\numberline {3.1.2}The Base function}{19}{subsection.64}
+\contentsline {subsection}{\numberline {3.1.3}The Less Optimized function}{19}{subsection.65}
+\contentsline {section}{\numberline {3.2}Versioning}{19}{section.66}
+\contentsline {subsection}{\numberline {3.2.1}A base function \& an instrumented base function}{19}{subsection.67}
+\contentsline {subsection}{\numberline {3.2.2}Transitions between different versions}{19}{subsection.68}
+\contentsline {subsection}{\numberline {3.2.3}The space vs. time trade-off}{19}{subsection.69}
+\contentsline {section}{\numberline {3.3}Our Model for Deoptimization}{19}{section.70}
+\contentsline {chapter}{\numberline {4}Implementation}{21}{chapter.71}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.72}
+\contentsline {chapter}{Bibliography}{25}{appendix*.73}

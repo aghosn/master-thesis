@@ -194,7 +194,7 @@ The section is divided into two parts: we first presents several solutions that 
 %Graal 
 %Jikes
 On-Stack replacement has been used in several virtual machines based on the JVM.
-BETTER INTRODUCTION\\
+BETTER INTRODUCTION AND TALK ABOUT ALL PAPERS; INCLUDING GRAAL.\\
 
 \subsubsection{Java HotSpot}
 The Java HotSpot Performance Engine(CITE web) is a Java virtual machine developed and maintained by Oracle.
@@ -207,9 +207,8 @@ The JVM state is recorded as an input of safepoints and procedure calls.
 This implies, as a side effect, that the entire JVM state is marked as "live" at a safepoint, hence extending the live range of some values.
 The Java HotSpot Engine then extracts the native frame corresponding to this execution trace, and converts it into a byte code interpreter frame.
 The execution of the method then continues in the interpreter.
-UNCOMMON TRAPS
+UNCOMMON TRAPS\\
 
-\subsubsection{Graal}
 \subsubsection{The Jikes RVM}
 The Jikes Research Virtual Machine (RVM)(REF) is an open source, self hosted, i.e., it is entirely implemented in Java, virtual machine for Java programs.
 %TODO compile only from Qian.
@@ -236,6 +235,17 @@ This constraints some optimizations such as dead code elimination, load eliminat
 An OSR point transfers control to an exit block, i.e., it can be viewed as a non-return call.\\
 
 \citean{soman2006efficient} proposed a general-purpose OSR mechanism, for JikesRVM, that presents less restrictions for compiler optimizations than the previous approach, while decoupling the OSR implementation from the optimization process.
+They extend the previous OSR implementation\cite{fink2003design} to enable OSR transition at, and accross points at which the execution can be suspended.
+In order to do so, they rely on a special data structure called a \textit{variable map}(VARMAP).
+A VARMAP is associated with each method, and consists in a list of thread-switching points and their live variables.
+When the compiler performs optimizations, the VARMAP is updated accordingly.
+Once the compilation completes, the VARMAP is compressed into a compressed map that contains an entry for each OSR point present in the method. EXPAND ON HOW OSR IS PERFORMED.
+\citean{soman2006efficient} also propose an alternative lazy triggering of on-stack replacement.
+Lazy triggering consists in taking an OSR transition due to events in the environment, i.e., events triggered by the runtime. 
+Whenever the runtime deems an assumption invalide, it invokes a helper function called \textit{OSR helper} that either patches the code of the executing methods to call the OSR process, or it modifies return addresses of the callees of the method to be replaced to point to the OSR helper.
+When a callee returns, the OSR helper creates a new stack frame with the state extracted from the specialized method's stack and saves all of the specialized method registers into its stack frame. 
+The return address of the OSR helper points to the current instruction in the specialized code, which is then used during OSR to identify the location to resume the execution in the new version of the method.
+Lazy triggering improves the code efficiency by avoiding the extra cost of guards evaluations.  
 
 
 
