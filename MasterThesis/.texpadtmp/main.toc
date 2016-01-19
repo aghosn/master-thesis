@@ -7,35 +7,40 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.8}
 \contentsline {section}{\numberline {1.1}Proposed Solution}{1}{section.9}
 \contentsline {section}{\numberline {1.2}Paper Overview}{1}{section.10}
-\contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.11}
-\contentsline {section}{\numberline {2.1}On Stack Replacement, General Principle}{3}{section.12}
-\contentsline {subsection}{\numberline {2.1.1}Definition \& Overview}{3}{subsection.13}
-\contentsline {subsection}{\numberline {2.1.2}The origins: SELF debugging}{4}{subsection.14}
-\contentsline {subsection}{\numberline {2.1.3}Why is OSR interesting?}{7}{subsection.22}
-\contentsline {section}{\numberline {2.2}On Stack Replacement \& Virtual Machines}{8}{section.23}
-\contentsline {subsection}{\numberline {2.2.1}In Java}{8}{subsection.24}
-\contentsline {subsubsection}{Java HotSpot}{8}{section*.25}
-\contentsline {subsubsection}{The Jikes RVM}{8}{section*.26}
-\contentsline {subsection}{\numberline {2.2.2}LLVM}{10}{subsection.30}
-\contentsline {subsubsection}{LLVM, formerly called Low Level Virtual Machine}{10}{section*.31}
-\contentsline {subsubsection}{Why On-Stack replacement in LLVM is interesting}{11}{section*.33}
-\contentsline {subsubsection}{Examples of OSR implementation in LLVM}{11}{section*.34}
-\contentsline {section}{\numberline {2.3}A High-Level Description of Existing Solutions}{16}{section.52}
-\contentsline {subsection}{\numberline {2.3.1}The OSR points}{16}{subsection.53}
-\contentsline {subsection}{\numberline {2.3.2}The Transition Mechanism}{18}{subsection.57}
-\contentsline {subsection}{\numberline {2.3.3}Constraints and Limitations}{18}{subsection.58}
-\contentsline {subsection}{\numberline {2.3.4}Generating on the Fly VS Caching}{18}{subsection.59}
-\contentsline {subsection}{\numberline {2.3.5}Discussion}{18}{subsection.60}
-\contentsline {chapter}{\numberline {3}Theoretical Model}{19}{chapter.61}
-\contentsline {section}{\numberline {3.1}The pontential deoptimization targets}{19}{section.62}
-\contentsline {subsection}{\numberline {3.1.1}The Interpreter}{19}{subsection.63}
-\contentsline {subsection}{\numberline {3.1.2}The Base function}{19}{subsection.64}
-\contentsline {subsection}{\numberline {3.1.3}The Less Optimized function}{19}{subsection.65}
-\contentsline {section}{\numberline {3.2}Versioning}{19}{section.66}
-\contentsline {subsection}{\numberline {3.2.1}A base function \& an instrumented base function}{19}{subsection.67}
-\contentsline {subsection}{\numberline {3.2.2}Transitions between different versions}{19}{subsection.68}
-\contentsline {subsection}{\numberline {3.2.3}The space vs. time trade-off}{19}{subsection.69}
-\contentsline {section}{\numberline {3.3}Our Model for Deoptimization}{19}{section.70}
-\contentsline {chapter}{\numberline {4}Implementation}{21}{chapter.71}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.72}
-\contentsline {chapter}{Bibliography}{25}{appendix*.73}
+\contentsline {chapter}{\numberline {2}On-Stack Replacement}{3}{chapter.11}
+\contentsline {section}{\numberline {2.1}Overview}{3}{section.12}
+\contentsline {subsection}{\numberline {2.1.1}Definition}{3}{subsection.13}
+\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{4}{subsection.14}
+\contentsline {section}{\numberline {2.2}On-Stack Replacement Mechanisms}{5}{section.15}
+\contentsline {subsection}{\numberline {2.2.1}The OSR Points}{5}{subsection.16}
+\contentsline {subsubsection}{Guarded \& Unguarded}{6}{section*.20}
+\contentsline {subsubsection}{Entries \& Exits}{6}{section*.21}
+\contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{6}{subsection.22}
+\contentsline {subsubsection}{High-Level Steps}{6}{section*.23}
+\contentsline {subsubsection}{The Ideal transition}{6}{section*.24}
+\contentsline {subsubsection}{Transition as a Function call}{6}{section*.25}
+\contentsline {subsection}{\numberline {2.2.3}Caching vs. Generating on the Fly}{6}{subsection.26}
+\contentsline {subsection}{\numberline {2.2.4}One version}{6}{subsection.27}
+\contentsline {subsection}{\numberline {2.2.5}Multiple Versions}{6}{subsection.28}
+\contentsline {subsection}{\numberline {2.2.6}Discussion}{6}{subsection.29}
+\contentsline {section}{\numberline {2.3}The Deoptimization case}{6}{section.30}
+\contentsline {subsection}{\numberline {2.3.1}Why the Deoptimization case is more interesting?}{6}{subsection.31}
+\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{6}{subsection.32}
+\contentsline {subsubsection}{The Interpreter}{6}{section*.33}
+\contentsline {subsubsection}{The base version instrumented}{6}{section*.34}
+\contentsline {subsubsection}{A less optimized version}{6}{section*.35}
+\contentsline {section}{\numberline {2.4}Constraints on Mechanism}{6}{section.36}
+\contentsline {subsection}{\numberline {2.4.1}space vs. time}{6}{subsection.37}
+\contentsline {subsection}{\numberline {2.4.2}Limits on supported optimizations}{6}{subsection.38}
+\contentsline {chapter}{\numberline {3}Theoretical Model}{7}{chapter.39}
+\contentsline {section}{\numberline {3.1}The pontential deoptimization targets}{7}{section.40}
+\contentsline {subsection}{\numberline {3.1.1}The Interpreter}{7}{subsection.41}
+\contentsline {subsection}{\numberline {3.1.2}The Base function}{7}{subsection.42}
+\contentsline {subsection}{\numberline {3.1.3}The Less Optimized function}{7}{subsection.43}
+\contentsline {section}{\numberline {3.2}Versioning}{7}{section.44}
+\contentsline {subsection}{\numberline {3.2.1}A base function \& an instrumented base function}{7}{subsection.45}
+\contentsline {subsection}{\numberline {3.2.2}Transitions between different versions}{7}{subsection.46}
+\contentsline {subsection}{\numberline {3.2.3}The space vs. time trade-off}{7}{subsection.47}
+\contentsline {section}{\numberline {3.3}Our Model for Deoptimization}{7}{section.48}
+\contentsline {chapter}{\numberline {4}Implementation}{9}{chapter.49}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{11}{appendix.50}
