@@ -4,17 +4,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces physical vs. source-level stacks}}{10}{figure.caption.41}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Recovering the source-level state}}{11}{figure.caption.42}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The WebKit FTL}}{14}{figure.caption.55}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces SSA example}}{16}{figure.caption.58}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces OSR classification}}{17}{figure.caption.66}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Retrofitting an existing JIT with OSR support}}{18}{figure.caption.67}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces A CFG of a loop with no OSR point}}{19}{figure.caption.72}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{19}{figure.caption.73}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{20}{figure.caption.74}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{20}{figure.caption.75}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form CITE.}}{21}{figure.caption.76}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces physical vs. source-level stacks}}{12}{figure.caption.48}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Recovering the source-level state}}{13}{figure.caption.49}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The WebKit FTL}}{16}{figure.caption.62}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces SSA example}}{18}{figure.caption.65}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces OSR classification}}{19}{figure.caption.73}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Retrofitting an existing JIT with OSR support}}{20}{figure.caption.74}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces A CFG of a loop with no OSR point}}{21}{figure.caption.79}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{21}{figure.caption.80}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{22}{figure.caption.81}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{22}{figure.caption.82}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form CITE.}}{23}{figure.caption.83}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  19 JAN 2016 16:45
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 13:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -899,7 +899,26 @@ File: csquotes.cfg
 )
 Package csquotes Info: Enabling multilingual quotes.
 )
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count312
+\c@ALG@rem=\count313
+\c@ALG@nested=\count314
+\ALG@tlm=\skip78
+\ALG@thistlm=\skip79
+\c@ALG@Lnr=\count315
+\c@ALG@blocknr=\count316
+\c@ALG@storecount=\count317
+\c@ALG@tmpcounter=\count318
+\ALG@tmplength=\skip80
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
@@ -915,23 +934,23 @@ Package csquotes Info: ... found 'babel' package.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 71.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -980,14 +999,14 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \equationnamenname on input line 70.
-Package scrbase Info: activating english \sectionname on input line 70.
-Package scrbase Info: activating english \authorshipname on input line 70.
-Package scrbase Info: activating english \byname on input line 70.
-Package scrbase Info: activating english \abbrevname on input line 70.
-Package scrbase Info: activating english \constantsname on input line 70.
-Package scrbase Info: activating english \symbolsname on input line 70.
-Package scrbase Info: activating english \acknowledgementname on input line 70.
+Package scrbase Info: activating english \equationnamenname on input line 71.
+Package scrbase Info: activating english \sectionname on input line 71.
+Package scrbase Info: activating english \authorshipname on input line 71.
+Package scrbase Info: activating english \byname on input line 71.
+Package scrbase Info: activating english \abbrevname on input line 71.
+Package scrbase Info: activating english \constantsname on input line 71.
+Package scrbase Info: activating english \symbolsname on input line 71.
+Package scrbase Info: activating english \acknowledgementname on input line 71.
 
 \AtBeginShipoutBox=\box53
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
@@ -999,7 +1018,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: xetex.def on input line 142.
 )
-Package hyperref Info: Link coloring ON on input line 70.
+Package hyperref Info: Link coloring ON on input line 71.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1007,11 +1026,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count312
+\c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
+LaTeX Info: Redefining \nameref on input line 71.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
@@ -1031,18 +1050,18 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 70.
-Package biblatex Info: Reference segment=0 on input line 70.
-\c__siunitx_mathsf_int=\count313
+Package biblatex Info: Reference section=0 on input line 71.
+Package biblatex Info: Reference segment=0 on input line 71.
+\c__siunitx_mathsf_int=\count320
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 70.
+(Font)              <10.95> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 70.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 70.
-\c__siunitx_mathtt_int=\count314
+(Font)              <6> on input line 71.
+\c__siunitx_mathtt_int=\count321
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 87.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 88.
 [1
 
 
@@ -1053,15 +1072,15 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 124.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 125.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
@@ -1074,7 +1093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 155.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 156.
 [7] [8
 
 ]
@@ -1085,9 +1104,14 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 178.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
+Overfull \hbox (6.13911pt too wide) in paragraph at lines 19--19
+ [][] [][]\T1/ppl/m/n/10.95 High-Level re-quire-ments for OSR tran-si-tions: tr
+ans-for-ma-tion chal- 
+ []
+
 [11])
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -1261,7 +1285,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--161
 
  []
 
-) (./Chapters/Chapter3.tex [6] [7] [8
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 223--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--245
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 252--255
+
+ []
+
+) (./Chapters/Chapter3.tex [8] [9] [10
 
 ]
 Chapter 3.
@@ -1374,7 +1423,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--60
 
  []
 
-[9]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
@@ -1389,7 +1438,7 @@ File: Figures/Figure2.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 90--92
 
  []
@@ -1399,13 +1448,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--101
 
  []
 
-[11]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 
-LaTeX Warning: Reference `WhyOSRInteresting' on page 12 undefined on input line
+LaTeX Warning: Reference `WhyOSRInteresting' on page 14 undefined on input line
  112.
 
 
@@ -1433,7 +1482,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--136
 
  []
 
-[12]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 148--156
 
  []
@@ -1443,7 +1492,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--169
 
  []
 
-[13]
+[15]
 File: Figures/FTL.png Graphic file (type QTm)
  <use  "Figures/FTL.png" >
 Overfull \hbox (9.52382pt too wide) in paragraph at lines 177--179
@@ -1460,7 +1509,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--199
 
  []
 
-[14]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 200--205
 
  []
@@ -1475,7 +1524,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--230
 
  []
 
-[15]
+[17]
 File: Figures/SSAForm.png Graphic file (type QTm)
  <use  "Figures/SSAForm.png" >
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -1493,10 +1542,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--257
  []
 
 
-LaTeX Warning: Reference `WhyOSRInteresting' on page 16 undefined on input line
+LaTeX Warning: Reference `WhyOSRInteresting' on page 18 undefined on input line
  262.
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 266--269
 
  []
@@ -1519,7 +1568,7 @@ File: Figures/MCJitArchitecture.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17]
+[19]
 
 ./Chapters/Chapter3.tex:318: LaTeX Error: There's no line here to end.
 
@@ -1566,7 +1615,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--357
 
  []
 
-[18]
+[20]
 File: Figures/FCFG.png Graphic file (type QTm)
  <use  "Figures/FCFG.png" >
 
@@ -1590,9 +1639,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[19]
+[21]
 
-LaTeX Warning: Reference `WhyOSRInteresting' on page 20 undefined on input line
+LaTeX Warning: Reference `WhyOSRInteresting' on page 22 undefined on input line
  389.
 
 
@@ -1600,7 +1649,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--399
 
  []
 
-[20]) (./Chapters/Chapter4.tex [21] [22
+[22]) (./Chapters/Chapter4.tex [23] [24
 
 ]
 Chapter 4.
@@ -1677,7 +1726,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter5.tex [23] [24
+) (./Chapters/Chapter5.tex [25] [26
 
 ]
 Chapter 5.
@@ -1754,23 +1803,23 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [25] [26
+) (./Appendices/AppendixA.tex [27] [28
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [27] [28
+) [29] [30
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
- [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
+ [31]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 251.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 252.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 252.
 
 LaTeX Warning: There were undefined references.
 
@@ -1779,13 +1828,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25067 strings out of 493706
- 460324 string characters out of 6145768
- 618962 words of memory out of 5000000
- 28155 multiletter control sequences out of 15000+600000
+ 25540 strings out of 493706
+ 467322 string characters out of 6145768
+ 626530 words of memory out of 5000000
+ 28621 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,11n,51p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,51p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (51 pages).
+xpadtmp/main.pdf (53 pages).
