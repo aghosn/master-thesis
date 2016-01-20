@@ -253,33 +253,66 @@ The first option implies that the \textit{from function} must dump its state int
 The \textit{continuation function} starts its execution by loading the values it needs from the buffer.
 This solution has the drawback of increasing both the \textit{from function} and the \textit{continuation function} lengths, i.e., the OSR propagation of the state has a greater impact on the performance of the execution than a simple function call cost.\\
 
+FIGURE
+
 For the second option, most of the work needed to propagate the state is performed during the compilation.
 Values are passed as arguments to the call to the \textit{continuation function}.
 If there is not a one-to-one mapping between the from variables and the continuation ones, some \textit{compensation} code is executed, either before the call or at the beginning of the continuation function in order to assign the correct values to the continuation local variables.
 The cost of executing the compensation code is also present in the first option, i.e., both solutions have to perform the same set of transformations in order to generate the expected local values.
 On the other hand, the second option does not require to access shared memory to store and load propagated values, and is therefore expected to have a smaller cost at execution.\\
 
-The OSR transition requires to enter the continuation function in at special entry point, that corresponds to the  
+FIGURE
 
+The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the the one in the from function.
+In order to decrease the space complexity, one might want to enable multiple entry points per function.
+Consider the case of deoptimization in FIGURE, where function \textit{f} inlined two of its function calls, one to \textit{g} and one to \textit{z}.
+This function exits to the base version of \textit{f} before the corresponding call.
+Allowing multiple entry points in $f_{base}$ enables to have only one continuation function for both exits.
+This solution, coupled with the shared buffer to propagate the execution state, can be implemented as a simple function $f_{base}$ instrumented as in FIGURE.
+This instrumented version of $f_{base}$ can serve regular function calls, and also be used as a continuation function for both OSR exits.
+In order to do so, the $f_{base}$ starts by checking a flag to check if it is performing an OSR or serving a regular function call. 
+According to this flag, it jumps to the correct spot inside the function.
+This instrumentation has an impact on performance as it requires an extra computation at the beginning of the function. 
+On the other hand, the second technique that we described to propagate the state modifies the function's signature.
+If the set of values to propagate is different at the two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
+We can expect this solution to have, in general, a higher space complexity but a better performance  during execution (i.e., smaller execution time).\\
 
 \subsection{Caching vs. Generating on the Fly}
 \subsubsection{One version}
-->bidirectional?
+%Replace in place
+%Good for space
 \subsubsection{Multiple Versions}
-\subsubsection{Discussion}
-time vs. space, reusability etc.
+%Fine grain specialization
+%Hard to keep track ? 
+%How much reusability really?
 
 \section{The Deoptimization case}
-
+This section...
 \subsection{Why the Deoptimization case is more interesting?}
+%TODO for correctness
+%Enable aggressive adaptive optimizations
+%Relies on the quality of profiler and assumptions made
+%trade off between performance gain/time while holds and cost of osr exit 
 
 \subsection{Where do we exit?}
 \subsubsection{The Interpreter}
+%List some examples that go to interpreter
+%Good if have full control over the interpreter
+%Bad for performance
 \subsubsection{The base version instrumented}
+%List some examples
+%Better since its compiled. 
+%Safe version of the code
+%Still pretty slow.
 \subsubsection{A less optimized version}
+%List examples
+%Try to keep good performances.
+%Hard to generat the correct continuation function? Takes time might need to be done on the fly
 
 \section{Constraints on Mechanism}
 \subsection{space vs. time}
+%Summary of all the trade offs exposed before
 \subsection{Limits on supported optimizations}
+%Tail call elimination etc. cite.
 
 

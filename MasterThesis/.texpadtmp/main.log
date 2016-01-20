@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 13:00
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 17:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1310,7 +1310,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 252--255
 
  []
 
-) (./Chapters/Chapter3.tex [8] [9] [10
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--279
+
+ []
+
+[8]) (./Chapters/Chapter3.tex [9] [10
 
 ]
 Chapter 3.
@@ -1829,7 +1839,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  25540 strings out of 493706
- 467322 string characters out of 6145768
+ 467321 string characters out of 6145768
  626530 words of memory out of 5000000
  28621 multiletter control sequences out of 15000+600000
  32606 words of font info for 58 fonts, out of 8000000 for 9000
