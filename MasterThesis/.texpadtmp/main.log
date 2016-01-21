@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 19:49
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  21 JAN 2016 11:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -918,7 +918,76 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip80
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count319
+\lst@gtempboxa=\box53
+\lst@token=\toks22
+\lst@length=\count320
+\lst@currlwidth=\dimen185
+\lst@column=\count321
+\lst@pos=\count322
+\lst@lostspace=\dimen186
+\lst@width=\dimen187
+\lst@newlines=\count323
+\lst@lineno=\count324
+\lst@maxwidth=\dimen188
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count325
+\lst@skipnumbers=\count326
+\lst@framebox=\box54
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package scrhack Info: loading listings hack on input line 51.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/koma-script/listings.hak
+File: listings.hak 2015/05/06 v3.17a KOMA-Script package (hacking package listi
+ngs)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2015/05/06 v3.17a KOMA-Scriptpackage(handling toc-files)
+)
+Package tocbasic Info: setting babel extension for `lol' on input line 137.
+Package scrhack Info: redefining \lstlistoflistings on input line 137.
+)
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/sauerj/parcolumns.sty
+Package: parcolumns 2004/11/25 v1.2 Typeset multiple parallel columns
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/sauerj/processkv.sty
+Package: processkv 2004/08/09 v1.0.1 process key=value lists
+)
+\pc@columnctr=\count327
+\pc@columncount=\count328
+\pc@everypar=\toks23
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
@@ -934,23 +1003,23 @@ Package csquotes Info: ... found 'babel' package.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 103.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -963,6 +1032,7 @@ File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -999,38 +1069,28 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \equationnamenname on input line 71.
-Package scrbase Info: activating english \sectionname on input line 71.
-Package scrbase Info: activating english \authorshipname on input line 71.
-Package scrbase Info: activating english \byname on input line 71.
-Package scrbase Info: activating english \abbrevname on input line 71.
-Package scrbase Info: activating english \constantsname on input line 71.
-Package scrbase Info: activating english \symbolsname on input line 71.
-Package scrbase Info: activating english \acknowledgementname on input line 71.
-
-\AtBeginShipoutBox=\box53
-(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
-LaTeX Info: Redefining \color on input line 81.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: xetex.def on input line 142.
-)
-Package hyperref Info: Link coloring ON on input line 71.
-
+Package scrbase Info: activating english \equationnamenname on input line 103.
+Package scrbase Info: activating english \sectionname on input line 103.
+Package scrbase Info: activating english \authorshipname on input line 103.
+Package scrbase Info: activating english \byname on input line 103.
+Package scrbase Info: activating english \abbrevname on input line 103.
+Package scrbase Info: activating english \constantsname on input line 103.
+Package scrbase Info: activating english \symbolsname on input line 103.
+Package scrbase Info: activating english \acknowledgementname on input line 103
+.
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring ON on input line 103.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count319
+\c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 71.
-LaTeX Info: Redefining \pageref on input line 71.
-LaTeX Info: Redefining \nameref on input line 71.
+LaTeX Info: Redefining \ref on input line 103.
+LaTeX Info: Redefining \pageref on input line 103.
+LaTeX Info: Redefining \nameref on input line 103.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
@@ -1050,18 +1110,20 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 71.
-Package biblatex Info: Reference segment=0 on input line 71.
-\c__siunitx_mathsf_int=\count320
+Package biblatex Info: Reference section=0 on input line 103.
+Package biblatex Info: Reference segment=0 on input line 103.
+\c@lstlisting=\count330
+Package scrhack Info: undefining \float@addtolists on input line 103.
+\c__siunitx_mathsf_int=\count331
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 71.
+(Font)              <10.95> on input line 103.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 71.
+(Font)              <8> on input line 103.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 71.
-\c__siunitx_mathtt_int=\count321
+(Font)              <6> on input line 103.
+\c__siunitx_mathtt_int=\count332
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 88.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 120.
 [1
 
 
@@ -1072,15 +1134,15 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 125.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 157.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
@@ -1093,7 +1155,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--131
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 156.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 188.
 [7] [8
 
 ]
@@ -1104,7 +1166,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 178.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 210.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
 Overfull \hbox (6.13911pt too wide) in paragraph at lines 19--19
@@ -1310,27 +1372,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 252--255
 
  []
 
-
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 256.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 256.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+(./Figures/ffromBuff.c
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2.
+)
 Underfull \hbox (badness 10000) in paragraph at lines 258--263
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--279
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 298--311
+[8] (./Figures/funCall.c) (./Figures/MultipleEntry.c)
+Underfull \hbox (badness 10000) in paragraph at lines 269--282
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 312--317
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 301--314
 
  []
 
-) (./Chapters/Chapter3.tex [9] [10]
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--320
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+
+Overfull \hbox (3.88133pt too wide) in paragraph at lines 347--350
+\T1/ppl/m/n/10.95 func-tion. EX-AM-PLES WE-BKIT etc. GOOD IN-TER-ME-DI-ARY SO-L
+U-TION; STILL SOME
+ []
+
+) (./Chapters/Chapter3.tex [11] [12
+
+]
 Chapter 3.
 --------------------
  3. Related Work
@@ -1441,9 +1532,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--60
 
  []
 
-[11
-
-]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
@@ -1458,7 +1547,7 @@ File: Figures/Figure2.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 90--92
 
  []
@@ -1468,7 +1557,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--101
 
  []
 
-[13]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
@@ -1498,7 +1587,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--136
 
  []
 
-[14]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 148--156
 
  []
@@ -1508,7 +1597,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--169
 
  []
 
-[15]
+[17]
 File: Figures/FTL.png Graphic file (type QTm)
  <use  "Figures/FTL.png" >
 Overfull \hbox (9.52382pt too wide) in paragraph at lines 177--179
@@ -1525,7 +1614,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--199
 
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 200--205
 
  []
@@ -1540,7 +1629,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--230
 
  []
 
-[17]
+[19]
 File: Figures/SSAForm.png Graphic file (type QTm)
  <use  "Figures/SSAForm.png" >
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -1557,7 +1646,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--257
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 266--269
 
  []
@@ -1580,7 +1669,7 @@ File: Figures/MCJitArchitecture.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19]
+[21]
 
 ./Chapters/Chapter3.tex:318: LaTeX Error: There's no line here to end.
 
@@ -1627,7 +1716,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--357
 
  []
 
-[20]
+[22]
 File: Figures/FCFG.png Graphic file (type QTm)
  <use  "Figures/FCFG.png" >
 
@@ -1651,12 +1740,12 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[21]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 393--399
 
  []
 
-[22]) (./Chapters/Chapter4.tex [23] [24
+[24]) (./Chapters/Chapter4.tex [25] [26
 
 ]
 Chapter 4.
@@ -1733,7 +1822,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter5.tex [25] [26
+) (./Chapters/Chapter5.tex [27] [28
 
 ]
 Chapter 5.
@@ -1810,35 +1899,35 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [27] [28
+) (./Appendices/AppendixA.tex [29] [30
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [29] [30
+) [31] [32
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
- [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
+ [33]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 252.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 252.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 284.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 284.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25540 strings out of 493706
- 467321 string characters out of 6145768
- 626530 words of memory out of 5000000
- 28621 multiletter control sequences out of 15000+600000
- 32606 words of font info for 58 fonts, out of 8000000 for 9000
+ 27554 strings out of 493706
+ 496543 string characters out of 6145768
+ 732445 words of memory out of 5000000
+ 30587 multiletter control sequences out of 15000+600000
+ 34556 words of font info for 62 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,51p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (53 pages).
+xpadtmp/main.pdf (55 pages).

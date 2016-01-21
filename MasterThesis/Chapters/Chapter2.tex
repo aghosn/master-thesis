@@ -64,7 +64,7 @@ A function can be recompile while it is executing.
 This enables more aggressive adaptative compilation, i.e., by delaying the point in time when the recompilation is performed, OSR enables to gather more information about the current execution profile. These information can then be used to produce higher quality compiled code, displaying better performances.
 
 For dynamic languages, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
-Code specialization consists in tuning the code to better fit a particular use of the code, hence yielding better performances.
+Code specialization consists in tuning the code to better fit a particular use, hence yielding better performances.
 Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
 One of the main challenges is to identify which version better fits the current execution need.
 This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.
@@ -253,7 +253,7 @@ The first option implies that the \textit{from function} must dump its state int
 The \textit{continuation function} starts its execution by loading the values it needs from the buffer.
 This solution has the drawback of increasing both the \textit{from function} and the \textit{continuation function} lengths, i.e., the OSR propagation of the state has a greater impact on the performance of the execution than a simple function call cost.\\
 
-FIGURE
+\includecode{Figures/ffromBuff.c}
 
 For the second option, most of the work needed to propagate the state is performed during the compilation.
 Values are passed as arguments to the call to the \textit{continuation function}.
@@ -261,7 +261,10 @@ If there is not a one-to-one mapping between the from variables and the continua
 The cost of executing the compensation code is also present in the first option, i.e., both solutions have to perform the same set of transformations in order to generate the expected local values.
 On the other hand, the second option does not require to access shared memory to store and load propagated values, and is therefore expected to have a smaller cost at execution.\\
 
-FIGURE
+\includecode{Figures/funCall.c}
+
+REFORMULATE TO MATCH PICTURE
+\includecode{Figures/MultipleEntry.c}
 
 The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the the one in the from function.
 In order to decrease the space complexity, one might want to enable multiple entry points per function.
@@ -316,20 +319,38 @@ On the other hand, an agressive assumption-based optimization exposes a trade-of
 As a result, the OSR deoptimization process allows a greater flexibility but should be coupled with an efficient profiler in order to identify cases where and when the program's execution might benefit from aggressive speculative optimizations.\\
 
 \subsection{Where do we exit?}
-
+%Interesting because flexibility in where to exit.
+%Depending on the trade off between time we can spend generating the exit, control over the environment etc.
+%This section describes different options.
+The OSR deoptimization case is interesting in the latitude it leaves with regard to where the optimized code should exit.
+In the OSR entry case, the continuation function is a more optimized version of the code.
+In the OSR exit case, there is still a choice to make: should the continuation function be a fully unoptimized version of the code? Or should we strive to obtain the most optimized version of the code?
+This section describes several targets for OSR exits, and tries to present the advantages, disadvantages, and requirements for each option.
 \subsubsection{The Interpreter}
 %List some examples that go to interpreter
 %Good if have full control over the interpreter
 %Bad for performance
+A first option is to OSR exit back to the interpreter. 
+Some virtual machines, such as Graal EXAMPLES AND REF, CONTINUE SENTENCE.\\
+
+Going back to the interpreter enables to have complete control over the execution environment.
+The execution framework can therefore easily generate the correct state to resume the execution.
+CONTINUE. MAKES SENSE SINCE FAILURE OF ASSUMPTION, RESUME FROM BEGINNING TO REGENERATE PROFILING DATA.
+
+BAD PERFORMANCE.\\
+
 \subsubsection{The base version instrumented}
 %List some examples
 %Better since its compiled. 
 %Safe version of the code
 %Still pretty slow.
+Another option is to OSR exit to a based, compiled, and instrumented version of the function.
+EXAMPLES WEBKIT etc. 
+GOOD INTERMEDIARY SOLUTION; STILL SOME PERFORMANCE IMPROVEMENT OVER THE INTERPRETER; CAN INSTRUMENT THE BASE VERSION TO HAVE OSR ENTRIES; TAKE AWAY POSSIBLE DEPENDENCIES BETWEEN OPTIMIZATIONSM
 \subsubsection{A less optimized version}
 %List examples
 %Try to keep good performances.
-%Hard to generat the correct continuation function? Takes time might need to be done on the fly
+%Hard to generate the correct continuation function? Takes time might need to be done on the fly
 
 \section{Constraints on Mechanism}
 \subsection{space vs. time}
