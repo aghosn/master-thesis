@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 17:27
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  20 JAN 2016 19:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1320,9 +1320,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 266--279
 
  []
 
-[8]) (./Chapters/Chapter3.tex [9] [10
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 298--311
 
-]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--317
+
+ []
+
+) (./Chapters/Chapter3.tex [9] [10]
 Chapter 3.
 --------------------
  3. Related Work
@@ -1433,7 +1441,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--60
 
  []
 
-[11]
+[11
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
@@ -1462,10 +1472,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--101
 Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
-
-
-LaTeX Warning: Reference `WhyOSRInteresting' on page 14 undefined on input line
- 112.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 111--114
@@ -1550,10 +1556,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 246--248
 Underfull \hbox (badness 10000) in paragraph at lines 250--257
 
  []
-
-
-LaTeX Warning: Reference `WhyOSRInteresting' on page 18 undefined on input line
- 262.
 
 [18]
 Underfull \hbox (badness 10000) in paragraph at lines 266--269
@@ -1650,11 +1652,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [21]
-
-LaTeX Warning: Reference `WhyOSRInteresting' on page 22 undefined on input line
- 389.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 393--399
 
  []
@@ -1830,9 +1827,6 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 252.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 252.
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 

@@ -24,13 +24,13 @@
 \contentsline {subsubsection}{Multiple Versions}{9}{section*.35}
 \contentsline {section}{\numberline {2.3}The Deoptimization case}{9}{section.36}
 \contentsline {subsection}{\numberline {2.3.1}Why the Deoptimization case is more interesting?}{9}{subsection.37}
-\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{9}{subsection.38}
-\contentsline {subsubsection}{The Interpreter}{9}{section*.39}
-\contentsline {subsubsection}{The base version instrumented}{9}{section*.40}
-\contentsline {subsubsection}{A less optimized version}{9}{section*.41}
-\contentsline {section}{\numberline {2.4}Constraints on Mechanism}{9}{section.42}
-\contentsline {subsection}{\numberline {2.4.1}space vs. time}{9}{subsection.43}
-\contentsline {subsection}{\numberline {2.4.2}Limits on supported optimizations}{9}{subsection.44}
+\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{10}{subsection.38}
+\contentsline {subsubsection}{The Interpreter}{10}{section*.39}
+\contentsline {subsubsection}{The base version instrumented}{10}{section*.40}
+\contentsline {subsubsection}{A less optimized version}{10}{section*.41}
+\contentsline {section}{\numberline {2.4}Constraints on Mechanism}{10}{section.42}
+\contentsline {subsection}{\numberline {2.4.1}space vs. time}{10}{subsection.43}
+\contentsline {subsection}{\numberline {2.4.2}Limits on supported optimizations}{10}{subsection.44}
 \contentsline {chapter}{\numberline {3}Related Work}{11}{chapter.45}
 \contentsline {section}{\numberline {3.1}The origins: SELF Debugging}{11}{section.46}
 \contentsline {section}{\numberline {3.2}OSR \& VMs}{14}{section.54}

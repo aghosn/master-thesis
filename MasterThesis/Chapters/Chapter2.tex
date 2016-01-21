@@ -45,7 +45,7 @@ In this case, OSR is used to preserve correctness.\\
 On-Stack replacement is a powerful technique, that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
 In the next subsection, we present the historical origins of On-Stack replacement and detail its most interesting features.\\ %TODO don't like the word feature
 
-\subsection{Why is OSR interesting?}
+\subsection{Why is OSR interesting?}\label{WhyOSRInteresting}
 %The optimization case
      %wait until enough profiling information is gathered to make some new assumptions and improve code quality
     %Some enable to have several specialised versions of the code live at the same time.
@@ -285,16 +285,38 @@ We can expect this solution to have, in general, a higher space complexity but a
 %Fine grain specialization
 %Hard to keep track ? 
 %How much reusability really?
+%For deoptimization it is a requirement since hard to reverse an opt transformation
+    %Even harder if several opt performed
 
 \section{The Deoptimization case}
+%yields a lot of questions, where we exit, trade offs in performance?
 This section...
 \subsection{Why the Deoptimization case is more interesting?}
 %TODO for correctness
 %Enable aggressive adaptive optimizations
 %Relies on the quality of profiler and assumptions made
-%trade off between performance gain/time while holds and cost of osr exit 
+On-stack replacement main interest lies in dynamic deoptimization of code.
+As explained in \ref{WhyOSRInteresting}, OSR can be used to deoptimize code in order to preserve correctness.
+A compiler, equipped with an efficient implementation of OSR, is allowed to perform adaptive optimizations, based on some assumptions that might fail at some point, during the execution.
+Put in another way, OSR enables aggressive speculative optimizations of code by providing a mechanism that preserves correctness.
+OSR strives to enable common optimizations performed by static programming language compilers to dynamic language compilers.
+For example, consider the function inlining optimization, which replaces a function call site with the body of the function called. 
+Inlining in static programming languages is a common optimization(CITE OR GIVE EXAMPLES?).
+It enables to eliminate the overhead of a function call and return, and enlarge the scope considered for further optimizations.
+While very common in static languages, inlining proves to be more difficult to implement in compilers for dynamic languages, if functions can be redefined at runtime.
+OSR allows to perform speculative inlining of function calls. 
+The assumption taken by the compiler is that the function call corresponds to a specific function body. 
+A guarded OSR point checks that the inlined function was not redefined before executing the inlined body.
+If the assumption fails, i.e., the function was redefined, the OSR mechanism allows to exit to a version of the code where the call was not inlined.\\
+
+The OSR mechanism is only a tool, which efficiency depends on the quality of the assumptions made.
+This is even more visible in the deoptimization case.
+The optimization case remains useful for regular optimizations, i.e., an OSR entry can be allowed by some profiling data gathered during the execution, and based on some fact that will hold for the rest of the execution.
+On the other hand, an agressive assumption-based optimization exposes a trade-off between the performance improvement that it allows on one side, and the cost it has in the case of an assumption failure on the other.
+As a result, the OSR deoptimization process allows a greater flexibility but should be coupled with an efficient profiler in order to identify cases where and when the program's execution might benefit from aggressive speculative optimizations.\\
 
 \subsection{Where do we exit?}
+
 \subsubsection{The Interpreter}
 %List some examples that go to interpreter
 %Good if have full control over the interpreter
