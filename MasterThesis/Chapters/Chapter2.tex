@@ -396,13 +396,18 @@ This section describes several targets for OSR exits, and tries to present the a
 %Good if have full control over the interpreter
 %Bad for performance
 A first option is to OSR exit back to the interpreter. 
-This approach has been taken by some virtual machines, such as Graal CITE or the Java HotSpot VM CITE (see Section \ref{HotSpot} for more details).\\
+This approach has been taken by some virtual machines, such as Graal CITE or the Java HotSpot VM CITE (see Section \ref{HotSpot} for more details).
+This corresponds to the OSR exit 1 in Figure \ref{OSR exit options}.\\
 
 Going back to the interpreter enables to have complete control over the execution environment.
 The execution framework can therefore easily generate the correct state to resume the execution.
-CONTINUE. MAKES SENSE SINCE FAILURE OF ASSUMPTION, RESUME FROM BEGINNING TO REGENERATE PROFILING DATA.
+Furthermore, this approach gets rid of any assumption taken by the execution framework and goes back to a safe environment.
+Another way to put it would be to say that, since an assumption failed, the framework takes the conservative decision to go back to an assumption free environment to resume the execution.\\
 
-BAD PERFORMANCE.\\
+Going back to the interpreter is conservative approach that might impede on the performance of the program.
+The interpreted version of the function is assumed to be slow.
+As a result, the function's execution will drastically slow down after exiting to the interpreter.
+The question is then the following: can we provide the same correctness guarantees while exiting to a more efficient version of the function?\\
 
 \subsubsection{The base version instrumented}
 %List some examples
