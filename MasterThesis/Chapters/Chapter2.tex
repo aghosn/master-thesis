@@ -118,21 +118,30 @@ For example, as explained in Section \ref{SELF}, the SELF debugger considers poi
 An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.\\
 
 \subsubsection{Guarded \& Unguarded}
-CONSISTENCY: PUT DEFINITIONS.\\
 
-An OSR point can be guarded or unguarded.
-The WebKit OSR framework (CITE) and the Jikes RVM OSR implementation(CITE) distinguish OSR points that are guarded, i.e., there is a boolean condition wrapping the execution of the point, from unguarded ones.
-A guarded OSR point is such that the framework has enough information locally to test whether or not an OSR transition should be taken.
-While simple to model at a high-level, a guarded OSR points presents the disadvantage of increasing the length of the OSR instrumentation, hence impacting on the overall performance of the program.
-As a result, implementations likes WebKit and Jikes RVM OSR provide a second mechanism that we call unguarded OSR points.
-In WebKit, an unguarded OSR point is a portion of the code that can be overwritten on some external condition, and hence instrumented to trigger an unconditional transition to another version whenever it is re-written.
-It also enables to lazily define the transition, i.e., the instrumentation that enables to jump out of the current version can be added just before being executed.\\
+OSR points can be divided into two categories: guarded and unguarded.
+\begin{definition}
+A guarded OSR point is an OSR point which execution is subjected to an explicit boolean test.
+In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
+\end{definition}
+\begin{definition}
+An unguarded OSR point is an OSR point that does not require to check a boolean condition before being executed. 
+\end{definition}
+The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation CITE and the WebKit OSR implementation CITE).
+Both solutions present different advantages and fit different use cases. 
+While simple to model at a high-level, a guarded OSR point presents the disadvantage of increasing the code's length. 
+A boolean condition needs to be tested every time the execution comes across an OSR point.
+As explained previously, one of OSR's most interesting use case is long running loop's optimization.
+Executing many times the branching test can therefore greatly impact the observed performance.
+Unguarded OSR points enable to avoid this performance slow down by letting the framework modify the running function on external/environmental events.
+In WebKit, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at run time, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
+This can be viewed as a lazy triggering of an OSR transition, i.e., the instrumentation to enable the transition can be added just before being executed.\\
 
 \subsubsection{OSR Entries \& OSR Exits}
 
 There is a further distinction between OSR points that are responsible for optimising the code, and the ones that are used to unoptimize.
 For that, we will use the same terminology as in WebKit and MCJit(CITE).
-%TODO reformulate definitions
+
 \begin{definition}\label{OSREntryDefinition}
 An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
 They are used in the optimization process.
@@ -144,7 +153,11 @@ OSR exits are responsible for preserving the correctness of the program.
 They are used in the deoptimization process.
 \end{definition}
 
-CONTINUE
+At the implementation level, OSR entries and exits are very similar, if not identical. 
+They both are OSR points and will trigger an OSR transition.
+Conceptually, however, an OSR exit is part of the mechanism that enables to protect the correctness of the program.
+Mistakingly not taking an OSR entry is a missed opportunity for better performances.
+Missing a required OSR exit leads to a possibly incorrect behaviour of the program.\\
 
 \subsection{The Transition Mechanism}
 The OSR mechanism can be narrowed down to its core functionality: allowing a transition at run time from the middle of a running function to a corresponding instruction in the middle of another version of this function.
@@ -285,20 +298,58 @@ On the other hand, the second technique that we described to propagate the state
 If the set of values to propagate is different at the two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
 We can expect this solution to have, in general, a higher space complexity but a better performance  during execution (i.e., smaller execution time).\\
 
-\subsection{Caching vs. Generating on the Fly}
+\subsection{Versionning}
+On-stack replacement requires, at some point, two have at least two versions of a function: the from function and the continuation function.
+Furthermore, the continuation function can either be generated on the fly, i.e., the OSR transition includes a transformation step to generate the correct continuation function, or a previously compiled and cached version can be used.
+
 \subsubsection{One version}
 %Replace in place
 %Good for space
+%Jikes on the fly, interpreter kind of on the fly. 
+Allowing only one live compiled version of the function enables to simplify the high-level model of the program's execution.
+OSR implementations, such as the MCJit OSR mechanism CITE, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
+This technique enables to propagate the optimized version through out the code without requiring any modification of the callers.
+One can view it as an eager propagation of optimizations.
+Therefore, one can assume that the overall performance of the execution should be improved by the global use of this optimized version.
+On the other hand, this technique requires to ensure that any OSR entry taken is based on a condition that holds at any possible call site of the function.
+It might therefore prevent the function's specialization in local sub-scopes.\\ %WHAT HAPPENS IF CALL BEFORE ????
+
 \subsubsection{Multiple Versions}
 %Fine grain specialization
 %Hard to keep track ? 
-%How much reusability really?
 %For deoptimization it is a requirement since hard to reverse an opt transformation
-    %Even harder if several opt performed
+    %Even harder if several opt performed NEED THAT OR NOT?
+Fine-grained specialization of functions enables to improve performances locally.
+In fact, allowing multiple versions of the same function to be live at the same time enables to optimize a function according to local conditions, regardless of other call sites states.
+While attractive for the extra flexibility it provides, this solution presents several disadvantages.
+First, it might increase space complexity.
+In fact, allowing such fine specialization might lead to having one version per call site.
+If not carefully handled, this can lead to a dramatic increase of memory usage.
+Second, this technique is a lazy propagation of optimizations.
+Assume different calls to the same function.
+In one call execution, call it $C_1$, an OSR condition allows to take a specific OSR entry.
+Other calls, that will take the same OSR entry, do not benefit from the OSR condition tested by $C_1$, i.e., they will have to wait until they reach the same OSR entry, and verify the same condition, before taking the OSR transition.
+
+
+
+\subsubsection{Caching vs. Generating on the fly}
+%About caching and generating on the fly
+%How much reusability really?
+
+Depending on the reusability of a function's version, and its likelihood to be needed later in the execution, a time vs. space complexity trade-off appears.
+Generating a continuation function on the fly is time consuming.
+If the same OSR entry is taken multiple times, and leads to the same version of a function, caching this version might improve run time performances.
+On the other hand, if OSR entries are rarely taken, i.e., if OSR transitions are rare, generating the continuation function on the fly enables to save memory space. 
+The cost of the compilation is amortised by the improvements allowed by the optimization and the live range of the function. 
+In other words, generating on the fly is viable if the time performance gain of the optimized version over the entire execution is larger than the time required to generate the continuation function.\\
+
+%SHOULD I SAY SOMETHING ABOUT HOW PROGRAM SPECIFIC THAT IS? 
 
 \section{The Deoptimization case}
-%yields a lot of questions, where we exit, trade offs in performance?
-This section...
+%TODO NOT SURE ABOUT GREATE CHALLENGE...
+This section presents an overview of the deoptimization case with on-stack replacement.
+The deoptimization case presents several interesting design decisions and trade-offs.
+
 \subsection{Why the Deoptimization case is more interesting?}
 %TODO for correctness
 %Enable aggressive adaptive optimizations
@@ -345,7 +396,7 @@ This section describes several targets for OSR exits, and tries to present the a
 %Good if have full control over the interpreter
 %Bad for performance
 A first option is to OSR exit back to the interpreter. 
-Some virtual machines, such as Graal EXAMPLES AND REF, CONTINUE SENTENCE.\\
+This approach has been taken by some virtual machines, such as Graal CITE or the Java HotSpot VM CITE (see Section \ref{HotSpot} for more details).\\
 
 Going back to the interpreter enables to have complete control over the execution environment.
 The execution framework can therefore easily generate the correct state to resume the execution.

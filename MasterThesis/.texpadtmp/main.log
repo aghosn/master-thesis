@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  21 JAN 2016 19:06
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  24 JAN 2016 16:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1348,69 +1348,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--119
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-
-Overfull \hbox (2.71999pt too wide) in paragraph at lines 123--130
-\T1/ppl/m/n/10.95 and the Jikes RVM OSR im-ple-men-ta-tion(CITE) dis-tin-guish 
-OSR points that are guarded,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--139
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 150--153
+Underfull \hbox (badness 10000) in paragraph at lines 156--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--166
 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 158.
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 171.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--190
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 200--203
 
-LaTeX Warning: Reference `unoptimizedcase' on page 7 undefined on input line 19
-6.
+ []
+
+
+LaTeX Warning: Reference `unoptimizedcase' on page 7 undefined on input line 20
+9.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 198.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 198.
+nput line 211.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 211.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
-Package Listings Warning: Text dropped after begin of listing on input line 198
+Package Listings Warning: Text dropped after begin of listing on input line 211
 .
 
 
-Package Listings Warning: Text dropped after begin of listing on input line 203
+Package Listings Warning: Text dropped after begin of listing on input line 216
 .
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--234
-
- []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 246--250
+Underfull \hbox (badness 10000) in paragraph at lines 241--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--260
+Underfull \hbox (badness 10000) in paragraph at lines 259--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
 
  []
 
@@ -1420,74 +1413,85 @@ LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2.
  [8])
-Underfull \hbox (badness 10000) in paragraph at lines 263--268
+Underfull \hbox (badness 10000) in paragraph at lines 276--281
 
  []
 
-(./Figures/funCall.c) (./Figures/MultipleEntry.c [9])
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--287
+(./Figures/funCall.c) [9] (./Figures/MultipleEntry.c)
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--319
+Underfull \hbox (badness 10000) in paragraph at lines 287--300
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 320--325
+Underfull \hbox (badness 10000) in paragraph at lines 309--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--334
+Underfull \hbox (badness 10000) in paragraph at lines 339--345
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 357--370
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--385
 
  []
 
 File: Figures/wheretoexit.png Graphic file (type QTm)
 <use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 337--339
+Overfull \hbox (9.04208pt too wide) in paragraph at lines 388--390
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--349
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--400
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--368
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--375
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 412--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--402
+Underfull \hbox (badness 10000) in paragraph at lines 420--426
 
  []
 
-[12]) (./Chapters/Chapter3.tex [13] [14
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 433--453
+
+ []
+
+) (./Chapters/Chapter3.tex [14]
 Chapter 3.
 --------------------
  3. Related Work
@@ -1592,13 +1596,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--60
 
  []
 
-[15]
+[15
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--71
+Underfull \hbox (badness 10000) in paragraph at lines 63--72
 
  []
 
@@ -1608,84 +1614,84 @@ File: Figures/Figure2.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 90--92
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--101
+Underfull \hbox (badness 10000) in paragraph at lines 94--102
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--130
+Underfull \hbox (badness 10000) in paragraph at lines 124--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--136
+Underfull \hbox (badness 10000) in paragraph at lines 135--138
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 148--156
+Underfull \hbox (badness 10000) in paragraph at lines 150--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--169
+Underfull \hbox (badness 10000) in paragraph at lines 159--171
 
  []
 
 [19]
 File: Figures/FTL.png Graphic file (type QTm)
  <use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 177--179
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 181--183
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--192
+Underfull \hbox (badness 10000) in paragraph at lines 187--196
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--199
+Underfull \hbox (badness 10000) in paragraph at lines 197--203
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 200--205
+Underfull \hbox (badness 10000) in paragraph at lines 204--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--221
+Underfull \hbox (badness 10000) in paragraph at lines 222--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--230
+Underfull \hbox (badness 10000) in paragraph at lines 229--234
 
  []
 
@@ -1693,31 +1699,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--230
 File: Figures/SSAForm.png Graphic file (type QTm)
  <use  "Figures/SSAForm.png" >
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 241.
+(Font)              <7> on input line 245.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 241.
+(Font)              <5> on input line 245.
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--257
+Underfull \hbox (badness 10000) in paragraph at lines 254--261
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 266--269
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--274
+Underfull \hbox (badness 10000) in paragraph at lines 275--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--285
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
@@ -1731,13 +1737,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [23]
 
-./Chapters/Chapter3.tex:318: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:322: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.318 
+l.322 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1759,20 +1765,20 @@ File: Figures/OSRPassCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:342: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:346: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.342 
+l.346 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--357
+Underfull \hbox (badness 10000) in paragraph at lines 347--361
 
  []
 
@@ -1788,20 +1794,20 @@ File: Figures/FOptCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:373: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:377: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.373 
+l.377 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 393--399
+Underfull \hbox (badness 10000) in paragraph at lines 397--403
 
  []
 
@@ -1984,10 +1990,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27569 strings out of 493706
- 496748 string characters out of 6145768
- 728445 words of memory out of 5000000
- 30600 multiletter control sequences out of 15000+600000
+ 27570 strings out of 493706
+ 496757 string characters out of 6145768
+ 724445 words of memory out of 5000000
+ 30601 multiletter control sequences out of 15000+600000
  35479 words of font info for 63 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,3063s stack positions out of 5000i,500n,10000p,200000b,80000s
