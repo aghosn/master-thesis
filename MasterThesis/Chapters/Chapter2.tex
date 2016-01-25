@@ -404,7 +404,7 @@ The execution framework can therefore easily generate the correct state to resum
 Furthermore, this approach gets rid of any assumption taken by the execution framework and goes back to a safe environment.
 Another way to put it would be to say that, since an assumption failed, the framework takes the conservative decision to go back to an assumption free environment to resume the execution.\\
 
-Going back to the interpreter is conservative approach that might impede on the performance of the program.
+Going back to the interpreter is a conservative approach that might impede on the performance of the program.
 The interpreted version of the function is assumed to be slow.
 As a result, the function's execution will drastically slow down after exiting to the interpreter.
 The question is then the following: can we provide the same correctness guarantees while exiting to a more efficient version of the function?\\
