@@ -16,8 +16,8 @@
 \contentsline {subsubsection}{Guarded \& Unguarded}{5}{section*.18}
 \contentsline {subsubsection}{OSR Entries \& OSR Exits}{6}{section*.21}
 \contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{6}{subsection.24}
-\contentsline {subsubsection}{High-Level requirements for OSR transitions: transformation challenges}{6}{section*.27}
-\contentsline {subsubsection}{The ideal transition: technical challenge}{7}{section*.34}
+\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{6}{section*.27}
+\contentsline {subsubsection}{The OSR transition at a low-level}{8}{section*.34}
 \contentsline {subsubsection}{Transition as a Function call}{8}{section*.40}
 \contentsline {subsection}{\numberline {2.2.3}Versionning}{11}{subsection.114}
 \contentsline {subsubsection}{One version}{11}{section*.115}

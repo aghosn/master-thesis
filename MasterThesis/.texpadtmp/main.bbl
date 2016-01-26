@@ -16,6 +16,27 @@
   {}
 \endgroup
 
+\entry{OSRKit}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Daniele Cono~D’Elia}{D.~C.~D.}%
+     {Camil~Demetrescu}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DCDCD1}
+  \strng{fullhash}{DCDCD1}
+  \field{sortinit}{D}
+  \field{title}{{OSRKit} OSRKit}
+  \verb{url}
+  \verb https://github.com/dcdelia/tinyvm
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{fink2003design}{inproceedings}{}
   \name{author}{2}{}{%
     {{}%

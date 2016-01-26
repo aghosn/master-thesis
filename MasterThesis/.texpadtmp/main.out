@@ -13,8 +13,8 @@
 \BOOKMARK [3][-]{section*.18}{Guarded\040&\040Unguarded}{subsection.16}% 13
 \BOOKMARK [3][-]{section*.21}{OSR\040Entries\040&\040OSR\040Exits}{subsection.16}% 14
 \BOOKMARK [2][-]{subsection.24}{The\040Transition\040Mechanism}{section.15}% 15
-\BOOKMARK [3][-]{section*.27}{High-Level\040requirements\040for\040OSR\040transitions:\040transformation\040challenges}{subsection.24}% 16
-\BOOKMARK [3][-]{section*.34}{The\040ideal\040transition:\040technical\040challenge}{subsection.24}% 17
+\BOOKMARK [3][-]{section*.27}{High-Level\040requirements\040and\040challenges\040for\040OSR\040transitions}{subsection.24}% 16
+\BOOKMARK [3][-]{section*.34}{The\040OSR\040transition\040at\040a\040low-level}{subsection.24}% 17
 \BOOKMARK [3][-]{section*.40}{Transition\040as\040a\040Function\040call}{subsection.24}% 18
 \BOOKMARK [2][-]{subsection.114}{Versionning}{section.15}% 19
 \BOOKMARK [3][-]{section*.115}{One\040version}{subsection.114}% 20

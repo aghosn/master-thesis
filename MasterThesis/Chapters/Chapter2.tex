@@ -101,7 +101,7 @@ OSR enables to revert back to a safe version during the execution.\\
         %for external requires to correct every callee return landing spots. 
         %Requires corresponding entry in the unoptimized version
 %Examples from existing implementations 
-    %MCJIt inserter and instrument passes (need a code transformer + OSR Label)
+    %McJIT inserter and instrument passes (need a code transformer + OSR Label)
     %Jikes
 The OSR mechanism is enabled at specific instruction boundaries in the user's code.
 Depending on the OSR implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
@@ -124,26 +124,28 @@ As a result, different OSR implementations yield different restrictions on the l
 
 OSR points can be divided into two categories: \textit{guarded} and \textit{unguarded}.
 \begin{definition}
-A guarded OSR point is an OSR point which execution is subjected to an explicit boolean test.
+A guarded OSR point is an OSR point which execution is subjected to an explicit boolean test, called the OSR condition.
 In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
 \end{definition}
 \begin{definition}
 An unguarded OSR point is an OSR point that does not require to check a boolean condition before being executed. 
 \end{definition}
-The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation CITE and the WebKit OSR implementation CITE).
-Both solutions present different advantages and fit different use cases. 
+The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation\cite{fink2003design, soman2006efficient} and the WebKit OSR implementation\cite{WebKitURL}).
+Both solutions present different advantages and fit different use cases.
+
 While simple to model at a high-level, a guarded OSR point presents the disadvantage of increasing the code's length. 
 A boolean condition needs to be tested every time the execution comes across an OSR point.
 As explained previously, one of OSR's most interesting use case is long running loop's optimization.
 Executing many times the branching test can therefore greatly impact the observed performance.
+
 Unguarded OSR points enable to avoid this performance slow down by letting the framework modify the running function on external/environmental events.
-In WebKit, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at run time, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
+In WebKit\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at run time, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
 This can be viewed as a lazy triggering of an OSR transition, i.e., the instrumentation to enable the transition can be added just before being executed.\\
 
 \subsubsection{OSR Entries \& OSR Exits}
 
 There is a further distinction between OSR points that are responsible for optimising the code, and the ones that are used to unoptimize.
-For that, we will use the same terminology as in WebKit and MCJit(CITE).
+For that, we will use the same terminology as in WebKit\cite{WebKitURL} and McJIT\cite{lameed2013modular}.
 
 \begin{definition}\label{OSREntryDefinition}
 An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
@@ -167,7 +169,7 @@ The OSR mechanism can be narrowed down to its core functionality: allowing a tra
 This transition mechanism is therefore the cornerstone of any OSR implementation.
 This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
 
-In the reminder of this section, we use the terminology introduced by definitions \ref{from} and \ref{continuation}.
+In the reminder of this section, we use the terminology introduced by definitions \ref{from} and \ref{continuation}, and taken from the OSRKit\cite{OSRKit} project.
 These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.
 
 \begin{definition}\label{from}
@@ -178,7 +180,7 @@ A function from which we perform an OSR transition is called a \textbf{from func
 A function in which we resume the execution after an OSR transition is called a \textbf{continuation function} or \textbf{destination version}.
 \end{definition}
 
-\subsubsection{High-Level requirements for OSR transitions: transformation challenges}\label{HLREQ}
+\subsubsection{High-Level requirements and challenges for OSR transitions}\label{HLREQ}
 %OSR transition is a mapping
     % mapping = reconstruct the state 
         %what it means to reconstruct the state: live values
@@ -208,14 +210,15 @@ An OSR transition can be either \textit{unidirectional} or \textit{bidirectional
 In the case of a bidirectional mapping between the source and the destination version, the OSR framework must also provide a function \textit{f'} that is the inverse of \textit{f}.  
 \[f': S \rightarrow S\]
 \[f'(S_d) = S_s\]
-This corresponds to the deoptimization case and presents a greater challenge than the optimization case.
-Consider the unoptimized code in the Snippet \ref{unoptimizedcase}, and its optimized version in Snippet ??.
+If the source is a less optimized version of the destination, $f'$ is used during the deoptimization case.
+The deoptimization case presents a greater challenge than the optimization one.
+Consider the unoptimized code in the Snippet \ref{Unoptimized case}, and its optimized version in Snippet ??.
 
-\begin{lstlisting}[caption=Unoptimized case]{Unoptimized case}\label{unoptimizedcase}
+\begin{lstlisting}[caption=Unoptimized case]{Unoptimized case}
 a <- 5
 b <- 6
 c <- a+b
-\end{lstlisting}
+\end{lstlisting}\label{unoptimizedcase}
 \begin{lstlisting}[caption=Optimized case]{Optimized case}\label{optimizedcase}
 c <- 11
 \end{lstlisting}
@@ -223,9 +226,9 @@ c <- 11
 The function \textit{f'} must provide a way to re-generate \textit{a} and \textit{b} from \textit{c}. 
 To this end, it must remember the steps that led to the optimized version of the code, and must be able to reverse them.
 This implies a lot of metadata attached to each version of the optimized code generated by the compiler and might quickly increase the space complexity of the OSR support.
-EXAMPLE VARMAP FROM JIKES!!! 
-
-\subsubsection{The ideal transition: technical challenge}
+The VARMAP structure in the Jikes RVM OSR implementation\cite{soman2006efficient} and the scope descriptors in SELF debugger\cite{holzle1992debugging} are examples of such metadata attached to the code that enable to recover the values of $a$ and $b$ from $c$.\\
+ 
+\subsubsection{The OSR transition at a low-level}
 %low-level transition description.
 %hit the point
     %save the register content.
@@ -237,19 +240,19 @@ At a machine code level, an ideal OSR transition can be summarised into 5 steps:
 \begin{enumerate}
     \item Save the content of the registers.
     \item Save the local live values, i.e., the on-stack values in the current stack frame.
-    \item Modify the current stack frame to introduce the expected local values, add expected stack frames or remove the stack frames that are not expected.
+    \item Modify the current stack frame to introduce the expected local values, add expected stack frames or remove the stack frames that are not needed.
     \item put the correct content inside the registers.
     \item modify the program counter and resume execution.
 \end{enumerate}
 In order to perform such a modification of the runtime stack and registers, the OSR framework must have complete control over the machine executing the program.
 This requirement is easier to satisfy if the execution is performed inside a virtual machine that enables to access and modify the execution stack and the registers.
-Section \ref{OSR&VM} expands on the relation between OSR implementations and Virtual Machines.
+Section \ref{OSR&VM} expands on the relation between OSR implementations and virtual machines.
 Furthermore, as explained in \ref{HLREQ}, reconstructing a state from a set of live values is challenging. 
 Performing this operation at such a low level is hard.
 The compiled version of the code loses the high-level semantics specific to the language, translates some high-level operations into several sequential instructions and performs some low level ressource management (e.g., register allocation) that requires the OSR mechanism to perfectly understand how the compiled code is generated in order to enable the OSR transition at machine code level.\\
 
 While tempting for its fine-grained control over the transition, the implementation of the OSR mechanism at a low level seems to unveil great challenges.
-An alternative solution is to encapsulate the entire process at a higher level, closer to the original program semantics.
+An alternative solution is to encapsulate the entire process at a higher level, closer to the original program's semantics.
 
 \subsubsection{Transition as a Function call}
 %A function call at a high level
@@ -266,8 +269,8 @@ The OSR transition therefore correspond to a function call from the from functio
 
 In order to propagate the current execution state, there are two main solutions: 
 \begin{enumerate}
-    \item Dumping the state in a shared memory location(e.g., as in MCJIT OSR (CITE) presented in REF), or
-    \item Passing all the needed values as function call arguments to the continuation function(e.g., OSR Kit, described in REF).
+    \item Dumping the state in a shared memory location(e.g., as in McJIT OSR implementation\cite{lameed2013modular} and WebKit\cite{WebKitURL}), or
+    \item Passing all the needed values as function call arguments to the continuation function(e.g., as in OSR Kit\cite{OSRKit} and Jikes RVM OSR \cite{fink2003design}).
 \end{enumerate}
 
 The first option implies that the from function must dump its state into a buffer before calling the continuation function.
@@ -285,21 +288,19 @@ On the other hand, the second option does not require to access shared memory to
 \includecode{Figures/funCall.c}
 \includecode{Figures/MultipleEntry.c}
 
-MODIFY TO MATCH PICTURE AND REFORMULATE (IT'S MESSY)\\
-
-The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the the one in the from function.
+The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the OSR point in the from function.
 In order to decrease the space complexity, one might want to enable multiple entry points per function.
-Consider the case of deoptimization in FIGURE, where function \textit{f} inlined two of its function calls, one to \textit{g} and one to \textit{z}.
-This function exits to the base version of \textit{f} before the corresponding call.
-Allowing multiple entry points in $f_{base}$ enables to have only one continuation function for both exits.
-This solution, coupled with the shared buffer to propagate the execution state, can be implemented as a simple function $f_{base}$ instrumented as in FIGURE.
-This instrumented version of $f_{base}$ can serve regular function calls, and also be used as a continuation function for both OSR exits.
-In order to do so, the $f_{base}$ starts by checking a flag to know if it is performing an OSR or serving a regular function call. 
-According to this flag, it jumps to the correct spot inside the function.
+Consider Figure REF, where $f_{base}$ provides three entry points: (1)the regular entry point $ENTRY$, (2)a continuation $CONT1$ and (3)a second continuation $CONT2$.
+The function $f_{base}$ can therefore be used as a continuation function for any from function that has an OSR transition from a point that corresponds to either $CONT1$ or $CONT2$, as well as for regular function calls.
+In order to allow multiple entry points, the $f_{base}$ is instrumented, i.e., a $PROLOG$ is executed at its beginning.
+The $PROLOG$ is responsible for identifying the $f_{base}$'s caller. 
+In FIG, this is done by checking the value of a general flag, called $OSR\_LABEL$.
+According to this value, it then jumps to the correct instruction inside the function, and, if an OSR transition is being performed, loads the state from the scratch buffer, as described before.
+
 This instrumentation has an impact on performance as it requires an extra computation at the beginning of the function. 
 On the other hand, the second technique that we described to propagate the state modifies the function's signature.
 If the set of values to propagate is different at the two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
-We can expect this solution to have, in general, a higher space complexity but a better performance  during execution (i.e., smaller execution time).\\
+We can expect the one function per continuation solution to have, in general, a higher space complexity (i.e., many versions of the function live in memory at the same time) but a better performance during execution (i.e., smaller execution time).\\
 
 \subsection{Versionning}
 On-stack replacement requires, at some point, two have at least two versions of a function: the from function and the continuation function.
@@ -310,7 +311,7 @@ Furthermore, the continuation function can either be generated on the fly, i.e.,
 %Good for space
 %Jikes on the fly, interpreter kind of on the fly. 
 Allowing only one live compiled version of the function enables to simplify the high-level model of the program's execution.
-OSR implementations, such as the MCJit OSR mechanism CITE, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
+OSR implementations, such as the McJIT OSR mechanism CITE, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
 This technique enables to propagate the optimized version through out the code without requiring any modification of the callers.
 One can view it as an eager propagation of optimizations.
 Therefore, one can assume that the overall performance of the execution should be improved by the global use of this optimized version.
@@ -441,7 +442,7 @@ CLEAN UP AND REFORMULATE (MESSY)\\
 A third option is to exit to an optimized version of the function that does not rely on the assumption that failed.
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted one and the base version.
-This behaviour can be observed in MCJit OSR implementation CITE (see Section \ref{MCJit}) and OSR Kit CITE(see Chapter \ref{Chapter4}).
+This behaviour can be observed in McJIT OSR implementation CITE (see Section \ref{McJIT}) and OSR Kit CITE(see Chapter \ref{Chapter4}).
 This option strives to get the best possible performance, even in the presence of an assumption's failure.
 As explained previously, there are two options to get the continuation function: either generate on the fly a new fully optimized version that does not rely on the assumption that failed, or "undo" the optimization that failed.
 Undoing an optimization is hard, especially when it is intertwined with other transformations performed on the code.
