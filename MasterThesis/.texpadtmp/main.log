@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  24 JAN 2016 16:35
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 JAN 2016 11:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1303,107 +1303,107 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--29
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--35
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--43
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 35--42
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 59--62
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--68
+Underfull \hbox (badness 10000) in paragraph at lines 58--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+Underfull \hbox (badness 10000) in paragraph at lines 65--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--77
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--82
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--84
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 118--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--139
+Underfull \hbox (badness 10000) in paragraph at lines 133--142
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 156--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--166
+Underfull \hbox (badness 10000) in paragraph at lines 166--169
 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 171.
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 174.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--191
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 200--203
+Underfull \hbox (badness 10000) in paragraph at lines 203--206
 
  []
 
 
-LaTeX Warning: Reference `unoptimizedcase' on page 7 undefined on input line 20
-9.
+LaTeX Warning: Reference `unoptimizedcase' on page 7 undefined on input line 21
+2.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 211.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 211.
+nput line 214.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 214.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
-Package Listings Warning: Text dropped after begin of listing on input line 211
+Package Listings Warning: Text dropped after begin of listing on input line 214
 .
 
 
-Package Listings Warning: Text dropped after begin of listing on input line 216
+Package Listings Warning: Text dropped after begin of listing on input line 219
 .
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 241--247
+Underfull \hbox (badness 10000) in paragraph at lines 244--250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--263
+Underfull \hbox (badness 10000) in paragraph at lines 262--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--273
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
@@ -1413,48 +1413,48 @@ LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2.
  [8])
-Underfull \hbox (badness 10000) in paragraph at lines 276--281
+Underfull \hbox (badness 10000) in paragraph at lines 279--284
 
  []
 
 (./Figures/funCall.c) [9] (./Figures/MultipleEntry.c)
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--300
+Underfull \hbox (badness 10000) in paragraph at lines 290--303
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 309--316
+Underfull \hbox (badness 10000) in paragraph at lines 312--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--345
+Underfull \hbox (badness 10000) in paragraph at lines 342--348
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 357--370
+Underfull \hbox (badness 10000) in paragraph at lines 360--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--376
+Underfull \hbox (badness 10000) in paragraph at lines 374--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
+Underfull \hbox (badness 10000) in paragraph at lines 384--388
 
  []
 
 File: Figures/wheretoexit.png Graphic file (type QTm)
 <use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 388--390
+Overfull \hbox (9.04208pt too wide) in paragraph at lines 391--393
  [][] 
  []
 
@@ -1462,37 +1462,37 @@ Overfull \hbox (9.04208pt too wide) in paragraph at lines 388--390
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--401
+Underfull \hbox (badness 10000) in paragraph at lines 401--404
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 402--406
+Underfull \hbox (badness 10000) in paragraph at lines 405--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--411
+Underfull \hbox (badness 10000) in paragraph at lines 410--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--424
+Underfull \hbox (badness 10000) in paragraph at lines 420--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 425--431
+Underfull \hbox (badness 10000) in paragraph at lines 428--434
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--458
+Underfull \hbox (badness 10000) in paragraph at lines 441--461
 
  []
 
@@ -1995,11 +1995,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27570 strings out of 493706
- 496757 string characters out of 6145768
+ 27573 strings out of 493706
+ 496810 string characters out of 6145768
  724445 words of memory out of 5000000
- 30601 multiletter control sequences out of 15000+600000
- 35479 words of font info for 63 fonts, out of 8000000 for 9000
+ 30604 multiletter control sequences out of 15000+600000
+ 35801 words of font info for 64 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,3063s stack positions out of 5000i,500n,10000p,200000b,80000s
 

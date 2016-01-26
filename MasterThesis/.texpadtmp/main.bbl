@@ -75,6 +75,27 @@
   \field{year}{1992}
 \endentry
 
+\entry{WebKitURL}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Inc.}{I.}%
+     {Apple}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{IA1}
+  \strng{fullhash}{IA1}
+  \field{sortinit}{I}
+  \field{title}{{WebKit} The WebKit Open Source Web Browser Engine}
+  \verb{url}
+  \verb https://webkit.org/
+  \endverb
+  \field{year}{1998}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2015}
+\endentry
+
 \entry{lameed2013modular}{inproceedings}{}
   \name{author}{2}{}{%
     {{}%

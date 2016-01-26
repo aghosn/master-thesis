@@ -19,29 +19,29 @@
 %Replace some portion of code while it is executing 
 %Used to optimize code that is running 
 %Used to undo an invalid optimization of the code that is running
-On-Stack replacement (OSR) is a set of techniques that consist in dynamically transferring the execution, at run time, between different pieces of code.
-The action of transferring the execution to another code artefact is called an OSR transition.\\
+On-Stack replacement (OSR) is a set of techniques that allow to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the interrupted function at the point and state at which it was interrupted.
+The action of transferring the execution using the OSR mechanism is called an \textit{OSR transition}.\\
 
 On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing function into another version of itself.
-This transformation mechanism has been used to allow the bi-directional transition between different levels of code optimizations.
-We can therefore reduce it to two main purposes: transforming an executing function into a more optimized version of itself, and undoing transformations that were previously performed.
+This transformation mechanism has been used to allow transitions between different levels of code optimizations.
+We can therefore reduce it to two main purposes: (1)transforming an executing function into a more optimized version of itself, and (2)undoing transformations that were previously performed.
 While similar, these two types of transformation have very different goals.\\
 
-In several virtual machines (CITE PAPERS), some of which will be presented in (REFERENCE), On-Stack replacement has been used to improve the performance of long running functions.
-When the VM identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
+In several virtual machines (\cite{paleczny2001java, lameed2013modular} MORE), some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
+When the virtual machine (VM) identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
 This differs from a simple Just-In-Time (JIT) compiler, since the recompilation and transfer of execution both take place during the execution of the function, rather than just before its execution.
-%TODO reformulate
-However, both techniques rely on run time profiling data to uncover new optimization opportunities.\\
+However, both techniques rely on the same assumption, namely, that run-time profiling data enables to uncover new optimization opportunities.\\
 
 On-Stack replacement allows a compiler to perform speculative transformations.
 Some optimizations rely on assumptions that are not bound to hold during the entire execution of a program.
 A simple example is function inlining in an environment where functions can be redefined at run time.
-A regular, and correct compiler would not allow to inline a function that might be modified during the execution.
+A regular, and correct, compiler would not allow to inline a function that might be modified during the execution.
 The OSR mechanism, however, enables to perform such an optimization.
 Whenever the assumption fails, i.e., the function is redefined, the OSR mechanism will enable to transfer the execution to a corresponding piece of code where the inlining has not been performed.
-In this case, OSR is used to preserve correctness.\\
+In this case, OSR is used to allow potentially erroneous transformations while preserving correctness.\\
 
-On-Stack replacement is a powerful technique, that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
+In summary, on-stack replacement is a powerful technique that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
+The next section presents the advantages that OSR uncovers in both cases.
 
 \subsection{Why is OSR interesting?}\label{WhyOSRInteresting}
 %The optimization case
@@ -53,12 +53,14 @@ On-Stack replacement is a powerful technique, that can be used to either improve
     %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
     %The real difference: optimization is for performance, deoptimazation is for correctness.
     
-This section highlights the benefits that On-Stack replacement enables.
-We divide them into two separate cases: OSR with regards to optimization, and OSR for deoptimization.\\
+This section highlights the benefits of using on-stack replacement, with respect to both otpimization and deoptimization.\\
 
 On-Stack replacement increases the power of dynamic compilation.
 A function can be recompile while it is executing.
-This enables more aggressive adaptative compilation, i.e., by delaying the point in time when the recompilation is performed, OSR enables to gather more information about the current execution profile. These information can then be used to produce higher quality compiled code, displaying better performances.\\
+This enables more aggressive adaptative compilation than just-in-time (JIT) compilation.
+In fact, the OSR mechanism, in theory, allows to perform a recompilation at any instruction boundary. 
+As an adaptative compilation mechanism, it enables to delay the compilation of a code artefact and therefore enables to gather more information about the current execution profile.
+These information can then be used to produce higher quality compiled code, with better execution performances.\\
 
 For dynamic languages, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
 Code specialization consists in tuning the code to better fit a particular use, hence yielding better performances.
@@ -67,9 +69,9 @@ One of the main challenges is to identify which version better fits the current 
 This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.\\
 
 OSR, coupled with an efficient compiler to generate and keep track of specialized functions, enables to uncover new opportunities to fine tune a portion of code.
-While techniques like JIT compilation can generate specialized code at a function level, i.e., before the execution of a function, OSR enables to make such tuning while a function is running.
+While techniques like JIT compilation can generate specialized code at a function level, i.e., before the function's execution, OSR enables to make such tuning while a function is running.
 For example, in the case of a long running loop inside a function, JIT techniques would need to wait until the function is called anew to improve its run time performance by recompiling it. 
-OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance for the executing program.\\
+OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance of program's execution.\\
 
 OSR is a tool that enables the compiler to recompile and optimize at almost any time during the execution of a program.
 A clever compiler can perform iterative recompilation of the code in order to improve the quality of the generated compiled artefact.
@@ -103,7 +105,7 @@ OSR enables to revert back to a safe version during the execution.\\
     %Jikes
 The OSR mechanism is enabled at specific instruction boundaries in the user's code.
 Depending on the OSR implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
-In the literature, such boundaries were given various names, e.g., \textit{interrupt points}(CITE), \textit{OSR entries}, and \textit{OSR exits}(CITE).
+In the literature, such boundaries were given various names, e.g., \textit{interrupt points}\cite{holzle1992debugging}, \textit{OSR points} \cite{fink2003design, holzle1992debugging, WebKitURL, lameed2013modular}, \textit{OSR entries}, and \textit{OSR exits}\cite{WebKitURL, lameed2013modular}.
 This section presents the terminology for such points that will be used in the reminder of this report.
 
 \begin{definition}\label{OSRPointDefinition}
@@ -114,12 +116,13 @@ OSR points can correspond to several instructions inserted by the OSR framework 
 
 %TODO continue this part by explaining why we need it to be safe
 An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., points where the state is guaranteed to be consistent.
-For example, as explained in Section \ref{SELF}, the SELF debugger considers points at method prologues and at the end of loop bodies.
-An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.\\
+For example, as explained in Section \ref{SELF}, the SELF debugger\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
+An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.
+As a result, different OSR implementations yield different restrictions on the location of OSR points.\\
 
 \subsubsection{Guarded \& Unguarded}
 
-OSR points can be divided into two categories: guarded and unguarded.
+OSR points can be divided into two categories: \textit{guarded} and \textit{unguarded}.
 \begin{definition}
 A guarded OSR point is an OSR point which execution is subjected to an explicit boolean test.
 In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
