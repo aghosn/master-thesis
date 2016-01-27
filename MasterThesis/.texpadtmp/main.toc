@@ -45,8 +45,8 @@
 \contentsline {section}{\numberline {3.4}A classification summary}{29}{section.166}
 \contentsline {chapter}{\numberline {4}OSR Kit}{31}{chapter.167}
 \contentsline {section}{\numberline {4.1}Overview}{31}{section.168}
-\contentsline {subsection}{\numberline {4.1.1}An LLVM Library}{31}{subsection.169}
-\contentsline {subsection}{\numberline {4.1.2}LLVM IR}{31}{subsection.170}
+\contentsline {subsection}{\numberline {4.1.1}Justification}{31}{subsection.169}
+\contentsline {subsection}{\numberline {4.1.2}An LLVM Library}{31}{subsection.170}
 \contentsline {section}{\numberline {4.2}Resolved \& Unresolved OSR}{31}{section.171}
 \contentsline {subsection}{\numberline {4.2.1}The Unresolved OSR}{31}{subsection.172}
 \contentsline {subsubsection}{Similarities with MCJIT}{31}{section*.173}

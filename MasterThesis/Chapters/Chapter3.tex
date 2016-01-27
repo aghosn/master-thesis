@@ -23,42 +23,43 @@
 %Interrupt points (where, why, how)
 %Function invalidation
 SELF is a pure object-oriented programming language.
-It relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances(CITE from self paper).
-As a result, the language's implementation depends on a set of aggressive optimizations to achieve good performances\cite{holzle1992debugging}.
+It relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances\cite{chambers1991making, holzle1991optimizing}.
+As a result, the language's implementation depends on a set of aggressive optimizations to achieve good performances\cite{chambers1992design, holzle1992debugging}.
 SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
 
 Providing source level code interactive debugging is hard in the presence of optimizations.
 Single stepping or obtaining values for certain source level variables might not be possible.
 For a language such as SELF, that heavily relies on aggressive optimizations, implementing a source code level debugger requires new techniques.\\
 
-In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour (CITE from holzle).\\
+In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour.\\
 
 \citean{holzle1992debugging} present the main challenges encountered to provide debugging behaviours, due to the optimizations performed by the SELF compiler. 
 Displaying the stack according to a source-level view is impeded by optimizations such as inlining, register allocation and copy propagation.
 For example, when a function is inlined at a call site, only a single activation frame is visible, while the source level code expects to see two of them.
-Figure (FIG), taken from \cite{holzle1992debugging}, provides another example of activations discordances between physical and source-level stacks.
-In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', hence disappearing from the physical stack.\\
+Figure \ref{stackframes}, taken from \cite{holzle1992debugging}, provides another example of activations discordances between physical and source-level stacks.
+In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', and hence disappears from the physical stack.\\
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Figure1}
 \decoRule
 \caption[physical vs. source-level stacks]{Displaying the stack, figure from \cite{holzle1992debugging}.}
+\label{stackframes}
 \end{figure}
 
 Single-stepping is another important feature for a debugger. 
 It requires to identify and execute the next machine instruction that corresponds to the source operation.
 \citean{holzle1992debugging} highlight the impact of code motion and instruction scheduling on the machine instruction layout. 
-Such optimizations re-order, merge, intersperse and sometimes delete source-level operations, therefore preventing a straight forward implementation of single-stepping for the debugger.\\
+Such optimizations re-order, merge, intersperse and sometimes delete source-level operations, therefore preventing a straight forward implementation of source-level single-stepping for the debugger.\\
 
 Compiler optimizations prevent dynamic changes from being performed in the debugger.
-Holzle(CITE) identifies two separate issues: changing variable values, and modifying procedures (i.e., functions).
-To illustrate the first case, Holzle CITE relies on an example where a variable is assigned the sum of two other variables.
+\citean{holzle1992debugging} identify two separate issues: changing variable values, and modifying procedures (i.e., functions).
+To illustrate the first case, the paper\cite{holzle1992debugging} relies on an example where a variable is assigned the sum of two other variables.
 The compiler identifies the two variables as being constants and replaces the addition by a direct constant assignment.
 A debugger that allows to change variable values at run time would then yield a non correct behaviour if the user modifies one of the two variables. 
 This problem does not arise in the case of unoptimized code since the addition is still present. 
-For procedures, Holzle CITE describes an example where a function has been inlined by the compiler, but redefined by the user in the debugger.\\
+For procedures, \citean{holzle1992debugging} provide an example where a function has been inlined by the compiler, but redefined by the user in the debugger.\\
 
-Holzle(CITE) distinguishes two possible states for compiled code: \textit{optimized}, which can be suspended at widely-spaced interrupt points, from which we can reconstruct source-level state, and \textit{unoptimized}, that can be suspended at any source-level operation and is not subjected to any of the above debugging restrictions.\\
+The paper\cite{holzle1992debugging} distinguishes two possible states for compiled code: \textit{optimized}, which can be suspended at widely-spaced interrupt points, from which we can reconstruct source-level state, and \textit{unoptimized}, that can be suspended at any source-level operation and is not subjected to any of the above debugging restrictions.\\
 
 In order to deoptimize code on demand, SELF debugger needs to recover the unoptimized state that corresponds to the current optimized one. 
 To do so, it relies on a special data structure, called a \textit{scope descriptor}. 
@@ -66,7 +67,7 @@ The scope descriptors are generated during compilation for each source-level sco
 This data structure holds the scope place in the virtual call tree of the physical stack frame and records locations and values of its argument and local variables. 
 It further holds locations or values of its subexpressions.
 Along with the scope descriptor, the compiler generates a mapping between virtual (i.e, scope descriptor and source position within the scope) and physical program counters (PC).
-Figure \ref{Holzle2} is taken from CITE and displays a method suspended at two different points. 
+Figure \ref{Holzle2} is taken from\cite{holzle1992debugging} and displays a method suspended at two different points. 
 At time t1, the stack trace from the debugger displays frame B, hiding the fact that B was inlined inside of A.
 At time t2, D is called by C which is called by A, hence, the debugger displays 3 virtual stack frames instead of only one physical frame.\\
 
@@ -79,24 +80,24 @@ At time t2, D is called by C which is called by A, hence, the debugger displays 
 \end{figure}
 
 
-The de-optimization process follows 5 steps described in CITE and summed up here:
+The de-optimization process follows 5 steps described in \cite{holzle1992debugging} and summed up here:
 \begin{enumerate}
     \item Save the physical stack frame and remove it from the run time stack.
     \item Determine the virtual activations in the physical one, the local variables and the virtual PC.
-    \item Generate completely unoptimized compiled methods an physical activations for each virtual one.
+    \item Generate completely unoptimized compiled methods and physical activations for each virtual one.
     \item Find the unique new physical PC for each virtual activation and initialise (e.g., return addresses and frame pointers) the physical activations created in the previous step.
     \item Propagate the values for all elements from the optimized to the unoptimized activations.
 \end{enumerate}
 
-Holzle(CITE) also describes \textit{lazy deoptimization}, a technique to deoptimize a stack frame that is not at the current top of the execution stack. 
+\citean{holzle1992debugging} also describe \textit{lazy deoptimization}, a technique to deoptimize a stack frame that is not at the current top of the execution stack. 
 Lazy deoptimization defers the deoptimization transformation until control is about to return into the frame, hence enabling deoptimization for any frame located on the stack.\\
 
 Deoptimization at any instruction boundary is hard. 
 It requires to be able to recover the state at every single point of the program.
-Holzle (CITE) relies on a weaker easier restrictions by enabling deoptimization only at certain points called \textit{interrupt points}. 
+The SELF debugger relies on a weaker, relaxed restriction by enabling deoptimization only at certain points called \textit{interrupt points}. 
 At an interrupt point, the program state is guaranteed to be consistent. 
-The paper (CITE) defines two kinds of interrupt points: method prologues, and backward branches (i.e., end of loop bodies).
-Holzle(CITE) therefore estimates the length of the longest code sequence that cannot be interrupted to be a few dozen of instruction, i.e., the average length of a code sequence that does not contain neither a call nor a loop end.
+The paper\cite{holzle1992debugging} defines two kinds of interrupt points: method prologues, and backward branches (i.e., end of loop bodies).
+It estimates the length of the longest code sequence that cannot be interrupted to be a few dozen of instruction, i.e., the average length of a code sequence that does not contain neither a call nor a loop end.
 Interrupt points are also inserted at all possible run time errors to allow better debugging of synchronous events such as arithmetic overflow. 
 The generated debugging information are needed only at interrupt points, which reduces the space used to support basic debugger operations (as opposed to allowing interrupts at any instruction boundary).\\
 
@@ -109,12 +110,14 @@ The debugger slows down the execution when the user decides to resume.
 The execution should proceed at full speed, but some stack frames might have been unoptimized, hence implying that a few frames might run slowly right after resuming execution.\\
 
 \section{OSR \& VMs}
-Virtual machines are privileged environments in which On-Stack replacement can be used to its full power.
+Virtual machines are privileged environments in which on-stack replacement can be used to its full power.
 As seen in \ref{WhyOSRInteresting}, OSR is as useful as the compiler's profiler is efficient.
-A virtual machine (VM) has control over the resources allocation, enables to control the code that is generated by the compiler, maintains important run time data, and state information about the program being executed.\\
+A virtual machine (VM) has control over the resources allocation, enables to control the code that is generated by the compiler, maintains important run time data, and state information about the program being executed.
+Furthermore, modern virtual machines already provide adaptative strategies to recompile hot functions\cite{arnold2000adaptive, paleczny2001java, holzle1994third, suganuma2001dynamic}, and dispatch calls to the new compiled versions.
+OSR enables this transition to happen when the function is executing, rather than during a future call.\\
 
-This section presents several examples of VMs that support On-Stack replacement. 
-The section is divided into two parts: we first presents several solutions that provide OSR for various virtual machines, then we briefly introduce LLVM, a VM presenting an interesting framework in which we believe On-Stack replacement mechanism should fit.\\ 
+This section presents several examples of VMs that support on-stack replacement. 
+The section is divided into two parts: we first presents several solutions that provide OSR for various virtual machines, then we briefly introduce LLVM, a VM presenting an interesting framework in which we believe on-stack replacement mechanism should fit.\\ 
 
 \subsection{HotSpot}\label{HotSpot}
 

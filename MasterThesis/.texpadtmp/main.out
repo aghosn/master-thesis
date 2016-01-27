@@ -42,8 +42,8 @@
 \BOOKMARK [1][-]{section.166}{A\040classification\040summary}{chapter.128}% 42
 \BOOKMARK [0][-]{chapter.167}{OSR\040Kit}{}% 43
 \BOOKMARK [1][-]{section.168}{Overview}{chapter.167}% 44
-\BOOKMARK [2][-]{subsection.169}{An\040LLVM\040Library}{section.168}% 45
-\BOOKMARK [2][-]{subsection.170}{LLVM\040IR}{section.168}% 46
+\BOOKMARK [2][-]{subsection.169}{Justification}{section.168}% 45
+\BOOKMARK [2][-]{subsection.170}{An\040LLVM\040Library}{section.168}% 46
 \BOOKMARK [1][-]{section.171}{Resolved\040&\040Unresolved\040OSR}{chapter.167}% 47
 \BOOKMARK [2][-]{subsection.172}{The\040Unresolved\040OSR}{section.171}% 48
 \BOOKMARK [3][-]{section*.173}{Similarities\040with\040MCJIT}{subsection.172}% 49

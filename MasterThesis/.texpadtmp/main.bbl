@@ -16,6 +16,95 @@
   {}
 \endgroup
 
+\entry{arnold2000adaptive}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Arnold}{A.}%
+     {Matthew}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fink}{F.}%
+     {Stephen}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grove}{G.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hind}{H.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sweeney}{S.}%
+     {Peter~F}{P.~F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{AM+1}
+  \strng{fullhash}{AMFSGDHMSPF1}
+  \field{sortinit}{A}
+  \field{booktitle}{ACM SIGPLAN Notices}
+  \field{number}{10}
+  \field{pages}{47\bibrangedash 65}
+  \field{title}{Adaptive optimization in the Jalapeno JVM}
+  \field{volume}{35}
+  \field{year}{2000}
+\endentry
+
+\entry{chambers1992design}{thesis}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Chambers}{C.}%
+     {Craig}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CC1}
+  \strng{fullhash}{CC1}
+  \field{sortinit}{C}
+  \field{title}{The design and implementation of the self compiler, an
+  optimizing compiler for object-oriented programming languages}
+  \list{institution}{1}{%
+    {Stanford University}%
+  }
+  \field{type}{phdthesis}
+  \field{year}{1992}
+\endentry
+
+\entry{chambers1991making}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Chambers}{C.}%
+     {Craig}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ungar}{U.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{CCUD1}
+  \strng{fullhash}{CCUD1}
+  \field{sortinit}{C}
+  \field{booktitle}{ACM SIGPLAN Notices}
+  \field{number}{11}
+  \field{pages}{1\bibrangedash 15}
+  \field{title}{Making pure object-oriented languages practical}
+  \field{volume}{26}
+  \field{year}{1991}
+\endentry
+
 \entry{OSRKit}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -129,6 +218,66 @@
   \field{year}{1992}
 \endentry
 
+\entry{holzle1991optimizing}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {H{\"o}lzle}{H.}%
+     {Urs}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chambers}{C.}%
+     {Craig}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ungar}{U.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{HUCCUD1}
+  \strng{fullhash}{HUCCUD1}
+  \field{sortinit}{H}
+  \field{booktitle}{ECOOP'91 European Conference on Object-Oriented
+  Programming}
+  \field{pages}{21\bibrangedash 38}
+  \field{title}{Optimizing dynamically-typed object-oriented languages with
+  polymorphic inline caches}
+  \field{year}{1991}
+\endentry
+
+\entry{holzle1994third}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {H{\"o}lzle}{H.}%
+     {Urs}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ungar}{U.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{HUUD1}
+  \strng{fullhash}{HUUD1}
+  \field{sortinit}{H}
+  \field{booktitle}{ACM SIGPLAN Notices}
+  \field{number}{10}
+  \field{pages}{229\bibrangedash 243}
+  \field{title}{A third-generation SELF implementation: reconciling
+  responsiveness with performance}
+  \field{volume}{29}
+  \field{year}{1994}
+\endentry
+
 \entry{WebKitURL}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -229,6 +378,49 @@
   \field{title}{Efficient and General On-Stack Replacement for Aggressive
   Program Specialization.}
   \field{year}{2006}
+\endentry
+
+\entry{suganuma2001dynamic}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Suganuma}{S.}%
+     {Toshio}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yasue}{Y.}%
+     {Toshiaki}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kawahito}{K.}%
+     {Motohiro}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Komatsu}{K.}%
+     {Hideaki}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nakatani}{N.}%
+     {Toshio}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{ST+1}
+  \strng{fullhash}{STYTKMKHNT1}
+  \field{sortinit}{S}
+  \field{booktitle}{ACM SIGPLAN Notices}
+  \field{number}{11}
+  \field{pages}{180\bibrangedash 195}
+  \field{title}{A dynamic optimization framework for a Java just-in-time
+  compiler}
+  \field{volume}{36}
+  \field{year}{2001}
 \endentry
 
 \lossort

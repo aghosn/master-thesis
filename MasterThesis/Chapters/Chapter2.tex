@@ -62,7 +62,8 @@ In fact, the OSR mechanism, in theory, allows to perform a recompilation at any 
 As an adaptative compilation mechanism, it enables to delay the compilation of a code artefact and therefore enables to gather more information about the current execution profile.
 These information can then be used to produce higher quality compiled code, with better execution performances.\\
 
-For dynamic languages, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
+REFORMULATE AND USE QIAN CITED PAPERS!!
+For dynamic languages and VMs, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
 Code specialization consists in tuning the code to better fit a particular use, hence yielding better performances.
 Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
 One of the main challenges is to identify which version better fits the current execution need.
@@ -441,8 +442,6 @@ Restarting the optimization process from scratch might therefore yield a more pe
 %List examples
 %Try to keep good performances.
 %Hard to generate the correct continuation function? Takes time might need to be done on the fly
-CLEAN UP AND REFORMULATE (MESSY)\\
-
 A third option is to exit to an optimized version of the function that does not rely on the assumption that failed.
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted and the base versions.
