@@ -37,6 +37,39 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{duboscq2014speculation}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Duboscq}{D.}%
+     {Gilles}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {W{\"u}rthinger}{W.}%
+     {Thomas}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {M{\"o}ssenb{\"o}ck}{M.}%
+     {Hanspeter}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{DGWTMH1}
+  \strng{fullhash}{DGWTMH1}
+  \field{sortinit}{D}
+  \field{booktitle}{Proceedings of the 2014 International Conference on
+  Principles and Practices of Programming on the Java platform: Virtual
+  machines, Languages, and Tools}
+  \field{pages}{187\bibrangedash 193}
+  \field{title}{Speculation without regret: reducing deoptimization meta-data
+  in the Graal compiler}
+  \field{year}{2014}
+\endentry
+
 \entry{fink2003design}{inproceedings}{}
   \name{author}{2}{}{%
     {{}%

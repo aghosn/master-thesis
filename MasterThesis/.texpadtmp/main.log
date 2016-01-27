@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 JAN 2016 14:29
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  27 JAN 2016 14:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1413,84 +1413,94 @@ Underfull \hbox (badness 10000) in paragraph at lines 282--287
 
  []
 
-(./Figures/funCall.c) [9] (./Figures/MultipleEntry.c)
-Underfull \hbox (badness 10000) in paragraph at lines 300--304
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 313--320
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 343--349
+(./Figures/funCall.c) [9] (./Figures/MultipleEntry.c) [10]
+Underfull \hbox (badness 10000) in paragraph at lines 345--352
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 361--374
+Underfull \hbox (badness 10000) in paragraph at lines 364--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--380
+Underfull \hbox (badness 10000) in paragraph at lines 369--378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--389
+Underfull \hbox (badness 10000) in paragraph at lines 379--384
 
  []
 
-File: Figures/wheretoexit.png Graphic file (type QTm)
-<use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 392--394
- [][] 
- []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
+Underfull \hbox (badness 10000) in paragraph at lines 389--393
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 406--410
+File: Figures/wheretoexit.png Graphic file (type QTm)
+ <use  "Figures/wheretoexit.png" >
+Overfull \hbox (9.04208pt too wide) in paragraph at lines 396--398
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--415
+Underfull \hbox (badness 10000) in paragraph at lines 410--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--428
+Underfull \hbox (badness 10000) in paragraph at lines 415--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--435
+Underfull \hbox (badness 10000) in paragraph at lines 425--432
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 433--439
 
  []
 
 
-LaTeX Warning: Reference `McJIT' on page 14 undefined on input line 445.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 442--462
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
-) (./Chapters/Chapter3.tex [14] [15] [16
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--451
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--467
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--482
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 492--502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--507
+
+ []
+
+) (./Chapters/Chapter3.tex [15] [16
 
 ]
 Chapter 3.
@@ -1991,7 +2001,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  27578 strings out of 493706
- 496876 string characters out of 6145768
+ 496902 string characters out of 6145768
  724473 words of memory out of 5000000
  30609 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000

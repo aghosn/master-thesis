@@ -24,11 +24,11 @@
 \BOOKMARK [2][-]{subsection.119}{Why\040the\040Deoptimization\040case\040is\040more\040interesting?}{section.118}% 24
 \BOOKMARK [2][-]{subsection.120}{Where\040do\040we\040exit?}{section.118}% 25
 \BOOKMARK [3][-]{section*.122}{The\040Interpreter}{subsection.120}% 26
-\BOOKMARK [3][-]{section*.123}{The\040base\040version\040instrumented}{subsection.120}% 27
+\BOOKMARK [3][-]{section*.123}{The\040compiled\040base\040version}{subsection.120}% 27
 \BOOKMARK [3][-]{section*.124}{A\040less\040optimized\040version}{subsection.120}% 28
 \BOOKMARK [1][-]{section.125}{Constraints\040on\040the\040OSR\040Mechanism}{chapter.11}% 29
-\BOOKMARK [2][-]{subsection.126}{space\040vs.\040time}{section.125}% 30
-\BOOKMARK [2][-]{subsection.127}{Limits\040on\040supported\040optimizations}{section.125}% 31
+\BOOKMARK [2][-]{subsection.126}{The\040OSR\040trade-offs}{section.125}% 30
+\BOOKMARK [2][-]{subsection.127}{Limits\040on\040optimizations}{section.125}% 31
 \BOOKMARK [0][-]{chapter.128}{Related\040Work}{}% 32
 \BOOKMARK [1][-]{section.129}{The\040origins:\040SELF\040Debugging}{chapter.128}% 33
 \BOOKMARK [1][-]{section.137}{OSR\040&\040VMs}{chapter.128}% 34
