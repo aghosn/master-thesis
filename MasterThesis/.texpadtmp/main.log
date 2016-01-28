@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 JAN 2016 12:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 JAN 2016 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2028,48 +2028,125 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [33] [34
+) (./Chapters/Chapter6.tex [33] [34
+
+]
+Chapter 6.
+--------------------
+ 6. Conclusion
+--------------------
+
+./Chapters/Chapter6.tex:10: LaTeX Error: Command \keyword already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 \newcommand{\keyword}[1]{\textbf{#1}}
+                                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Chapters/Chapter6.tex:11: LaTeX Error: Command \tabhead already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 \newcommand{\tabhead}[1]{\textbf{#1}}
+                                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Chapters/Chapter6.tex:12: LaTeX Error: Command \code already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \newcommand{\code}[1]{\texttt{#1}}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Chapters/Chapter6.tex:13: LaTeX Error: Command \file already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 \newcommand{\file}[1]{\texttt{\bfseries#1}}
+                                                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Chapters/Chapter6.tex:14: LaTeX Error: Command \option already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \newcommand{\option}[1]{\texttt{\itshape#1}}
+                                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) (./Appendices/AppendixA.tex [35] [36
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [35] [36
+) [37] [38
 
 ]
-Overfull \hbox (0.93102pt too wide) in paragraph at lines 283--283
+Overfull \hbox (0.93102pt too wide) in paragraph at lines 284--284
 []\T1/ppl/m/n/10.95 Craig Cham-bers and David Un-gar. ^^P  Mak-ing pure object-
 oriented lan-guages prac-
  []
 
 
-Overfull \hbox (2.77666pt too wide) in paragraph at lines 283--283
+Overfull \hbox (2.77666pt too wide) in paragraph at lines 284--284
 \T1/ppl/m/n/10.95 MAT-LAB through just-in-time spe-cial-iza-tion^^Q. In: \T1/pp
 l/m/it/10.95 Com-piler Con-struc-tion\T1/ppl/m/n/10.95 . Springer.
  []
 
 Missing character: There is no ’ in font pplr8t!
-[37]
-Overfull \hbox (5.35594pt too wide) in paragraph at lines 283--283
+[39]
+Overfull \hbox (5.35594pt too wide) in paragraph at lines 284--284
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
 5 : [][]$\T1/pcr/m/n/10.95 www . jikesrvm .
  []
 
 
-Overfull \hbox (2.60896pt too wide) in paragraph at lines 283--283
+Overfull \hbox (2.60896pt too wide) in paragraph at lines 284--284
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
-[38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
+[40]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 287.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 287.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 288.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 288.
 
 LaTeX Warning: There were undefined references.
 
@@ -2078,13 +2155,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27597 strings out of 493706
- 497329 string characters out of 6145768
+ 27604 strings out of 493706
+ 497464 string characters out of 6145768
  724456 words of memory out of 5000000
- 30628 multiletter control sequences out of 15000+600000
+ 30632 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (60 pages).
+xpadtmp/main.pdf (62 pages).
