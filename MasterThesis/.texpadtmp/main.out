@@ -32,7 +32,7 @@
 \BOOKMARK [0][-]{chapter.128}{Related\040Work}{}% 32
 \BOOKMARK [1][-]{section.129}{The\040origins:\040SELF\040Debugging}{chapter.128}% 33
 \BOOKMARK [1][-]{section.137}{OSR\040&\040VMs}{chapter.128}% 34
-\BOOKMARK [2][-]{subsection.138}{HotSpot}{section.137}% 35
+\BOOKMARK [2][-]{subsection.138}{Java\040HotSpot}{section.137}% 35
 \BOOKMARK [2][-]{subsection.139}{Jikes\040RVM}{section.137}% 36
 \BOOKMARK [2][-]{subsection.143}{WebKit\040VM}{section.137}% 37
 \BOOKMARK [1][-]{section.145}{OSR\040&\040LLVM}{chapter.128}% 38

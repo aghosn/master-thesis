@@ -119,29 +119,47 @@ OSR enables this transition to happen when the function is executing, rather tha
 This section presents several examples of VMs that support on-stack replacement. 
 The section is divided into two parts: we first presents several solutions that provide OSR for various virtual machines, then we briefly introduce LLVM, a VM presenting an interesting framework in which we believe on-stack replacement mechanism should fit.\\ 
 
-\subsection{HotSpot}\label{HotSpot}
+\subsection{Java HotSpot}\label{HotSpot}
 
-The Java HotSpot Performance Engine(CITE web) is a Java virtual machine developed and maintained by Oracle.
+The Java HotSpot Performance Engine is a Java virtual machine developed and maintained by Oracle.
 The Java HotSpot VM provides features such as a class loader, a bytecode interpreter, Client and Server virtual machines, several garbage collectors, just-in-time compilation and adaptive optimizations.\\
 
-The Java HotSpot Engine supports on-stack replacement in order to provide efficient deoptimization\cite{paleczny2001java}.
-When a class loading invalidates an optimization decision, such as a call inlining, the methods relying on this decision need to be deoptimized.
-Threads that are executing in a method that needs to be deoptimized are stopped as soon as they reach a safepoint.
-The JVM state is recorded as an input of safepoints and procedure calls.
-This implies, as a side effect, that the entire JVM state is marked as "live" at a safepoint, hence extending the live range of some values.
-The Java HotSpot Engine then extracts the native frame corresponding to this execution trace, and converts it into a byte code interpreter frame.
-The execution of the method then continues in the interpreter.
-UNCOMMON TRAPS\\
+The Java HotSpot Server Compiler\cite{paleczny2001java} supports on-stack replacement of interpreter frames with compiled-code frames, and deoptimization from compiled-code back to the interpreter.
+It relies on adaptative optimizations, that focus on performance critical methods\cite{paleczny2001java, holzle1994third}.
+The Java HotSpot Server compiler identifies such methods by using method-entry and backward-branch counters, along with other heuristics related to the method's caller.
+Thanks to these counters, the run time system is able to identify frequently executed or long running methods and compile them to improve their run time performance.
+It can further decide to compile one or several of the methods callers.
+This is called an \textit{upward traversal} and enables to speed the path that leads to a hot method's invocation.  
+On-stack replacement is used when the backward-branch counter exceeds the \textit{OnStackReplacementThreshold} value.
+The continuation function is compiled with an entry point at the target of the backward-branch.
+The run time system transfers the execution from the interpreter to this newly compiled code.\\
+
+In HotSpot, deoptimization might be triggered by two different events: the compilation of a reference to an uninitialised class, and a class loading that invalidates some previous compilation optimization.
+Class initialization and class loading are performed by the interpreter. 
+Whenever a reference to an uninitialized class is compiled, HotSpot generates an uncommon trap, i.e., a trampoline back to interpreted mode. 
+The optimized code is  marked as being unusable, and any thread entering the method are interpreted until the recompilation of the method is achieved properly. 
+The second form of deoptimization happens when a class loading invalidates some optimization performed while generating compiled code (e.g., inlining of methods).
+A thread that is executing in the invalidated method is "rolled forward"\cite{paleczny2001java} to a safepoint.
+When the safepoint is reached, their native frame is extracted and converted into an interpreter frame.
+The thread then continues its execution in the interpreter. 
+For consistency, the class load that invalidated the compiled method becomes visible to the thread only when it reaches its safepoint.\\
+
+The deoptimization process requires the Java HotSpot to be able to generate an interpreter JVM state at different points of the program.
+In order to do so, the Java HotSpot Server records the "exact JVM state"\cite{paleczny2001java} at each safepoint and procedure call.
+This implies that the entire JVM state is considered live at the safepoint, which in turns, might extend the live range of some values.
+During code emission, the compiler emits a table that maps the JVM state to the resting place of the generated optimized code's JVM state information.\\
 
 \subsection{Jikes RVM}
 
-The Jikes Research Virtual Machine (RVM)(REF) is an open source, self hosted, i.e., it is entirely implemented in Java, virtual machine for Java programs.
-%TODO compile only from Qian.
-It provides advanced state-of-the-art features such as dynamic compilation, adaptive optimizations, garbage collection, thread scheduling, and synchronization (CITE).\\
+The Jikes Research Virtual Machine (RVM)\cite{JikesRVMURL} is an open source, self hosted, i.e., it is entirely implemented in Java, virtual machine for Java programs.
+One specificity of the Jikes RVM is that it exhibits a \textit{compile-only} approach, i.e., the system compiles all bytecode to native code before execution.
+The RVM provides two compilers: a \textit{baseline} compiler, which generates poor quality code quickly, and an \textit{optimizing} compiler. 
+The optimizing compiler provides a full suite of optimizations, categorized into three different levels.
+The RVM provides advanced state-of-the-art features such as dynamic compilation, adaptive optimizations, garbage collection, thread scheduling, and synchronization\cite{JikesRVMURL}.\\
 
-Jikes RVM is an extensible framework in which different On-Stack replacement techniques have been implemented.
+Jikes RVM is an extensible framework in which on-stack replacement techniques have been implemented in two steps, i.e., a first implementation\cite{fink2003design}, and then a augmented version of OSR\cite{soman2006efficient}.
 %The first
-\citean{fink2003design} implemented OSR support in JikesRVM. 
+\citean{fink2003design} implemented OSR support in Jikes RVM. 
 Their implementation relies on JVM scope descriptor, associated to method activation frames.
 A scope descriptor contains the thread running the activation, the bytecode index that corresponds to the program counter, values of all local and stack locations, and a reference to the activation's stack frame.
 The OSR transition is divided into three steps: 

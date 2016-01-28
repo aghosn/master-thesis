@@ -326,6 +326,27 @@
   \field{year}{2013}
 \endentry
 
+\entry{JikesRVMURL}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Organization}{O.}%
+     {Jikes RVM~Project}{J.~R.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{OJRP1}
+  \strng{fullhash}{OJRP1}
+  \field{sortinit}{O}
+  \field{title}{{Jikes RVM} Jikes RVM}
+  \verb{url}
+  \verb www.jikesrvm.org
+  \endverb
+  \field{year}{2013}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{paleczny2001java}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%

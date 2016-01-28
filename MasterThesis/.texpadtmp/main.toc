@@ -35,12 +35,12 @@
 \contentsline {chapter}{\numberline {3}Related Work}{17}{chapter.128}
 \contentsline {section}{\numberline {3.1}The origins: SELF Debugging}{17}{section.129}
 \contentsline {section}{\numberline {3.2}OSR \& VMs}{20}{section.137}
-\contentsline {subsection}{\numberline {3.2.1}HotSpot}{20}{subsection.138}
+\contentsline {subsection}{\numberline {3.2.1}Java HotSpot}{20}{subsection.138}
 \contentsline {subsection}{\numberline {3.2.2}Jikes RVM}{21}{subsection.139}
 \contentsline {subsection}{\numberline {3.2.3}WebKit VM}{22}{subsection.143}
-\contentsline {section}{\numberline {3.3}OSR \& LLVM}{23}{section.145}
-\contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{23}{subsection.146}
-\contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{24}{subsection.148}
+\contentsline {section}{\numberline {3.3}OSR \& LLVM}{24}{section.145}
+\contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{24}{subsection.146}
+\contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{25}{subsection.148}
 \contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the MCJIT OSR implementation}{25}{subsection.149}
 \contentsline {section}{\numberline {3.4}A classification summary}{29}{section.166}
 \contentsline {chapter}{\numberline {4}OSR Kit}{31}{chapter.167}

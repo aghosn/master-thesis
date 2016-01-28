@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  27 JAN 2016 17:15
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  27 JAN 2016 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1648,86 +1648,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--126
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--135
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--141
+Underfull \hbox (badness 10000) in paragraph at lines 127--136
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 153--161
+Underfull \hbox (badness 10000) in paragraph at lines 137--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--174
+Underfull \hbox (badness 10000) in paragraph at lines 147--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--159
 
  []
 
 [21]
+Underfull \hbox (badness 10000) in paragraph at lines 171--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--192
+
+ []
+
 File: Figures/FTL.png Graphic file (type QTm)
- <use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 184--186
+<use  "Figures/FTL.png" >
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 202--204
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--199
-
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--206
+Underfull \hbox (badness 10000) in paragraph at lines 208--217
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 218--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--230
 
  []
 
 [23]
-File: Figures/SSAForm.png Graphic file (type QTm)
- <use  "Figures/SSAForm.png" >
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 248.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 248.
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--255
+Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--264
+Underfull \hbox (badness 10000) in paragraph at lines 250--255
+
+ []
+
+File: Figures/SSAForm.png Graphic file (type QTm)
+<use  "Figures/SSAForm.png" >
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 266.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 266.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--282
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 273--276
+Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--281
+Underfull \hbox (badness 10000) in paragraph at lines 296--299
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
@@ -1739,15 +1754,14 @@ File: Figures/MCJitArchitecture.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25]
 
-./Chapters/Chapter3.tex:325: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:343: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.325 
+l.343 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1769,20 +1783,20 @@ File: Figures/OSRPassCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:349: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:367: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.349 
+l.367 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--364
+Underfull \hbox (badness 10000) in paragraph at lines 368--382
 
  []
 
@@ -1798,26 +1812,24 @@ File: Figures/FOptCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:380: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:398: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.380 
+l.398 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 400--406
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 418--424
 
  []
 
-[28]) (./Chapters/Chapter4.tex [29] [30
-
-]
+) (./Chapters/Chapter4.tex [29] [30]
 Chapter 4.
 --------------------
  4. OSR Kit
@@ -1892,7 +1904,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Chapters/Chapter5.tex [31] [32
+) (./Chapters/Chapter5.tex [31
+
+] [32
 
 ]
 Chapter 5.
@@ -1986,6 +2000,13 @@ oriented lan-guages prac-
 
 Missing character: There is no ’ in font pplr8t!
 
+Overfull \hbox (5.35594pt too wide) in paragraph at lines 282--282
+[]\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
+s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
+5 : [][]$\T1/pcr/m/n/10.95 www . jikesrvm .
+ []
+
+
 Overfull \hbox (2.60896pt too wide) in paragraph at lines 282--282
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
@@ -2007,10 +2028,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27587 strings out of 493706
- 497126 string characters out of 6145768
+ 27588 strings out of 493706
+ 497148 string characters out of 6145768
  724473 words of memory out of 5000000
- 30618 multiletter control sequences out of 15000+600000
+ 30619 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
