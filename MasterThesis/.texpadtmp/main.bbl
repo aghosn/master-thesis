@@ -154,16 +154,43 @@
   \field{year}{2010}
 \endentry
 
-\entry{OSRKit}{online}{}
-  \name{author}{1}{}{%
+\entry{OSRKit}{inproceedings}{}
+  \name{author}{2}{}{%
     {{}%
-     {Daniele Cono~D’Elia}{D.~C.~D.}%
-     {Camil~Demetrescu}{C.~D.}%
+     {D'Elia}{D.}%
+     {Daniele~Cono}{D.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Demetrescu}{D.}%
+     {Camil}{C.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{DCDCD1}
-  \strng{fullhash}{DCDCD1}
+  \strng{namehash}{DDCDC1}
+  \strng{fullhash}{DDCDC1}
+  \field{sortinit}{D}
+  \field{booktitle}{Proceedings of the 2016 International Symposium on Code
+  Generation and Optimization (CGO 2016)}
+  \field{title}{Flexible On-Stack Replacement in LLVM}
+  \field{year}{2016}
+\endentry
+
+\entry{OSRKitGit}{online}{}
+  \name{author}{2}{}{%
+    {{}%
+     {D'Elia}{D.}%
+     {Daniele~Cono}{D.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Demetrescu}{D.}%
+     {Camil}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DDCDC1}
+  \strng{fullhash}{DDCDC1}
   \field{sortinit}{D}
   \field{title}{{OSRKit} OSRKit}
   \verb{url}
@@ -582,6 +609,27 @@
   compiler}
   \field{volume}{36}
   \field{year}{2001}
+\endentry
+
+\entry{RURL}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Team}{T.}%
+     {R~Core}{R.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TRC1}
+  \strng{fullhash}{TRC1}
+  \field{sortinit}{T}
+  \field{title}{{The R project} The R project}
+  \verb{url}
+  \verb www.r-project.org
+  \endverb
+  \field{year}{1993}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
 \endentry
 
 \lossort

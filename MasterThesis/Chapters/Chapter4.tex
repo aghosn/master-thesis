@@ -1,6 +1,6 @@
 % Chapter 4
 
-\chapter{OSR Kit} % Main chapter title
+\chapter{Deoptimization using OSR Kit} % Main chapter title
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
@@ -14,9 +14,68 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
+CITE THE PAPER BETTER !!!!!
+
+This chapter presents our design to support OSR transitions and OSR deoptimizations in LLVM, and more particularly in the RJIT project.
+Our design and implementation is based on OSR Kit\cite{OSRKit, OSRKitGit}, an OSR library for LLVM, implemented by \citean{OSRKit} at the department of Computer, Control, and Management Engineering of the Sapienza University of Rome.
+This implementation provides several features of existing techniques, that were never simultaneously supported in a single framework.
+It is flexible enough to be used to implement our own model for OSR deoptimization.
+We therefore decided to use and extend it, in order to provide OSR deoptimization for R.\\
+
 \section{Overview}
+This section presents our goals for this Master Thesis Project and justifies the use of the OSR Kit as the base of our OSR support in RJIT.\\
+
+MAYBE switch the Justification and the LLVM Library.\\
+
 \subsection{Justification}
+%Our goal: OSR deoptimization for R.
+    %R has shitty performances
+    %need aggressive optimizations
+    %Work with the rjit project, so based on LLVM. 
+    %Too soon to know what we really want, so need a mechanism as flexible as possible.
+%What do we want form OSR Kit? 
+    %A transition mechanism
+    %An LLVM library that is mostly optimization and language independent.
+        %Why? Because we want to work at the LLVM IR level, which is stable.
+%Why not from scratch?
+    %Reinventing the wheel seems like a waste of time. 
+    %Enables to focus on deoptimization case.
+    %Enables to test a proper optimization. 
+    %Can extend it with new features, can modify it.
+The goal of this Master Thesis project is to provide a flexible OSR deoptimization framework in LLVM, and use it to improve performances in RJIT, our LLVM JIT compiler for R.
+R is a programming language and software environment for the statistical computing and graphics, developed by the R Foundation for Statistical Computing\cite{RURL}.
+Due to SAY WHYYYYYYYYYYYYYYYYYYYYYYYYYY OOOOOHHHHH GOOOOOOODDDDDD WHHHYYYYYYYYYY, R exhibits very poor performances CITE SOMETHING.
+The RJIT project strives to improve these performances by providing a LLVM based JIT compiler for R. SAY MORE.
+The RJIT compiler is still pretty young, only a few months old.
+As a result, we lack FEEDBACK; DONT KNOW EXACTLY HOW TO IMPROVE PERF AND NEED TO EXPERIMENT.
+Therefore, we are looking for a flexible and extensible OSR mechanism that enables us to prototype and experiment various solutions, without trapping ourselves into a single model.\\
+
+The OSR Kit library\cite{OSRKit} is a flexible implementation of on-stack replacement in LLVM.
+The source-code for the library is available on Github\cite{OSRKitGit}, and the library can be used in any LLVM project by simply copy-pasting the OSR Kit files inside of it.
+The simple integration, the availability of the source code, and the flexibility of the framework make it a perfect base implementation upon which we can base our support for OSR deoptimization mechanism in RJIT.
+
+
+
 \subsection{An LLVM Library}
+
+The OSR Kit is a general-purpose, target-independent implementation of on-stack replacement for LLVM.
+As such, it can be used by any LLVM based compiler.
+The main goals of the OSR Kit project are:
+\begin{enumerate}
+    \item To allow chained OSR transitions, i.e., a continuation function can be instrumented to allow OSR transitions.
+    \item To support OSR entries and exits via the same instrumentation.
+    \item To allow transitions at arbitrary function locations.
+    \item To allow continuation functions to be either generated at run time, or already known at compilation time (i.e., generated on the fly or cached).
+    \item To encapsulate and hide the OSR implementation details from the front-end.
+    \item To encode OSR transitions entirely at the LLVM IR level.
+    \item To limit the intrusiveness of the OSR instrumentation.
+    \item To allow the LLVM's compilation pipeline to generate the most efficient native code for an instrumented function.
+\end{enumerate}
+
+%2 means that what the framework really provides is a transition mechanism. 
+%3 leaves the responsability to the user to id potential transition points
+%4 we have both the generated on the 
+
 
 \section{Resolved \& Unresolved OSR}
 \subsection{The Unresolved OSR}

@@ -502,17 +502,4 @@ A carefully instrumented execution framework could keep track of state informati
 OSR, and more specifically OSR exits, restricts code motion. 
 In the case of deoptimization, the guarded OSR point protects some portion of code that must not be executed if the OSR exit is to be taken.
 This implies that the compiler must not move any instruction that depends on this OSR exit condition above the OSR point.
-The OSR instrumentation therefore limits code motion, which in turn might decrease the number of opportunities for compiler optimizations.\\
-
-
-
-
-
-
-
-
-
-
-
-
-
+The OSR instrumentation therefore limits code motion, which in turn might decrease the number of opportunities for compiler optimizations.
