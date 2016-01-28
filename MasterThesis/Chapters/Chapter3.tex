@@ -131,7 +131,8 @@ Thanks to these counters, the run time system is able to identify frequently exe
 It can further decide to compile one or several of the methods callers.
 This is called an \textit{upward traversal} and enables to speed the path that leads to a hot method's invocation.  
 On-stack replacement is used when the backward-branch counter exceeds the \textit{OnStackReplacementThreshold} value.
-The continuation function is compiled with an entry point at the target of the backward-branch.
+The continuation function is compiled with an \textit{additional} entry point at the target of the backward-branch.
+A continuation function is therefore able to serve OSR transitions as well as future method invocations.
 The run time system transfers the execution from the interpreter to this newly compiled code.\\
 
 In HotSpot, deoptimization might be triggered by two different events: the compilation of a reference to an uninitialised class, and a class loading that invalidates some previous compilation optimization.
@@ -168,7 +169,7 @@ The OSR transition is divided into three steps:
     \item Generate the new code for the suspended activation.
     \item Transfer the execution in the suspended thread to a new compiled code.
 \end{enumerate}
-\citean{fink2003design} generates the target function by compiling a specialized version of the method for each activation that is replaced, as well as a new version for future invocations.
+\citean{fink2003design} generate the target function by compiling a specialized version of the method for each activation that is replaced, as well as a new version for future invocations.
 In other words, instead of allowing multiple entry points per function \cite{lameed2013modular, paleczny2001java}, this JikesRVM OSR implementation generates a specialized version of the target function that has only one entry point, corresponding to the instruction from which the OSR transition was triggered.
 Each such method contains a special \textit{prologue}, responsible for saving values into locals and loading values on the stack.
 OSR transitions can be taken at special points, called \textit{OSR points}, introduced by the optimizing compiler and that correspond to points where the running activation may be interrupted.
@@ -177,24 +178,23 @@ An OSR point is implemented as a call that takes all live variables as arguments
 This constraints some optimizations such as dead code elimination, load elimination, store elimination and code motion by extending the liveness scope of some variables.
 An OSR point transfers control to an exit block, i.e., it can be viewed as a non-return call.\\
 
-\citean{soman2006efficient} proposed a general-purpose OSR mechanism, for JikesRVM, that presents less restrictions for compiler optimizations than the previous approach, while decoupling the OSR implementation from the optimization process.
-They extend the previous OSR implementation\cite{fink2003design} to enable OSR transition at, and accross points at which the execution can be suspended.
+\citean{soman2006efficient} proposed a general-purpose OSR mechanism, for the Jikes RVM, that presents less restrictions for compiler optimizations than the previous approach, while decoupling the OSR implementation from the optimization process.
+They extend the previous OSR implementation\cite{fink2003design} to enable OSR transition at, and across points at which the execution can be suspended.
 In order to do so, they rely on a special data structure called a \textit{variable map}(VARMAP).
 A VARMAP is associated with each method, and consists in a list of thread-switching points and their live variables.
 When the compiler performs optimizations, the VARMAP is updated accordingly.
-Once the compilation completes, the VARMAP is encoded into a compressed map that contains an entry for each OSR point present in the method. EXPAND ON HOW OSR IS PERFORMED.
+Once the compilation completes, the VARMAP is encoded into a compressed map that contains an entry for each OSR point present in the method.
+The VARMAP is decoupled from the compiled code, i.e., it does not influence the liveness of local variables.
 \citean{soman2006efficient} also propose an alternative lazy triggering of on-stack replacement.
 Lazy triggering consists in taking an OSR transition due to events in the environment, i.e., events triggered by the runtime. 
-Whenever the runtime deems an assumption invalide, it invokes a helper function called \textit{OSR helper} that either patches the code of the executing methods to call the OSR process, or it modifies return addresses of the callees of the method to be replaced to point to the OSR helper.
+Whenever the runtime deems an assumption invalide, it invokes a helper function called \textit{OSR helper} that either patches the code of the executing methods to call the OSR process, or it modifies return addresses of the callees of the method to point to the OSR helper.
 When a callee returns, the OSR helper creates a new stack frame with the state extracted from the specialized method's stack and saves all of the specialized method registers into its stack frame. 
 The return address of the OSR helper points to the current instruction in the specialized code, which is then used during OSR to identify the location to resume the execution in the new version of the method.
 Lazy triggering improves the code efficiency by avoiding the extra cost of guards evaluations.\\
 
-EXPERIMENTAL RESULTS.
-
 \subsection{WebKit VM}\label{webkit}
 
-WebKit is an open source web browser engine used to improve JavaScript performances.
+WebKit\cite{WebKitURL} is an open source web browser engine used to improve JavaScript performances.
 It exhibits a Four-Tier VM architecture. 
 The WebKit run-time compilation flow is described by Figure \ref{FTL}.\\
 \begin{figure}[h]
@@ -205,13 +205,13 @@ The WebKit run-time compilation flow is described by Figure \ref{FTL}.\\
 \label{FTL}
 \end{figure}
  
-Forward arrows represent \textit{OSR entries}, i.e., a transformation that yields a more optimized version of the code at run-time.
-Backward arrows correspond to \textit{OSR exits}, i.e., a transformation that yields a less optimized version of the code at run-time.
+Forward arrows represent \textit{OSR entries}, i.e., a transformation that yields a more optimized version of the code at run time.
+Backward arrows correspond to \textit{OSR exits}, i.e., a transformation that yields a less optimized version of the code at run time.
 The low level interpreter (LLInt) is used for low latency start up.
 The baseline JIT generates WebKit bytecode with no optimization enabled.
 The transition from the first tier to the second one happens when a statement is executed more than a hundred times or a function is called more than six times.
 The data flow graph (DFG) JIT is triggered when a statement executes more than a thousand times or a function is called more than sixty-six times.
-The FTL tier relies on LLVM machine code optimizations to generate a fast version of portions of the code.
+The Fourth-Tier LLVM(FTL)\cite{WebKitFTL} relies on LLVM machine code optimizations to generate a fast version of portions of the code.
 In order to hide the costs of the translation to LLVM IR and its compilation time, the FTL is triggered only for long running portions of the code that are currently executing.
 There are two kinds of transitions in WebKit: the ones contained entirely inside the WebKit framework (i.e., transitions 1,2 \& 4 in Figure \ref{FTL}), and the ones that involve LLVM (i.e., 3 \& 5 in Figure \ref{FTL}).\\
 
@@ -220,7 +220,7 @@ There is no control over the stack layout or the optimized code produced by LLVM
 In the case of transition 3, a different LLVM version is generated for each entry point that the framework desires to have inside this function.
 In WebKit, such entry points are located at loop headers. 
 This choice makes sense with regard to the condition to enter the FTL, i.e., transition 3 is taken for long running portions of code that could be improved thanks to LLVM low level optimizations.
-WebKit has to generate a different version for each entry points for two main reasons: LLVM allows only single entry points to functions (going around this limitation would require to modify LLVM IR and implementation), and instrumenting a function with several entry points would impact on the quality and performance of the generated native code by extending the code's length and restricting code motion.\\
+WebKit has to generate a different version of the function for each entry points for two main reasons: LLVM allows only single entry points to functions (going around this limitation would require to modify LLVM IR and implementation), and instrumenting a function with several entry points would impact on the quality and performance of the generated native code by extending the code's length and restricting code motion.\\
 
 Performing transition 3 requires to get the current state of execution and identify the entry point corresponding to the current instruction being executed.
 The DFG dumps its state into a scratch buffer.
@@ -231,33 +231,33 @@ A special data structure, called a Stackmap, enables to keep the mapping between
 Transition 5 is harder as it requires to extract the execution state from LLVM.
 WebKit has two different mechanisms to enables OSR exits: the exit thunk and the invalidation points.
 In the first case, WebKit introduces exit branches at OSR exit points.
-The branch is guarded by an OSR exit condition and is a no-return tail call to a special function that takes all the live non-constant and not accounted for bytecode values.
+The branch is guarded by an OSR exit condition and is a no-return tail call to a special function that takes all the live non-constant and not accounted for bytecode values as inputs.
 The second mechanism enables to remove the guard.
 Since we assume that the portion of code that is instrumented is executed a lot of times, the cost of testing the condition can have a great impact on the overall execution time.
 This mechanism relies on special LLVM intrinsics, namely patchpoints and stackmap shadow bytes.
 A patchpoint enables to reserve some extra space in the code, filled with nop sleds. 
 When the WebKit framework detects that an exit should be taken, it overwrites the nop sleds with the correct function call to perform the OSR exit.
 This breaks the optimized version of the code which cannot be re-used later on and must be collected.
-The stackmap shadow bytes improves on this technique by allowing to directly overwrite the code, without having any nop sled generated before hand.
+The stackmap shadow bytes improves on this technique by allowing to directly overwrite the code, without having any nop sled generated before hand.\\
 
 WebKit is a project that heavily, and successfully relies on OSR to improve performances.
-The web browser engine is used in Apple Web browser Safari and enables a net improvement of performances why proving to be reliable(CITE?).
+The web browser engine is used in Apple Web browser Safari and enables a net improvement of performances while proving to be reliable.
 Although successful, it does not provide a general and reusable framework for OSR in LLVM that other projects could benefit from.\\
 
 \section{OSR \& LLVM}\label{OSR&VM}
 \subsection{What is LLVM?}
 %TODO cite the llvm paper?
-LLVM is a compiler infrastructure providing a set of reusable libraries.
+LLVM\cite{llvmUrl, lattner2004llvm}, formerly called Low-Level Virtual Machine, is a compiler infrastructure that provides a set of reusable libraries.
 LLVM provides the middle layers of a compiler system and a large set of optimizations for compile-time, link-time, run-time, and idle-time for arbitrary programming languages.
 These optimizations are performed on an intermediate representation (IR) of the code and yield an optimized IR.
 The LLVM framework also provides tools to convert and link code into machine dependent assembly code for a specific target platform.
-LLVM supports several instruction sets including ARM, MIPS, AMD TeraScale, and x86/x86-64(CITE?).\\
+LLVM supports several instruction sets including ARM, MIPS, AMD TeraScale, and x86/x86-64\cite{llvmUrl}.\\
 
 The LLVM intermediary representation is a language-independent set of instructions that also provides a type system.
-The LLVM IR is in static single assignment form (SSA), which requires every variable to be defined before it is used and assigned exactly once. 
-SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction and register allocation.
+The LLVM IR is in static single assignment (SSA) form, which requires every variable to be defined before being used, and assigned exactly once. 
+SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction, and register allocation\cite{appel1998ssa}.
 The SSA requirement for variables to be assigned only once requires a special mechanism, called a $\phi$-node, when a value depends on which control flow branch was executed before reaching the current variable definition.
-Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.
+Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.\\
 
 \begin{figure}[h]
 \centering
@@ -273,9 +273,9 @@ Any type construct can then be represented as a combination of these types.\\
 
 %TODO reformulate/restructure this §
 The LLVM framework is a versatile tool that enables to implement many programming languages paradigms.
-LLVM compilers exist for several mainstream/popular languages such as Java, Python, Objective-C, and Ruby have an LLVM compiler.
+LLVM-based compilers exist for several mainstream/popular languages such as Java, Python, Objective-C, and Ruby.
 Other languages, like Haskell, Scala, Swift, Rust, Ada, and Fortran also have an LLVM compiler implementation.
-LLVM basic types enable to support object-oriented languages, such as Java and Python, dynamically typed languages like R or statically typed like Scala.
+LLVM basic types enable to support object-oriented languages, such as Java and Python, dynamically typed languages like R, or statically typed like Scala.
 LLVM also enables to model functional languages such as Haskell, as well as imperative ones. 
 Furthermore, it supports reflection and, thanks to dynamic linking, modular languages (e.g., Haskell).
 The tools provided enable static compilation as well as dynamic compilation techniques such as Just-In-Time compilation (JIT).\\
@@ -292,7 +292,7 @@ Implementing OSR for LLVM not only serves several languages, but also allows to 
 As explained previously, LLVM supports several instructions sets corresponding to different architectures.
 By implementing OSR in LLVM, we get portability among these platforms for free.\\
 
-\subsection{OSR as an LLVM library: the MCJIT OSR implementation}\label{McJIT}
+\subsection{OSR as an LLVM library: the McJIT OSR implementation}\label{McJIT}
 The MCJIT OSR support(CITE) is an attempt at providing an OSR library compatible with the standard LLVM implementation.
 Lameed \& Hendren claim to have come up with a clean modular, and re-usable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
 There implementation answers to five challenges, listed in the paper CITE and that we reproduce here:\\ 

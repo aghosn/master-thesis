@@ -38,7 +38,7 @@
 \BOOKMARK [1][-]{section.145}{OSR\040&\040LLVM}{chapter.128}% 38
 \BOOKMARK [2][-]{subsection.146}{What\040is\040LLVM?}{section.145}% 39
 \BOOKMARK [2][-]{subsection.148}{Why\040do\040we\040want\040OSR\040in\040LLVM?}{section.145}% 40
-\BOOKMARK [2][-]{subsection.149}{OSR\040as\040an\040LLVM\040library:\040the\040MCJIT\040OSR\040implementation}{section.145}% 41
+\BOOKMARK [2][-]{subsection.149}{OSR\040as\040an\040LLVM\040library:\040the\040McJIT\040OSR\040implementation}{section.145}% 41
 \BOOKMARK [1][-]{section.166}{A\040classification\040summary}{chapter.128}% 42
 \BOOKMARK [0][-]{chapter.167}{OSR\040Kit}{}% 43
 \BOOKMARK [1][-]{section.168}{Overview}{chapter.167}% 44

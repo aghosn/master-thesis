@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {3.3}OSR \& LLVM}{24}{section.145}
 \contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{24}{subsection.146}
 \contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{25}{subsection.148}
-\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the MCJIT OSR implementation}{25}{subsection.149}
+\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the McJIT OSR implementation}{26}{subsection.149}
 \contentsline {section}{\numberline {3.4}A classification summary}{29}{section.166}
 \contentsline {chapter}{\numberline {4}OSR Kit}{31}{chapter.167}
 \contentsline {section}{\numberline {4.1}Overview}{31}{section.168}

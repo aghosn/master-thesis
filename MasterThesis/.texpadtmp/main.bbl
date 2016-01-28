@@ -16,6 +16,25 @@
   {}
 \endgroup
 
+\entry{appel1998ssa}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Appel}{A.}%
+     {Andrew~W.}{A.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{AAW1}
+  \strng{fullhash}{AAW1}
+  \field{sortinit}{A}
+  \field{number}{4}
+  \field{pages}{17\bibrangedash 20}
+  \field{title}{SSA is functional programming}
+  \field{volume}{33}
+  \field{journaltitle}{SIGPLAN notices}
+  \field{year}{1998}
+\endentry
+
 \entry{arnold2000adaptive}{inproceedings}{}
   \name{author}{5}{}{%
     {{}%
@@ -186,6 +205,27 @@
   \field{year}{2003}
 \endentry
 
+\entry{llvmUrl}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Group}{G.}%
+     {LLVM~Developer}{L.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GLD1}
+  \strng{fullhash}{GLD1}
+  \field{sortinit}{G}
+  \field{title}{{LLVM web site} LLVM web site}
+  \verb{url}
+  \verb http://llvm.org/
+  \endverb
+  \field{year}{2003}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{holzle1992debugging}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -326,6 +366,33 @@
   \field{year}{2013}
 \endentry
 
+\entry{lattner2004llvm}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lattner}{L.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adve}{A.}%
+     {Vikram}{V.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{LCAV1}
+  \strng{fullhash}{LCAV1}
+  \field{sortinit}{L}
+  \field{booktitle}{Code Generation and Optimization, 2004. CGO 2004.
+  International Symposium on}
+  \field{pages}{75\bibrangedash 86}
+  \field{title}{LLVM: A compilation framework for lifelong program analysis \&
+  transformation}
+  \field{year}{2004}
+\endentry
+
 \entry{JikesRVMURL}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -376,6 +443,27 @@
   \field{pages}{1\bibrangedash 1}
   \field{title}{The java hotspot TM server compiler}
   \field{year}{2001}
+\endentry
+
+\entry{WebKitFTL}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pizlo}{P.}%
+     {Filip}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PF1}
+  \strng{fullhash}{PF1}
+  \field{sortinit}{P}
+  \field{title}{{WebKit FTL} WebKit FTL}
+  \verb{url}
+  \verb https://webkit.org/blog/3362/introducing-the-webkit-ftl-jit/
+  \endverb
+  \field{year}{2014}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
 \endentry
 
 \entry{soman2006efficient}{inproceedings}{}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 JAN 2016 09:23
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 JAN 2016 11:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1648,32 +1648,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--126
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--136
+Underfull \hbox (badness 10000) in paragraph at lines 127--137
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 137--146
+Underfull \hbox (badness 10000) in paragraph at lines 138--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Underfull \hbox (badness 10000) in paragraph at lines 148--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--159
+Underfull \hbox (badness 10000) in paragraph at lines 155--160
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 171--179
+Underfull \hbox (badness 10000) in paragraph at lines 172--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--192
+Overfull \hbox (1.48387pt too wide) in paragraph at lines 181--194
+\T1/ppl/m/n/10.95 proach, while de-cou-pling the OSR im-ple-men-ta-tion from th
+e op-ti-miza-tion pro-cess. They
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--194
 
  []
 
@@ -1701,6 +1707,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--230
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--242
+
+ []
+
 [23]
 Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
@@ -1708,6 +1719,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 250--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--261
 
  []
 
@@ -1726,12 +1742,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 271--273
 
  []
 
-
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 275--282
 
  []
 
-[24]
+
 Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
@@ -1754,6 +1770,7 @@ File: Figures/MCJitArchitecture.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[26]
 
 ./Chapters/Chapter3.tex:343: LaTeX Error: There's no line here to end.
 
@@ -1769,11 +1786,8 @@ or  <return>  to continue without it.
 
 File: Figures/BaseCFG.png Graphic file (type QTm)
 <use  "Figures/BaseCFG.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: Figures/InsertCFG.png Graphic file (type QTm)
-<use  "Figures/InsertCFG.png" >
+ <use  "Figures/InsertCFG.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1800,7 +1814,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--382
 
  []
 
-[26]
+[27]
 File: Figures/FCFG.png Graphic file (type QTm)
  <use  "Figures/FCFG.png" >
 
@@ -1824,7 +1838,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[27] [28]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 418--424
 
  []
@@ -2006,15 +2020,14 @@ s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
 5 : [][]$\T1/pcr/m/n/10.95 www . jikesrvm .
  []
 
-
+[37]
 Overfull \hbox (2.60896pt too wide) in paragraph at lines 282--282
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-[37]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 286.
- [38]
+[38]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 286.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -2028,10 +2041,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27588 strings out of 493706
- 497148 string characters out of 6145768
+ 27593 strings out of 493706
+ 497253 string characters out of 6145768
  724473 words of memory out of 5000000
- 30619 multiletter control sequences out of 15000+600000
+ 30624 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
