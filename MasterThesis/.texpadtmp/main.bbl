@@ -124,6 +124,36 @@
   \field{year}{1991}
 \endentry
 
+\entry{chevalier2010optimizing}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Chevalier-Boisvert}{C.-B.}%
+     {Maxime}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hendren}{H.}%
+     {Laurie}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Verbrugge}{V.}%
+     {Clark}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{CBMHLVC1}
+  \strng{fullhash}{CBMHLVC1}
+  \field{sortinit}{C}
+  \field{booktitle}{Compiler Construction}
+  \field{pages}{46\bibrangedash 65}
+  \field{title}{Optimizing MATLAB through just-in-time specialization}
+  \field{year}{2010}
+\endentry
+
 \entry{OSRKit}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -391,6 +421,28 @@
   \field{title}{LLVM: A compilation framework for lifelong program analysis \&
   transformation}
   \field{year}{2004}
+\endentry
+
+\entry{McVM}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {McLAB}{M.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{M1}
+  \strng{fullhash}{M1}
+  \field{sortinit}{M}
+  \field{title}{{The McVM Virtual Machine and its JIT Compiler} The McVM
+  Virtual Machine and its JIT Compiler}
+  \verb{url}
+  \verb http://www.sable.mcgill.ca/mclab/mcvm_mcjit.html
+  \endverb
+  \field{year}{2012}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
 \endentry
 
 \entry{JikesRVMURL}{online}{}
