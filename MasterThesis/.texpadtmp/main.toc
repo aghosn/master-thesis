@@ -22,12 +22,12 @@
 \contentsline {subsection}{\numberline {2.2.3}Versionning}{11}{subsection.112}
 \contentsline {subsubsection}{One version}{11}{section*.113}
 \contentsline {subsubsection}{Multiple Versions}{11}{section*.114}
-\contentsline {subsubsection}{Caching vs. Generating on the fly}{11}{section*.115}
+\contentsline {subsubsection}{Caching vs. Generating on the fly}{12}{section*.115}
 \contentsline {section}{\numberline {2.3}The Deoptimization case}{12}{section.116}
 \contentsline {subsection}{\numberline {2.3.1}Why the Deoptimization case is more interesting?}{12}{subsection.117}
-\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{12}{subsection.118}
+\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{13}{subsection.118}
 \contentsline {subsubsection}{The Interpreter}{13}{section*.120}
-\contentsline {subsubsection}{The compiled base version}{13}{section*.121}
+\contentsline {subsubsection}{The compiled base version}{14}{section*.121}
 \contentsline {subsubsection}{A less optimized version}{14}{section*.122}
 \contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{15}{section.123}
 \contentsline {subsection}{\numberline {2.4.1}The OSR trade-offs}{15}{subsection.124}
@@ -49,28 +49,28 @@
 \contentsline {subsection}{\numberline {4.1.2}An LLVM Library}{32}{subsection.169}
 \contentsline {section}{\numberline {4.2}Resolved \& Open OSR}{33}{section.178}
 \contentsline {subsection}{\numberline {4.2.1}The Open OSR}{33}{subsection.179}
-\contentsline {subsubsection}{Similarities with McJIT}{34}{section*.180}
-\contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{34}{subsection.181}
-\contentsline {section}{\numberline {4.3}The API}{35}{section.182}
-\contentsline {subsection}{\numberline {4.3.1}StateMaps}{35}{subsection.183}
-\contentsline {subsection}{\numberline {4.3.2}OSR Points}{35}{subsection.184}
-\contentsline {subsection}{\numberline {4.3.3}OSR Conditions}{35}{subsection.185}
-\contentsline {subsection}{\numberline {4.3.4}The continuation function}{35}{subsection.186}
-\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{35}{section.187}
-\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{35}{subsection.188}
-\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{35}{subsection.189}
-\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{35}{subsection.190}
-\contentsline {section}{\numberline {4.5}Extending OSR Kit}{35}{section.191}
-\contentsline {subsection}{\numberline {4.5.1}Handling versions}{35}{subsection.192}
-\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{35}{subsection.193}
-\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{35}{subsection.194}
-\contentsline {chapter}{\numberline {5}Case Study}{37}{chapter.195}
-\contentsline {section}{\numberline {5.1}The RJIT project}{37}{section.196}
-\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{37}{section.197}
-\contentsline {section}{\numberline {5.3}Implementation}{37}{section.198}
-\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{37}{subsection.199}
-\contentsline {subsection}{\numberline {5.3.2}Challenges}{37}{subsection.200}
-\contentsline {section}{\numberline {5.4}OSR Conditions}{37}{section.201}
-\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.202}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{41}{appendix.203}
-\contentsline {chapter}{Bibliography}{43}{appendix*.204}
+\contentsline {subsubsection}{Similarities with McJIT}{34}{section*.217}
+\contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{35}{subsection.218}
+\contentsline {section}{\numberline {4.3}The API}{37}{section.239}
+\contentsline {subsection}{\numberline {4.3.1}StateMaps}{37}{subsection.240}
+\contentsline {subsection}{\numberline {4.3.2}OSR Points}{37}{subsection.241}
+\contentsline {subsection}{\numberline {4.3.3}OSR Conditions}{37}{subsection.242}
+\contentsline {subsection}{\numberline {4.3.4}The continuation function}{37}{subsection.243}
+\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{37}{section.244}
+\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{37}{subsection.245}
+\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{37}{subsection.246}
+\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{37}{subsection.247}
+\contentsline {section}{\numberline {4.5}Extending OSR Kit}{37}{section.248}
+\contentsline {subsection}{\numberline {4.5.1}Handling versions}{37}{subsection.249}
+\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{37}{subsection.250}
+\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{37}{subsection.251}
+\contentsline {chapter}{\numberline {5}Case Study}{39}{chapter.252}
+\contentsline {section}{\numberline {5.1}The RJIT project}{39}{section.253}
+\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{39}{section.254}
+\contentsline {section}{\numberline {5.3}Implementation}{39}{section.255}
+\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{39}{subsection.256}
+\contentsline {subsection}{\numberline {5.3.2}Challenges}{39}{subsection.257}
+\contentsline {section}{\numberline {5.4}OSR Conditions}{39}{section.258}
+\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.259}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{43}{appendix.260}
+\contentsline {chapter}{Bibliography}{45}{appendix*.261}

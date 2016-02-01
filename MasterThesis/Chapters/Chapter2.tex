@@ -285,9 +285,10 @@ Values are passed as arguments to the call to the continuation function.
 If there is not a one-to-one mapping between the from variables and the continuation ones, some compensation code is executed, either before the call or at the beginning of the continuation function, in order to assign the correct values to the continuation local variables.
 The cost of executing the compensation code is also present in the first option, i.e., both solutions have to perform the same set of transformations in order to generate the expected local values.
 On the other hand, the second option does not require to access shared memory to store and load propagated values, and is therefore expected to have a smaller cost at execution.\\
-
+\begin{minipage}{\linewidth}
 \includecode{Figures/funCall.c}
 \includecode{Figures/MultipleEntry.c}
+\end{minipage}
 
 The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the OSR point in the from function.
 In order to decrease the space complexity, one might want to enable multiple entry points per function.
