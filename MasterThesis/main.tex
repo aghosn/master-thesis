@@ -57,7 +57,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,
   breaklines=true,
-  frame=single,
+  frame=b,
   xleftmargin=\parindent,
   language=C,
   showstringspaces=false,
@@ -68,16 +68,18 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
   stringstyle=\color{orange},
   tabsize=2,
   captionpos=b,
+    numbers=left,
 }
 
 \lstdefinestyle{customasm}{
   belowcaptionskip=1\baselineskip,
-  frame=L,
+  frame=singleb,
   xleftmargin=\parindent,
   language=[x86masm]Assembler,
   basicstyle=\footnotesize\ttfamily,
   commentstyle=\itshape\color{purple!40!black},
   captionpos=b,
+  numbers=left,
 }
 
 \lstset{escapechar=@,style=customc}

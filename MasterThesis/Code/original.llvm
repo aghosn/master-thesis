@@ -1,0 +1,11 @@
+> f <- function(a) a
+> g <- function() f(8)
+
+define  @g(%consts, %rho, i32 %useCache) #0 gc "rjit" {
+start:
+  %f = call  @getFunction(%rho, %consts, i32 1) 
+  %0 = call  @userLiteral(%consts, i32 2) 
+  %1 = call  @constant(%consts, i32 0) 
+  %2 = call  @icStub_1(%0, %1, %f, %rho, (, , i32)* @g, i64 13) 
+  ret  %2
+}

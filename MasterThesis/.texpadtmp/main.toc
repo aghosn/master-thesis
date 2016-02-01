@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {3.3}OSR \& LLVM}{24}{section.143}
 \contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{24}{subsection.144}
 \contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{25}{subsection.146}
-\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the McOSR OSR implementation}{26}{subsection.147}
+\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the McOSR implementation}{26}{subsection.147}
 \contentsline {section}{\numberline {3.4}A classification summary}{30}{section.164}
 \contentsline {chapter}{\numberline {4}Deoptimization in RJIT}{31}{chapter.166}
 \contentsline {section}{\numberline {4.1}Overview}{31}{section.167}
@@ -53,23 +53,23 @@
 \contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{35}{subsection.218}
 \contentsline {section}{\numberline {4.3}The API}{36}{section.239}
 \contentsline {subsection}{\numberline {4.3.1}OSR Points \& Conditions}{36}{subsection.240}
-\contentsline {subsection}{\numberline {4.3.2}The StateMap}{37}{subsection.241}
-\contentsline {subsection}{\numberline {4.3.3}The continuation function}{37}{subsection.242}
-\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{37}{section.243}
-\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{37}{subsection.244}
-\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{37}{subsection.245}
-\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{37}{subsection.246}
-\contentsline {section}{\numberline {4.5}Extending OSR Kit}{37}{section.247}
-\contentsline {subsection}{\numberline {4.5.1}Handling versions}{37}{subsection.248}
-\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{37}{subsection.249}
-\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{37}{subsection.250}
-\contentsline {chapter}{\numberline {5}Case Study}{39}{chapter.251}
-\contentsline {section}{\numberline {5.1}The RJIT project}{39}{section.252}
-\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{39}{section.253}
-\contentsline {section}{\numberline {5.3}Implementation}{39}{section.254}
-\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{39}{subsection.255}
-\contentsline {subsection}{\numberline {5.3.2}Challenges}{39}{subsection.256}
-\contentsline {section}{\numberline {5.4}OSR Conditions}{39}{section.257}
-\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.258}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{43}{appendix.259}
-\contentsline {chapter}{Bibliography}{45}{appendix*.260}
+\contentsline {subsection}{\numberline {4.3.2}The StateMap}{38}{subsection.270}
+\contentsline {subsection}{\numberline {4.3.3}The continuation function}{38}{subsection.271}
+\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{38}{section.272}
+\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{38}{subsection.273}
+\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{38}{subsection.274}
+\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{38}{subsection.275}
+\contentsline {section}{\numberline {4.5}Extending OSR Kit}{38}{section.276}
+\contentsline {subsection}{\numberline {4.5.1}Handling versions}{38}{subsection.277}
+\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{38}{subsection.278}
+\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{38}{subsection.279}
+\contentsline {chapter}{\numberline {5}Case Study}{39}{chapter.280}
+\contentsline {section}{\numberline {5.1}The RJIT project}{39}{section.281}
+\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{39}{section.282}
+\contentsline {section}{\numberline {5.3}Implementation}{39}{section.283}
+\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{39}{subsection.284}
+\contentsline {subsection}{\numberline {5.3.2}Challenges}{39}{subsection.285}
+\contentsline {section}{\numberline {5.4}OSR Conditions}{39}{section.286}
+\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.287}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{43}{appendix.288}
+\contentsline {chapter}{Bibliography}{45}{appendix*.289}

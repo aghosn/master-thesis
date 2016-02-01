@@ -188,8 +188,33 @@ When several call sites are inlined, each of them is instrumented with an OSR ex
 %No distinction
 %Both are done in the same way i.e., insert a condition.
 %Do the condition testing, do the jump to a special block.
+%Requirements for the point to be inserted !
 
 In the OSR Kit library\cite{OSRKit}, there is no distinction at the implementation level between OSR exits and entries.
+The general mechanism used is the OSR point.
+An OSR point corresponds to a labelled LLVM basic-block that contains the call to the continuation function and the return instruction to propagate the result of the call.
+OSR points are protected by an OSR condition. 
+The OSR Kit library allows an OSR condition to be any vector of LLVM instructions. 
+The last instruction is automatically used by the framework as condition for an LLVM branch instruction. 
+If the condition succeeds, the OSR transition is fired.
+Otherwise, the execution continues in the function.\\
+
+Figures REF and REF provide an example of OSR instrumentation.
+In Figure REF, we have the R declaration of two functions, $f$ and $g$, and the simplified LLVM IR generated for $g$ in RJIT.
+Figure REF presents the instrumented version of $g$, in which an OSR point has been inserted.
+Lines 5 and 6 correspond to the OSR condition.
+In this example, the OSR is fired if the line 1 does not yield the same function for $f$ as the one that was used by the RJIT compiler when it generated the instrumented function.
+If the OSR is fired, the execution jumps to the \textit{OSR\char`_fire} basic block and calls the continuation function, namely \textit{OSRCont}.
+The OSR point \textit{OSR\char`_fire} calls the continuation and propagates its return value line 15.
+The \textit{OSR\char`_split} block corresponds to the regular continuation of the function $f$ when the OSR is not fired.\\
+
+\begin{minipage}{\linewidth}
+\includecode[asm]{Code/original.llvm}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\includecode[asm]{Code/fromInstrumented.llvm}
+\end{minipage}
 
 \subsection{The StateMap}
 \subsection{The continuation function}\label{thecontinuationfunction}

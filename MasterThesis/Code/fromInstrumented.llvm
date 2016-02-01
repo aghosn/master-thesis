@@ -1,0 +1,16 @@
+define @gFrom(%consts, %rho, i32 %useCache) #0 gc "rjit" {
+start:
+  %f = call @getFunction(%rho, %consts, i32 1) 
+  %0 = call @userLiteral(%consts, i32 2) 
+  %1 = icmp ne %f, inttoptr (i64 12515896 to )
+  br i1 %1, label %OSR_fire, label %OSR_split
+
+OSR_split:                                      ; preds = %start
+  %2 = call  @constant(%consts, i32 0) 
+  %3 = call  @icStub_1(%0, %2, %f, %rho, (, , i32)* @gFrom, i64 13) 
+  ret  %3
+
+OSR_fire:                                         ; preds = %start
+  %OSRRet = call  @OSRCont( %rho,  %consts)
+  ret  %OSRRet
+}
