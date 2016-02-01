@@ -182,7 +182,7 @@ An OSR point transfers control to an exit block, i.e., it can be viewed as a non
 They extend the previous OSR implementation\cite{fink2003design} to enable OSR transition at, and across points at which the execution can be suspended.
 In order to do so, they rely on a special data structure called a \textit{variable map}(VARMAP).
 A VARMAP is associated with each method, and consists in a list of thread-switching points and their live variables.
-When the compiler performs optimizations, the VARMAP is updated accordingly.
+When the compiler performs optimizations, the VARMAP is automatically updated accordingly.
 Once the compilation completes, the VARMAP is encoded into a compressed map that contains an entry for each OSR point present in the method.
 The VARMAP is decoupled from the compiled code, i.e., it does not influence the liveness of local variables.
 \citean{soman2006efficient} also propose an alternative lazy triggering of on-stack replacement.
@@ -450,7 +450,7 @@ Exit target                        &               &         &       &          
 Performance results                &               &         &       &           &        &           &         \\ \hline
 \end{tabular}
 }
-\caption{My caption}
+\caption{Summary of OSR implementations and their features.}
 \label{my-label}
 \end{table}
 

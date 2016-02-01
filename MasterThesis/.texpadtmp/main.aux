@@ -113,6 +113,7 @@
 \citation{holzle1992debugging}
 \@writefile{toc}{\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{15}{section.123}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}The OSR trade-offs}{15}{subsection.124}}
+\newlabel{tradeOffs}{{2.4.1}{15}{The OSR trade-offs}{subsection.124}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Limits on optimizations}{15}{subsection.125}}
 \citation{chambers1991making}
 \citation{holzle1991optimizing}
@@ -231,8 +232,8 @@
 \newlabel{FCFG}{{3.10}{29}{A CFG of a running function before inserting the blocks for state recovery}{figure.caption.162}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref  {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}.}}{30}{figure.caption.163}}
 \newlabel{InstFCFG}{{3.11}{30}{The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}}{figure.caption.163}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces My caption\relax }}{30}{table.caption.165}}
-\newlabel{my-label}{{3.1}{30}{My caption\relax }{table.caption.165}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of OSR implementations and their features.\relax }}{30}{table.caption.165}}
+\newlabel{my-label}{{3.1}{30}{Summary of OSR implementations and their features.\relax }{table.caption.165}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.4}A classification summary}{30}{section.164}}
 \citation{OSRKit}
 \citation{OSRKitGit}
@@ -241,44 +242,56 @@
 \citation{RURL}
 \citation{OSRKit}
 \citation{OSRKitGit}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Deoptimization using OSR Kit}{31}{chapter.166}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Deoptimization in RJIT}{31}{chapter.166}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter4}{{4}{31}{Deoptimization using OSR Kit}{chapter.166}{}}
+\newlabel{Chapter4}{{4}{31}{Deoptimization in RJIT}{chapter.166}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview}{31}{section.167}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Justification}{31}{subsection.168}}
+\citation{lameed2013modular}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}An LLVM Library}{32}{subsection.169}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Resolved \& Unresolved OSR}{33}{section.178}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}The Unresolved OSR}{33}{subsection.179}}
-\@writefile{toc}{\contentsline {subsubsection}{Similarities with MCJIT}{33}{section*.180}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{33}{subsection.181}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}The API}{33}{section.182}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}OSR Points}{33}{subsection.183}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}OSR Conditions}{33}{subsection.184}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{33}{section.185}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{33}{subsection.186}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{33}{subsection.187}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{33}{subsection.188}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Extending OSR Kit}{33}{section.189}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Handling versions}{33}{subsection.190}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{33}{subsection.191}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{33}{subsection.192}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study}{35}{chapter.193}}
+\newlabel{llvmTransformPasses}{{8}{32}{An LLVM Library}{Item.177}{}}
+\citation{OSRKit}
+\citation{soman2006efficient}
+\citation{lameed2013modular}
+\citation{OSRKit}
+\citation{OSRKit}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Resolved \& Open OSR}{33}{section.178}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}The Open OSR}{33}{subsection.179}}
+\@writefile{toc}{\contentsline {subsubsection}{Similarities with McJIT}{34}{section*.180}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{34}{subsection.181}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}The API}{35}{section.182}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}StateMaps}{35}{subsection.183}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}OSR Points}{35}{subsection.184}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}OSR Conditions}{35}{subsection.185}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}The continuation function}{35}{subsection.186}}
+\newlabel{thecontinuationfunction}{{4.3.4}{35}{The continuation function}{subsection.186}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{35}{section.187}}
+\newlabel{osrForUs}{{4.4}{35}{Using OSR Kit to deoptimize}{section.187}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{35}{subsection.188}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}SOMETHING}{35}{subsection.189}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{35}{subsection.190}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Extending OSR Kit}{35}{section.191}}
+\newlabel{extendingOSR}{{4.5}{35}{Extending OSR Kit}{section.191}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Handling versions}{35}{subsection.192}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Unguarded OSR points}{35}{subsection.193}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Fusing versions?}{35}{subsection.194}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study}{37}{chapter.195}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{35}{Case Study}{chapter.193}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}The RJIT project}{35}{section.194}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{35}{section.195}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation}{35}{section.196}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{35}{subsection.197}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Challenges}{35}{subsection.198}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}OSR Conditions}{35}{section.199}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.200}}
+\newlabel{Chapter5}{{5}{37}{Case Study}{chapter.195}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}The RJIT project}{37}{section.196}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{37}{section.197}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation}{37}{section.198}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{37}{subsection.199}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Challenges}{37}{subsection.200}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}OSR Conditions}{37}{section.201}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.202}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{37}{Conclusion}{chapter.200}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{39}{appendix.201}}
+\newlabel{Chapter6}{{6}{39}{Conclusion}{chapter.202}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{41}{appendix.203}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{AppendixA}{{A}{39}{Appendix Title Here}{appendix.201}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{41}{appendix*.202}}
+\newlabel{AppendixA}{{A}{41}{Appendix Title Here}{appendix.203}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{43}{appendix*.204}}
