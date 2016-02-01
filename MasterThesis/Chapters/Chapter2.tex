@@ -102,7 +102,7 @@ OSR enables to revert back to a safe version during the execution.\\
         %for external requires to correct every callee return landing spots. 
         %Requires corresponding entry in the unoptimized version
 %Examples from existing implementations 
-    %McJIT inserter and instrument passes (need a code transformer + OSR Label)
+    %McOSR inserter and instrument passes (need a code transformer + OSR Label)
     %Jikes
 The OSR mechanism is enabled at specific instruction boundaries in the user's code.
 Depending on the OSR implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
@@ -132,12 +132,12 @@ In other words, the framework has enough information locally to test whether or 
 An unguarded OSR point is an OSR point that does not require to check a boolean condition before being executed. 
 \end{definition}
 The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation\cite{fink2003design, soman2006efficient} and the WebKit OSR implementation\cite{WebKitURL}).
-Both solutions present different advantages and fit different use cases.
+Both solutions present different advantages and fit different use cases.\\
 
 While simple to model at a high-level, a guarded OSR point presents the disadvantage of increasing the code's length. 
 A boolean condition needs to be tested every time the execution comes across an OSR point.
 As explained previously, one of OSR's most interesting use case is long running loop's optimization.
-Executing many times the branching test can therefore greatly impact the observed performance.
+Executing many times the branching test can therefore greatly impact the observed performance.\\
 
 Unguarded OSR points enable to avoid this performance slow down by letting the framework modify the running function on external/environmental events.
 In WebKit\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at run time, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
@@ -146,7 +146,7 @@ This can be viewed as a lazy triggering of an OSR transition, i.e., the instrume
 \subsubsection{OSR Entries \& OSR Exits}
 
 There is a further distinction between OSR points that are responsible for optimising the code, and the ones that are used to unoptimize.
-For that, we will use the same terminology as in WebKit\cite{WebKitURL} and McJIT\cite{lameed2013modular}.
+For that, we will use the same terminology as in WebKit\cite{WebKitURL} and McOSR\cite{lameed2013modular}.
 
 \begin{definition}\label{OSREntryDefinition}
 An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
@@ -270,7 +270,7 @@ The OSR transition therefore correspond to a function call from the from functio
 
 In order to propagate the current execution state, there are two main solutions: 
 \begin{enumerate}
-    \item Dumping the state in a shared memory location(e.g., as in McJIT OSR implementation\cite{lameed2013modular} and WebKit\cite{WebKitURL}), or
+    \item Dumping the state in a shared memory location(e.g., as in the McOSR implementation\cite{lameed2013modular} and WebKit\cite{WebKitURL}), or
     \item Passing all the needed values as function call arguments to the continuation function(e.g., as in OSR Kit\cite{OSRKit} and Jikes RVM OSR \cite{fink2003design}).
 \end{enumerate}
 
@@ -314,7 +314,7 @@ Furthermore, the continuation function can either be generated on the fly, i.e.,
 %Good for space
 %Jikes on the fly, interpreter kind of on the fly. 
 Allowing only one live compiled version of the function enables to simplify the high-level model of the program's execution.
-Some OSR implementations, such as the McJIT OSR \cite{lameed2013modular}, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
+Some OSR implementations, such as the McOSR\cite{lameed2013modular}, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
 This technique enables to propagate the optimized version through out the code without requiring any modification of the callers.
 One can view it as an eager propagation of optimizations.
 Therefore, one can assume that the overall performance of the execution should be improved by the global use of this optimized version.
@@ -446,7 +446,7 @@ Restarting the optimization process from scratch might therefore yield a more pe
 A third option is to exit to an optimized version of the function that does not rely on the assumption that failed.
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted and the base versions.
-This behaviour can be observed in McJIT OSR\cite{lameed2013modular} (see Section \ref{McJIT}) and OSR Kit\cite{OSRKit}(see Chapter \ref{Chapter4}).
+This behaviour can be observed in McOSR\cite{lameed2013modular} (see Section \ref{McOSR}) and OSR Kit\cite{OSRKit}(see Chapter \ref{Chapter4}).
 This option strives to get the best possible performances, even in the presence of an assumption's failure.\\
 
 As explained previously, there are two options to get the continuation function: either generate on the fly a new fully optimized version that does not rely on the assumption that failed, or "undo" the optimization that failed.

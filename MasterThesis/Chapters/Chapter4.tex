@@ -184,9 +184,14 @@ When several call sites are inlined, each of them is instrumented with an OSR ex
 
 
 \section{The API}
-\subsection{StateMaps}
-\subsection{OSR Points}
-\subsection{OSR Conditions}
+\subsection{OSR Points \& Conditions}
+%No distinction
+%Both are done in the same way i.e., insert a condition.
+%Do the condition testing, do the jump to a special block.
+
+In the OSR Kit library\cite{OSRKit}, there is no distinction at the implementation level between OSR exits and entries.
+
+\subsection{The StateMap}
 \subsection{The continuation function}\label{thecontinuationfunction}
 
 \section{Using OSR Kit to deoptimize}\label{osrForUs}

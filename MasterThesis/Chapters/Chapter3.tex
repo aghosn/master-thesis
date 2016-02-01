@@ -292,10 +292,10 @@ Implementing OSR for LLVM not only serves several languages, but also allows to 
 As explained previously, LLVM supports several instruction sets corresponding to different architectures.
 By implementing OSR in LLVM, we get portability among these platforms for free.\\
 
-\subsection{OSR as an LLVM library: the McJIT OSR implementation}\label{McJIT}
-The McJIT OSR support\cite{lameed2013modular} is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
+\subsection{OSR as an LLVM library: the McOSR implementation}\label{McOSR}
+The McOSR OSR support\cite{lameed2013modular} is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
 Lameed \& Hendren claim to have come up with a clean modular, and re-usable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
-The implementation has been tested in the MvVM/McJIT\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
+The implementation has been tested in the MvVM/McOSR\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
 Their implementation answers to five challenges, listed in the paper\cite{lameed2013modular}, and reproduced here:\\ 
 
 \begin{enumerate}
@@ -317,19 +317,19 @@ Figure \ref{OSR classification} shows that this feature only allows single-steps
 \label{OSR classification}
 \end{figure}
 
-The McJIT library that provides OSR functionalities fit into the regular JIT infrastructure provided by LLVM as described in Figure \ref{MCJitArchitecture} taken from\cite{lameed2013modular}. 
+The McOSR library that provides OSR functionalities fit into the regular JIT infrastructure provided by LLVM as described in Figure \ref{McOSRArchitecture} taken from\cite{lameed2013modular}. 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/MCJitArchitecture}
 \decoRule
 \caption[Retrofitting an existing JIT with OSR support]{Retrofitting an existing JIT with OSR support from CITE}
-\label{MCJitArchitecture}
+\label{McOSRArchitecture}
 \end{figure}
 The left figure is a normal JIT in LLVM. 
 The LLVM CodeGen is the front-end of the compiler infrastructure that generates the LLVM IR.
 The LLVM Optimizer contains a collection of transformations and optimizations that run on LLVM IR. 
 The Target CodeGen outputs the machine code corresponding to the LLVM IR input. 
-The McJIT OSR API instruments the LLVM CodeGen to insert OSR points where the OSR transition can be triggered. 
+The McOSR API instruments the LLVM CodeGen to insert OSR points where the OSR transition can be triggered. 
 A point is a call to the genOSRSignal function, which takes as arguments a pointer to a code transformer responsible for generating the new version of the function.
 The code transformer takes as arguments a pointer to the function that needs to be transformed, and a special OSR label to identify which OSR point triggered the call, if the function contains several ones.
 The OSR pass is responsible for instrumenting OSR points with the correct OSR machinery.
@@ -401,24 +401,24 @@ If that is the case, it branches to the prolog block that restores the state bef
 The OSR implementation proposed in\cite{lameed2013modular} presents interesting features.
 The implementation is done entirely at the LLVM IR, hence making it language-independent.
 Furthermore, since the transformation function is provided by the user, any kind of language specific transformation can be used during the OSR.
-As a result, McJIT OSR support is a modular, and general purpose OSR library.\\
+As a result, McOSR support is a modular, and general purpose OSR library.\\
 
 On the other hand, this library does not allow to have several versions of the same function live at the same time.
 This restriction can impede the overall performance of the program by extending the scope in which an assumption on which we base the transformation must hold.
 For example, a portion of the code, call it \textit{A}, can trigger an OSR, while portion \textit{B} is such that the assumption on which the optimization is based does not hold.
 The choice that the user has is to either optimize for A, and deoptimize for B, or to prevent A from optimizing by enlarging the scope in which the assumption is supposed to hold.
 None of these solutions is good if \textit{A} and \textit{B} are executed many times, one after the other.
-We will either lose a lot of execution time performing OSR, or keep executing \textit{A} without optimization.
+We will either lose a lot of execution time performing OSR, or keep executing \textit{A} without optimization.\\
 
 In the paper, the deoptimization process is not described. 
 It is implied that it relies on the same set of tools provided by the framework as the optimization process, but no example is provided.
 As explained in \ref{WhyOSRInteresting}, deoptimization is the most interesting feature of OSR, as it is required to preserve correctness.
 Being able to identify where a function should exit is a hard task.
-The McJIT library does not provide tools to ease this process and leaves the responsibility to the developer to instrument his functions correctly in order to exit to the correct landing pad.\\
+The McOSR library does not provide tools to ease this process and leaves the responsibility to the developer to instrument his functions correctly in order to exit to the correct landing pad.\\
 
-To the best of our knowledge, MCJit OSR library is not currently used in production or any important project.
+To the best of our knowledge, McOSR library is not currently used in production or any important project.
 As mentioned earlier, WebKit is efficiently integrated in Apple Safari's web browser, which provides useful feedback on its performances.
-The lack of usage of McJIT OSR library prevents us from collecting performance results and assess its efficiency.
+The lack of usage of McOSR library prevents us from collecting performance results and assess its efficiency.
 Furthermore, the experimental evaluation in\cite{lameed2013modular} relies on an example that seems artificial for our use of OSR. 
 The case study presents a dynamic inliner that decides to inline a function call if the function is less than 20 basic blocks long, or if it is less than 50 basic blocks long and has an interpreter environment associated with its body. 
 This requirement for inlining is one that can be checked statically and, hence, seems a little artificial.\\
@@ -435,7 +435,7 @@ The summary focuses the state propagation technique, the types of OSR points sup
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-                                   & SELF Debugger & HotSpot & Graal & Jikes RVM & WebKit & McJIT OSR & OSR Kit \\ \hline
+                                   & SELF Debugger & HotSpot & Graal & Jikes RVM & WebKit & McOSR  & OSR Kit \\ \hline
 State Propagation technique        &               &         &       &           &        &           &         \\ \hline
 Transition mechanism               &               &         &       &           &        &           &         \\ \hline
 Modification of function signature &               &         &       &           &        &           &         \\ \hline
