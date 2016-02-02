@@ -7,7 +7,7 @@
 %----------------------------------------------------------------------------------------
 
 % Define some commands to keep the formatting separated from the content 
-\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\keyword}[1]{\textit{#1}}
 \newcommand{\tabhead}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{\bfseries#1}}
@@ -203,7 +203,7 @@ Figures REF and REF provide an example of OSR instrumentation.
 In Figure REF, we have the R declaration of two functions, $f$ and $g$, and the simplified LLVM IR generated for $g$ in RJIT.
 Figure REF presents the instrumented version of $g$, in which an OSR point has been inserted.
 Lines 5 and 6 correspond to the OSR condition.
-In this example, the OSR is fired if the line 1 does not yield the same function for $f$ as the one that was used by the RJIT compiler when it generated the instrumented function.
+In this example, the OSR is fired if line 1 does not yield the same function for $f$ as the one that was used by the RJIT compiler when it generated the instrumented function.
 If the OSR is fired, the execution jumps to the \textit{OSR\char`_fire} basic block and calls the continuation function, namely \textit{OSRCont}.
 The OSR point \textit{OSR\char`_fire} calls the continuation and propagates its return value line 15.
 The \textit{OSR\char`_split} block corresponds to the regular continuation of the function $f$ when the OSR is not fired.\\
@@ -216,15 +216,44 @@ The \textit{OSR\char`_split} block corresponds to the regular continuation of th
 \includecode[asm]{Code/fromInstrumented.llvm}
 \end{minipage}
 
+%TODO Requirements for a point.
+REQUIREMENTS FOR OSR POINT\\
+
 \subsection{The StateMap}
+
+The OSR Kit library and our extensions heavily rely on a special object, called a \textit{StateMap}, to keep a mapping between the from function and the continuation function.
+The StateMap enables to register unidirectional and bidirectional mappings between LLVM instructions and function arguments.
+The default constructor for a StateMap relies on the LLVM ValueToValueMapTy\cite{VMap}(VMap) to automatically extract the mappings.
+A VMap can be filled with such mappings when the LLVM cloning functions are used, i.e., the OSR Kit encourages you to generate the continuation function by cloning either the base or the from function such that a VMap is already available when the framework needs to introduce the instrumentation.
+The StateMap also provides an API to register and unregister mappings by directly providing the two instructions.\\
+
+%Transitive mappings
+%Enables to skip versions!
+In order to facilitate the use of StateMaps in the deoptimization case, we extended the object with transitive mappings.
+Suppose two StateMaps, $S_1$ and $S_2$, such that $S_1$ is a mapping between $A$ and $B$, and $S_2$ a mapping between $A$ and $C$.
+Our transitive constructor will be able to generate a new StateMap, $S_3$, that maps $B$ and $C$.
+Consider a chained generation of versions, i.e., a succession of versions where each one of them is the result of some transformation applied on the previous version.
+$$A \rightarrow B \rightarrow C \rightarrow D \rightarrow E \rightarrow F \rightarrow ...$$
+
+The transitive StateMap constructor enables to automatically generate a transitive map between each versions in the chain.
+The StateMap might not be complete, but it ensures that every instruction that is present in the base version $A$ and both versions that we want to map, e.g., $C$ and $F$, will be present in the StateMap.
+%TODO
+WE CAN PROPAGATE MAPPINGS TOO!!!!!!
+
+
+WHY IT IS USEFUL !!!
+
 \subsection{The continuation function}\label{thecontinuationfunction}
+%The continuation function same in principle if we come from open or resolved. 
+%Replaces the entry point of the function with a 
 
 \section{Using OSR Kit to deoptimize}\label{osrForUs}
 \subsection{The unease of deoptimizing}
-\subsection{SOMETHING}
+\subsection{Where to exit?}
 \subsection{SOMETHING ELSE}
 
 \section{Extending OSR Kit}\label{extendingOSR}
+\subsection{The OSR Handler}
 \subsection{Handling versions}
 %Updating the statemap as we perform the operations.
 \subsection{Unguarded OSR points}

@@ -11,6 +11,6 @@ OSR_split:                                      ; preds = %start
   ret  %3
 
 OSR_fire:                                         ; preds = %start
-  %OSRRet = call  @OSRCont( %rho,  %consts)
+  %OSRRet = call  @OSRCont(%rho, %consts)
   ret  %OSRRet
 }

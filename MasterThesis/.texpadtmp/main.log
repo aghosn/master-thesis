@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 FEB 2016 14:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  2 FEB 2016 10:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1581,7 +1581,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
 Overfull \hbox (3.74652pt too wide) in paragraph at lines 34--35
 []\T1/ppl/m/n/10.95 In ^^P  De-bug-ging op-ti-mized code with dy-namic de-op-ti
--miza-tion^^Q[[][]11[][]], the au-thors came
+-miza-tion^^Q[[][]12[][]], the au-thors came
  []
 
 
@@ -1890,7 +1890,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 \newcommand{\keyword}[1]{\textbf{#1}}
+l.10 \newcommand{\keyword}[1]{\textit{#1}}
                                           
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2089,7 +2089,23 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 215--218
 []$[]$ 
  []
 
-) (./Chapters/Chapter5.tex [37] [38]
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Overfull \hbox (4.63754pt too wide) in paragraph at lines 224--229
+\T1/ppl/m/n/10.95 The OSR Kit li-brary and our ex-ten-sions heav-ily rely on a 
+spe-cial ob-ject, called a \T1/ppl/m/it/10.95 StateMap\T1/ppl/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--229
+
+ []
+
+[37]) (./Chapters/Chapter5.tex [38]
 Chapter 5.
 --------------------
  5. Case Study
@@ -2292,10 +2308,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28291 strings out of 493706
- 505481 string characters out of 6145768
+ 28292 strings out of 493706
+ 505496 string characters out of 6145768
  802532 words of memory out of 5000000
- 31293 multiletter control sequences out of 15000+600000
+ 31294 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s

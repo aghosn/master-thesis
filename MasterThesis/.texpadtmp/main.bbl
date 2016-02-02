@@ -283,6 +283,27 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{VMap}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Group}{G.}%
+     {LLVM~Developer}{L.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GLD1}
+  \strng{fullhash}{GLD1}
+  \field{sortinit}{G}
+  \field{title}{{ValueMapper.h} LLVM ValueMapper.h}
+  \verb{url}
+  \verb http://llvm.org/docs/doxygen/html/ValueMapper_8h.html
+  \endverb
+  \field{year}{2003}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{holzle1992debugging}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
