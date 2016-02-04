@@ -171,7 +171,9 @@ This transition mechanism is therefore the cornerstone of any OSR implementation
 This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
 
 In the reminder of this section, we use the terminology introduced by definitions \ref{from} and \ref{continuation}, and taken from the OSRKit\cite{OSRKit} project.
-These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.
+These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.\\
+
+THE BASE FUNCTION DEFINITION\\
 
 \begin{definition}\label{from}
 A function from which we perform an OSR transition is called a \textbf{from function} or \textbf{source version}.
@@ -254,6 +256,8 @@ The compiled version of the code loses the high-level semantics specific to the 
 
 While tempting for its fine-grained control over the transition, the implementation of the OSR mechanism at a low level seems to unveil great challenges.
 An alternative solution is to encapsulate the entire process at a higher level, closer to the original program's semantics.
+%TODO
+CITE PAPERS THAT DO THAT FROM FLEXIBLE OSR.
 
 \subsubsection{Transition as a Function call}
 %A function call at a high level

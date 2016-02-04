@@ -237,15 +237,59 @@ $$A \rightarrow B \rightarrow C \rightarrow D \rightarrow E \rightarrow F \right
 
 The transitive StateMap constructor enables to automatically generate a transitive map between each versions in the chain.
 The StateMap might not be complete, but it ensures that every instruction that is present in the base version $A$ and both versions that we want to map, e.g., $C$ and $F$, will be present in the StateMap.
-%TODO
-WE CAN PROPAGATE MAPPINGS TOO!!!!!!
-
-
 WHY IT IS USEFUL !!!
 
 \subsection{The continuation function}\label{thecontinuationfunction}
 %The continuation function same in principle if we come from open or resolved. 
-%Replaces the entry point of the function with a 
+%Replaces the entry point of the function with a special OSR_ENtry block.
+%CODE example
+%block responsible for compensation code and jumping to the correct instruction, which is instrumented by the framework to be the head of a basic block. Everything before is deadcode, eliminated by LLVM automatically if optimizations are enabled.
+
+%Live values are passed as arguments so no need to do any loading. Speed up the whole thing: quote from paper.
+
+%In optimization -> optimize long running functions that's okay. Frequently called functions, a bit less. WHY
+%In deoptimization, that is perfect if we do not expect to deoptimize frequently. 
+%Got rid of that in RJIT by allowing the comp code to reset the closure corresponding to the function to actually contain the full deoptimzed method. TADA This is in the handler (see section bla). 
+
+Both deoptimization and optimization rely on the same kind of continuation functions, and on the same instrumentation tools.
+A continuation function, in OSR Kit, has a special function signature that takes as inputs all the variables that were live at the instruction at which the OSR transition was fired.
+Its return type is the same as the from and the base (unmodified and un-instrumented) functions.
+The OSR Kit instrumentation inserts a special basic block, called \textit{OSR ENTRY}, at the beginning of the continuation function.
+The OSR ENTRY is responsible for executing a compensation code and jumping to the correct block inside the continuation function.
+The compensation code is specified by the library user as a vector of instructions, when the OSR is inserted in the code.
+The continuation instruction, i.e., the instruction to which the OSR ENTRY jumps to is assured by the OSR Kit library to be the first instruction in the destination block.
+Everything between the OSR ENTRY and the continuation block becomes considered dead code.
+The dead instructions are automatically eliminated by the LLVM transformation passes.
+In any case, their only impact is on the space used up by the program, their presence does not increase the execution time of the continuation function.
+It might, however, impact on later optimizations performed on the code.\\
+
+Passing live values as arguments to the continuation function is more efficient than loading them from a buffer.
+According to \cite{fink2003design}, generating a dedicated function to resume the execution to continue the execution, as opposed to instrument a general function to serve as continuation as well as a regular function, is expected to lead to better results.
+In other words, it is supposed to be better to keep the base function to serve regular calls, and trigger OSR transitions whenever we need them, during the execution of the function.\\
+
+In the case of long running functions, generating this type of OSR continuation function to transfer the execution to a more optimized version of the code makes sense.
+The OSR entry is usually fired at some special control flow node, such as a function prologue or a loop header.
+Therefore, the code expected to be repeatedly executed is not dead inside the continuation function.
+On the other hand, the code leading to that portion, i.e., the code that needs to be executed only once or a few times, is dead code and does not matter.
+It can therefore be removed without regret.
+On the other hand, if the function is not a long running one, going through the cost of compiling the continuation function might overcome the benefits of the optimization. 
+Nevertheless, if that is the case, a JIT compilation of the function should be used instead of the OSR mechanism.
+If the optimization is based on an assumption that might fail, one can always JIT compile it with optimizations, and instrument it with OSR exits.\\
+
+In the case of deoptimization, performance is a soft issue.
+OSR exits are responsible for preserving correctness in the program. 
+If an OSR exit is fired, the continuation function will be called.
+Subsequent calls are still served by the optimized version of the function and might need to OSR exit too.
+This can lead to a serious loss of performances.
+For example, in the case of speculative call site inlining, an OSR exit is taken when the inlined function is redefined.
+In subsequent calls, the same OSR exits will have to be taken.
+With the OSR exit, the execution goes through an extra function call and return than in the unoptimized version.\\
+
+In RJIT, when we know that an optimized version is no longer valid and will not be valid for subsequent calls either, we use the compensation code at the beginning of the continuation function to replace the optimized function in the environment with its unoptimized version.
+The unoptimized version is a clone of the continuation function without the OSR instrumentation and with the same signature as the base function.
+This mechanism is detailed in REF.
+If we take the inlining example above, replacing the function with one that does not wrongly inline the call site is supposed to lead to better performances.\\
+
 
 \section{Using OSR Kit to deoptimize}\label{osrForUs}
 \subsection{The unease of deoptimizing}

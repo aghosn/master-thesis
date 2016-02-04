@@ -16,7 +16,7 @@
 \contentsline {subsubsection}{Guarded \& Unguarded}{5}{section*.16}
 \contentsline {subsubsection}{OSR Entries \& OSR Exits}{6}{section*.19}
 \contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{6}{subsection.22}
-\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{6}{section*.25}
+\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{7}{section*.25}
 \contentsline {subsubsection}{The OSR transition at a low-level}{8}{section*.32}
 \contentsline {subsubsection}{Transition as a Function call}{8}{section*.38}
 \contentsline {subsection}{\numberline {2.2.3}Versionning}{11}{subsection.112}
@@ -55,22 +55,22 @@
 \contentsline {subsection}{\numberline {4.3.1}OSR Points \& Conditions}{36}{subsection.240}
 \contentsline {subsection}{\numberline {4.3.2}The StateMap}{37}{subsection.270}
 \contentsline {subsection}{\numberline {4.3.3}The continuation function}{38}{subsection.271}
-\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{38}{section.272}
-\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{38}{subsection.273}
-\contentsline {subsection}{\numberline {4.4.2}Where to exit?}{38}{subsection.274}
-\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{38}{subsection.275}
-\contentsline {section}{\numberline {4.5}Extending OSR Kit}{38}{section.276}
-\contentsline {subsection}{\numberline {4.5.1}The OSR Handler}{38}{subsection.277}
-\contentsline {subsection}{\numberline {4.5.2}Handling versions}{38}{subsection.278}
-\contentsline {subsection}{\numberline {4.5.3}Unguarded OSR points}{38}{subsection.279}
-\contentsline {subsection}{\numberline {4.5.4}Fusing versions?}{38}{subsection.280}
-\contentsline {chapter}{\numberline {5}Case Study}{39}{chapter.281}
-\contentsline {section}{\numberline {5.1}The RJIT project}{39}{section.282}
-\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{39}{section.283}
-\contentsline {section}{\numberline {5.3}Implementation}{39}{section.284}
-\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{39}{subsection.285}
-\contentsline {subsection}{\numberline {5.3.2}Challenges}{39}{subsection.286}
-\contentsline {section}{\numberline {5.4}OSR Conditions}{39}{section.287}
-\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.288}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{43}{appendix.289}
-\contentsline {chapter}{Bibliography}{45}{appendix*.290}
+\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{39}{section.272}
+\contentsline {subsection}{\numberline {4.4.1}The unease of deoptimizing}{39}{subsection.273}
+\contentsline {subsection}{\numberline {4.4.2}Where to exit?}{39}{subsection.274}
+\contentsline {subsection}{\numberline {4.4.3}SOMETHING ELSE}{39}{subsection.275}
+\contentsline {section}{\numberline {4.5}Extending OSR Kit}{39}{section.276}
+\contentsline {subsection}{\numberline {4.5.1}The OSR Handler}{39}{subsection.277}
+\contentsline {subsection}{\numberline {4.5.2}Handling versions}{39}{subsection.278}
+\contentsline {subsection}{\numberline {4.5.3}Unguarded OSR points}{39}{subsection.279}
+\contentsline {subsection}{\numberline {4.5.4}Fusing versions?}{39}{subsection.280}
+\contentsline {chapter}{\numberline {5}Case Study}{41}{chapter.281}
+\contentsline {section}{\numberline {5.1}The RJIT project}{41}{section.282}
+\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{41}{section.283}
+\contentsline {section}{\numberline {5.3}Implementation}{41}{section.284}
+\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{41}{subsection.285}
+\contentsline {subsection}{\numberline {5.3.2}Challenges}{41}{subsection.286}
+\contentsline {section}{\numberline {5.4}OSR Conditions}{41}{section.287}
+\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.288}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{45}{appendix.289}
+\contentsline {chapter}{Bibliography}{47}{appendix*.290}
