@@ -15,16 +15,68 @@
 
 %----------------------------------------------------------------------------------------
 \section{Overview}
+\subsection{Justification}
+
+REWRITE - REFORMULATE.\\
+%Goal of the thesis 
+    %on stack replacement general mechanism, reusable, at llvm level
+    %Why? improve performance and allow greater flexibility in RJIT
+        %R is slow, 
+        %R is a dynamic language lots of difficulties for implement opt
+        %Hence OSR. 
+%Reuse an existing library to focus on deoptimization
+    %Our goal is to aggressively optimize while preserving correctness
+    %Project still young, don't know exactly what we need, don't have feedback on the code
+    %Hence better to reuse lib that we can modifiy -> OSR Kit 
+%Restate goals 
+    %Try to specialise the OSR Kit for the deopt and overcome the limitations. 
+    %Will test it with an inlining. 
+            
+
+The goal of this Master Thesis project is to provide a flexible OSR deoptimization framework in LLVM, and use it to improve performances in RJIT, our LLVM JIT compiler for R.
+R is a programming language and software environment for the statistical computing and graphics, developed by the R Foundation for Statistical Computing\cite{RURL}.
+Due to SAY WHYYYYYYYYYYYYYYYYYYYYYYYYYY OOOOOHHHHH GOOOOOOODDDDDD WHHHYYYYYYYYYY, R exhibits very poor performances CITE SOMETHING.
+The RJIT project strives to improve these performances by providing a LLVM based JIT compiler for R. SAY MORE.
+The RJIT compiler is still pretty young, only a few months old.
+As a result, we lack FEEDBACK; DONT KNOW EXACTLY HOW TO IMPROVE PERF AND NEED TO EXPERIMENT.
+Therefore, we are looking for a flexible and extensible OSR mechanism that enables us to prototype and experiment various solutions, without trapping ourselves into a single model.\\
+
+The OSR Kit library\cite{OSRKit} is a flexible implementation of on-stack replacement instrumentation in LLVM.
+The source-code for the library is available on Github\cite{OSRKitGit}, and the library can be used in any LLVM project by simply copy-pasting the OSR Kit files inside of it.
+The simple integration, the availability of the source code, and the flexibility of the framework make it a perfect base implementation upon which we can implement our support for OSR deoptimization mechanisms in RJIT.\\
+
+OSR Kit library enables to work at the LLVM IR level.
+LLVM IR is a stable representation that combines the advantages of both the high-level representation, i.e., it still contains some semantic constructions particular to the language being compiled, and the advantages of a lower level representation, closer to the execution engine.
+In the case of this master thesis project, i.e., providing OSR mechanisms in the RJIT project, the LLVM IR is the exact middle layer representation that we need. 
+At the LLVM IR level, the R semantics are still visible and it therefore allows us to efficiently implement our optimizations.\\
+
+%TODO MORE ABOUT THE FOCUS ON DEOPT. 
+MOVE UP\\
+
+This master project thesis focuses on the design and implementation of a prototype for OSR deoptimization support in RJIT.
+Starting a new OSR transition implementation from scratch requires time.
+Using a flexible and modifiable OSR transition library therefore seemed like the goto option.
+We do not waste time reimplementing something that already exists, and can therefore put all our efforts into implementing an interesting OSR deoptimization case, testing it, and extending the OSR Kit library with mechanisms that are specific to our needs (Sections \ref{osrForUs} and \ref{extendingOSR}).\\
+
+\subsection{Limitations}
+%While very flexible, comes short on several points
+    %Open OSR, not really fitting our case.
+    %Continuation style is fine for optimization, but pretty bad for deopt.
+        %no replacement when exits... 
+        %many clones ... 
 \section{OSR RJIT mechanisms}
-\subsection{OSR points and Conditions}
+\subsection{OSR Handler}
 %simplified points
-\subsection{OSRHandler}
+%Keeps track of versions, statemaps etc
+%Unables to have a less naive usage of the OSR Kit library
+%Talk about the base, toInstrument and Exit versions
+%Talk about the patchpoints that are fixed automatically
+\subsection{Improving the Exit}
 %The patch points etc., the number of copies done by osr kit.
-\subsubsection{Keeping versions}
-%do the critic here for the too many versions
+%Put the proper exit ! improve the perf
 \subsubsection{Fixing the continuation function}
 %deoptimization improving the performances.
-
-\section{Prototypes}
 \subsection{Transitive StateMaps}
 \subsection{On the fly compilation}
+\section{Future Work}
+
