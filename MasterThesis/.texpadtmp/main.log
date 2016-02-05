@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  4 FEB 2016 16:35
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 FEB 2016 10:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1591,7 +1591,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
 Overfull \hbox (3.74652pt too wide) in paragraph at lines 34--35
 []\T1/ppl/m/n/10.95 In ^^P  De-bug-ging op-ti-mized code with dy-namic de-op-ti
--miza-tion^^Q[[][]12[][]], the au-thors came
+-miza-tion^^Q[[][]13[][]], the au-thors came
  []
 
 
@@ -1963,120 +1963,125 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--22
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+Underfull \hbox (badness 10000) in paragraph at lines 19--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--50
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--54
+Underfull \hbox (badness 10000) in paragraph at lines 45--52
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--60
+Underfull \hbox (badness 10000) in paragraph at lines 53--56
 
  []
 
 [31
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 83--89
+Underfull \hbox (badness 10000) in paragraph at lines 58--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--94
+Underfull \hbox (badness 10000) in paragraph at lines 85--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
+Underfull \hbox (badness 10000) in paragraph at lines 92--96
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--115
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--120
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 118--122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--125
 
  []
 
 (./Code/DestFunGenerator.c)
-Overfull \hbox (17.0pt too wide) in paragraph at lines 124--127
+Overfull \hbox (17.0pt too wide) in paragraph at lines 126--129
 []$[]$ 
  []
 
-(./Code/OpenOSR.c)
-Overfull \hbox (17.0pt too wide) in paragraph at lines 128--131
+[33] (./Code/OpenOSR.c)
+Overfull \hbox (17.0pt too wide) in paragraph at lines 130--133
 []$[]$ 
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 132--144
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--152
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 155--158
+Underfull \hbox (badness 10000) in paragraph at lines 157--160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--162
+Underfull \hbox (badness 10000) in paragraph at lines 161--164
 
  []
 
 File: Figures/OSRKitResolvedScenario.png Graphic file (type QTm)
 <use  "Figures/OSRKitResolvedScenario.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
 (./Code/ResolvedOSR.c)
-Overfull \hbox (17.0pt too wide) in paragraph at lines 173--176
+Overfull \hbox (17.0pt too wide) in paragraph at lines 175--178
 []$[]$ 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 177--183
+Underfull \hbox (badness 10000) in paragraph at lines 179--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--201
+Underfull \hbox (badness 10000) in paragraph at lines 195--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--210
+Underfull \hbox (badness 10000) in paragraph at lines 204--212
 
  []
 
@@ -2090,74 +2095,82 @@ File: lstlang2.sty 2014/09/06 1.5e listings language file
 File: lstlang3.sty 2014/09/06 1.5e listings language file
 )
 (./Code/original.llvm)
-Overfull \hbox (17.0pt too wide) in paragraph at lines 211--214
+Overfull \hbox (17.0pt too wide) in paragraph at lines 213--216
 []$[]$ 
  []
 
 (./Code/fromInstrumented.llvm)
-Overfull \hbox (17.0pt too wide) in paragraph at lines 215--218
+Overfull \hbox (17.0pt too wide) in paragraph at lines 217--220
 []$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
-Overfull \hbox (4.63754pt too wide) in paragraph at lines 224--229
+Overfull \hbox (4.63754pt too wide) in paragraph at lines 226--231
 \T1/ppl/m/n/10.95 The OSR Kit li-brary and our ex-ten-sions heav-ily rely on a 
 spe-cial ob-ject, called a \T1/ppl/m/it/10.95 StateMap\T1/ppl/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--229
+Underfull \hbox (badness 10000) in paragraph at lines 226--231
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 254--265
+Underfull \hbox (badness 10000) in paragraph at lines 256--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--271
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--280
+Underfull \hbox (badness 10000) in paragraph at lines 274--282
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 281--289
+Underfull \hbox (badness 10000) in paragraph at lines 283--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--294
+Underfull \hbox (badness 10000) in paragraph at lines 292--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--304
+Underfull \hbox (badness 10000) in paragraph at lines 301--306
 
  []
 
-) (./Chapters/Chapter5.tex [39] [40
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
 
-]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--336
+
+ []
+
+) (./Chapters/Chapter5.tex [40]
 Chapter 5.
 --------------------
  5. Case Study: An R Inliner
@@ -2237,7 +2250,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) (./Chapters/Chapter6.tex [41] [42
+) (./Chapters/Chapter6.tex [41
+
+] [42
 
 ]
 Chapter 6.
@@ -2363,10 +2378,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28292 strings out of 493706
- 505496 string characters out of 6145768
- 802532 words of memory out of 5000000
- 31294 multiletter control sequences out of 15000+600000
+ 28293 strings out of 493706
+ 505520 string characters out of 6145768
+ 800532 words of memory out of 5000000
+ 31295 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s

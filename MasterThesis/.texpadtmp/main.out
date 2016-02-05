@@ -53,12 +53,12 @@
 \BOOKMARK [2][-]{subsection.270}{The\040StateMap}{section.239}% 53
 \BOOKMARK [2][-]{subsection.271}{The\040continuation\040function}{section.239}% 54
 \BOOKMARK [1][-]{section.272}{Using\040OSR\040Kit\040to\040deoptimize}{chapter.166}% 55
-\BOOKMARK [2][-]{subsection.273}{A\040case\040that\040does\040not\040fit\040well}{section.272}% 56
+\BOOKMARK [2][-]{subsection.273}{A\040case\040that\040does\040not\040fit\040perfectly}{section.272}% 56
 \BOOKMARK [2][-]{subsection.274}{Where\040to\040exit?}{section.272}% 57
 \BOOKMARK [1][-]{section.275}{Extension\040in\040OSR\040RJIT}{chapter.166}% 58
 \BOOKMARK [2][-]{subsection.276}{The\040OSR\040Handler\040and\040function\040versions.}{section.275}% 59
 \BOOKMARK [2][-]{subsection.277}{Fusing\040versions?}{section.275}% 60
-\BOOKMARK [2][-]{subsection.278}{Unguarded\040OSR\040points}{section.275}% 61
+\BOOKMARK [2][-]{subsection.278}{Unguarded\040OSR\040points?}{section.275}% 61
 \BOOKMARK [0][-]{chapter.279}{Case\040Study:\040An\040R\040Inliner}{}% 62
 \BOOKMARK [1][-]{section.280}{The\040RJIT\040project}{chapter.279}% 63
 \BOOKMARK [1][-]{section.281}{OSR\040in\040RJIT:\040requirements}{chapter.279}% 64

@@ -14,6 +14,8 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
+NOT SATISFIED WITH THE PLAN FOR THE MOMENT: TRY JUSTIFICATION, DEOPTIMIZATION, REAL API FOR OSR RJIT, POSSIBLE EXTENSIONS AND PROTOTYPES.\\
+
 This chapter presents our design to support OSR transitions and OSR deoptimizations in LLVM, and more particularly in the RJIT project.
 Our design and implementation is based on OSR Kit\cite{OSRKit, OSRKitGit}, an OSR library for LLVM, implemented by \citean{OSRKit} at the department of Computer, Control, and Management Engineering of the Sapienza University of Rome.
 This implementation provides several features of existing techniques, that were never simultaneously supported in a single framework.
@@ -310,13 +312,39 @@ PRESENT WHAT WE NEED TO CHANGE IN OSR KIT AND THE CHALLENGES.\\
 %Replacing the function. 
 
 %As a conclusion, not exactly what we need here
-Using OSR Kit 
+Using OSR Kit to implement OSR based deoptimization in RJIT presents important trade-offs.
+On one hand, generating a transformation that removes optimizations is hard.
+It is easier to know where to exit in advance.
+As a result, we need to keep track of the base function on which the optimization was applied. 
+This fits the OSR Kit library's resolved OSR style, i.e., the continuation function is simply the base version that we used to generate the optimized one, and we can insert a resolved OSR when we perform the optimization.
+On the other hand, this way of generating the continuation function is expensive, especially for deoptimization.
+First, it requires to obtain two copies of the same base function, i.e., one to transform, and another that will serve as the continuation function.
+Since the continuation function's signature might not be the same as the base function's one, the OSR Kit framework will perform a clone of the body of the function. 
+Assuming we perform the optimizations on the base function, that still leaves us with two clones of the function per OSR point inserted.
+Finally, as mentioned earlier, the fact that the continuation function is unable to serve regular calls implies that whenever the optimized function is deemed useless, i.e., any call to it will trigger an OSR exit, an un-instrumented version of the base function has to be compiled to serve regular calls.
+
+In summary, the OSR Kit library's way of generating the continuation fits the RJIT requirements, but is costly and requires extra work when an assumption fails.
+Section REF presents the OSR Handler, which enables to keep track of versions generated and decreases the amount of compilation required inside RJIT.\\
+
+In RJIT, LLVM attributes\cite{llvmAttribute} associated to the LLVM IR are used to generate the safepoints for the call stubs and the garbage collector.
+For example, when a call stub is inserted inside a function, a patchpoint identified by a unique id is inserted as an LLVM attribute in the corresponding call instruction, and registered inside the framework as a patchpoint that needs special instrumentation in the final compilation steps.
+If not properly set, the call stub will not be resolved at run time and lead to unexpected behaviors.
+As a result, simply cloning LLVM IR that corresponds to an R function is not enough.
+Patchpoints and attributes also need to be fixed. 
+As explained before, the OSR Kit library requires to generate several clones of the function on which we perform transformations. 
+The RJIT framework therefore has to fix patchpoints and attributes for any of these clones that might be called during the execution.\\
+
  
 \subsection{Where to exit?}
 %What is possible and what is not
 %Well can only exit to the previous version by default. BY DESIGN. 
 %RJIT and transitive allow to make that more flexible, e.g., imagine there inlining
 %Requires remapping of live values too.
+The OSR Kit library, by design, encourages the OSR exit to target the base version that was used to generate the optimized one.
+The insertResolvedOSR requires to provide a StateMap as input.
+As explained in REF, the StateMap can either be automatically generated while cloning a function, or filled up by hand. 
+The RJIT framework does not provide enough analysis information for the moment to be able to generate a StateMap from scratch, to map two different functions.
+As a result, we keep the ...
 
 \section{Extension in OSR RJIT}\label{extendingOSR}
 %In this section details novel implementations, some of which we're referenced above.

@@ -49,19 +49,19 @@
 \contentsline {subsection}{\numberline {4.1.2}An LLVM Library}{32}{subsection.169}
 \contentsline {section}{\numberline {4.2}Resolved \& Open OSR}{33}{section.178}
 \contentsline {subsection}{\numberline {4.2.1}The Open OSR}{33}{subsection.179}
-\contentsline {subsubsection}{Similarities with McJIT}{34}{section*.217}
+\contentsline {subsubsection}{Similarities with McJIT}{35}{section*.217}
 \contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{35}{subsection.218}
 \contentsline {section}{\numberline {4.3}The OSR Instrumentation}{36}{section.239}
 \contentsline {subsection}{\numberline {4.3.1}OSR Points \& Conditions}{36}{subsection.240}
 \contentsline {subsection}{\numberline {4.3.2}The StateMap}{37}{subsection.270}
 \contentsline {subsection}{\numberline {4.3.3}The continuation function}{38}{subsection.271}
 \contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{39}{section.272}
-\contentsline {subsection}{\numberline {4.4.1}A case that does not fit well}{39}{subsection.273}
-\contentsline {subsection}{\numberline {4.4.2}Where to exit?}{39}{subsection.274}
-\contentsline {section}{\numberline {4.5}Extension in OSR RJIT}{39}{section.275}
-\contentsline {subsection}{\numberline {4.5.1}The OSR Handler and function versions.}{39}{subsection.276}
-\contentsline {subsection}{\numberline {4.5.2}Fusing versions?}{39}{subsection.277}
-\contentsline {subsection}{\numberline {4.5.3}Unguarded OSR points}{39}{subsection.278}
+\contentsline {subsection}{\numberline {4.4.1}A case that does not fit perfectly}{39}{subsection.273}
+\contentsline {subsection}{\numberline {4.4.2}Where to exit?}{40}{subsection.274}
+\contentsline {section}{\numberline {4.5}Extension in OSR RJIT}{40}{section.275}
+\contentsline {subsection}{\numberline {4.5.1}The OSR Handler and function versions.}{40}{subsection.276}
+\contentsline {subsection}{\numberline {4.5.2}Fusing versions?}{40}{subsection.277}
+\contentsline {subsection}{\numberline {4.5.3}Unguarded OSR points?}{40}{subsection.278}
 \contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{41}{chapter.279}
 \contentsline {section}{\numberline {5.1}The RJIT project}{41}{section.280}
 \contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{41}{section.281}
