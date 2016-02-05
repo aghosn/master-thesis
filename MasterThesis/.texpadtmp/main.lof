@@ -17,7 +17,6 @@
 \contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{29}{figure.caption.162}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}.}}{30}{figure.caption.163}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Resolved OSR Scenario}}{35}{figure.caption.219}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

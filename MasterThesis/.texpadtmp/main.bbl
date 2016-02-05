@@ -176,32 +176,6 @@
   \field{year}{2016}
 \endentry
 
-\entry{OSRKitGit}{online}{}
-  \name{author}{2}{}{%
-    {{}%
-     {D'Elia}{D.}%
-     {Daniele~Cono}{D.~C.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Demetrescu}{D.}%
-     {Camil}{C.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{DDCDC1}
-  \strng{fullhash}{DDCDC1}
-  \field{sortinit}{D}
-  \field{title}{{OSRKit} OSRKit}
-  \verb{url}
-  \verb https://github.com/dcdelia/tinyvm
-  \endverb
-  \field{year}{2016}
-  \field{urlday}{01}
-  \field{urlmonth}{02}
-  \field{urlyear}{2016}
-\endentry
-
 \entry{duboscq2014speculation}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -262,27 +236,6 @@
   \field{year}{2003}
 \endentry
 
-\entry{llvmAttribute}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Group}{G.}%
-     {LLVM~Developer}{L.~D.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{GLD1}
-  \strng{fullhash}{GLD1}
-  \field{sortinit}{G}
-  \field{title}{{LLVM Attribute} LLVM::Attribute}
-  \verb{url}
-  \verb http://llvm.org/docs/doxygen/html/classllvm_1_1Attribute.html
-  \endverb
-  \field{year}{2003}
-  \field{urlday}{01}
-  \field{urlmonth}{02}
-  \field{urlyear}{2016}
-\endentry
-
 \entry{llvmUrl}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -297,27 +250,6 @@
   \field{title}{{LLVM web site} LLVM web site}
   \verb{url}
   \verb http://llvm.org/
-  \endverb
-  \field{year}{2003}
-  \field{urlday}{01}
-  \field{urlmonth}{02}
-  \field{urlyear}{2016}
-\endentry
-
-\entry{VMap}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Group}{G.}%
-     {LLVM~Developer}{L.~D.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{GLD1}
-  \strng{fullhash}{GLD1}
-  \field{sortinit}{G}
-  \field{title}{{ValueMapper.h} LLVM ValueMapper.h}
-  \verb{url}
-  \verb http://llvm.org/docs/doxygen/html/ValueMapper_8h.html
   \endverb
   \field{year}{2003}
   \field{urlday}{01}
@@ -651,27 +583,6 @@
   compiler}
   \field{volume}{36}
   \field{year}{2001}
-\endentry
-
-\entry{RURL}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Team}{T.}%
-     {R~Core}{R.~C.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{TRC1}
-  \strng{fullhash}{TRC1}
-  \field{sortinit}{T}
-  \field{title}{{The R project} The R project}
-  \verb{url}
-  \verb www.r-project.org
-  \endverb
-  \field{year}{1993}
-  \field{urlday}{01}
-  \field{urlmonth}{02}
-  \field{urlyear}{2016}
 \endentry
 
 \lossort
