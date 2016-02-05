@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  3 FEB 2016 21:39
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  4 FEB 2016 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2121,22 +2121,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--265
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--269
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--278
+Underfull \hbox (badness 10000) in paragraph at lines 268--271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--280
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 279--287
+Underfull \hbox (badness 10000) in paragraph at lines 281--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--292
+Underfull \hbox (badness 10000) in paragraph at lines 290--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--304
 
  []
 
@@ -2145,7 +2160,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--292
 ]
 Chapter 5.
 --------------------
- 5. Case Study
+ 5. Case Study: An R Inliner
 --------------------
 
 ./Chapters/Chapter5.tex:10: LaTeX Error: Command \keyword already defined.
@@ -2216,6 +2231,11 @@ l.14 \newcommand{\option}[1]{\texttt{\itshape#1}}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
 
 ) (./Chapters/Chapter6.tex [41] [42
 

@@ -183,7 +183,7 @@ When several call sites are inlined, each of them is instrumented with an OSR ex
 
 
 
-\section{The API}
+\section{The OSR Instrumentation}
 \subsection{OSR Points \& Conditions}
 %No distinction
 %Both are done in the same way i.e., insert a condition.
@@ -263,6 +263,8 @@ The dead instructions are automatically eliminated by the LLVM transformation pa
 In any case, their only impact is on the space used up by the program, their presence does not increase the execution time of the continuation function.
 It might, however, impact on later optimizations performed on the code.\\
 
+CODE EXAMPLE.\\
+
 Passing live values as arguments to the continuation function is more efficient than loading them from a buffer.
 According to \cite{fink2003design}, generating a dedicated function to resume the execution to continue the execution, as opposed to instrument a general function to serve as continuation as well as a regular function, is expected to lead to better results.
 In other words, it is supposed to be better to keep the base function to serve regular calls, and trigger OSR transitions whenever we need them, during the execution of the function.\\
@@ -292,14 +294,51 @@ If we take the inlining example above, replacing the function with one that does
 
 
 \section{Using OSR Kit to deoptimize}\label{osrForUs}
-\subsection{The unease of deoptimizing}
-\subsection{Where to exit?}
-\subsection{SOMETHING ELSE}
+MIGHT MOVE THAT SOMEWHERE ELSE\\
+\subsection{A case that does not fit perfectly}
+PRESENT WHAT WE NEED TO CHANGE IN OSR KIT AND THE CHALLENGES.\\
+%Cannot apply opposite of transformation so need to keep the base version somewhere. 
+%Exit must be known in advance.
+%Need to generate a lot of IR for a single function. 
+%The OSR kit library works with a special continuation that cannot be used for regular calls, so need to be able to get this representation at some point for deopt and replace it.
 
-\section{Extending OSR Kit}\label{extendingOSR}
-\subsection{The OSR Handler}
-\subsection{Handling versions}
-%Updating the statemap as we perform the operations.
-\subsection{Unguarded OSR points}
+%RJIT and the constants, instrumentations and other stuff on the side that makes it more difficult than just copying around the IR.
+%Requires to clone a lot so increase the time spent in the compiler.
+%One trick is to keep track of everything and reuse it as much as possible.
+
+%Closures and what that implies. 
+%Replacing the function. 
+
+%As a conclusion, not exactly what we need here
+Using OSR Kit 
+ 
+\subsection{Where to exit?}
+%What is possible and what is not
+%Well can only exit to the previous version by default. BY DESIGN. 
+%RJIT and transitive allow to make that more flexible, e.g., imagine there inlining
+%Requires remapping of live values too.
+
+\section{Extension in OSR RJIT}\label{extendingOSR}
+%In this section details novel implementations, some of which we're referenced above.
+%Added on top of the osr kit library, enables to better fit our use cases and also to enable to 
+%switch from one design to another, experiment with different solutions etc. 
+
+\subsection{The OSR Handler and function versions.}
+%Takes care of the cloning and versioning 
+%Provides simplified API to insert OSR points.
+%Keeps track of statemaps.  
+%Provides methods to update the statemap as we go, simple remove entries and add entries for now. 
+%Future: would be great to have it wrap around the LLVM function and do all of that automatically, but that is a huge amount of work that we do not provide yet. 
+
 \subsection{Fusing versions?}
 %TRANSITIVE STATEMAPS
+%Why do we want that ?
+%it is a first step toward one continuation function, i.e., we can have the buffer implementation more easily 
+%invalidate several assumptions at the same time -> e.g. inlining at the same level + reduces the number of versions that we keep in memory. 
+    %What about the function signature? => take both sets and get union of them in the function signature, patch them will null values if they are not needed during the call. 
+    %Implementation status .... wolololo
+
+
+\subsection{Unguarded OSR points?}
+%Keep track of stackmaps and patchpoints -> can enable this 
+
