@@ -84,11 +84,12 @@ The main goals of the OSR Kit project are:
 %MORE about it being a tool and the OSR is left to the user.
 The OSR Kit library's main contribution is the implementation of an efficient and flexible OSR transition mechanism.
 This transition can be used to implement OSR entries and OSR exits alike.
-Allowing OSR points to be inserted at any location enables the user to experiment the OSR mechanisms at any instruction boundary. 
+Allowing OSR points to be inserted at any location enables the user to experiment with the OSR mechanisms at any instruction boundary. 
 In other words, the OSR library is designed to give the user as much freedom as possible.
 Section \ref{tradeOffs} explained the basic trade-offs between generating the continuation function on the fly and caching already compiled versions.
-Where other implementations, such as McJIT OSR\cite{lameed2013modular}, made a clear choice between the two techniques, the OSR Kit library decided to enable both of them, hence allowing the user to experiment and select the design that better suits specific use cases.\\
+Where other implementations, such as McOSR\cite{lameed2013modular}, made a clear choice between the two techniques, the OSR Kit library decided to enable both of them, hence allowing the user to experiment and select the design that better suits specific use cases.\\
 
+%TODO MISSING FROM NEW
 LLVM IR is a stable representation that combines the advantages of both the high-level representation, i.e., it still contains some semantic constructions particular to the language being compiled, and the advantages of a lower level representation, closer to the execution engine.
 In the case of this master thesis project, i.e., providing OSR mechanisms in the RJIT project, the LLVM IR is the exact middle layer representation that we need. 
 The R AST representation is too high level and prevents us from introducing efficient OSR instrumentation. 
@@ -131,6 +132,7 @@ The \textit{destFunGenerator} is the $f_{stub}$ function and is of type \textit{
 \includecode{Code/OpenOSR.c}
 \end{minipage}
 
+%TODO MISSING FROM NEW
 Open OSR are hard in the deoptimization case.
 Being able to generate a continuation function on the fly for an OSR exit requires the framework to be able to undo an optimization.
 The RJIT framework, does not, for the moment, provide means to keep track of transformations performed on a function, and efficiently revert them.
@@ -144,8 +146,8 @@ On the other hand, it increases the amount of work performed during the OSR tran
 %In order to do so, we have a handler, that keeps the version etc., 
 %So I guess I'm gonna try it.
 
-\subsubsection{Similarities with McJIT}
-The open OSR is similar, in theory, to the McJIT OSR implementation\cite{lameed2013modular}.
+\subsubsection{Similarities with McOSR}
+The open OSR is similar, in theory, to the McOSR implementation\cite{lameed2013modular}.
 Both of them rely on a \textit{gen} function to generate the continuation function when the OSR transition is fired.
 However, \citean{OSRKit} made the choice to perform these operations, i.e., generating the continuation function and transferring the execution, inside a separated function, rather than instrumenting the from function directly.
 This choice was made in order to minimize the code injected inside the from function.
