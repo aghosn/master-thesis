@@ -178,6 +178,7 @@ Figure REF corresponds to the signature of the OSR Kit function that enables to 
 \includecode{Code/ResolvedOSR.c}
 \end{minipage}
 
+%TODO MISSING FROM NEW
 The resolved OSR scenario does not require to inverse on the fly the transformations performed on the function and can therefore easily be used to implement the deoptimization case.
 In order to obtain the optimized version of a function, one has to perform transformations on a base function.
 This base function can therefore be used as the continuation function in the case of an OSR exit.
@@ -233,6 +234,7 @@ The StateMap also provides an API to register and unregister mappings by directl
 
 %Transitive mappings
 %Enables to skip versions!
+%TODO MISSING FROM NEW
 In order to facilitate the use of StateMaps in the deoptimization case, we extended the object with transitive mappings.
 Suppose two StateMaps, $S_1$ and $S_2$, such that $S_1$ is a mapping between $A$ and $B$, and $S_2$ a mapping between $A$ and $C$.
 Our transitive constructor will be able to generate a new StateMap, $S_3$, that maps $B$ and $C$.
@@ -273,6 +275,7 @@ Passing live values as arguments to the continuation function is more efficient 
 According to \cite{fink2003design}, generating a dedicated function to resume the execution to continue the execution, as opposed to instrument a general function to serve as continuation as well as a regular function, is expected to lead to better results.
 In other words, it is supposed to be better to keep the base function to serve regular calls, and trigger OSR transitions whenever we need them, during the execution of the function.\\
 
+%TODO Missing from new
 In the case of long running functions, generating this type of OSR continuation function to transfer the execution to a more optimized version of the code makes sense.
 The OSR entry is usually fired at some special control flow node, such as a function prologue or a loop header.
 Therefore, the code expected to be repeatedly executed is not dead inside the continuation function.
