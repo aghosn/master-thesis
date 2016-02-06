@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 FEB 2016 15:30
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 FEB 2016 18:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2188,7 +2188,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--196
 
  []
 
-[41]) (./Chapters/Chapter5.tex [42]
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--212
+
+ []
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--239
+
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--256
+
+ []
+
+) (./Chapters/Chapter5.tex [43] [44
+
+]
 Chapter 5.
 --------------------
  5. Case Study: An R Inliner
@@ -2268,9 +2315,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) (./Chapters/Chapter6.tex [43
-
-] [44
+) (./Chapters/Chapter6.tex [45] [46
 
 ]
 Chapter 6.
@@ -2347,14 +2392,14 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [45] [46
+) (./Appendices/AppendixA.tex [47] [48
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [47] [48
+) [49] [50
 
 ]
 Overfull \hbox (0.93102pt too wide) in paragraph at lines 276--276
@@ -2368,7 +2413,7 @@ Overfull \hbox (2.77666pt too wide) in paragraph at lines 276--276
 l/m/it/10.95 Com-piler Con-struc-tion\T1/ppl/m/n/10.95 . Springer.
  []
 
-[49]
+[51]
 Overfull \hbox (5.35594pt too wide) in paragraph at lines 276--276
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
@@ -2382,7 +2427,7 @@ Overfull \hbox (2.60896pt too wide) in paragraph at lines 276--276
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 280.
-[50]
+[52]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -2396,13 +2441,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28310 strings out of 493706
- 505731 string characters out of 6145768
+ 28309 strings out of 493706
+ 505715 string characters out of 6145768
  832532 words of memory out of 5000000
- 31308 multiletter control sequences out of 15000+600000
+ 31307 multiletter control sequences out of 15000+600000
  37663 words of font info for 66 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (70 pages).
+xpadtmp/main.pdf (72 pages).

@@ -55,8 +55,8 @@
 \BOOKMARK [3][-]{section*.288}{Walkthrough\040a\040transformation\040with\040OSR\040exits}{subsection.269}% 55
 \BOOKMARK [2][-]{subsection.289}{Improving\040the\040Exit}{section.268}% 56
 \BOOKMARK [1][-]{section.290}{Future\040work}{chapter.264}% 57
-\BOOKMARK [2][-]{subsection.291}{On\040the\040fly\040compilation}{section.290}% 58
-\BOOKMARK [3][-]{section*.292}{Transitive\040StateMaps}{subsection.291}% 59
+\BOOKMARK [2][-]{subsection.291}{Transitive\040StateMaps}{section.290}% 58
+\BOOKMARK [2][-]{subsection.292}{On\040the\040fly\040compilation}{section.290}% 59
 \BOOKMARK [0][-]{chapter.293}{Case\040Study:\040An\040R\040Inliner}{}% 60
 \BOOKMARK [1][-]{section.294}{The\040RJIT\040project}{chapter.293}% 61
 \BOOKMARK [1][-]{section.295}{OSR\040in\040RJIT:\040requirements}{chapter.293}% 62
