@@ -54,7 +54,7 @@
 \BOOKMARK [3][-]{section*.271}{Fixing\040the\040continuation\040function}{subsection.270}% 54
 \BOOKMARK [2][-]{subsection.272}{Transitive\040StateMaps}{section.268}% 55
 \BOOKMARK [2][-]{subsection.273}{On\040the\040fly\040compilation}{section.268}% 56
-\BOOKMARK [1][-]{section.274}{Future\040Work}{chapter.264}% 57
+\BOOKMARK [2][-]{subsection.274}{Future\040work}{section.268}% 57
 \BOOKMARK [0][-]{chapter.275}{Case\040Study:\040An\040R\040Inliner}{}% 58
 \BOOKMARK [1][-]{section.276}{The\040RJIT\040project}{chapter.275}% 59
 \BOOKMARK [1][-]{section.277}{OSR\040in\040RJIT:\040requirements}{chapter.275}% 60

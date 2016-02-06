@@ -540,8 +540,8 @@ Both deoptimization and optimization rely on the same kind of continuation funct
 A continuation function, in OSR Kit, has a special function signature that takes as inputs all the variables that were live at the instruction at which the OSR transition was fired.
 Its return type is the same as the from and the base (unmodified and un-instrumented) functions.
 The OSR Kit instrumentation inserts a special basic block, called \textit{OSR ENTRY}, at the beginning of the continuation function.
-The OSR ENTRY is responsible for executing a compensation code and jumping to the correct block inside the continuation function.
-The compensation code is specified by the library user as a vector of instructions, when the OSR is inserted in the code.
+The OSR ENTRY is responsible for executing the \textit{compensation code} and jumping to the correct block inside the continuation function.
+The compensation code is specified by the user as a vector of instructions associated with a source value, when the OSR is inserted in the code.
 The continuation instruction, i.e., the instruction to which the OSR ENTRY jumps to is assured by the OSR Kit library to be the first instruction in the destination block.
 Everything between the OSR ENTRY and the continuation block becomes dead code.
 The dead instructions are automatically eliminated by the LLVM transformation passes.

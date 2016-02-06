@@ -64,6 +64,40 @@ We do not waste time reimplementing something that already exists, and can there
     %Continuation style is fine for optimization, but pretty bad for deopt.
         %no replacement when exits... 
         %many clones ... 
+        %As we'll see later, cloning is not sufficient ...
+While very flexible, the OSR Kit\cite{OSRKit} library presents several disadvantages and exhibits costly behaviors that do not perfectly fit the deoptimization process.
+The main advantage of the open OSR is to leverage profiled-guided compilation strategies to generate efficient code.
+However, generating a transformation that removes optimizations is hard and does not play well with the OSR Kit instrumentation.
+Such a transformation needs to take into account other optimizations that might have been performed on the code after the optimization was applied, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on this optimization, and undo them.
+Moreover, the deoptimization case is used to preserve correctness in the program and must be conservative. 
+Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not our main objective. 
+For the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
+That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.\\
+
+Once an OSR exit is taken, it is more likely to be fired in subsequent calls.
+For example, in the case of call site inlining, the OSR exit is fired when the inlined function is redefined.
+In subsequent calls, the OSR exit will also be triggered.
+As a result, if the OSR exit is an open OSR point, the framework will have to perform expensive operations to generate the correct continuation function every time the OSR exit is triggered.
+In the light of these observations, we can conclude that the open OSR design does not fit well the deoptimization case.\\
+
+The resolved OSR corresponds to our requirements for deoptimization.
+The optimized version is generated from a base function.
+Since OSR points are barriers for subsequent optimizations, i.e., they cannot be tempered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
+It therefore makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
+
+The OSR Kit way of generating the continuation function is expensive.
+In the deoptimization case, inserting an OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
+Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.
+Moreover, in RJIT, cloning a function is not sufficient.
+The LLVM IR attributes\cite{llvmAttribute} associated to the RJIT LLVM IR are used to generate safepoints for call stubs and the garbage collector.
+For example, when a call stub is inserted inside a function, a patchpoint identified by a unique id is inserted as an LLVM attribute in the corresponding call instruction, and registered inside the framework as a patchpoint that needs special instrumentation in the final compilation steps.
+If not properly set, the call stub will not be resolved at run time and yields unexpected behaviors, e.g., a function call that, instead of being evaluated will return its abstract syntax tree(AST).
+Therefore, for every clone, we need to go through the IR and fix the attributes, which makes the OSR instrumentation even more expensive.\\
+
+Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
+Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the cost of a function call and return, compared to the base function.
+The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
+
 \section{OSR RJIT mechanisms}
 \subsection{OSR Handler}
 %simplified points
@@ -72,11 +106,20 @@ We do not waste time reimplementing something that already exists, and can there
 %Talk about the base, toInstrument and Exit versions
 %Talk about the patchpoints that are fixed automatically
 \subsection{Improving the Exit}
-%The patch points etc., the number of copies done by osr kit.
 %Put the proper exit ! improve the perf
+    %Not rely on compensation code because does not relate to local values per see. Hence we modify the framework to do it for us. We know it is the first block, we just insert before the branch instruction. 
+    
 \subsubsection{Fixing the continuation function}
 %deoptimization improving the performances.
+    %replace with the function that is not doing the optimization
+    %e.g., inlining
+    %OSRHandler two attributes.
 \subsection{Transitive StateMaps}
+%Trying to improve the field of possibilities
+    %Chain of statemaps, can find what is in common in both of them
+    %Why interesting? Will be able, if provides interface, to enlarge the scope of intermixing optimizations 
 \subsection{On the fly compilation}
-\section{Future Work}
+
+\subsection{Future work}
+%An optimization process? 
 
