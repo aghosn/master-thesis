@@ -94,12 +94,20 @@ Although less expensive than the open OSR, a resolved OSR exit that fires at eve
 The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
 
 \section{OSR Handler}
-\subsection{Additional challenges in RJIT}
+This section presents the OSR Handler, a special singleton implemented in RJIT that strives to enable efficient OSR deoptimizations. 
+The OSR Handler has two main goals: 1) to mitigate the limitations of the OSR Kit\cite{OSRKit} library exposed in \ref{osrkitlimitations}, 2) to adapt the OSR Kit library to the RJIT framework.\\
+
+This section proceeds as follow: first, it exposes the additional challenges that are inheritant to the use of the OSR Kit library in RJIT.
+Then, it presents the OSR Handler implementation, and the solutions adopted to each problem encountered while enabling OSR deoptimization in RJIT.\\
+ 
+\subsection{Additional challenges in RJIT}\label{additionalchallenges}
 
 %Compilation flow
 The RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncover additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.
 RJIT provides a just-in-time compiler, i.e., functions are compiled just before being evaluated.
 The compilation flow can be broken down to these elementary steps: 1) The function is extracted from the R closure (a closure contains the function, its formals, and its environment), 2) if the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned, 3) the function is compiled into an LLVM IR made out of calls to intrinsic functions (e.g., getUserLiteral, getFunction etc.), 4) Calls to non-intrinsic functions are compiled as inline cache stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call, 4) every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to the ic call stubs, is visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.
+This final step is performed by calling the \textit{jitAll} on the compiler instance.
+All functions generated with this instance of the compiler will be instrumented during this call.
 The final result of the compilation is a blotted piece of LLVM IR from which the R semantics are hard to extract.\\
 
 In order to perform transformations based on R semantics, a fresh non-instrumented (i.e., without the safepoint and patchpoint machinery) version of the LLVM IR is needed.
@@ -124,11 +132,139 @@ $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
 According to Section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the signature of the continuation function's signature in order to pass all the live values during an OSR transition.
 As a result, the continuation function might not be of type $T$.
 Enabling any type in the ic stub is not a viable solution, i.e., it requires too much work and goes against the type policies enforces by the RJIT framework. 
-We therefore have to come up with an alternative solution.\\
+We therefore have to come up with an alternate solution.\\
+
+The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
 
 \subsection{Reducing the number of compilation}
+
+Transformations that act on R semantics have to be performed on a non-instrumented LLVM IR.
+As explained before, obtain such IR might be harder than expected. 
+There are three cases to distinguish:
+\begin{enumerate}
+    \item The function was never compiled before.\label{toCompile}
+    \item The function was compiled, but not instrumented.\label{best} 
+    \item The function was compiled and instrumented.\label{worst}
+\end{enumerate}
+
+For \ref{toCompile}, the only option is to compile the function, and extract the generated IR before the final instrumentation.
+Case \ref{best} is the best scenario.
+The LLVM IR can simply be extracted from the SEXP function, cloned, and used for the transformations.
+This case happens when the function was compiled during the current compilation unit, i.e., the function is part of the current module and was generated using the current instance of the compiler, on which the \textit{jitAll} function was not called it.
+Case \ref{worst} is the worst scenario.
+The non-instrumented LLVM IR no longer exists.
+The naive solution is to recompile the function from scratch, which is too expensive.\\
+
+The OSR Handler enables to record non-instrumented IRs that it encounters.
+This singleton provides a special function, called \textit{getFreshIR}, that takes as parameter a SEXP closure and a compiler instance, and returns a function SEXP (see signature Figure REF).
+The OSR Handler extracts the function from the closure, and checks its type.
+Depending on the type of the function, it takes the less costly solution to get the non-instrumented IR.\\
+
+If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates a clone of the resulting LLVM IR.
+The clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
+The clone does not belong to the current module.
+Therefore, it will not be instrumented if the \textit{jitAll} function is called.
+One should note that if the function contains ic stubs, their attributes are copies of the orignal function and need to be fix if we want to correctly instrument the function.
+The caller pointer argument in the ic stub also points to the original function and needs to be fixed.
+It is important to note that this case might correspond to an ahead of time (AOT) compilation.
+For example, in the case of function inlining, a transformation needs to obtain the body of a function that corresponds to a call site.
+In the case considered here, the callee was not yet jitted since it was never called before.
+If we leave things as they are, the next call to the function will trigger the jit compiler, and the same function will be compiled a second time.
+Therefore, in order to improve RJIT performance, the OSR Handler sets the original result of the compilation obtained above in its closure.
+When the function is called later on, the execution environment will see a function of type NATIVESXP, and will not waste time calling the JIT compiler.\\
+
+If the function is a NATIVESXP, the OSR Handler extracts the function's module.
+This can be easily done by accessing the function's LLVM parent.
+If the module is the same as the compiler's module, according to RJIT's behavior, we can assume that the IR is not instrumented.
+RJIT creates one module per compiler instance, and calls the \textit{jitAll} function just before destroying the execution engine and the compiler instance, and returning to the R interpreter.
+In this case, the OSR Handler simply extracts the function's LLVM IR, creates a clone, creates a new SEXP containing the clone, and returns it.\\
+
+If the compiled function's module is not the same as the compiler's one, the OSR Handler concludes that the LLVM IR of the function is instrumented.
+As a result, it checks if a non-instrumented IR was registered in the \textit{base versions} map.
+If such an entry exists, the OSR Handler constructs a copy of the function SEXP that contains a clone of the non-instrumented function and returns it.
+Otherwise, the OSR Handler has no choice but to recompile the function.
+One should note that this non-instrumented IR corresponds to the result of a compilation of the original AST of the function, i.e., no transformation has been applied on this IR. 
+In other words, all the transformations performed while compiling the function the first time are not reflected on the stored IR. 
+This is a choice that we made in order to keep different optimization passes independent.
+In some cases, that solution implies that we have to re-do the same transformation on the same function several times.
+For example, consider a function $A$ that calls $B$ several times.
+An OSR inliner would inline every call sites in A.
+The inliner could further decide to inline all the calls inside $B$'s body.
+In that case, if the inliner relies on the OSR Handler to get the $B$'s IR, it will have to run on each separate clone to inline the clones, therefore performing the same transformations multiple times.
+On the other hand, if the inliner's transformations depend on the location of the call to $B$, it is guaranteed to obtain fresh and independent IRs through the OSR Handler.\\
+
+\includecode{Code/getFreshIR.h}
+\includecode{Code/baseVersion.h}
+
 \subsection{Simplifying the OSR exit insertion}
-\subsection{Fixing the closure}
+
+Section \ref{osrkitlimitations} explains our choice to use resolved OSR from the OSR Kit\cite{OSRKit} library.
+The resolved OSR API is provided in Section \ref{describeOSRKit}.\\
+
+RJIT imposes additional constraints on the OSR exits. 
+The continuation instruction needs to be the exact match of the from instruction from.
+In other words, considering the \textit{insertResolvedOSR}, the \textit{lPad} argument is the instruction in the continuation function that corresponds to the \textit{src} argument in the from function.
+The OSR Kit library provides some flexibility in the choice of these two instructions. 
+This flexibility is not required in RJIT, and is removed to ensure the correctness of the implementation.\\
+
+The OSR Handler provides a clone function that clones an LLVM function, adds it to the same module as the original function, fixes the ic stubs attributes, and automatically registers a StateMap between the original and cloned function in its \textit{statemaps}, a map from a pair of LLVM function pointers to a StateMap (see Figure REF).\\
+\includecode{Code/statemaps.h}
+
+The clone function can be called to generate what is called, in RJIT, the \textit{toInstrument} function.
+The \textit{toInstrument} function is the argument passed as the continuation function to the \textit{insertResolvedOSR} function.
+As explained in Section \ref{osrkitlimitations}, the OSR Kit library will clone the \textit{toInstrument} function to generate the continuation function.
+It relies on a StateMap that is passed as argument to the function call. 
+Thanks to the OSR Handler statemaps, this argument can be omitted and automatically retrieved.\\
+
+One might notice that the \textit{toInstrument} function was added to the module, and will therefore be fully compiled when the \textit{jitAll} function will be called.
+As explained in Section \ref{additionalchallenges}, the continuation function's ic stub calls cannot use the continuation function's pointer as argument for the caller. 
+The \textit{toInstrument} function's address is therefore used instead.
+The \textit{toInstrument} function has another important role that is detailed in the next section.\\
+
+The OSR Handler provides a function, called \textit{insertOSRExit}, that provides the simplified interface described in this section.
+It further provides a default OSR configuration.
+The function's prototype is provided in Figure REF.
+The last argument is described in Section \ref{improvingexits}.\\
+
+\includecode{Code/insertOSRExit.h}
+
+\subsection{Improving the exits}\label{improvingexits}
+%OSR kit not well suited for osr exits. 
+%The call stub when executed will go replace itself in the toInstrument function, not in the stub.
+%Hence compensation 
+
+The continuation function mechanism does not fit the OSR exits well.
+As explained in Section \ref{osrkitlimitations}, once an OSR exit is fired, it is likely to be fired in subsequent calls.
+Triggering an OSR exit has a cost that might not be negligible.
+The OSR Kit\cite{OSRKit} library does not provide any mechanism to improve that special case.
+Furthermore, Section \ref{additionalchallenges} describes another problem with continuation functions.
+If a continuation function contains an ic stub, the caller pointer argument has to be the \textit{toInstrument} address, since the continuation function does not have the correct signature.\\
+
+The OSR Handler, via the \textit{insertOSRExit} method, enables to add a special compensation code at the beginning of the OSR ENTRY block in the continuation function, to answer these limitations.
+The compensation code is a vector of LLVM instructions.
+The compensation code can be any valid vector of instructions.
+This can be used to fix avoid triggering the OSR exit repeatedly once it has been fired a first time.
+For example, the compensation vector can contain a special call to a C++ function, that takes as argument a unique id that identifies the continuation function. 
+The C++ function then retrieves the toInstrument function, which is a valid, fully compiled version of the original function, and replaces the incorrect optimized function by the toInstrument version in the correct closure.
+As a result, all subsequent calls to the same function will execute a version of the function that was not optimized with the assumption that failed and triggered the OSR exit.
+This enables to avoid the cost of triggering an exit on every call to the function.\\
+
+The compensation code in the OSR Handler does not rely on the OSR Kit compensation code mechanism.
+The OSR Kit compensation code is used to fix the execution state, is associated to values transferred from one version to another, and is not meant to access the execution environment.
+Since it pertains to a different goal, we decided to implement our own solution.
+The instructions that enable to replace the function's version in the closure are left to the user. 
+This provides some flexibility on how to decide whether or not to replace the current function.\\
+
+In our example, we mentioned replacing the invalidated optimized version by the \textit{toInstrument} function.
+This choice has several advantages.
+First, since the \textit{toInstrument} was used to generate the continuation function, we know that it is correct and does not contain the invalidated transformations.
+Second, when the continuation function's ic stubs are executed, the RJIT framework generates inlined cached version of the target function, and is supposed to replace the ic stubs by a call to this inlined cached functions.
+For that purpose, it uses the ic stub argument that points to its caller.
+This argument, in the continuation function, points to the \textit{toInstrument} function.
+As a result, when the continuation function's ic stub are executed, the ic stubs in the toInstrument function are replaced by inlined cached functions, which are faster than the ic stubs.
+At a high-level, the cost of executing the optimized function, triggering the OSR exit, executing the continuation function, and calling the function anew is very close to the cost of calling the unoptimized version of the function twice.
+The only extra cost comes from the call and return to the continuation function, and the execution of the compensation code.\\
+
 \subsection{Walkthrough an example}
 
 \section{Future work}
