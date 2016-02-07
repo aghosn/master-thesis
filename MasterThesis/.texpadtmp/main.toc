@@ -50,23 +50,36 @@
 \contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.264}
 \contentsline {section}{\numberline {4.1}Overview}{37}{section.265}
 \contentsline {subsection}{\numberline {4.1.1}Justification}{37}{subsection.266}
-\contentsline {subsection}{\numberline {4.1.2}Limitations}{38}{subsection.267}
+\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{38}{subsection.267}
 \contentsline {section}{\numberline {4.2}OSR RJIT mechanisms}{39}{section.268}
 \contentsline {subsection}{\numberline {4.2.1}OSR Handler}{39}{subsection.269}
 \contentsline {subsubsection}{Handling version and the fixing the instrumentation}{40}{section*.273}
 \contentsline {subsubsection}{Simplifying the OSR points}{41}{section*.287}
-\contentsline {subsubsection}{Walkthrough a transformation with OSR exits}{41}{section*.288}
+\contentsline {subsubsection}{Walkthrough a transformation with OSR exits}{42}{section*.288}
 \contentsline {subsection}{\numberline {4.2.2}Improving the Exit}{42}{subsection.289}
 \contentsline {section}{\numberline {4.3}Future work}{42}{section.290}
-\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{42}{subsection.291}
+\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{43}{subsection.291}
 \contentsline {subsection}{\numberline {4.3.2}On the fly compilation}{43}{subsection.292}
-\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{45}{chapter.293}
-\contentsline {section}{\numberline {5.1}The RJIT project}{45}{section.294}
-\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{45}{section.295}
-\contentsline {section}{\numberline {5.3}Implementation}{45}{section.296}
-\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{45}{subsection.297}
-\contentsline {subsection}{\numberline {5.3.2}Challenges}{45}{subsection.298}
-\contentsline {section}{\numberline {5.4}OSR Conditions}{45}{section.299}
-\contentsline {chapter}{\numberline {6}Conclusion}{47}{chapter.300}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{49}{appendix.301}
-\contentsline {chapter}{Bibliography}{51}{appendix*.302}
+\contentsline {chapter}{\numberline {5}OSR in RJIT}{45}{chapter.293}
+\contentsline {section}{\numberline {5.1}Overview}{45}{section.294}
+\contentsline {subsection}{\numberline {5.1.1}Justification}{45}{subsection.295}
+\contentsline {subsection}{\numberline {5.1.2}OSR Kit limitations}{46}{subsection.296}
+\contentsline {section}{\numberline {5.2}OSR Handler}{47}{section.297}
+\contentsline {subsection}{\numberline {5.2.1}Additional challenges in RJIT}{47}{subsection.298}
+\contentsline {subsection}{\numberline {5.2.2}Reducing the number of compilation}{48}{subsection.299}
+\contentsline {subsection}{\numberline {5.2.3}Simplifying the OSR exit insertion}{48}{subsection.300}
+\contentsline {subsection}{\numberline {5.2.4}Fixing the closure}{48}{subsection.301}
+\contentsline {subsection}{\numberline {5.2.5}Walkthrough an example}{48}{subsection.302}
+\contentsline {section}{\numberline {5.3}Future work}{48}{section.303}
+\contentsline {subsection}{\numberline {5.3.1}Transitive StateMaps}{48}{subsection.304}
+\contentsline {subsection}{\numberline {5.3.2}On-the-fly compilation}{48}{subsection.305}
+\contentsline {chapter}{\numberline {6}Case Study: An R Inliner}{49}{chapter.306}
+\contentsline {section}{\numberline {6.1}The RJIT project}{49}{section.307}
+\contentsline {section}{\numberline {6.2}OSR in RJIT: requirements}{49}{section.308}
+\contentsline {section}{\numberline {6.3}Implementation}{49}{section.309}
+\contentsline {subsection}{\numberline {6.3.1}The Function Call in RJIT}{49}{subsection.310}
+\contentsline {subsection}{\numberline {6.3.2}Challenges}{49}{subsection.311}
+\contentsline {section}{\numberline {6.4}OSR Conditions}{49}{section.312}
+\contentsline {chapter}{\numberline {7}Conclusion}{51}{chapter.313}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{53}{appendix.314}
+\contentsline {chapter}{Bibliography}{55}{appendix*.315}

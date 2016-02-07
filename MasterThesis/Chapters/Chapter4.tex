@@ -58,7 +58,7 @@ Starting a new OSR transition implementation from scratch requires time.
 Using a flexible and modifiable OSR transition library therefore seemed like the goto option.
 We do not waste time reimplementing something that already exists, and can therefore put all our efforts into implementing an interesting OSR deoptimization case, testing it, and extending the OSR Kit library with mechanisms that are specific to our needs (Sections \ref{osrForUs} and \ref{extendingOSR}).\\
 
-\subsection{Limitations}
+\subsection{OSR Kit limitations}
 %While very flexible, comes short on several points
     %Open OSR, not really fitting our case.
     %Continuation style is fine for optimization, but pretty bad for deopt.
@@ -91,8 +91,15 @@ Since the continuation function might have a different signature than the base f
 Moreover, in RJIT, cloning a function is not sufficient.
 The LLVM IR attributes\cite{llvmAttribute} associated to the RJIT LLVM IR are used to generate safepoints for call stubs and the garbage collector.
 For example, when a call stub is inserted inside a function, a patchpoint identified by a unique id is inserted as an LLVM attribute in the corresponding call instruction, and registered inside the framework as a patchpoint that needs special instrumentation in the final compilation steps.
-If not properly set, the call stub will not be resolved at run time and yields unexpected behaviors, e.g., a function call that, instead of being evaluated will return its abstract syntax tree(AST).
+If not properly set, the call stub is not be resolved at run time and yields unexpected behaviors, e.g., a function call that, instead of being evaluated, will return its abstract syntax tree(AST).
 Therefore, for every clone, we need to go through the IR and fix the attributes, which makes the OSR instrumentation even more expensive.\\
+
+In RJIT, a continuation function requires the framework to compile an equivalent, non-instrumented version of the same function.
+As explained before, the ic stubs in RJIT require a pointer to the caller.
+The type of the caller has to be 
+$$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP},$$
+which might not correspond to the continuation function.
+Enabling any type in the ic stub would require a lot of work, and it is therefore easier to keep the base version of the continuation function, which has to be generated anyway in order to construct the continuation function.\\
 
 Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
 Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the cost of a function call and return, compared to the base function.
@@ -119,11 +126,13 @@ The OSR handler provides mechanisms that tend to mitigate these limitations.\\
 
 In RJIT, the LLVM IR that corresponds to a function goes through several steps.
 First, the R AST of the function is translated into LLVM IR, with special machinery to call intrinsics and insert inline cached call stubs, i.e., calls to functions that have to be resolved at run time.
-Then, once this IR is generated, the RJIT compiler instruments every registered safepoints and patchpoints in order to add the instrumentation for the garbage collector and the dynamic compilation of ic stubs.
+Then, once this IR is generated, the RJIT compiler visits every registered safepoints and patchpoints in order to add the instrumentation for the garbage collector and the dynamic compilation of ic stubs.
 The generated IR is a blotted piece of code from which R semantics are hard to extract.
 As a result, most optimizations need to be performed before this final instrumentation.\\
 
 %ADD since in a  jit, function are compiled when they are called. But, the optimization process and the deopt might require to access IR that is in another function. Hence, if was compiled, cannot reuse it and need a fresh one -> cost increases.
+CLEAN UP ITS MESSY AROUND THE END\\
+
 The RJIT compiler is a just-in-time compiler, i.e., functions are compiled when they are called.
 A function call can be described with the following steps: 1) the function is extracted from the closure, 2) if the type of the function is not native, i.e., if the function was not compiled, the RJIT compiler is invoked, 3) the function call is evaluated.
 This ensures that every function that is executed will be compiled in order to obtain the best possible performances, while avoiding the compilation of unused functions.
@@ -131,8 +140,8 @@ For OSR transformation mechanisms, however, some functions might need to be comp
 For example, consider the case of call site inlining.
 The optimization is performed at the LLVM IR.
 Once the target function of call is identified, the transformation process needs to obtain the LLVM IR of the function to inline.
-Moreover, this IR should not be instrumented , i.e., the LLVM IR should not contain the patchpoints and safepoints, in order to allow further optimizations.
-Therefore, in any case, the function needs to be recompiled from scratch in order to obtain a fresh non instrumented IR. 
+Moreover, this IR should not be instrumented , i.e., the LLVM IR should not contain the patchpoints and safepoints, in order to identify R semantics for further optimizations.
+Therefore, in any case, the function needs to be recompiled from scratch to obtain a fresh non instrumented IR. 
 This is an extra cost added to the OSR Kit, particular to the RJIT framework, that we want to remove.
 As a result, the OSR Handler provides a mechanism to assign a compiled function to a closure. 
 If the transformation process compiles a function that was never jited before, this mechanism will set the compiled version in the closure.
@@ -142,6 +151,7 @@ The next paragraph describes our solution to mitigate the compilation cost when 
 
 \subsubsection{Handling version and the fixing the instrumentation}
 CLEAN UP AND MAYBE MERGE WITH WALKTHROUGH.\\
+PROBLEM WITH THE IC STUB -> A CONTINUATION FUNCTION CANNOT BE ARG TO IC STUB...\\.
 
 The OSR Handler enables to keep track of LLVM IRs that are generated during the optimization process.
 The singleton possesses a static map, called a \textit{version map}, that enables to match a symbolic expression closure (i.e., a SEXP of type CLOSXP) to a pair of LLVM functions\cite{llvmFunction}.
