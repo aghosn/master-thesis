@@ -283,27 +283,6 @@
   \field{urlyear}{2016}
 \endentry
 
-\entry{llvmFunction}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Group}{G.}%
-     {LLVM~Developer}{L.~D.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{GLD1}
-  \strng{fullhash}{GLD1}
-  \field{sortinit}{G}
-  \field{title}{{LLVM Function} LLVM::Function}
-  \verb{url}
-  \verb http://llvm.org/docs/doxygen/html/classllvm_1_1Function.html
-  \endverb
-  \field{year}{2003}
-  \field{urlday}{01}
-  \field{urlmonth}{02}
-  \field{urlyear}{2016}
-\endentry
-
 \entry{llvmUrl}{online}{}
   \name{author}{1}{}{%
     {{}%
