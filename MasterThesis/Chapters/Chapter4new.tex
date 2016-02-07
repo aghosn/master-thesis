@@ -265,8 +265,83 @@ As a result, when the continuation function's ic stub are executed, the ic stubs
 At a high-level, the cost of executing the optimized function, triggering the OSR exit, executing the continuation function, and calling the function anew is very close to the cost of calling the unoptimized version of the function twice.
 The only extra cost comes from the call and return to the continuation function, and the execution of the compensation code.\\
 
-\subsection{Walkthrough an example}
+\subsection{Walkthrough a simple example}
+In this Section, we provide a full example of use of the OSR Handler's mechanisms.
+It describes which functions are called, and how every element is used.
+This example enables to show how the OSR Handler abstracts away all the different challenges that we described before, and enables to focus on the transformations performed on the input function.\\
+
+Assume a transformation process \textit{TransP}, that speculatively inlines function calls inside the input function. 
+\textit{TransP} receives as input the closure to optimize, and returns a closure containing the optimized version of the code.
+Every function call inlined has special OSR exit instrumentation to handle run time redefinition of the inlined functions.\\
+
+\textit{TransP} gets the LLVM IR corresponding to the input function by calling the OSR Handler \textit{getFreshIR} function.
+Call this copy the \textit{working copy}.
+It then lists all the function call performed inside the IR.
+For each function call, sequentially, it gets a \textit{toInstrument} copy of the working copy by calling the OSR Handler clone function.
+It resolves the callee, and gets its LLVM IR via the OSR Handler \textit{getFreshIR}.
+It then inlines the call in its working copy and calls the OSR Handler \textit{insertOSRExit} function.
+It then returns the closure with the working copy in it.
+The working copy contains all the OSR exits needed for correctness, and all the continuation functions, and their corresponding \textit{toInstrument} versions are generated and part of the current module.\\
+
 
 \section{Future work}
+This Section describes solutions, design ideas, that were partially implemented but not fully explored during this master thesis.
+RJIT being a young project, it lacks some supporting tools, e.g., a profiler or a code analyser, that could support new possibilities for the OSR implementation.
+In the future, the development of the RJIT framework should enable to provide new incentives to implement more complex OSR mechanisms.\\
+
 \subsection{Transitive StateMaps}
+%Trying to improve the field of possibilities
+    %Chain of statemaps, can find what is in common in both of them
+    %Why interesting? Will be able, if provides interface, to enlarge the scope of intermixing optimizations 
+For the moment, in RJIT, the continuation function for an OSR exit is an instrumented version of the function that was used to generate the optimized version.
+This is a requirement that results from the use, in OSR Kit\cite{OSRKit}, of StateMaps to insert the OSR instrumentation.
+The from and the contination functions needs to have a StateMap that records one-to-one mappings between the two function's instructions.
+In some cases, however, one might want to provide a different continuation function.
+OSR Kit does not forbid this use of the library, but does not provide tools to make it easier.\\  
+
+Consider the following chain of speculative optimizations performed on a base function $A$: 
+$$A \xrightarrow[]{1} B \xrightarrow[]{2} C \xrightarrow[]{3} D \xrightarrow[]{4} E \xrightarrow[]{5} F \rightarrow ...$$
+Each letter corresponds to a new version of the function. 
+Each version is obtain by performing a speculative optimization of the previous version.
+If an assumption fails, the continuation function will be an instrumented version of the base version on which the speculative optimization was performed.
+For example, if the current version is $F$, and the OSR exit that corresponds to arrow 3 is taken, 
+the function will exit to a continuation function that corresponds to version $C$.
+One might want, instead, to OSR exit to $A$, or to generate on the fly a new continuation function that corresponds underwent all the tranformation, except number 3. 
+This might not always be possible, and requires to understand all the interactions between the different optimizations.
+However, if all the transformation are independent, i.e., if none of them impacts on the others, this should be feasible.
+We should be able to find a corresponding continuation instruction in any other version.\\
+
+As a first step towards a more complex mapping between the from and the continuation function, we implemented a transitive StateMap constructor.
+Suppose two fully generated StateMaps, $S_1$ and $S_2$, such that $S_1$ is a mapping between $A$ and $B$, and $S_2$ a mapping between $A$ and $C$.
+Our transitive constructor enables to generate a new StateMap, $S_3$, that maps $B$ and $C$.\\
+
+In order to facilitate the use of StateMaps in the deoptimization case, RJIT OSR extended the OSR Kit\cite{OSRKit} StateMap with transitive mappings.
+Suppose two fully generated StateMaps, $S_1$ and $S_2$, such that $S_1$ is a mapping between $A$ and $B$, and $S_2$ a mapping between $A$ and $C$.
+Our transitive constructor will be able to generate a new StateMap, $S_3$, that maps $B$ and $C$.\\
+
+The transitive constructor can be extended to create StateMaps between different functions, generated by applying an arbitrary number of transformations on the same base function.
+Consider the above chain of transformations.
+The transitive StateMap constructor can be used to generate a transitive map between each versions in the chain.
+The resulting StateMap might not be complete, but it ensures that every instruction that is present in the base version $A$ and both versions that we want to map, e.g., $C$ and $F$, will be present in the resulting StateMap.\\
+
+If we further extend the framework to automatically update the StateMap while modifying an LLVM IR, we might even be able to uncover new possible mappings between different versions, and lift the restriction on the transitive StateMaps, i.e., we could generate mappings between instructions, even if they do not appear in $A$ and in both versions $C$ and $F$.
+This solution would be similar to the VARMAP in the Jikes RVM OSR implementation\cite{soman2006efficient}.
+According to discussion we had with the OSR Kit designers, \citean{OSRKit} are working on a similar idea on the OSR Kit build compensation branch\cite{OSRKitGit}.
+The idea is to provide basic LLVM transformation functions, e.g, addInstruction, removeInstruction etc., that automatically update the StateMap.\\
+
 \subsection{On-the-fly compilation}
+
+Generating the OSR exit continuation on the fly is hard in general. 
+Section \ref{osrkitlimitations} detailed the challenges that this technique presents.
+One option to simulate this behavior in RJIT is to save the LLVM IR of the base function in the OSR Handler, and remove it from the compilation unit.
+In other words, we generate and save the IR, but we do not complete its compilation.
+An open OSR is then inserted in the optimized version. 
+The $f_{stub}$ function is then responsible for identifying the correct continuation instruction inside the saved base IR, and completing the its compilation using profiled guided techniques.\\
+
+On-the-fly compilation of continuation functions requires to guarantee that a transitive StateMap can be generated between the from function, and the newly generated function.
+RJIT is not yet mature enough to make this solution worth exploring.
+First, there is no profiler, and hence, no profiled-guided transformation. 
+Second, the kind of transformations that RJIT would like to perform are not yet known. 
+It is too early in the implementation process to identify which optimizations might improve the execution of the function.
+As a result, we did not try put efforts in the implementation of this solution.\\
+

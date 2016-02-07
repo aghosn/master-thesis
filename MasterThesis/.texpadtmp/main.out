@@ -66,7 +66,7 @@
 \BOOKMARK [2][-]{subsection.299}{Reducing\040the\040number\040of\040compilation}{section.297}% 66
 \BOOKMARK [2][-]{subsection.318}{Simplifying\040the\040OSR\040exit\040insertion}{section.297}% 67
 \BOOKMARK [2][-]{subsection.341}{Improving\040the\040exits}{section.297}% 68
-\BOOKMARK [2][-]{subsection.342}{Walkthrough\040an\040example}{section.297}% 69
+\BOOKMARK [2][-]{subsection.342}{Walkthrough\040a\040simple\040example}{section.297}% 69
 \BOOKMARK [1][-]{section.343}{Future\040work}{chapter.293}% 70
 \BOOKMARK [2][-]{subsection.344}{Transitive\040StateMaps}{section.343}% 71
 \BOOKMARK [2][-]{subsection.345}{On-the-fly\040compilation}{section.343}% 72
