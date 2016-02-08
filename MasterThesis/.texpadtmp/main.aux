@@ -228,81 +228,96 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref  {InsertCFG} after the OSR Pass}}{28}{figure.caption.161}}
 \newlabel{OSRPassCFG}{{3.9}{28}{The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}{figure.caption.161}{}}
 \citation{lameed2013modular}
+\citation{OSRKit}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{29}{figure.caption.162}}
 \newlabel{FCFG}{{3.10}{29}{A CFG of a running function before inserting the blocks for state recovery}{figure.caption.162}{}}
+\citation{lameed2013modular}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref  {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}.}}{30}{figure.caption.163}}
 \newlabel{InstFCFG}{{3.11}{30}{The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}}{figure.caption.163}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of OSR implementations and their features.\relax }}{30}{table.caption.165}}
-\newlabel{my-label}{{3.1}{30}{Summary of OSR implementations and their features.\relax }{table.caption.165}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}A classification summary}{30}{section.164}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Another LLVM OSR library: OSR Kit}{30}{subsection.164}}
+\newlabel{describeOSRKit}{{3.3.4}{30}{Another LLVM OSR library: OSR Kit}{subsection.164}{}}
+\newlabel{llvmTransformPasses}{{8}{30}{Another LLVM OSR library: OSR Kit}{Item.172}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Open vs. Resolved OSR}{31}{section*.173}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}Code/DestFunGenerator.c}{31}{lstlisting.174}}
+\citation{lameed2013modular}
 \citation{OSRKit}
-\citation{OSRKitGit}
 \citation{OSRKit}
 \citation{OSRKit}
+\citation{OSRKit}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.2}Code/OpenOSR.c}{32}{lstlisting.186}}
+\citation{OSRKit}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Resolved OSR Scenario}}{33}{figure.caption.211}}
+\newlabel{ResolvedOSRFig}{{3.12}{33}{Resolved OSR Scenario}{figure.caption.211}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.3}Code/ResolvedOSR.c}{33}{lstlisting.212}}
+\@writefile{toc}{\contentsline {subsubsection}{Resolved OSR points and conditions}{33}{section*.231}}
+\citation{VMap}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.4}Code/original.llvm}{34}{lstlisting.232}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.5}Code/fromInstrumented.llvm}{34}{lstlisting.244}}
+\@writefile{toc}{\contentsline {subsubsection}{The continuation function \& StateMap}{34}{section*.261}}
+\citation{OSRKit}
+\citation{OSRKit}
+\citation{fink2003design}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of OSR implementations and their features.\relax }}{35}{table.caption.263}}
+\newlabel{my-label}{{3.1}{35}{Summary of OSR implementations and their features.\relax }{table.caption.263}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}A classification summary}{35}{section.262}}
 \citation{RURL}
 \citation{OSRKit}
 \citation{OSRKitGit}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Deoptimization in RJIT}{31}{chapter.166}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.264}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter4}{{4}{31}{Deoptimization in RJIT}{chapter.166}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview}{31}{section.167}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Justification}{31}{subsection.168}}
-\citation{lameed2013modular}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}An LLVM Library}{32}{subsection.169}}
-\newlabel{llvmTransformPasses}{{8}{32}{An LLVM Library}{Item.177}{}}
+\newlabel{Chapter4New}{{4}{37}{OSR in RJIT}{chapter.264}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview}{37}{section.265}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Justification}{37}{subsection.266}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Resolved \& Open OSR}{33}{section.178}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}The Open OSR}{33}{subsection.179}}
-\citation{soman2006efficient}
-\citation{lameed2013modular}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{38}{subsection.267}}
+\newlabel{osrkitlimitations}{{4.1.2}{38}{OSR Kit limitations}{subsection.267}{}}
 \citation{OSRKit}
 \citation{OSRKit}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}Code/DestFunGenerator.c}{34}{lstlisting.180}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Code/OpenOSR.c}{34}{lstlisting.192}}
-\citation{OSRKit}
-\citation{OSRKit}
-\@writefile{toc}{\contentsline {subsubsection}{Similarities with McJIT}{35}{section*.217}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}The Resolved OSR}{35}{subsection.218}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Resolved OSR Scenario}}{35}{figure.caption.219}}
-\newlabel{ResolvedOSRFig}{{4.1}{35}{Resolved OSR Scenario}{figure.caption.219}{}}
-\citation{OSRKit}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}Code/ResolvedOSR.c}{36}{lstlisting.220}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}The OSR Instrumentation}{36}{section.239}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}OSR Points \& Conditions}{36}{subsection.240}}
-\citation{VMap}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}Code/original.llvm}{37}{lstlisting.241}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}Code/fromInstrumented.llvm}{37}{lstlisting.253}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}The StateMap}{37}{subsection.270}}
-\citation{fink2003design}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}The continuation function}{38}{subsection.271}}
-\newlabel{thecontinuationfunction}{{4.3.3}{38}{The continuation function}{subsection.271}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Using OSR Kit to deoptimize}{39}{section.272}}
-\newlabel{osrForUs}{{4.4}{39}{Using OSR Kit to deoptimize}{section.272}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}A case that does not fit perfectly}{39}{subsection.273}}
 \citation{llvmAttribute}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Where to exit?}{40}{subsection.274}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Extension in OSR RJIT}{40}{section.275}}
-\newlabel{extendingOSR}{{4.5}{40}{Extension in OSR RJIT}{section.275}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}The OSR Handler and function versions.}{40}{subsection.276}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Fusing versions?}{40}{subsection.277}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Unguarded OSR points?}{40}{subsection.278}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{41}{chapter.279}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}OSR Handler}{39}{section.268}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{39}{subsection.269}}
+\newlabel{additionalchallenges}{{4.2.1}{39}{Additional challenges in RJIT}{subsection.269}{}}
+\citation{OSRKit}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{40}{subsection.270}}
+\newlabel{toCompile}{{1}{40}{Reducing the number of compilation}{Item.271}{}}
+\newlabel{best}{{2}{40}{Reducing the number of compilation}{Item.272}{}}
+\newlabel{worst}{{3}{40}{Reducing the number of compilation}{Item.273}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}Code/getFreshIR.h}{41}{lstlisting.274}}
+\citation{OSRKit}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Code/baseVersion.h}{42}{lstlisting.286}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{42}{subsection.289}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}Code/statemaps.h}{42}{lstlisting.290}}
+\citation{OSRKit}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}Code/insertOSRExit.h}{43}{lstlisting.293}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{43}{subsection.312}}
+\newlabel{improvingexits}{{4.2.4}{43}{Improving the exits}{subsection.312}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{44}{subsection.313}}
+\citation{OSRKit}
+\citation{OSRKit}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Future work}{45}{section.314}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{45}{subsection.315}}
+\citation{soman2006efficient}
+\citation{OSRKit}
+\citation{OSRKit}
+\citation{OSRKitGit}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{46}{subsection.316}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{47}{chapter.317}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{41}{Case Study: An R Inliner}{chapter.279}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}The RJIT project}{41}{section.280}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{41}{section.281}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation}{41}{section.282}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{41}{subsection.283}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Challenges}{41}{subsection.284}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}OSR Conditions}{41}{section.285}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.286}}
+\newlabel{Chapter5}{{5}{47}{Case Study: An R Inliner}{chapter.317}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}The RJIT project}{47}{section.318}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{47}{section.319}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation}{47}{section.320}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{47}{subsection.321}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Challenges}{47}{subsection.322}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}OSR Conditions}{47}{section.323}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{49}{chapter.324}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{43}{Conclusion}{chapter.286}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{45}{appendix.287}}
+\newlabel{Chapter6}{{6}{49}{Conclusion}{chapter.324}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{51}{appendix.325}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{AppendixA}{{A}{45}{Appendix Title Here}{appendix.287}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{47}{appendix*.288}}
+\newlabel{AppendixA}{{A}{51}{Appendix Title Here}{appendix.325}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{53}{appendix*.326}}
