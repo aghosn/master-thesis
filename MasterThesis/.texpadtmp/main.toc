@@ -61,12 +61,13 @@
 \contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{45}{subsection.315}
 \contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{46}{subsection.316}
 \contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{47}{chapter.317}
-\contentsline {section}{\numberline {5.1}The RJIT project}{47}{section.318}
-\contentsline {section}{\numberline {5.2}OSR in RJIT: requirements}{47}{section.319}
-\contentsline {section}{\numberline {5.3}Implementation}{47}{section.320}
-\contentsline {subsection}{\numberline {5.3.1}The Function Call in RJIT}{47}{subsection.321}
-\contentsline {subsection}{\numberline {5.3.2}Challenges}{47}{subsection.322}
-\contentsline {section}{\numberline {5.4}OSR Conditions}{47}{section.323}
-\contentsline {chapter}{\numberline {6}Conclusion}{49}{chapter.324}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{51}{appendix.325}
-\contentsline {chapter}{Bibliography}{53}{appendix*.326}
+\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{47}{section.318}
+\contentsline {subsection}{\numberline {5.1.1}Justification}{47}{subsection.319}
+\contentsline {subsection}{\numberline {5.1.2}Challenges}{47}{subsection.320}
+\contentsline {subsection}{\numberline {5.1.3}Implementation}{47}{subsection.321}
+\contentsline {section}{\numberline {5.2}Tests}{47}{section.322}
+\contentsline {subsection}{\numberline {5.2.1}Gnur vs. Inlining on shootout}{47}{subsection.323}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{47}{subsection.324}
+\contentsline {chapter}{\numberline {6}Conclusion}{49}{chapter.325}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{51}{appendix.326}
+\contentsline {chapter}{Bibliography}{53}{appendix*.327}

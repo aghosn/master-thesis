@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 FEB 2016 19:02
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 FEB 2016 19:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1083,8 +1083,7 @@ File: english.lbx 2015/04/19 v3.0 biblatex localization (PK/JW/AB)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.aux)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
@@ -1104,7 +1103,7 @@ LaTeX Font Info:    ... okay on input line 110.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 110.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
@@ -1176,10 +1175,8 @@ LaTeX Info: Redefining \ref on input line 110.
 LaTeX Info: Redefining \pageref on input line 110.
 LaTeX Info: Redefining \nameref on input line 110.
 
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.out)
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.out)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -1188,7 +1185,6 @@ Package biblatex Info: XeTeX detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
 
-
 Package biblatex Warning: Data encoding is 'utf8'.
 (biblatex)                Use backend=biber.
 
@@ -1196,9 +1192,7 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
-
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.bbl)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
 Package biblatex Info: Reference section=0 on input line 110.
 Package biblatex Info: Reference segment=0 on input line 110.
 \c@lstlisting=\count346
@@ -1207,7 +1201,7 @@ Package scrhack Info: undefining \float@addtolists on input line 110.
 \c__siunitx_mathtt_int=\count348
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 127.
- [1
+[1
 
 
 
@@ -1251,28 +1245,26 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 217.
 
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.toc [11])
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
+[11])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
  [12]
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.lof)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [13
+[13
 
 ] [14
 
 ]
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.lot)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [15] [16
+[15] [16
 
 ] [17] [18
 
@@ -2489,11 +2481,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
 ) (./Chapters/Chapter6.tex [47
 
 ] [48
@@ -2611,11 +2598,9 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
 [54]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
 
-(/Users/aghosn/Documents/Master/Thesis/reportOld/report/MasterThesis/.texpadtmp
-/main.aux)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 282.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 282.
-
 
 LaTeX Warning: There were undefined references.
 
@@ -2624,13 +2609,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29457 strings out of 493706
- 522688 string characters out of 6145768
+ 29458 strings out of 493706
+ 522511 string characters out of 6145768
  853846 words of memory out of 5000000
- 32425 multiletter control sequences out of 15000+600000
+ 32426 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,3112s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/aghosn/Documents/Master/Thesis/reportOld/report/Master
-Thesis/.texpadtmp/main.pdf (74 pages).
+Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
+xpadtmp/main.pdf (74 pages).
