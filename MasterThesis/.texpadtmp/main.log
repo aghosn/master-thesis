@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 FEB 2016 19:17
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 FEB 2016 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2164,68 +2164,64 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--33
+Underfull \hbox (badness 10000) in paragraph at lines 22--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--42
+Underfull \hbox (badness 10000) in paragraph at lines 38--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--51
+Underfull \hbox (badness 10000) in paragraph at lines 50--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
-
- []
-
-
-LaTeX Warning: Reference `osrForUs' on page 37 undefined on input line 58.
-
-
-LaTeX Warning: Reference `extendingOSR' on page 37 undefined on input line 58.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--59
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 68--76
+
+LaTeX Warning: Reference `osrForUs' on page 38 undefined on input line 61.
+
+
+LaTeX Warning: Reference `extendingOSR' on page 38 undefined on input line 61.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--82
+Underfull \hbox (badness 10000) in paragraph at lines 71--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--91
+Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--95
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
 
  []
 
@@ -2235,174 +2231,179 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--102
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--112
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Overfull \hbox (1.62192pt too wide) in paragraph at lines 113--120
+Underfull \hbox (badness 10000) in paragraph at lines 109--115
+
+ []
+
+
+Overfull \hbox (1.62192pt too wide) in paragraph at lines 116--123
 []\T1/ppl/m/n/10.95 In or-der to per-form trans-for-ma-tions based on R se-man-
 tics, a fresh non-instrumented
  []
 
 
-Overfull \hbox (3.70639pt too wide) in paragraph at lines 113--120
+Overfull \hbox (3.70639pt too wide) in paragraph at lines 116--123
 \T1/ppl/m/n/10.95 (i.e., with-out the safe-point and patch-point ma-chin-ery) v
 er-sion of the LLVM IR is needed.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--128
+Underfull \hbox (badness 10000) in paragraph at lines 116--123
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 131--136
+Underfull \hbox (badness 10000) in paragraph at lines 124--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 134--139
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--157
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--162
+Underfull \hbox (badness 10000) in paragraph at lines 153--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--165
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 163--175
+Underfull \hbox (badness 10000) in paragraph at lines 166--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--181
+Underfull \hbox (badness 10000) in paragraph at lines 179--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--195
+Underfull \hbox (badness 10000) in paragraph at lines 185--198
 
  []
 
-(./Code/getFreshIR.h [41]) (./Code/baseVersion.h)
-Underfull \hbox (badness 10000) in paragraph at lines 201--203
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--209
+[41] (./Code/getFreshIR.h) (./Code/baseVersion.h)
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 (./Code/statemaps.h)
-Underfull \hbox (badness 10000) in paragraph at lines 213--218
+Underfull \hbox (badness 10000) in paragraph at lines 216--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--223
+Underfull \hbox (badness 10000) in paragraph at lines 222--226
 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 224--228
+Underfull \hbox (badness 10000) in paragraph at lines 227--231
 
  []
 
 (./Code/insertOSRExit.h)
-Underfull \hbox (badness 10000) in paragraph at lines 236--242
+Underfull \hbox (badness 10000) in paragraph at lines 239--245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--251
+Underfull \hbox (badness 10000) in paragraph at lines 246--254
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
+Underfull \hbox (badness 10000) in paragraph at lines 255--260
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--267
+Underfull \hbox (badness 10000) in paragraph at lines 261--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--272
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--276
+Underfull \hbox (badness 10000) in paragraph at lines 276--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
+Underfull \hbox (badness 10000) in paragraph at lines 280--288
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 288--291
+Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--301
+Underfull \hbox (badness 10000) in paragraph at lines 299--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--313
+Underfull \hbox (badness 10000) in paragraph at lines 306--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--317
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 318--321
+Underfull \hbox (badness 10000) in paragraph at lines 317--320
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 322--326
+Underfull \hbox (badness 10000) in paragraph at lines 321--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--331
+Underfull \hbox (badness 10000) in paragraph at lines 325--329
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--340
+Underfull \hbox (badness 10000) in paragraph at lines 330--334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--347
+Underfull \hbox (badness 10000) in paragraph at lines 337--343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--350
 
  []
 
@@ -2615,7 +2616,7 @@ Here is how much of TeX's memory you used:
  32426 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,56p,10377b,3112s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,56p,10377b,2253s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (74 pages).
