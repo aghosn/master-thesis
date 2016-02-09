@@ -72,8 +72,9 @@
 \contentsline {subsection}{\numberline {5.1.2}Challenges}{49}{subsection.326}
 \contentsline {subsection}{\numberline {5.1.3}Implementation}{49}{subsection.327}
 \contentsline {section}{\numberline {5.2}Tests}{49}{section.328}
-\contentsline {subsection}{\numberline {5.2.1}Gnur vs. Inlining on shootout}{49}{subsection.329}
+\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{49}{subsection.329}
 \contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{49}{subsection.330}
-\contentsline {chapter}{\numberline {6}Conclusion}{51}{chapter.331}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{53}{appendix.332}
-\contentsline {chapter}{Bibliography}{55}{appendix*.333}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{49}{subsection.331}
+\contentsline {chapter}{\numberline {6}Conclusion}{51}{chapter.332}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{53}{appendix.333}
+\contentsline {chapter}{Bibliography}{55}{appendix*.334}

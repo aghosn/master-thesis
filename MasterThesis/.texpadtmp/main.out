@@ -69,8 +69,9 @@
 \BOOKMARK [2][-]{subsection.326}{Challenges}{section.324}% 69
 \BOOKMARK [2][-]{subsection.327}{Implementation}{section.324}% 70
 \BOOKMARK [1][-]{section.328}{Tests}{chapter.323}% 71
-\BOOKMARK [2][-]{subsection.329}{Gnur\040vs.\040Inlining\040on\040shootout}{section.328}% 72
+\BOOKMARK [2][-]{subsection.329}{Gnur\040RJIT\040vs.\040Inlining\040on\040shootout}{section.328}% 72
 \BOOKMARK [2][-]{subsection.330}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.328}% 73
-\BOOKMARK [0][-]{chapter.331}{Conclusion}{}% 74
-\BOOKMARK [0][-]{appendix.332}{Appendix\040Title\040Here}{}% 75
-\BOOKMARK [0][-]{appendix*.333}{Bibliography}{}% 76
+\BOOKMARK [2][-]{subsection.331}{OSR\040Handler\040getFreshIR\040vs.\040Always\040recompiling}{section.328}% 74
+\BOOKMARK [0][-]{chapter.332}{Conclusion}{}% 75
+\BOOKMARK [0][-]{appendix.333}{Appendix\040Title\040Here}{}% 76
+\BOOKMARK [0][-]{appendix*.334}{Bibliography}{}% 77
