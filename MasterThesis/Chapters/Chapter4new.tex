@@ -25,9 +25,9 @@ The RJIT compiler takes as input a symbolic expression (SEXP), i.e., a special C
 A SEXP represents R constructs and contains the AST representation of an R element.
 A SEXP has a type, and can be seen as a lisp-like cons cells, composed of two pointers, CAR and CDR.
 A SEXP has many other elements, that we do not detail here.
-Depending on its type, each SEXP element corresponds to a specific element (see examples for closures and functions below). 
+Depending on its type, each SEXP element corresponds to a specific attribute (see examples for closures and functions below). 
 The GNUR interpreter has been instrumented to call the JIT compiler before evaluating a non-compiled SEXP. 
-The RJIT compiler generates native code, using the LLVM framework, that corresponds to the R function's AST that it receives as argument.
+The RJIT compiler generates native code, using the LLVM framework, that corresponds to the R function's AST it received as argument.
 The native code is then wrapped into the appropriated SEXP constructs, and returned to the GNUR interpreter.
 Afterwards, the GNUR interpreter executes the native code.\\ 
 %Compilation flow
@@ -130,7 +130,8 @@ Such a transformation needs to take into account other optimizations that might 
 Moreover, the deoptimization case is used to preserve correctness in the program and must be conservative. 
 Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not our main objective. 
 For the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
-That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.\\
+That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.
+Both of these requirements are hard to satisfy.\\
 
 Once an OSR exit is taken, it is more likely to be fired in subsequent calls.
 For example, in the case of call site inlining, the OSR exit is fired when the inlined function is redefined.
@@ -156,15 +157,15 @@ This section presents the OSR Handler, a special singleton implemented in RJIT t
 The OSR Handler has two main goals: 1) to mitigate the limitations of the OSR Kit\cite{OSRKit} library exposed in \ref{osrkitlimitations}, 2) to adapt the OSR Kit library to the RJIT framework.\\
 
 This section proceeds as follow: first, it exposes the additional challenges that are inheritant to the use of the OSR Kit library in RJIT.
-Then, it presents the OSR Handler implementation, and the solutions adopted to each problem encountered while enabling OSR deoptimization in RJIT.\\
+Then, it presents the OSR Handler implementation, and the solutions adopted for each problem encountered while enabling OSR deoptimization in RJIT.\\
  
 \subsection{Additional challenges in RJIT}\label{additionalchallenges}
-
+CHANGE -> ATTRIBUTES ARE NOT ONLY FOR IC STUBS BUT FOR ALL CALLS\\
 %Compilation flow
-The RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncover additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.
+RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.
 RJIT provides a just-in-time compiler, i.e., functions are compiled just before being evaluated.
 The compilation flow can be broken down to these elementary steps: 1) The function is extracted from the R closure (a closure contains the function, its formals, and its environment), 2) if the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned, 3) the function is compiled into an LLVM IR made out of calls to intrinsic functions (e.g., getUserLiteral, getFunction etc.), 4) Calls to non-intrinsic functions are compiled as inline cache stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call, 4) every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to the ic call stubs, is visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.
-This final step is performed by calling the \textit{jitAll} on the compiler instance.
+This final step is performed by calling the \textit{jitAll} function on the compiler instance.
 All functions generated with this instance of the compiler will be instrumented during this call.
 The final result of the compilation is a blotted piece of LLVM IR from which the R semantics are hard to extract.\\
 
@@ -197,8 +198,9 @@ The next sections present the solutions implemented in RJIT to mitigate the OSR 
 \subsection{Reducing the number of compilation}
 FIXING THE CALLS TO INSTRINSICS\\
 ALL CALLS NEED TO SET ATTRIBUTES\\
+
 Transformations that act on R semantics have to be performed on a non-instrumented LLVM IR.
-As explained before, obtain such IR might be harder than expected. 
+As explained before, obtaining such IR might be harder than expected. 
 There are three cases to distinguish:
 \begin{enumerate}
     \item The function was never compiled before.\label{toCompile}
@@ -209,15 +211,15 @@ There are three cases to distinguish:
 For \ref{toCompile}, the only option is to compile the function, and extract the generated IR before the final instrumentation.
 Case \ref{best} is the best scenario.
 The LLVM IR can simply be extracted from the SEXP function, cloned, and used for the transformations.
-This case happens when the function was compiled during the current compilation unit, i.e., the function is part of the current module and was generated using the current instance of the compiler, on which the \textit{jitAll} function was not called it.
+This case happens when the function was compiled during the current compilation unit, i.e., the function is part of the current module and was generated using the current instance of the compiler, on which the \textit{jitAll} function was not called yet.
 Case \ref{worst} is the worst scenario.
 The non-instrumented LLVM IR no longer exists.
-The naive solution is to recompile the function from scratch, which is too expensive.\\
+The naive solution is to recompile the function from scratch, which seems very expensive.\\
 
 The OSR Handler enables to record non-instrumented IRs that it encounters.
 This singleton provides a special function, called \textit{getFreshIR}, that takes as parameter a SEXP closure and a compiler instance, and returns a function SEXP (see signature Figure REF).
 The OSR Handler extracts the function from the closure, and checks its type.
-Depending on the type of the function, it takes the less costly solution to get the non-instrumented IR.\\
+Depending on the type of the function, it selects the less costly solution to get the non-instrumented IR.\\
 
 If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates a clone of the resulting LLVM IR.
 The clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
@@ -249,7 +251,7 @@ In some cases, that solution implies that we have to re-do the same transformati
 For example, consider a function $A$ that calls $B$ several times.
 An OSR inliner would inline every call sites in A.
 The inliner could further decide to inline all the calls inside $B$'s body.
-In that case, if the inliner relies on the OSR Handler to get the $B$'s IR, it will have to run on each separate clone to inline the clones, therefore performing the same transformations multiple times.
+In that case, if the inliner relies on the OSR Handler to get $B$'s IR, it will have to run on each separate clone to inline the call sites they contain, therefore performing the same transformations multiple times.
 On the other hand, if the inliner's transformations depend on the location of the call to $B$, it is guaranteed to obtain fresh and independent IRs through the OSR Handler.\\
 
 \includecode{Code/getFreshIR.h}
