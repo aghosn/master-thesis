@@ -195,7 +195,8 @@ We therefore have to come up with an alternate solution.\\
 The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
 
 \subsection{Reducing the number of compilation}
-
+FIXING THE CALLS TO INSTRINSICS\\
+ALL CALLS NEED TO SET ATTRIBUTES\\
 Transformations that act on R semantics have to be performed on a non-instrumented LLVM IR.
 As explained before, obtain such IR might be harder than expected. 
 There are three cases to distinguish:

@@ -60,8 +60,8 @@
 \contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{40}{subsection.274}
 \contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{41}{subsection.275}
 \contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{43}{subsection.294}
-\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{44}{subsection.317}
-\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{45}{subsection.318}
+\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{45}{subsection.317}
+\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{46}{subsection.318}
 \contentsline {section}{\numberline {4.3}Future work}{46}{section.319}
 \contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{46}{subsection.320}
 \contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{47}{subsection.321}
