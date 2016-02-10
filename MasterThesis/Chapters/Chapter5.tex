@@ -14,13 +14,33 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
+This Chapter presents an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR exits to preserve the program's correctness.
+We first describe the inliner's implementation.
+We then rely on this implementation to test the performances of the main features provided by the OSR implementation in RJIT.\\
 
 \section{A speculative inliner for RJIT}
 \subsection{Justification}
+%function's can be redefined in R, need the OSR typical static opt that is not possible in R
+%Used in other papers.
+%interesting because implies that we need to clone IR -> put some pressure on our additions.
+In R, a function can be redefined at run time.
+This particularity prevents a compiler from performing usual static compilation optimizations.
+As explained in REF, the on-stack replacement techniques are formidable tools that enable to bring standard static compilation optimizations in dynamic languages.
+In this report, such transformations performed on the code are called \textit{speculative} optimizations.
+The compiler assumes that the program would benefit from a particular transformation that, if the assumption fails, might threaten the correctness of the program.
+In R, Inlining function bodies at their call sites is one of these speculative optimizations.\\
+
+WHY INLINING INTERESTING AS AN OPT\\
+
+USED IN OTHER PAPERS\\
+
+INTERESTING BECAUSE CLONING\\
+
 \subsection{Challenges}
 %Function Calls -> how to identify them
 %Resolving the function
 %Continuation function problem
+%IR fresh + AOT behavior
 \subsection{Implementation}
 %FunctionCall to abstract away the call
 %The algorithm to inline.

@@ -41,6 +41,7 @@ RJIT walks the SEXP ast and generates the corresponding LLVM IR.
 Since R is a dynamic language, most R constructs need to be simulated by LLVM calls to special functions, called R intrinsics.
 CONTINUE THIS PART.\\
 
+IC CALLEE IS WRAPPER, DESCRIBE BETTER\\
 %ic stubs.
 R resolves callee of function calls at runtime, when the call is executed.
 In order to simulate this behavior, the RJIT compiler needs to rely on a special instrumentation to compile calls to functions that are not yet resolved.
