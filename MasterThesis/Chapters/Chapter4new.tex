@@ -125,11 +125,13 @@ We do not waste time reimplementing something that already exists, and can there
         %many clones ... 
         %As we'll see later, cloning is not sufficient ...
 While very flexible, the OSR Kit\cite{OSRKit} library presents several disadvantages and exhibits costly behaviors that do not perfectly fit the deoptimization process.
+This section lists the challenges encountered while trying to implement OSR exits with OSR Kit.\\
+
 The main advantage of the open OSR is to leverage profiled-guided compilation strategies to generate efficient code.
 However, generating a transformation that removes optimizations is hard and does not play well with the OSR Kit instrumentation.
 Such a transformation needs to take into account other optimizations that might have been performed on the code after the optimization was applied, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on this optimization, and undo them.
 Moreover, the deoptimization case is used to preserve correctness in the program and must be conservative. 
-Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not our main objective. 
+Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not a main objective. 
 For the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
 That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.
 Both of these requirements are hard to satisfy.\\
@@ -141,16 +143,19 @@ As a result, if the OSR exit is an open OSR point, the framework will have to pe
 In the light of these observations, we can conclude that the open OSR design does not fit well the deoptimization case.\\
 
 The resolved OSR corresponds to our requirements for deoptimization.
-The optimized version is generated from a base function.
-Since OSR points are barriers for subsequent optimizations, i.e., they cannot be tempered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
-It therefore makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
+The optimized version is obtained by applying a transformation on a base function.
+Since OSR points cannot be tempered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
+Another way to see this is that the OSR exit is a call to the continuation function, which takes as arguments all the values needed at the continuation function to reconstruct the computation state and continue the execution.
+As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to be executed properly.
+In the light of these observations, it makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
 
 The OSR Kit way of generating the continuation function is expensive.
-In the deoptimization case, inserting an OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
-Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.\\
+In the deoptimization case, inserting a resolved OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
+Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.
+Generating two clones of the base function, in order to insert a resolved OSR, might be very expensive for big functions.\\
 
 Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
-Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the cost of a function call and return, compared to the base function.
+Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base function.
 The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
 
 \section{OSR Handler}
@@ -162,10 +167,13 @@ Then, it presents the OSR Handler implementation, and the solutions adopted for 
  
 \subsection{Additional challenges in RJIT}\label{additionalchallenges}
 CHANGE -> ATTRIBUTES ARE NOT ONLY FOR IC STUBS BUT FOR ALL CALLS\\
+MODULES IN LLVM -> hard hard hard\\
+
 %Compilation flow
-RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.
+RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.\\
+
 RJIT provides a just-in-time compiler, i.e., functions are compiled just before being evaluated.
-The compilation flow can be broken down to these elementary steps: 1) The function is extracted from the R closure (a closure contains the function, its formals, and its environment), 2) if the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned, 3) the function is compiled into an LLVM IR made out of calls to intrinsic functions (e.g., getUserLiteral, getFunction etc.), 4) Calls to non-intrinsic functions are compiled as inline cache stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call, 4) every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to the ic call stubs, is visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.
+The compilation flow can be broken down to these elementary steps: 1) The function is extracted from the R closure (a closure contains the function, its formals, and its environment), 2) if the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned, 3) the function is compiled into an LLVM IR made out of calls to intrinsic functions (e.g., getUserLiteral, getFunction etc.), 4) Calls to non-intrinsic functions are compiled as inline cache stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call, 4) every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to call instructions, are visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.
 This final step is performed by calling the \textit{jitAll} function on the compiler instance.
 All functions generated with this instance of the compiler will be instrumented during this call.
 The final result of the compilation is a blotted piece of LLVM IR from which the R semantics are hard to extract.\\
@@ -179,19 +187,26 @@ Recompiling functions is not a satisfactory solution.
 We therefore have to find a way to avoid this case as much as possible.\\
 
 Simply cloning the LLVM IR is not enough in RJIT.
-As explained above, special instrumentation is inserted as attributes to ic stubs in order to allow code instrumentation in step 4.
-The attributes contain a unique identifier, and a pointer to the enclosing function.
-The LLVM cloning process does not modify these values. 
-As a result, executing the cloned function as is yields undefined behaviors, e.g., a function call returning its own abstract syntax tree (AST) instead of being evaluated.
-Section \ref{osrkitlimitations} stated that one drawback in the OSR Kit implementation comes from the number of clones required to insert an OSR point. 
-In RJIT, we have to add the cost of fixing the ic stubs attributes to the cloning cost.\\
+As explained above, special instrumentation is inserted as attributes to call instructions and used for the instrumentation in step 4.
+In order to fully compile and execute a clone, the LLVM attributes need to be set at each of its call instructions to allow the safepoint instrumentation.
+This is mandatory and, if not done properly, leads to failures during the execution.
+Another problem with clones arise from the targets of function calls. 
+The callee function has to be an LLVM function declared in the current module. 
+If the clone comes from a different module than the one in which its compilation is being performed, the callee might not be present in the module and needs to be added. 
+One last thing to take care of are the ic stubs calls.
+An ic stub takes as argument a pointer to its caller.
+When a function containing ic stubs is cloned, those pointers point to the original function.
+This needs to be fixed if the clone is to be fully compiled and executed.
+Section \ref{osrkitlimitations} states that one drawback in the OSR Kit implementation comes from the number of clones that have to be generated to insert a resolved OSR point.
+In RJIT, the cost of fixing the LLVM IR, as explained in this paragraph, has to be added to the cost of cloning.\\
 
-The ic stubs expect to receive a pointer to their callers as argument.
+OSR Kit continuation functions are not compatible with ic stubs.
+The ic stubs expect to receive pointers to their callers as argument.
 In RJIT, every function is supposed to have the following type signature:
 $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
-According to Section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the signature of the continuation function's signature in order to pass all the live values during an OSR transition.
+According to Section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the continuation function's signature in order to pass all the live values during an OSR transition.
 As a result, the continuation function might not be of type $T$.
-Enabling any type in the ic stub is not a viable solution, i.e., it requires too much work and goes against the type policies enforces by the RJIT framework. 
+Enabling any type in the ic stub is not a viable solution, i.e., it requires too much work and goes against the type policies enforced by the RJIT framework. 
 We therefore have to come up with an alternate solution.\\
 
 The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
@@ -222,18 +237,18 @@ This singleton provides a special function, called \textit{getFreshIR}, that tak
 The OSR Handler extracts the function from the closure, and checks its type.
 Depending on the type of the function, it selects the less costly solution to get the non-instrumented IR.\\
 
-If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates a clone of the resulting LLVM IR.
-The clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
-The clone does not belong to the current module.
+If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates two clones of the resulting LLVM IR.
+One clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
+The stored clone does not belong to the current module.
 Therefore, it will not be instrumented if the \textit{jitAll} function is called.
-One should note that if the function contains ic stubs, their attributes are copies of the orignal function and need to be fix if we want to correctly instrument the function.
-The caller pointer argument in the ic stub also points to the original function and needs to be fixed.
-It is important to note that this case might correspond to an ahead of time (AOT) compilation.
-For example, in the case of function inlining, a transformation needs to obtain the body of a function that corresponds to a call site.
-In the case considered here, the callee was not yet jitted since it was never called before.
-If we leave things as they are, the next call to the function will trigger the jit compiler, and the same function will be compiled a second time.
-Therefore, in order to improve RJIT performance, the OSR Handler sets the original result of the compilation obtained above in its closure.
-When the function is called later on, the execution environment will see a function of type NATIVESXP, and will not waste time calling the JIT compiler.\\
+One should note that, in order to save time during execution, the OSRHandler does not fix the IR for the version stored in the map.
+The other clone is wrapped into a copy of the original function SEXP and returned to the user.\\
+
+Calling \textit{getFreshIR} on a function that was not previously compiled can be viewed as an ahead of time (AOT) compilation strategy.
+RJIT is a JIT compiler, i.e., functions are compiled just before being executed.
+Using the \textit{getFreshIR} can force the function's compilation to happen at anytime.
+As a small optimization, the OSRHandler sets the result of the compilation inside the corresponding closure.
+By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
 If the function is a NATIVESXP, the OSR Handler extracts the function's module.
 This can be easily done by accessing the function's LLVM parent.
@@ -254,6 +269,8 @@ An OSR inliner would inline every call sites in A.
 The inliner could further decide to inline all the calls inside $B$'s body.
 In that case, if the inliner relies on the OSR Handler to get $B$'s IR, it will have to run on each separate clone to inline the call sites they contain, therefore performing the same transformations multiple times.
 On the other hand, if the inliner's transformations depend on the location of the call to $B$, it is guaranteed to obtain fresh and independent IRs through the OSR Handler.\\
+
+FIXING THE CLONE IR\\
 
 \includecode{Code/getFreshIR.h}
 \includecode{Code/baseVersion.h}
@@ -408,6 +425,8 @@ It is too early in the implementation process to identify which optimizations mi
 As a result, we did not put efforts in the implementation of this solution.\\
 
 \subsection{A cleaner, more integrated way of getting a fresh IR}
+TALK ABOUT SNAPSHOT\\
+
 The OSR Handler is a prototype, a proof of concept, to experiment OSR transitions in RJIT. 
 As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR Inliner (see Chapter \ref{Chapter5}), in their own classes.
 In other words, everything added to the RJIT project has been kept as independent to the main RJIT elements as possible.
