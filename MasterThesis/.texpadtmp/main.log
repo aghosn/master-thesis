@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  10 FEB 2016 17:06
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  10 FEB 2016 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2271,231 +2271,215 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--167
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--171
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 173--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--180
-
- []
-
-
-Overfull \hbox (1.62192pt too wide) in paragraph at lines 181--188
+Overfull \hbox (1.62192pt too wide) in paragraph at lines 179--186
 []\T1/ppl/m/n/10.95 In or-der to per-form trans-for-ma-tions based on R se-man-
 tics, a fresh non-instrumented
  []
 
 
-Overfull \hbox (3.70639pt too wide) in paragraph at lines 181--188
+Overfull \hbox (3.70639pt too wide) in paragraph at lines 179--186
 \T1/ppl/m/n/10.95 (i.e., with-out the safe-point and patch-point ma-chin-ery) v
 er-sion of the LLVM IR is needed.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--188
+Underfull \hbox (badness 10000) in paragraph at lines 179--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--202
+Underfull \hbox (badness 10000) in paragraph at lines 187--200
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 206--211
+Underfull \hbox (badness 10000) in paragraph at lines 204--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--217
+Underfull \hbox (badness 10000) in paragraph at lines 223--230
 
  []
 
 
-Overfull \hbox (6.17676pt too wide) in paragraph at lines 218--221
-[]\T1/ppl/m/n/10.95 Transformations that act on R se-man-tics have to be per-fo
-rmed on a non-instrumented
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--234
+Underfull \hbox (badness 10000) in paragraph at lines 231--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--239
-
- []
-
-
-Overfull \hbox (1.1776pt too wide) in paragraph at lines 240--246
+Overfull \hbox (1.1776pt too wide) in paragraph at lines 236--242
 \T1/ppl/m/n/10.95 TIVESXP func-tion SEXP. The stored clone does not be-long to 
 the cur-rent mod-ule. There-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--246
-
- []
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 247--252
+Underfull \hbox (badness 10000) in paragraph at lines 236--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--258
+Underfull \hbox (badness 10000) in paragraph at lines 243--248
+
+ []
+
+[42] (./Code/getFreshIR.h)
+Underfull \hbox (badness 10000) in paragraph at lines 251--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--272
+Underfull \hbox (badness 10000) in paragraph at lines 260--264
+
+ []
+
+(./Code/baseVersion.h)
+Underfull \hbox (badness 10000) in paragraph at lines 267--276
+
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 277--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
-
- []
-
-(./Code/getFreshIR.h [43]) (./Code/baseVersion.h)
-Underfull \hbox (badness 10000) in paragraph at lines 280--282
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--288
+Underfull \hbox (badness 10000) in paragraph at lines 296--298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
-
- []
-
-(./Code/statemaps.h)
-Underfull \hbox (badness 10000) in paragraph at lines 292--297
+Underfull \hbox (badness 10000) in paragraph at lines 299--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--302
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+[44] (./Code/statemaps.h)
+Underfull \hbox (badness 10000) in paragraph at lines 308--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--307
-
- []
-
-[44] (./Code/insertOSRExit.h)
-Underfull \hbox (badness 10000) in paragraph at lines 315--321
+Underfull \hbox (badness 10000) in paragraph at lines 314--318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--330
+Underfull \hbox (badness 10000) in paragraph at lines 319--323
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 331--336
+(./Code/insertOSRExit.h)
+Underfull \hbox (badness 10000) in paragraph at lines 331--337
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 337--346
+Underfull \hbox (badness 10000) in paragraph at lines 338--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 346--351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--355
+Underfull \hbox (badness 10000) in paragraph at lines 352--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--364
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+Underfull \hbox (badness 10000) in paragraph at lines 363--366
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 375--380
+Underfull \hbox (badness 10000) in paragraph at lines 367--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--392
+Underfull \hbox (badness 10000) in paragraph at lines 371--380
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--396
+Underfull \hbox (badness 10000) in paragraph at lines 383--386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--400
+Underfull \hbox (badness 10000) in paragraph at lines 391--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--405
+Underfull \hbox (badness 10000) in paragraph at lines 398--408
 
  []
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 406--410
+Underfull \hbox (badness 10000) in paragraph at lines 409--412
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--419
+Underfull \hbox (badness 10000) in paragraph at lines 413--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--426
+Underfull \hbox (badness 10000) in paragraph at lines 418--422
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 425--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--436
+Underfull \hbox (badness 10000) in paragraph at lines 432--438
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 437--443
+Underfull \hbox (badness 10000) in paragraph at lines 441--447
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--455
 
  []
 
 ) (./Chapters/Chapter5.tex
-Underfull \hbox (badness 10000) in paragraph at lines 444--2
+Underfull \hbox (badness 10000) in paragraph at lines 456--2
 
  []
 
@@ -2733,7 +2717,7 @@ Here is how much of TeX's memory you used:
  32427 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,56p,10377b,3112s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,56p,10377b,2253s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (78 pages).
