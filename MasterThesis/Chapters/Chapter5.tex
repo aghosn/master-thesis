@@ -20,27 +20,77 @@ We then rely on this implementation to test the performances of the main feature
 
 \section{A speculative inliner for RJIT}
 \subsection{Justification}
+%Dynamic language R 
 %function's can be redefined in R, need the OSR typical static opt that is not possible in R
 %Used in other papers.
 %interesting because implies that we need to clone IR -> put some pressure on our additions.
-In R, a function can be redefined at run time.
-This particularity prevents a compiler from performing usual static compilation optimizations.
-As explained in REF, the on-stack replacement techniques are formidable tools that enable to bring standard static compilation optimizations in dynamic languages.
-In this report, such transformations performed on the code are called \textit{speculative} optimizations.
-The compiler assumes that the program would benefit from a particular transformation that, if the assumption fails, might threaten the correctness of the program.
-In R, Inlining function bodies at their call sites is one of these speculative optimizations.\\
+R is a dynamic language. 
+Dynamic programming languages have the particularity to perform, at runtime, common programming behaviors executed during the compilation in static programming languages.
+Extending the program, adding code, extending objects and definitions, type setting or modifying the type system are such behaviors that, in dynamic programming languages, can take place at runtime.
+These particularities make certain common static compilation optimizations hard to implement in a dynamic programming language.
+One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the body of the called function.\\
 
-WHY INLINING INTERESTING AS AN OPT\\
+Chapter \ref{Chapter2} presents the on-stack replacement(OSR) mechanism.
+The OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performances at runtime.
+If the assumption fails, the OSR mechanisms preserve correctness in the program.
+Thanks to this versatile tool, static programming languages optimizations can be performed speculatively in a compiler for a dynamic programming language.\\
+
+In R, and more specifically in RJIT, inlining functions is hard. 
+An R function is wrapped in a closure, and might be redefined at any time during the program's execution.
+As a result, the only viable way of allowing function inlining in RJIT is to rely on OSR mechanisms.\\
+
+Inlining is an interesting optimization, and its impact on the code performance is hard to predict. 
+It holds an important trade-off between time and space, i.e., how much improvement in terms of speed can be obtain, at the cost of some extra space.
+Furthermore, excessive inlining might increase register pressure and deplete the instruction cache, therefore decreasing the speed of the program's execution.
+Finally, inlining can be viewed as a first step toward other optimizations.
+Copying a function's body at its call site enables to enlarge the scope considered by the compiler, and might therefore uncover new opportunities for optimizations.\\
+
+Apart from being a viable OSR-based speculative optimization in RJIT, inlining allows to put some pressure on the OSR Handler's mechanisms.
+First, as explained in Chapter \ref{Chapter4New}, the OSR mechanism requires to obtain fresh clones of functions bodies via the OSR Handler's functions.
+Second, in order to inline a function call, a copy of the callee's body needs to be obtained.
+This body, in RJIT OSR, can be obtained through the OSR Handler API.
+Function inlining might further force AOT compilation of the inlined functions, hence enabling us to test every aspect of the functionalities provided by the OSR Handler.\\
 
 USED IN OTHER PAPERS\\
 
-INTERESTING BECAUSE CLONING\\
 
 \subsection{Challenges}
 %Function Calls -> how to identify them
 %Resolving the function
 %Continuation function problem
 %IR fresh + AOT behavior
+An OSR-based speculative inliner for RJIT needs to be implemented at the LLVM IR level.
+This requires to be able to identify function calls inside the LLVM IR, extract the callee's SEXP from the environment, and perform the appropriated transformations on the IR.
+While relatively simple conceptually, implementing such a mechanism presents several challenges in RJIT.\\
+
+An R function call corresponds to several instructions in the RJIT LLVM IR.
+First, a call to the \textit{getFunction} intrinsic is inserted.
+The call takes as parameter the AST of the call, stored in the constant pool associated to the function SEXP.
+This intrinsic enables to resolve, at runtime, the callee. 
+To do so it explores the current environment.
+If no match is found, it accesses the enclosing environments until either reaching a definition or triggering an error letting the user know that the callee could not be found.
+The compiler then emits instructions to load arguments to the function call.
+Finally, an ic stub is generated. 
+The ic stub takes as arguments the result of the call to the \textit{getFunction} intrinsic, the arguments provided to the call, a pointer to the caller, the current constant pool, and the environment.
+When executed once, the ic stub replaces itself with a call to a inlined cached wrapper function dedicated to the callee.\\
+
+In the OSR inliner, function calls can be identified by looking for ic stubs.
+The OSR inliner has to run on non-instrumented LLVM IR. 
+The ic stubs have not yet been replaced by inlined cached wrappers.
+Therefore, even though a function call is compiled into several instructions, ic stubs and their arguments are enough to obtain all the information corresponding to a function call.\\
+
+In order to inline a function call, the OSR inliner needs to obtain a clone of the callee's LLVM IR.
+If the callee was never compiled before, the \textit{getFreshIR} function will trigger an AOT compilation of the function.
+Since the OSR inliner heavily relies on fresh IR, one challenge is to try to minimize the amount of cloning required in order to perform the transformations.\\
+
+The OSR Kit mechanism requires to generate a \textit{toInstrument} clone per function call inlined.
+The continuation function has to be a clone of the base function used to generate the optimized one.
+One challenge is to carefully implement the inlining in order to limit the number of \textit{toInstrument} functions generated.\\
+
+Finally, all the challenges related to the cloned and continuation functions mentioned in Section \ref{additionalchallenges} need to be considered.
+Fixing the LLVM IR requires to go through every instruction in the cloned functions.
+As a result, in order to save compilation time, it is important to perform such operations only when they are truly needed.\\
+
 \subsection{Implementation}
 %FunctionCall to abstract away the call
 %The algorithm to inline.

@@ -281,7 +281,7 @@ The OSR Handler provides utilities functions to help the user fix the LLVM IR of
 The \textit{resetSafepoints} function takes care of adding the proper safepoints and patchpoints to the IR, as well as fixing the arguments of ic stubs.
 It further verifies that every callee in call instructions has been declared in the module. 
 If that is not the case, it adds the proper function definition to the module.
-The OSR Handler provides another function, \textit{addToModule}, that enables to add a function to the current compilation module.
+The OSR Handler provides another function, \textit{addSexpToModule}, that enables to add a function to the current compilation module.
 Moreover, a function needs to be wrapped inside a function SEXP before being returned to the GNUR interpreter.
 The OSR Handler provides a \textit{cloneSexp} function that enables to create the proper SEXP for a function. 
 Finally, in order to link the native code generated for an LLVM IR, the compilation engine needs to record a mapping between an LLVM IR and a SEXP. 
@@ -289,7 +289,7 @@ The \textit{addRelocation} function enables to do that for a clone SEXP and the 
 These utilities functions are divided so that each of them provides a single, fully contained, functionality. 
 It enables the user to have a fine-grained control over the LLVM IR clones, and only perform the modifications that he desires.\\
 
-CODE API FOR UTILITIES\\
+\includecode{Code/utilities.h}
 
 \subsection{Simplifying the OSR exit insertion}
 
