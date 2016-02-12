@@ -94,6 +94,22 @@ As a result, in order to save compilation time, it is important to perform such 
 \subsection{Implementation}
 %FunctionCall to abstract away the call
 %The algorithm to inline.
+%The different mods for inlining.
+This section describes the implementation of the OSR inliner.
+The OSR inliner relies on a special C++ class, called \textit{FunctionCall}, to extract function calls in the LLVM IR and easily access its elements. 
+The OSR inliner also provides different mods, that enables more or less aggressive speculative inlining.\\
+
+The FunctionCall class provides a static function, called \textit{getFunctionCalls}, that takes an LLVM IR as input, and extracts the function calls it contains.
+For each ic stub call, the function creates an instance of the FunctionCall class. 
+A FunctionCall object gives quick access to each element of the function call, i.e., the result of the \textit{getFunction} call, the arguments to the call, and the additional elements of the ic stub call.
+The \textit{getFunctionCalls} returns a list a list of FunctionCall instances.
+It is important to note that, for efficiency and better integration, the \textit{getFunctionCalls}, or any similar function that needs to go through the LLVM IR instructions and match a specific pattern, will be able to rely on the pass \& match mechanism being developed in RJIT.
+RJIT provides a special matcher mechanism, combined to the LLVM passes implementation, that enables to extract special patterns from the LLVM IR.
+One of its main benefits is to reduce the number of iterations on the entire LLVM IR.
+Unfortunately, this feature was not yet ready at the time at which the RJIT OSR project was implemented.\\
+
+
+
 \section{Tests}
 \subsection{Gnur RJIT vs. Inlining on shootout}
 \subsection{OSR Exit vs. Replacing the closure}
