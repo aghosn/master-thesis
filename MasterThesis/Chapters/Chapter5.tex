@@ -79,9 +79,13 @@ The OSR inliner has to run on non-instrumented LLVM IR.
 The ic stubs have not yet been replaced by inlined cached wrappers.
 Therefore, even though a function call is compiled into several instructions, ic stubs and their arguments are enough to obtain all the information corresponding to a function call.\\
 
+EXAMPLE FUNCTION CALL\\
+
 In order to inline a function call, the OSR inliner needs to obtain a clone of the callee's LLVM IR.
 If the callee was never compiled before, the \textit{getFreshIR} function will trigger an AOT compilation of the function.
 Since the OSR inliner heavily relies on fresh IR, one challenge is to try to minimize the amount of cloning required in order to perform the transformations.\\
+
+TODO CREATE NEW RHO\\
 
 The OSR Kit mechanism requires to generate a \textit{toInstrument} clone per function call inlined.
 The continuation function has to be a clone of the base function used to generate the optimized one.
@@ -93,8 +97,8 @@ As a result, in order to save compilation time, it is important to perform such 
 
 \subsection{Implementation}
 %FunctionCall to abstract away the call
-%The algorithm to inline.
 %The different mods for inlining.
+%The algorithm to inline.
 This section describes the implementation of the OSR inliner.
 The OSR inliner relies on a special C++ class, called \textit{FunctionCall}, to extract function calls in the LLVM IR and easily access its elements. 
 The OSR inliner also provides different mods, that enables more or less aggressive speculative inlining.\\
@@ -108,6 +112,41 @@ RJIT provides a special matcher mechanism, combined to the LLVM passes implement
 One of its main benefits is to reduce the number of iterations on the entire LLVM IR.
 Unfortunately, this feature was not yet ready at the time at which the RJIT OSR project was implemented.\\
 
+The OSR inliner algortihm is a very basic, aggressive, speculative inliner. 
+RJIT does not have a profiler or a static analyzer yet.
+As a result, the OSR inliner cannot rely on any extra information to decide if a call should be inlined or not.
+The OSR inliner, however, proposes different mods of execution, that enable more or less aggressive inlining techniques.
+The default mod of execution inlines all the calls inside the current function, as long as a body can be obtained for the callee.
+The OSR inliner does not inline recursive calls.
+A more agressive mod, called \textit{all inline}, enables to recursively apply the OSR inliner on the body of the functions being inlined.
+\\
+
+The OSR inliner implements a very naive inlining algorithm.
+The copy of the function in which we inline the calls is called the \textit{working copy}.
+Function calls are extracted by calling the \textit{getFunctionCalls}.
+TODO FUNCTION CALLS SAME TARGET, GROUPED TOGETHER?.
+For each function call, the symbol accessed by the \textit{getFunction} call is extracted from the constant pool associated with the function.
+A GNUR function, that takes as parameters a symbol and an environment, enables to access the corresponding closure.
+If a closure is found, the default mod calls \textit{getFreshIR} on the closure to obtain the a clone of the code to inline.
+If the OSR inliner runs in the \textit{all inline} mod, it needs to obtain a fully inlined version of the function.
+To do this, it runs the OSR inliner on the resolved closure.
+In order to save compilation time, it caches the result of the inlining into a local map.
+This makes sense since, in one run of the inliner, all the function call targets are constant, i.e., no function can be redefined.
+The inliner then proceeds as follows for each function call:\\
+
+MODIFY IF INLINING ALL CALL SITES\\
+\begin{enumerate}
+    \item A toInstrument clone of the working copy is made. It is used to create the OSR exit continuation functions.
+    \item Instructions to create a new environment for the inlined function are inserted after the ic stub, in the working copy.\label{rho}
+    \item All accesses to the constant pool inside the body of the callee are modified to access new indices, computed as $\text{LENGHT}(\text{CP}_{\text{outer}}) + \text{index}$.
+    \item The constant pool argument in the body of the callee is replaced with the constant pool of the outer function.
+    \item The environment argument in the body of the callee is replaced with the new environment created in step \ref{rho}.
+    \item The body of the callee is added after the instructions inserted in step \ref{rho}.
+    \item The ic stub call is removed.
+    \item The insertOSRExit function is called with the working copy as the from function, the toInstrument as the continuation function, a comparison between the result the \textit{getFunction} call and the address of the closure inlined as the OSR condition, and the \textit{constant} call as the transition point.
+    \item The \textit{resetSafepoints} function is called on the working copy to fix its IR.
+    \item The constant pool of the copy is appended to the constant pool of the working copy.
+\end{enumerate}
 
 
 \section{Tests}

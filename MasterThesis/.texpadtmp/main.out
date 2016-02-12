@@ -68,10 +68,10 @@
 \BOOKMARK [2][-]{subsection.365}{Justification}{section.364}% 68
 \BOOKMARK [2][-]{subsection.366}{Challenges}{section.364}% 69
 \BOOKMARK [2][-]{subsection.367}{Implementation}{section.364}% 70
-\BOOKMARK [1][-]{section.368}{Tests}{chapter.363}% 71
-\BOOKMARK [2][-]{subsection.369}{Gnur\040RJIT\040vs.\040Inlining\040on\040shootout}{section.368}% 72
-\BOOKMARK [2][-]{subsection.370}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.368}% 73
-\BOOKMARK [2][-]{subsection.371}{OSR\040Handler\040getFreshIR\040vs.\040Always\040recompiling}{section.368}% 74
-\BOOKMARK [0][-]{chapter.372}{Conclusion}{}% 75
-\BOOKMARK [0][-]{appendix.373}{Appendix\040Title\040Here}{}% 76
-\BOOKMARK [0][-]{appendix*.374}{Bibliography}{}% 77
+\BOOKMARK [1][-]{section.378}{Tests}{chapter.363}% 71
+\BOOKMARK [2][-]{subsection.379}{Gnur\040RJIT\040vs.\040Inlining\040on\040shootout}{section.378}% 72
+\BOOKMARK [2][-]{subsection.380}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.378}% 73
+\BOOKMARK [2][-]{subsection.381}{OSR\040Handler\040getFreshIR\040vs.\040Always\040recompiling}{section.378}% 74
+\BOOKMARK [0][-]{chapter.382}{Conclusion}{}% 75
+\BOOKMARK [0][-]{appendix.383}{Appendix\040Title\040Here}{}% 76
+\BOOKMARK [0][-]{appendix*.384}{Bibliography}{}% 77

@@ -71,10 +71,10 @@
 \contentsline {subsection}{\numberline {5.1.1}Justification}{51}{subsection.365}
 \contentsline {subsection}{\numberline {5.1.2}Challenges}{52}{subsection.366}
 \contentsline {subsection}{\numberline {5.1.3}Implementation}{53}{subsection.367}
-\contentsline {section}{\numberline {5.2}Tests}{53}{section.368}
-\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{53}{subsection.369}
-\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{53}{subsection.370}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{53}{subsection.371}
-\contentsline {chapter}{\numberline {6}Conclusion}{55}{chapter.372}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{57}{appendix.373}
-\contentsline {chapter}{Bibliography}{59}{appendix*.374}
+\contentsline {section}{\numberline {5.2}Tests}{54}{section.378}
+\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{54}{subsection.379}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{54}{subsection.380}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{54}{subsection.381}
+\contentsline {chapter}{\numberline {6}Conclusion}{55}{chapter.382}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{57}{appendix.383}
+\contentsline {chapter}{Bibliography}{59}{appendix*.384}
