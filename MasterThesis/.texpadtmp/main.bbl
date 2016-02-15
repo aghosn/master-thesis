@@ -514,6 +514,41 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{morandat2012evaluating}{incollection}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Morandat}{M.}%
+     {Flor{\'e}al}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hill}{H.}%
+     {Brandon}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Osvald}{O.}%
+     {Leo}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vitek}{V.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{MF+1}
+  \strng{fullhash}{MFHBOLVJ1}
+  \field{sortinit}{M}
+  \field{booktitle}{ECOOP 2012--Object-oriented programming}
+  \field{pages}{104\bibrangedash 131}
+  \field{title}{Evaluating the design of the R language}
+  \field{year}{2012}
+\endentry
+
 \entry{JikesRVMURL}{online}{}
   \name{author}{1}{}{%
     {{}%

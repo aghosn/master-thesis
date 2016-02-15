@@ -49,23 +49,23 @@
 \contentsline {section}{\numberline {3.4}A classification summary}{35}{section.262}
 \contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.264}
 \contentsline {section}{\numberline {4.1}Overview}{37}{section.265}
-\contentsline {subsection}{\numberline {4.1.1}The RJIT compiler}{37}{subsection.266}
-\contentsline {subsubsection}{General}{37}{section*.267}
-\contentsline {subsubsection}{The RJIT compilation flow}{37}{section*.268}
-\contentsline {subsubsection}{The function's SEXP}{38}{section*.269}
-\contentsline {subsubsection}{The closure's SEXP}{38}{section*.270}
-\contentsline {subsection}{\numberline {4.1.2}Justification \& Goals}{38}{subsection.271}
-\contentsline {subsection}{\numberline {4.1.3}OSR Kit limitations}{39}{subsection.272}
-\contentsline {section}{\numberline {4.2}OSR Handler}{40}{section.273}
+\contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{37}{subsection.266}
+\contentsline {subsection}{\numberline {4.1.2}The RJIT compiler}{38}{subsection.267}
+\contentsline {subsubsection}{General}{38}{section*.268}
+\contentsline {subsubsection}{The RJIT compilation flow}{39}{section*.269}
+\contentsline {subsubsection}{The function's SEXP}{39}{section*.270}
+\contentsline {subsubsection}{The closure's SEXP}{39}{section*.271}
+\contentsline {subsection}{\numberline {4.1.3}OSR Kit limitations}{40}{subsection.272}
+\contentsline {section}{\numberline {4.2}OSR Handler}{41}{section.273}
 \contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{41}{subsection.274}
 \contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{42}{subsection.275}
 \contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{45}{subsection.334}
-\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{46}{subsection.357}
-\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{47}{subsection.358}
+\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.357}
+\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{48}{subsection.358}
 \contentsline {section}{\numberline {4.3}Future work}{48}{section.359}
 \contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{48}{subsection.360}
 \contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{49}{subsection.361}
-\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{49}{subsection.362}
+\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.362}
 \contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{51}{chapter.363}
 \contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{51}{section.364}
 \contentsline {subsection}{\numberline {5.1.1}Justification}{51}{subsection.365}
