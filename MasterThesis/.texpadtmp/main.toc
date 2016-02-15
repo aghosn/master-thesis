@@ -50,31 +50,31 @@
 \contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.264}
 \contentsline {section}{\numberline {4.1}Overview}{37}{section.265}
 \contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{37}{subsection.266}
-\contentsline {subsection}{\numberline {4.1.2}The RJIT compiler}{38}{subsection.267}
-\contentsline {subsubsection}{General}{38}{section*.268}
-\contentsline {subsubsection}{The RJIT compilation flow}{39}{section*.269}
-\contentsline {subsubsection}{The function's SEXP}{39}{section*.270}
-\contentsline {subsubsection}{The closure's SEXP}{39}{section*.271}
-\contentsline {subsection}{\numberline {4.1.3}OSR Kit limitations}{40}{subsection.272}
-\contentsline {section}{\numberline {4.2}OSR Handler}{41}{section.273}
-\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{41}{subsection.274}
-\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{42}{subsection.275}
-\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{45}{subsection.334}
-\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.357}
-\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{48}{subsection.358}
-\contentsline {section}{\numberline {4.3}Future work}{48}{section.359}
-\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{48}{subsection.360}
-\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{49}{subsection.361}
-\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.362}
-\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{51}{chapter.363}
-\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{51}{section.364}
-\contentsline {subsection}{\numberline {5.1.1}Justification}{51}{subsection.365}
-\contentsline {subsection}{\numberline {5.1.2}Challenges}{52}{subsection.366}
-\contentsline {subsection}{\numberline {5.1.3}Implementation}{53}{subsection.367}
-\contentsline {section}{\numberline {5.2}Tests}{54}{section.378}
-\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{54}{subsection.379}
-\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{54}{subsection.380}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{54}{subsection.381}
-\contentsline {chapter}{\numberline {6}Conclusion}{55}{chapter.382}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{57}{appendix.383}
-\contentsline {chapter}{Bibliography}{59}{appendix*.384}
+\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{38}{subsection.267}
+\contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{39}{subsection.268}
+\contentsline {subsubsection}{General}{39}{section*.269}
+\contentsline {subsubsection}{The RJIT compilation flow}{39}{section*.270}
+\contentsline {subsubsection}{The function's SEXP}{40}{section*.292}
+\contentsline {subsubsection}{The closure's SEXP}{41}{section*.293}
+\contentsline {section}{\numberline {4.2}OSR Handler}{41}{section.294}
+\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{41}{subsection.295}
+\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{43}{subsection.296}
+\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{46}{subsection.355}
+\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.378}
+\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{48}{subsection.379}
+\contentsline {section}{\numberline {4.3}Future work}{49}{section.380}
+\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{49}{subsection.381}
+\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{50}{subsection.382}
+\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.383}
+\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{53}{chapter.384}
+\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{53}{section.385}
+\contentsline {subsection}{\numberline {5.1.1}Justification}{53}{subsection.386}
+\contentsline {subsection}{\numberline {5.1.2}Challenges}{54}{subsection.387}
+\contentsline {subsection}{\numberline {5.1.3}Implementation}{55}{subsection.388}
+\contentsline {section}{\numberline {5.2}Tests}{56}{section.399}
+\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{56}{subsection.400}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{56}{subsection.401}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{56}{subsection.402}
+\contentsline {chapter}{\numberline {6}Conclusion}{57}{chapter.403}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{59}{appendix.404}
+\contentsline {chapter}{Bibliography}{61}{appendix*.405}

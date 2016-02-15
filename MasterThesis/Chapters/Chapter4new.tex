@@ -16,64 +16,79 @@
 %----------------------------------------------------------------------------------------
 \section{Overview}
 \subsection{Justification \& Goals}
-REWRITE - REFORMULATE.\\
-%Goal of the thesis 
-    %on stack replacement general mechanism, reusable, at llvm level
-    %Why? improve performance and allow greater flexibility in RJIT
-        %R is slow, 
-        %R is a dynamic language lots of difficulties for implement opt
-        %Hence OSR. 
-%Reuse an existing library to focus on deoptimization
-    %Our goal is to aggressively optimize while preserving correctness
-    %Project still young, don't know exactly what we need, don't have feedback on the code
-    %Hence better to reuse lib that we can modifiy -> OSR Kit 
-%Restate goals 
-    %Try to specialise the OSR Kit for the deopt and overcome the limitations. 
-    %Will test it with an inlining. 
-
-%R is slow.
-    %R description
-    %Why slow. 
-%Goal of the thesis 
-    %OSR to enable aggressive opt in the impl
-    %Show that it is possible with example
-%Reusing a library    
             
 R is a programming language and software environment for statistical computing and graphics, developed by the R Foundation for Statistical Computing\cite{RURL}.
 R is a dynamic, lazy, functional, object oriented programming language where the basic data type is the vector.
-The dynamic features provided by the language include reflection over the environment, the ability to generate source code for unevaluated expression and to treat text as code (e.g., functions \textit{parse} and \textit{eval}).
-Even though R is considered functional, i.e., functions are first-class values, and arguments are deep copied and lazily evaluated, the language does not optimize recursion and, instead, encourages vectorized operations.\\
+The dynamic features provided by the language include reflection over the environment, the ability to generate source code for unevaluated expressions and to treat text as code (e.g., functions \textit{parse} and \textit{eval}).
+Even though R is considered functional, i.e., functions are first-class values, and arguments are deep copied and lazily evaluated, the language does not optimize recursions and, instead, encourages vectorized operations.\\
 
-Although very flexible and widely used for statistical data analysis, the R programming language and its interpreter suffer from poor execution performances, compared to equivalent programs execution in C or Python\cite{morandat2012evaluating}.
-According to \citean{morandat2012evaluating}, on the Shootout benchmarks suite, R is on average 501 times slower than C and 43 times slower than Python.
-According to \cite{morandat2012evaluating}, R programs usually consume large amounts of memory, and spend an important part of the execution, on average 30\% for the Shootout benchmarks, doing memory management.
+Although very flexible and widely used for statistical data analysis, the R programming language's implementation suffers from poor execution performances, compared to equivalent programs executed in C or Python\cite{morandat2012evaluating}.
+According to \citean{morandat2012evaluating}, on the Shootout baseline benchmarks suite\cite{Shootout}, R is on average 501 times slower than C and 43 times slower than Python.
+According to \cite{morandat2012evaluating}, R programs usually consume large amounts of memory, and spend an important part of the execution (e.g., on average 30\% for the Shootout benchmarks) doing memory management.
+These slow downs have various causes.
 For example, in R, all user data must be heap allocated and garbage collected, when languages like C allow stack allocated data.
 Another R behavior that has a large impact on memory consumption is boxing.
 All numeric data has to be boxed in R, leading to high overheads in programs containing an important amount of single numbers.
-For example, paper \cite{morandat2012evaluating} discovered that, in the Bioconductor corpus of programs, 36\% of vectors allocated contained only a single number.
+For example, paper \cite{morandat2012evaluating} discovered that, in the Bioconductor corpus of programs\cite{Bioconductor}, 36\% of vectors allocated contained only a single number.
 It is important to note that other R specific behaviors, such as looking up variables, matching parameters with arguments, and copy-on-write mechanisms used for call-by-value semantics have non negligible impacts on the performance of R programs\cite{morandat2012evaluating}.\\
 
-The RJIT project strives to improve these performances by providing a LLVM based JIT compiler for R. SAY MORE.
+The RJIT project\cite{Rjit} strives to improve R programs performances by providing an LLVM based JIT compiler for R.
+The RJIT compiler plugs into a modified version of the GNUR interpreter and enables to JIT compile R programs into native code.
 The RJIT compiler is still pretty young, only a few months old.
-As a result, we lack FEEDBACK; DONT KNOW EXACTLY HOW TO IMPROVE PERF AND NEED TO EXPERIMENT.
-Therefore, we are looking for a flexible and extensible OSR mechanism that enables us to prototype and experiment various solutions, without trapping ourselves into a single model.\\
+As a result, RJIT is currently trying to identify code behaviors that impact the execution performances, and plans to optimize code compilation to improve them.
+Due to R semantics, such compilation optimizations might be hard to implement.
+On-stack replacement therefore appeared as an interesting solution to enable aggressive and speculative optimizations.
+The goal of this master thesis is thus to prototype a flexible and extensible OSR mechanism for speculative optimizations.\\
 
-The OSR Kit library\cite{OSRKit} is a flexible implementation of on-stack replacement instrumentation in LLVM.
-The source-code for the library is available on Github\cite{OSRKitGit}, and the library can be used in any LLVM project by simply copy-pasting the OSR Kit files inside of it.
-The simple integration, the availability of the source code, and the flexibility of the framework make it a perfect base implementation upon which we can implement our support for OSR deoptimization mechanisms in RJIT.\\
+This master thesis prototypes OSR deoptimization mechanisms in RJIT.
+The RJIT OSR implementation relies on the OSR Kit\cite{OSRKit} library transition mechanism.
+The OSR Kit library code is available on Github\cite{OSRKitGit}, and can be easily integrated in any LLVM project by simply copy-pasting the OSR Kit files inside of it.
+Instead of reimplementing the same transition mechanisms for RJIT OSR, the choice was made to modify and extend this library.
+This enables to focus on the deoptimization case which, according to Section \ref{WhyDeopt}, is the most challenging and interesting use case of on-stack replacement.
+The OSR deoptimization further allows speculative optimizations, which allow the RJIT compiler to port static compilation optimizations to the R just in time language, while preserving the correctness of the program being executed.\\
 
-OSR Kit library enables to work at the LLVM IR level.
-LLVM IR is a stable representation that combines the advantages of both the high-level representation, i.e., it still contains some semantic constructions particular to the language being compiled, and the advantages of a lower level representation, closer to the execution engine.
-In the case of this master thesis project, i.e., providing OSR mechanisms in the RJIT project, the LLVM IR is the exact middle layer representation that we need. 
-At the LLVM IR level, the R semantics are still visible and it therefore allows us to efficiently implement our optimizations.\\
+\subsection{OSR Kit limitations}\label{osrkitlimitations}
 
-%TODO MORE ABOUT THE FOCUS ON DEOPT. 
-MOVE UP\\
+%While very flexible, comes short on several points
+    %Open OSR, not really fitting our case.
+    %Continuation style is fine for optimization, but pretty bad for deopt.
+        %no replacement when exits... 
+        %many clones ... 
+        %As we'll see later, cloning is not sufficient ...
+While very flexible, the OSR Kit\cite{OSRKit} library presents several disadvantages and exhibits costly behaviors that do not perfectly fit the deoptimization process.
+This section lists the OSR Kit library's limitations with regard to OSR exits implementation.\\
 
-This master project thesis focuses on the design and implementation of a prototype for OSR deoptimization support in RJIT.
-Starting a new OSR transition implementation from scratch requires time.
-Using a flexible and modifiable OSR transition library therefore seemed like the goto option.
-We do not waste time reimplementing something that already exists, and can therefore put all our efforts into implementing an interesting OSR deoptimization case, testing it, and extending the OSR Kit library with mechanisms that are specific to our needs (Sections \ref{osrForUs} and \ref{extendingOSR}).\\
+The main advantage of the open OSR is to leverage profiled-guided compilation strategies to generate efficient code.
+However, generating a transformation that removes optimizations is hard and does not play well with the OSR Kit instrumentation.
+Such a transformation needs to take into account other optimizations that might have been performed on the code after the optimization was applied, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on this optimization, and undo them.
+For the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
+That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.
+Both of these requirements are hard to satisfy.
+Finally, the deoptimization case is used to preserve correctness in the program and must be conservative. 
+Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not a main objective. \\
+
+Once an OSR exit is taken, it is more likely to be fired in subsequent calls.
+For example, in the case of call site inlining, the OSR exit is fired when the inlined function is redefined.
+In subsequent calls, the OSR exit will also be triggered.
+As a result, if the OSR exit is an open OSR point, the framework will have to perform expensive operations to generate the correct continuation function every time the OSR exit is triggered.
+In the light of these observations, we can conclude that the open OSR design does not fit well the deoptimization case.\\
+
+The resolved OSR corresponds to our requirements for deoptimization.
+The optimized version is obtained by applying a transformation on a base function.
+Since OSR points cannot be tampered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
+Another way to see this is that the OSR exit is a call to the continuation function, which takes as arguments all the values needed at the continuation function to reconstruct the computation state and continue the execution.
+As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to be executed properly.
+In the light of these observations, it makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
+
+The OSR Kit way of generating the continuation function is expensive.
+In the deoptimization case, inserting a resolved OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
+Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.
+Generating two clones of the base function, in order to insert a resolved OSR, might be very expensive for big functions.\\
+
+Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
+Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base function.
+The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
+
 \subsection{The RJIT compiler}
 \subsubsection{General}
 CITE GNUR\\
@@ -89,27 +104,24 @@ The GNUR interpreter has been instrumented to call the JIT compiler before evalu
 The RJIT compiler generates native code, using the LLVM framework, that corresponds to the R function's AST it received as argument.
 The native code is then wrapped into the appropriated SEXP constructs, and returned to the GNUR interpreter.
 Afterwards, the GNUR interpreter executes the native code.\\ 
-%Compilation flow
 
 \subsubsection{The RJIT compilation flow}
-%intrinsics 
-%Constant pools for local variables
-%All functions have the same signature !
-%promises !!!
 RJIT walks the SEXP ast and generates the corresponding LLVM IR.
 Since R is a dynamic language, most R constructs need to be simulated by LLVM calls to special functions, called R intrinsics.
-CONTINUE THIS PART.\\
+Intrinsic functions provided basic functionalities, such as resolving a closure from a symbol and the current environment, getting a value associated with a symbol, setting a local variable, creating a promise, or performing generic arithmetic operations.
+Figure REF provides R code performing some of these standard operations, and the equivalent, simplified, LLVM IR generated for this code, with the corresponding intrinsic calls.\\
 
-IC CALLEE IS WRAPPER, DESCRIBE BETTER\\
-%ic stubs.
+\includecode{Code/RAndLLVM.cpp}
 R resolves callee of function calls at runtime, when the call is executed.
-In order to simulate this behavior, the RJIT compiler needs to rely on a special instrumentation to compile calls to functions that are not yet resolved.
+In order to simulate this behavior, the RJIT compiler needs to rely on a special instrumentation to compile calls to functions, and especially the ones to functions that are not yet defined.
 To that end, the JIT compiler replaces function calls with inlined cached stubs (i.e., ic stubs).
 An ic stub takes as parameters the function call's arguments, a pointer to the callee extracted from the environment, and a pointer to the caller.
-The ic stub, when executed, compiles a special function that caches the resolved callee, call it the ic callee.
-This function is instrumented to check, during future calls, that the resolved function for the callee is the same as the one it saw during its own compilation, and performs the call.
-Once the ic callee is compiled, the ic stub replaces itself in the caller with a direct call to the ic callee.
-In order to do so, the ic stub relies on LLVM intrinsics called Stackmap REF, patchpoints REF, and on the caller's pointer it received as argument.\\
+The ic stub, when executed, triggers the compilation of a wrapper function, call it the ic callee, that caches the resolved callee.
+This wrapper function tests that the callee pointer that it gets as argument points to the same function as the one used during its own compilation.
+If that is the case, it performs the call to the callee, and propagates the value returned after the call.
+If the callee pointer references another function, it performs an ic stub call.
+Once the ic callee function is compiled, the ic stub replaces itself in the caller with a call to the ic callee.
+In order to do so, the ic stub relies on LLVM intrinsics called Stackmap\cite{llvmStackMap} and Patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
 
 \subsubsection{The function's SEXP}
 In GNUR and RJIT, a function is represented by a special SEXP. 
@@ -123,6 +135,15 @@ When the GNUR interpreter evaluates a function SEXP, it checks the SEXP type.
 If the function is compiled, it performs the call to the native code. 
 If not, it calls the RJIT compiler, and calls the resulting native code.\\
 
+In RJIT, the LLVM IR for a function always has a signature of type $T$:
+$$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
+where the first SEXP element is a pointer to the constant pool associated with the function, and the second SEXP a pointer to the environment.
+As shown in Figure REF, The constant pool (CP) is used to access variable symbols. 
+For example, line 11 corresponds to a call to the \textit{genericGetVar} intrinsic, that enables to retrieve a local variable's value from the environment.
+The symbol corresponding to the variable is extracted from the CP, at index 2, and used along side the environment (i.e., \textit{rho}), to access the corresponding value.
+In general, the environment is used to access variable values as well as function definitions (e.g., line 15).\\
+
+
 \subsubsection{The closure's SEXP}
 In R, a closure contains a function and the environment associated to it.
 A closure SEXP has type CLOSXP.
@@ -133,47 +154,6 @@ The getFunction intrinsic, that enables to resolve a function, returns a closure
 The environment is made of cons cells, and is essential to the execution of a function.
 Local variables and function argument values are set inside the environment.\\
 
-\subsection{OSR Kit limitations}\label{osrkitlimitations}
-
-%While very flexible, comes short on several points
-    %Open OSR, not really fitting our case.
-    %Continuation style is fine for optimization, but pretty bad for deopt.
-        %no replacement when exits... 
-        %many clones ... 
-        %As we'll see later, cloning is not sufficient ...
-While very flexible, the OSR Kit\cite{OSRKit} library presents several disadvantages and exhibits costly behaviors that do not perfectly fit the deoptimization process.
-This section lists the challenges encountered while trying to implement OSR exits with OSR Kit.\\
-
-The main advantage of the open OSR is to leverage profiled-guided compilation strategies to generate efficient code.
-However, generating a transformation that removes optimizations is hard and does not play well with the OSR Kit instrumentation.
-Such a transformation needs to take into account other optimizations that might have been performed on the code after the optimization was applied, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on this optimization, and undo them.
-Moreover, the deoptimization case is used to preserve correctness in the program and must be conservative. 
-Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not a main objective. 
-For the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
-That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other optimizations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.
-Both of these requirements are hard to satisfy.\\
-
-Once an OSR exit is taken, it is more likely to be fired in subsequent calls.
-For example, in the case of call site inlining, the OSR exit is fired when the inlined function is redefined.
-In subsequent calls, the OSR exit will also be triggered.
-As a result, if the OSR exit is an open OSR point, the framework will have to perform expensive operations to generate the correct continuation function every time the OSR exit is triggered.
-In the light of these observations, we can conclude that the open OSR design does not fit well the deoptimization case.\\
-
-The resolved OSR corresponds to our requirements for deoptimization.
-The optimized version is obtained by applying a transformation on a base function.
-Since OSR points cannot be tempered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
-Another way to see this is that the OSR exit is a call to the continuation function, which takes as arguments all the values needed at the continuation function to reconstruct the computation state and continue the execution.
-As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to be executed properly.
-In the light of these observations, it makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
-
-The OSR Kit way of generating the continuation function is expensive.
-In the deoptimization case, inserting a resolved OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
-Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.
-Generating two clones of the base function, in order to insert a resolved OSR, might be very expensive for big functions.\\
-
-Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
-Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base function.
-The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
 
 \section{OSR Handler}
 This section presents the OSR Handler, a special singleton implemented in RJIT that strives to enable efficient OSR deoptimizations. 

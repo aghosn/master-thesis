@@ -283,6 +283,50 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{llvmPatchpoints}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Group}{G.}%
+     {LLVM~Developer}{L.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GLD1}
+  \strng{fullhash}{GLD1}
+  \field{sortinit}{G}
+  \field{title}{{LLVM Patchpoints} LLVM Patchpoints.}
+  \verb{url}
+  \verb http://llvm.org/docs/StackMaps.html#llvm-experimental-patchpoint-intrin
+  \verb sic
+  \endverb
+  \field{year}{2003}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
+\entry{llvmStackMap}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Group}{G.}%
+     {LLVM~Developer}{L.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GLD1}
+  \strng{fullhash}{GLD1}
+  \field{sortinit}{G}
+  \field{title}{{LLVM StackMap} LLVM StackMap.}
+  \verb{url}
+  \verb http://llvm.org/docs/StackMaps.html#llvm-experimental-stackmap-intrinsi
+  \verb c
+  \endverb
+  \field{year}{2003}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{llvmUrl}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -704,6 +748,69 @@
   \verb www.r-project.org
   \endverb
   \field{year}{1993}
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
+\entry{Bioconductor}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Team}{T.}%
+     {The~Bioconductor}{T.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TTB1}
+  \strng{fullhash}{TTB1}
+  \field{sortinit}{T}
+  \field{title}{{Bioconductor} The Bioconductor open source software for
+  bioinformatics.}
+  \verb{url}
+  \verb http://www.bioconductor.org/about/
+  \endverb
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
+\entry{Rjit}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {team}{t.}%
+     {The~RJIT}{T.~R.}%
+     {compiler}{c.}%
+     {}{}}%
+  }
+  \strng{namehash}{tTRc1}
+  \strng{fullhash}{tTRc1}
+  \field{sortinit}{T}
+  \field{title}{{The RJIT compiler} The RJIT compiler.}
+  \verb{url}
+  \verb https://github.com/reactorlabs/rjit
+  \endverb
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
+\entry{Shootout}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Various}{V.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{V1}
+  \strng{fullhash}{V1}
+  \field{sortinit}{V}
+  \field{title}{{The Computer Language Benchmarks Game}The Computer Language
+  Benchmarks Game, a corpus of simple programs implemented in various languages
+  and used to get a performance baseline.}
+  \verb{url}
+  \verb http://benchmarksgame.alioth.debian.org/
+  \endverb
   \field{urlday}{01}
   \field{urlmonth}{02}
   \field{urlyear}{2016}
