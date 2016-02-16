@@ -389,8 +389,8 @@ The working copy contains all the OSR exits needed for correctness, and all the 
 
 \section{Future work}
 This Section describes solutions, design ideas, that were partially implemented but not fully explored during this master thesis.
-RJIT being a young project, it lacks some supporting tools, e.g., a profiler or a code analyser, that could support new possibilities for the OSR implementation.
-In the future, the development of the RJIT framework should enable to provide new incentives to implement more complex OSR mechanisms.\\
+RJIT being a young project, it lacks some supporting tools, e.g., a profiler or a code analyser, that could uncover new possibilities for the OSR implementation.
+In the future, the development of the RJIT framework should enable to provide new incentives to implement more complex OSR-based speculative optimizations, or extend the OSR mechanisms.\\
 
 \subsection{Transitive StateMaps}
 %Trying to improve the field of possibilities
@@ -398,7 +398,7 @@ In the future, the development of the RJIT framework should enable to provide ne
     %Why interesting? Will be able, if provides interface, to enlarge the scope of intermixing optimizations 
 For the moment, in RJIT, the continuation function for an OSR exit is an instrumented version of the function that was used to generate the optimized version.
 This is a requirement that results from the use, in OSR Kit\cite{OSRKit}, of StateMaps to insert the OSR instrumentation.
-The from and the contination functions need to have a StateMap that records one-to-one mappings between the two function's instructions.
+The from and the contination functions need to have a StateMap that records one-to-one mappings between their instructions.
 In some cases, however, one might want to provide a different continuation function.
 OSR Kit does not forbid this use of the library, but does not provide tools to make it easier.\\  
 
@@ -431,7 +431,7 @@ The idea is to provide basic LLVM transformation functions, e.g, addInstruction,
 \subsection{On-the-fly compilation}
 
 Generating the OSR exit continuation on the fly is hard in general. 
-Section \ref{osrkitlimitations} detailed the challenges that this technique presents.
+Section \ref{osrkitlimitations} details the challenges that this technique presents.
 One option to simulate this behavior in RJIT is to save the LLVM IR of the base function in the OSR Handler, and remove it from the compilation unit.
 In other words, we generate and save the IR, but we do not complete its compilation.
 An open OSR is inserted in the optimized version. 
@@ -448,7 +448,7 @@ As a result, we did not put efforts in the implementation of this solution.\\
 
 The OSR Handler is a prototype, a proof of concept, to experiment OSR transitions in RJIT. 
 As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR Inliner (see Chapter \ref{Chapter5}), in their own classes.
-In other words, everything added to the RJIT project has been kept as independent to the main RJIT elements as possible.
+In other words, everything added to the RJIT project was kept as independent to the main RJIT elements as possible.
 This had the double benefit of 1) enforcing clear and stable interfaces that integrate well in the compilation flow, and 2) enabled to merge the master branch updates into the OSR branch easily.
 Since the RJIT project is under active development, the second point was essential.
 On the other hand, the OSR mechanisms could be greatly simplified, and made cleaner, if properly integrated inside the RJIT framework.\\
