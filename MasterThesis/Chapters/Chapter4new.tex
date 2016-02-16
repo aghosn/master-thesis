@@ -29,13 +29,13 @@ These slow downs have various causes.
 For example, in R, all user data must be heap allocated and garbage collected, when languages like C allow stack allocated data.
 Another R behavior that has a large impact on memory consumption is boxing.
 All numeric data has to be boxed in R, leading to high overheads in programs containing an important amount of single numbers.
-For example, paper \cite{morandat2012evaluating} discovered that, in the Bioconductor corpus of programs\cite{Bioconductor}, 36\% of vectors allocated contained only a single number.
+For example, in the Bioconductor corpus of programs\cite{Bioconductor}, 36\% of vectors allocated contained only a single number\cite{morandat2012evaluating}.
 It is important to note that other R specific behaviors, such as looking up variables, matching parameters with arguments, and copy-on-write mechanisms used for call-by-value semantics have non negligible impacts on the performance of R programs\cite{morandat2012evaluating}.\\
 
 The RJIT project\cite{Rjit} strives to improve R programs performances by providing an LLVM based JIT compiler for R.
 The RJIT compiler plugs into a modified version of the GNUR interpreter and enables to JIT compile R programs into native code.
 The RJIT compiler is still pretty young, only a few months old.
-As a result, RJIT is currently trying to identify code behaviors that impact the execution performances, and plans to optimize code compilation to improve them.
+As a result, RJIT is currently trying to identify code behaviors that impact the execution performances, and plans to optimize code compilation to decrease their costs.
 Due to R semantics, such compilation optimizations might be hard to implement.
 On-stack replacement therefore appeared as an interesting solution to enable aggressive and speculative optimizations.
 The goal of this master thesis is thus to prototype a flexible and extensible OSR mechanism for speculative optimizations.\\
@@ -45,7 +45,7 @@ The RJIT OSR implementation relies on the OSR Kit\cite{OSRKit} library transitio
 The OSR Kit library code is available on Github\cite{OSRKitGit}, and can be easily integrated in any LLVM project by simply copy-pasting the OSR Kit files inside of it.
 Instead of reimplementing the same transition mechanisms for RJIT OSR, the choice was made to modify and extend this library.
 This enables to focus on the deoptimization case which, according to Section \ref{WhyDeopt}, is the most challenging and interesting use case of on-stack replacement.
-The OSR deoptimization further allows speculative optimizations, which allow the RJIT compiler to port static compilation optimizations to the R just in time language, while preserving the correctness of the program being executed.\\
+The OSR deoptimization further allows speculative optimizations, which enable the RJIT compiler to port static compilation optimizations to R, while preserving the correctness of the program being executed.\\
 
 \subsection{OSR Kit limitations}\label{osrkitlimitations}
 
@@ -75,18 +75,19 @@ In the light of these observations, we can conclude that the open OSR design doe
 
 The resolved OSR corresponds to our requirements for deoptimization.
 The optimized version is obtained by applying a transformation on a base function.
-Since OSR points cannot be tampered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent optimizations performed on the optimized function.
+Since OSR points cannot be tampered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent (valid) optimizations performed on the optimized function.
 Another way to see this is that the OSR exit is a call to the continuation function, which takes as arguments all the values needed at the continuation function to reconstruct the computation state and continue the execution.
 As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to be executed properly.
+For the overall execution to be correct, additional constraints, such as preventing instructions with side-effects from crossing OSR points, are however still required.
 In the light of these observations, it makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
 
 The OSR Kit way of generating the continuation function is expensive.
 In the deoptimization case, inserting a resolved OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
 Since the continuation function might have a different signature than the base function, the framework has to generate a clone of the body of the base function that will be instrumented with the OSR ENTRY block.
-Generating two clones of the base function, in order to insert a resolved OSR, might be very expensive for big functions.\\
+Generating two clones of the base function, in order to insert a resolved OSR exit, might be very expensive for big functions.\\
 
 Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
-Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base function.
+Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base unoptimized function.
 The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
 
 \subsection{The RJIT compiler}
@@ -105,15 +106,17 @@ The RJIT compiler generates native code, using the LLVM framework, that correspo
 The native code is then wrapped into the appropriated SEXP constructs, and returned to the GNUR interpreter.
 Afterwards, the GNUR interpreter executes the native code.\\ 
 
+SMALL PICTURE OF THE FLOW LIKE FOR WEBKIT\\
+
 \subsubsection{The RJIT compilation flow}
 RJIT walks the SEXP ast and generates the corresponding LLVM IR.
 Since R is a dynamic language, most R constructs need to be simulated by LLVM calls to special functions, called R intrinsics.
-Intrinsic functions provided basic functionalities, such as resolving a closure from a symbol and the current environment, getting a value associated with a symbol, setting a local variable, creating a promise, or performing generic arithmetic operations.
+Intrinsic functions provide basic functionalities, such as resolving a closure from a symbol and the current environment, getting a value associated with a symbol, setting a local variable, creating a promise, or performing generic arithmetic operations.
 Figure REF provides R code performing some of these standard operations, and the equivalent, simplified, LLVM IR generated for this code, with the corresponding intrinsic calls.\\
 
 \includecode{Code/RAndLLVM.cpp}
 R resolves callee of function calls at runtime, when the call is executed.
-In order to simulate this behavior, the RJIT compiler needs to rely on a special instrumentation to compile calls to functions, and especially the ones to functions that are not yet defined.
+In order to simulate this behavior, the RJIT compiler needs to rely on a special instrumentation to compile calls to functions, especially the ones to functions that are not yet defined.
 To that end, the JIT compiler replaces function calls with inlined cached stubs (i.e., ic stubs).
 An ic stub takes as parameters the function call's arguments, a pointer to the callee extracted from the environment, and a pointer to the caller.
 The ic stub, when executed, triggers the compilation of a wrapper function, call it the ic callee, that caches the resolved callee.
@@ -121,7 +124,7 @@ This wrapper function tests that the callee pointer that it gets as argument poi
 If that is the case, it performs the call to the callee, and propagates the value returned after the call.
 If the callee pointer references another function, it performs an ic stub call.
 Once the ic callee function is compiled, the ic stub replaces itself in the caller with a call to the ic callee.
-In order to do so, the ic stub relies on LLVM intrinsics called Stackmap\cite{llvmStackMap} and Patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
+In order to do so, the ic stub relies on LLVM intrinsics called Stackmaps\cite{llvmStackMap} and Patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
 
 \subsubsection{The function's SEXP}
 In GNUR and RJIT, a function is represented by a special SEXP. 
@@ -131,14 +134,14 @@ In the case of a non-compiled function, the CDR contains the AST of the function
 The CAR element, in both cases, contains the constant pool associated to the function, i.e., the list of symbols defined inside the function.
 For a compiled function, the TAG element of the SEXP contains the LLVM IR of the function.\\
 
-When the GNUR interpreter evaluates a function SEXP, it checks the SEXP type. 
+When the GNUR interpreter evaluates a function SEXP, it checks its SEXP type. 
 If the function is compiled, it performs the call to the native code. 
-If not, it calls the RJIT compiler, and calls the resulting native code.\\
+If not, it calls the RJIT compiler, and executes the resulting native code.\\
 
 In RJIT, the LLVM IR for a function always has a signature of type $T$:
 $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
 where the first SEXP element is a pointer to the constant pool associated with the function, and the second SEXP a pointer to the environment.
-As shown in Figure REF, The constant pool (CP) is used to access variable symbols. 
+As shown in Figure REF, the constant pool (CP) is used to access variable symbols. 
 For example, line 11 corresponds to a call to the \textit{genericGetVar} intrinsic, that enables to retrieve a local variable's value from the environment.
 The symbol corresponding to the variable is extracted from the CP, at index 2, and used along side the environment (i.e., \textit{rho}), to access the corresponding value.
 In general, the environment is used to access variable values as well as function definitions (e.g., line 15).\\
@@ -165,16 +168,24 @@ Then, it presents the OSR Handler implementation, and the solutions adopted for 
 \subsection{Additional challenges in RJIT}\label{additionalchallenges}
 
 %Compilation flow
-RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} library for the deoptimization case.\\
+RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} for the deoptimization case.\\
 
 RJIT provides a just-in-time compiler, i.e., functions are compiled just before being evaluated.
-The compilation flow can be broken down to these elementary steps: 1) The function is extracted from the R closure (a closure contains the function, its formals, and its environment), 2) if the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned, 3) the function is compiled into an LLVM IR made out of calls to intrinsic functions (e.g., getUserLiteral, getFunction etc.), 4) Calls to non-intrinsic functions are compiled as inline cache stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call, 4) every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to call instructions, are visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.
-This final step is performed by calling the \textit{jitAll} function on the compiler instance.
+The compilation flow can be broken down to these elementary steps: 
+\begin{enumerate}
+    \item The function is extracted from the R SEXP closure.
+    \item If the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned.
+    \item The function is compiled into an LLVM IR.
+    \item Calls to non-intrinsic functions are compiled as inline cached stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call.
+    \item Every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to call instructions, is visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.\label{jitAll}
+\end{enumerate}
+
+The final step is performed by calling the \textit{jitAll} function on the compiler instance.
 All functions generated with this instance of the compiler will be instrumented during this call.
 The final result of the compilation is a blotted piece of LLVM IR from which the R semantics are hard to extract.\\
 
 In order to perform transformations based on R semantics, a fresh non-instrumented (i.e., without the safepoint and patchpoint machinery) version of the LLVM IR is needed.
-A fresh non-instrumented IR can be obtained from the compiler, by (re)compiling the function, without calling step 4 above.
+A fresh non-instrumented IR can be obtained from the compiler, by (re)compiling the function, without calling step \ref{jitAll} above.
 If the function was not previously compiled, this solution is the only available option.
 If the function was previously compiled, but not instrumented, the LLVM IR can be extracted and used for the transformation.
 If it was instrumented, the IR is unusable, and we therefore need to re-compile it.
@@ -182,12 +193,12 @@ Recompiling functions is not a satisfactory solution.
 We therefore have to find a way to avoid this case as much as possible.\\
 
 Simply cloning the LLVM IR is not enough in RJIT.
-As explained above, special instrumentation is inserted as attributes to call instructions and used for the instrumentation in step 4.
+As explained above, special instrumentation is inserted as attributes to call instructions and used for the instrumentation in step \ref{jitAll}.
 In order to fully compile and execute a clone, the LLVM attributes need to be set at each of its call instructions to allow the safepoint instrumentation.
 This is mandatory and, if not done properly, leads to failures during the execution.
-Another problem with clones arise from the targets of function calls. 
+Another problem with clones arises from the targets of function calls. 
 The callee function has to be an LLVM function declared in the current module. 
-If the clone comes from a different module than the one in which its compilation is being performed, the callee might not be present in the module and needs to be added. 
+If the clone comes from a different module than the one in which its compilation is being performed, the callee might not be present in the current module and triggers compilation errors. 
 One last thing to take care of are the ic stubs calls.
 An ic stub takes as argument a pointer to its caller.
 When a function containing ic stubs is cloned, those pointers point to the original function.
@@ -232,8 +243,7 @@ Depending on the type of the function, it selects the less costly solution to ge
 
 If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates two clones of the resulting LLVM IR.
 One clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
-The stored clone does not belong to the current module.
-Therefore, it will not be instrumented if the \textit{jitAll} function is called.
+The stored clone does not belong to the current module and will not be instrumented if the \textit{jitAll} function is called.
 One should note that, in order to save time during execution, the OSRHandler does not fix the IR for the version stored in the map.
 The other clone is wrapped into a copy of the original function SEXP and returned to the user.\\
 
@@ -244,6 +254,7 @@ As a small optimization, the OSR Handler sets the result of the compilation insi
 By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
 \includecode{Code/getFreshIR.h}
+PROBLEM REFORMULATE\\
 
 If the function is a NATIVESXP, the OSR Handler looks for the closure inside the base version map. 
 If the map contains an entry for the closure, it simply clones the IR, encloses it in a copy of the function SEXP and returns it.
@@ -261,7 +272,7 @@ Otherwise, the OSR Handler has no choice but to recompile the function, add an e
 
 \includecode{Code/baseVersion.h}
 
-One should note that the non-instrumented IR obtained through the \textit{getFreshIR} corresponds to the result of a compilation of the original AST of the function, i.e., no transformation has been applied on this IR. 
+The non-instrumented IR obtained through the \textit{getFreshIR} corresponds to the result of a compilation of the original AST of the function, i.e., no transformation has been applied on this IR. 
 In other words, all the transformations performed while compiling the function the first time are not reflected on the stored IR. 
 This is a choice that we made in order to keep different optimization passes independent.
 In some cases, that solution implies that we have to re-do the same transformation on the same function several times.

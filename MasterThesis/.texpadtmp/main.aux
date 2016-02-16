@@ -48,6 +48,8 @@
 \newlabel{Chapter2}{{2}{3}{On-Stack Replacement}{chapter.9}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Overview}{3}{section.10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Definition}{3}{subsection.11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{4}{subsection.12}}
+\newlabel{WhyOSRInteresting}{{2.1.2}{4}{Why is OSR interesting?}{subsection.12}{}}
 \citation{holzle1992debugging}
 \citation{fink2003design}
 \citation{holzle1992debugging}
@@ -55,8 +57,6 @@
 \citation{lameed2013modular}
 \citation{WebKitURL}
 \citation{lameed2013modular}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{4}{subsection.12}}
-\newlabel{WhyOSRInteresting}{{2.1.2}{4}{Why is OSR interesting?}{subsection.12}{}}
 \citation{holzle1992debugging}
 \citation{fink2003design}
 \citation{soman2006efficient}
@@ -267,8 +267,8 @@
 \citation{morandat2012evaluating}
 \citation{Shootout}
 \citation{morandat2012evaluating}
-\citation{morandat2012evaluating}
 \citation{Bioconductor}
+\citation{morandat2012evaluating}
 \citation{morandat2012evaluating}
 \citation{Rjit}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.264}}
@@ -291,55 +291,56 @@
 \@writefile{toc}{\contentsline {subsubsection}{The function's SEXP}{40}{section*.292}}
 \citation{OSRKit}
 \citation{OSRKit}
-\citation{llvmAttribute}
 \@writefile{toc}{\contentsline {subsubsection}{The closure's SEXP}{41}{section*.293}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}OSR Handler}{41}{section.294}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{41}{subsection.295}}
 \newlabel{additionalchallenges}{{4.2.1}{41}{Additional challenges in RJIT}{subsection.295}{}}
+\citation{llvmAttribute}
+\newlabel{jitAll}{{5}{42}{Additional challenges in RJIT}{Item.300}{}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{43}{subsection.296}}
-\newlabel{toCompile}{{1}{43}{Reducing the number of compilation}{Item.297}{}}
-\newlabel{best}{{2}{43}{Reducing the number of compilation}{Item.298}{}}
-\newlabel{worst}{{3}{43}{Reducing the number of compilation}{Item.299}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Code/getFreshIR.h}{44}{lstlisting.300}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}Code/baseVersion.h}{44}{lstlisting.312}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}Code/utilities.h}{45}{lstlisting.315}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{43}{subsection.301}}
+\newlabel{toCompile}{{1}{43}{Reducing the number of compilation}{Item.302}{}}
+\newlabel{best}{{2}{43}{Reducing the number of compilation}{Item.303}{}}
+\newlabel{worst}{{3}{43}{Reducing the number of compilation}{Item.304}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Code/getFreshIR.h}{44}{lstlisting.305}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}Code/baseVersion.h}{44}{lstlisting.317}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}Code/utilities.h}{45}{lstlisting.320}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{46}{subsection.355}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}Code/statemaps.h}{46}{lstlisting.356}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{46}{subsection.360}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}Code/statemaps.h}{46}{lstlisting.361}}
 \citation{OSRKit}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}Code/insertOSRExit.h}{47}{lstlisting.359}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.378}}
-\newlabel{improvingexits}{{4.2.4}{47}{Improving the exits}{subsection.378}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{48}{subsection.379}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}Code/insertOSRExit.h}{47}{lstlisting.364}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.383}}
+\newlabel{improvingexits}{{4.2.4}{47}{Improving the exits}{subsection.383}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{48}{subsection.384}}
 \citation{OSRKit}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Future work}{49}{section.385}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{49}{subsection.386}}
 \citation{soman2006efficient}
 \citation{OSRKit}
 \citation{OSRKit}
 \citation{OSRKitGit}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Future work}{49}{section.380}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{49}{subsection.381}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{50}{subsection.382}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.383}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{53}{chapter.384}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{50}{subsection.387}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.388}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{53}{chapter.389}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{53}{Case Study: An R Inliner}{chapter.384}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{53}{section.385}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Justification}{53}{subsection.386}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Challenges}{54}{subsection.387}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Implementation}{55}{subsection.388}}
-\newlabel{rho}{{2}{56}{Implementation}{Item.390}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Tests}{56}{section.399}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{56}{subsection.400}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{56}{subsection.401}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{56}{subsection.402}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{57}{chapter.403}}
+\newlabel{Chapter5}{{5}{53}{Case Study: An R Inliner}{chapter.389}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{53}{section.390}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Justification}{53}{subsection.391}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Challenges}{54}{subsection.392}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Implementation}{55}{subsection.393}}
+\newlabel{rho}{{2}{56}{Implementation}{Item.395}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Tests}{56}{section.404}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Gnur RJIT vs. Inlining on shootout}{56}{subsection.405}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{56}{subsection.406}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{56}{subsection.407}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{57}{chapter.408}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{57}{Conclusion}{chapter.403}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{59}{appendix.404}}
+\newlabel{Chapter6}{{6}{57}{Conclusion}{chapter.408}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{59}{appendix.409}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{AppendixA}{{A}{59}{Appendix Title Here}{appendix.404}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{61}{appendix*.405}}
+\newlabel{AppendixA}{{A}{59}{Appendix Title Here}{appendix.409}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{61}{appendix*.410}}
