@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  16 FEB 2016 22:18
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  17 FEB 2016 11:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1064,6 +1064,14 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen204
 \l_MT_below_shortintertext_sep=\dimen205
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen206
+\WF@size=\dimen207
+\c@WF@wrappedlines=\count345
+\WF@box=\box57
+\WF@everypar=\toks28
+Package: wrapfig 2003/01/31  v 3.6
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
@@ -1086,23 +1094,23 @@ Package csquotes Info: ... found 'babel' package.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 111.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1116,6 +1124,7 @@ File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -1152,28 +1161,28 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \equationnamenname on input line 110.
-Package scrbase Info: activating english \sectionname on input line 110.
-Package scrbase Info: activating english \authorshipname on input line 110.
-Package scrbase Info: activating english \byname on input line 110.
-Package scrbase Info: activating english \abbrevname on input line 110.
-Package scrbase Info: activating english \constantsname on input line 110.
-Package scrbase Info: activating english \symbolsname on input line 110.
-Package scrbase Info: activating english \acknowledgementname on input line 110
+Package scrbase Info: activating english \equationnamenname on input line 111.
+Package scrbase Info: activating english \sectionname on input line 111.
+Package scrbase Info: activating english \authorshipname on input line 111.
+Package scrbase Info: activating english \byname on input line 111.
+Package scrbase Info: activating english \abbrevname on input line 111.
+Package scrbase Info: activating english \constantsname on input line 111.
+Package scrbase Info: activating english \symbolsname on input line 111.
+Package scrbase Info: activating english \acknowledgementname on input line 111
 .
-\AtBeginShipoutBox=\box57
-Package hyperref Info: Link coloring ON on input line 110.
+\AtBeginShipoutBox=\box58
+Package hyperref Info: Link coloring ON on input line 111.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count345
+\c@section@level=\count346
 )
-LaTeX Info: Redefining \ref on input line 110.
-LaTeX Info: Redefining \pageref on input line 110.
-LaTeX Info: Redefining \nameref on input line 110.
+LaTeX Info: Redefining \ref on input line 111.
+LaTeX Info: Redefining \pageref on input line 111.
+LaTeX Info: Redefining \nameref on input line 111.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
@@ -1193,14 +1202,14 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 110.
-Package biblatex Info: Reference segment=0 on input line 110.
-\c@lstlisting=\count346
-Package scrhack Info: undefining \float@addtolists on input line 110.
-\c__siunitx_mathsf_int=\count347
-\c__siunitx_mathtt_int=\count348
+Package biblatex Info: Reference section=0 on input line 111.
+Package biblatex Info: Reference segment=0 on input line 111.
+\c@lstlisting=\count347
+Package scrhack Info: undefining \float@addtolists on input line 111.
+\c__siunitx_mathsf_int=\count348
+\c__siunitx_mathtt_int=\count349
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 127.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 128.
 [1
 
 
@@ -1211,15 +1220,15 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 164.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 165.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
@@ -1232,7 +1241,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 195.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 196.
 [7] [8
 
 ]
@@ -1243,7 +1252,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 217.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 218.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
 [11])
@@ -1279,13 +1288,40 @@ Chapter 1.
 --------------------
  1. Introduction
 --------------------
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 20.
-) (./Chapters/Chapter2.tex [1
 
-] [2
+Underfull \hbox (badness 10000) in paragraph at lines 18--26
+
+ []
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 28.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 28.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+(./Code/Example.cpp
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+(./Code/Example2.cpp) [1
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--51
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 52.
+) (./Chapters/Chapter2.tex [2]
 Chapter 2.
 --------------------
  2. On-Stack Replacement
@@ -1387,7 +1423,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--45
 
  []
 
-[3]
+[3
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
@@ -1473,12 +1511,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--214
 LaTeX Warning: Reference `Unoptimized case' on page 7 undefined on input line 2
 21.
 
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 223.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 223.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 
 Package Listings Warning: Text dropped after begin of listing on input line 228
 .
@@ -1504,8 +1536,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 284--287
  []
 
 (./Figures/ffromBuff.c
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2.
 ) (./Figures/funCall.c) (./Figures/MultipleEntry.c)
@@ -2745,57 +2775,57 @@ Appendix A.
 ) [59] [60
 
 ]
-Overfull \hbox (0.93102pt too wide) in paragraph at lines 278--278
+Overfull \hbox (0.93102pt too wide) in paragraph at lines 279--279
 []\T1/ppl/m/n/10.95 Craig Cham-bers and David Un-gar. ^^P  Mak-ing pure object-
 oriented lan-guages prac-
  []
 
 
-Overfull \hbox (2.77666pt too wide) in paragraph at lines 278--278
+Overfull \hbox (2.77666pt too wide) in paragraph at lines 279--279
 \T1/ppl/m/n/10.95 MAT-LAB through just-in-time spe-cial-iza-tion^^Q. In: \T1/pp
 l/m/it/10.95 Com-piler Con-struc-tion\T1/ppl/m/n/10.95 . Springer.
  []
 
 
-Overfull \hbox (8.05923pt too wide) in paragraph at lines 278--278
+Overfull \hbox (8.05923pt too wide) in paragraph at lines 279--279
 \T1/pcr/m/n/10.95 / / llvm . org / docs / StackMaps . html # llvm -[] experimen
 tal -[] patchpoint -[]
  []
 
 [61]
-Overfull \hbox (5.35594pt too wide) in paragraph at lines 278--278
+Overfull \hbox (5.35594pt too wide) in paragraph at lines 279--279
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
 5 : [][]$\T1/pcr/m/n/10.95 www . jikesrvm .
  []
 
 
-Overfull \hbox (2.60896pt too wide) in paragraph at lines 278--278
+Overfull \hbox (2.60896pt too wide) in paragraph at lines 279--279
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
 
-Overfull \hbox (2.9228pt too wide) in paragraph at lines 278--278
+Overfull \hbox (2.9228pt too wide) in paragraph at lines 279--279
 []\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
 r The Bio-con-duc-tor open source soft-ware for bioin-
  []
 
 
-Overfull \hbox (24.38016pt too wide) in paragraph at lines 278--278
+Overfull \hbox (24.38016pt too wide) in paragraph at lines 279--279
 \T1/ppl/m/it/10.95 for-mat-ics. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : [][]$
 \T1/pcr/m/n/10.95 http : / / www . bioconductor . org / about/$[][] \T1/ppl/m/n
 /10.95 (vis-ited on 02/01/2016). 
  []
 
 [62]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 283.
  [63]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 283.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 282.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 282.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 283.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 283.
 
 LaTeX Warning: There were undefined references.
 
@@ -2804,10 +2834,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29540 strings out of 493706
- 523649 string characters out of 6145768
- 854005 words of memory out of 5000000
- 32501 multiletter control sequences out of 15000+600000
+ 29641 strings out of 493706
+ 524973 string characters out of 6145768
+ 855168 words of memory out of 5000000
+ 32592 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,12n,56p,10377b,3110s stack positions out of 5000i,500n,10000p,200000b,80000s
