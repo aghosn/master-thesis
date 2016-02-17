@@ -689,6 +689,39 @@
   \field{year}{2006}
 \endentry
 
+\entry{suganuma2006region}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Suganuma}{S.}%
+     {Toshio}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yasue}{Y.}%
+     {Toshiaki}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nakatani}{N.}%
+     {Toshio}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{STYTNT1}
+  \strng{fullhash}{STYTNT1}
+  \field{sortinit}{S}
+  \field{number}{1}
+  \field{pages}{134\bibrangedash 174}
+  \field{title}{A region-based compilation technique for dynamic compilers}
+  \field{volume}{28}
+  \field{journaltitle}{ACM Transactions on Programming Languages and Systems
+  (TOPLAS)}
+  \field{year}{2006}
+\endentry
+
 \entry{suganuma2001dynamic}{inproceedings}{}
   \name{author}{5}{}{%
     {{}%

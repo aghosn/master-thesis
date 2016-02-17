@@ -7,74 +7,74 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.6}
 \contentsline {section}{\numberline {1.1}Proposed Solution}{2}{section.31}
 \contentsline {section}{\numberline {1.2}Paper Overview}{2}{section.32}
-\contentsline {chapter}{\numberline {2}On-Stack Replacement}{5}{chapter.33}
-\contentsline {section}{\numberline {2.1}Overview}{5}{section.34}
-\contentsline {subsection}{\numberline {2.1.1}Definition}{5}{subsection.35}
-\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{6}{subsection.36}
-\contentsline {section}{\numberline {2.2}On-Stack Replacement Mechanisms}{7}{section.37}
-\contentsline {subsection}{\numberline {2.2.1}The OSR Points}{7}{subsection.38}
-\contentsline {subsubsection}{Guarded \& Unguarded}{7}{section*.40}
-\contentsline {subsubsection}{OSR Entries \& OSR Exits}{8}{section*.43}
-\contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{8}{subsection.46}
-\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{9}{section*.49}
-\contentsline {subsubsection}{The OSR transition at a low-level}{10}{section*.56}
-\contentsline {subsubsection}{Transition as a Function call}{10}{section*.62}
-\contentsline {subsection}{\numberline {2.2.3}Versionning}{13}{subsection.136}
-\contentsline {subsubsection}{One version}{13}{section*.137}
-\contentsline {subsubsection}{Multiple Versions}{13}{section*.138}
-\contentsline {subsubsection}{Caching vs. Generating on the fly}{14}{section*.139}
-\contentsline {section}{\numberline {2.3}The Deoptimization case}{14}{section.140}
-\contentsline {subsection}{\numberline {2.3.1}Why the Deoptimization case is more interesting?}{14}{subsection.141}
-\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{15}{subsection.142}
-\contentsline {subsubsection}{The Interpreter}{15}{section*.144}
-\contentsline {subsubsection}{The compiled base version}{16}{section*.145}
-\contentsline {subsubsection}{A less optimized version}{16}{section*.146}
-\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{17}{section.147}
-\contentsline {subsection}{\numberline {2.4.1}The OSR trade-offs}{17}{subsection.148}
-\contentsline {subsection}{\numberline {2.4.2}Limits on optimizations}{17}{subsection.149}
-\contentsline {chapter}{\numberline {3}Related Work}{19}{chapter.150}
-\contentsline {section}{\numberline {3.1}The origins: SELF Debugging}{19}{section.151}
-\contentsline {section}{\numberline {3.2}OSR \& VMs}{22}{section.159}
-\contentsline {subsection}{\numberline {3.2.1}Java HotSpot}{22}{subsection.160}
-\contentsline {subsection}{\numberline {3.2.2}Jikes RVM}{23}{subsection.161}
-\contentsline {subsection}{\numberline {3.2.3}WebKit VM}{24}{subsection.165}
-\contentsline {section}{\numberline {3.3}OSR \& LLVM}{26}{section.167}
-\contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{26}{subsection.168}
-\contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{27}{subsection.170}
-\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the McOSR implementation}{28}{subsection.171}
-\contentsline {subsection}{\numberline {3.3.4}Another LLVM OSR library: OSR Kit}{32}{subsection.188}
-\contentsline {subsubsection}{Open vs. Resolved OSR}{33}{section*.197}
-\contentsline {subsubsection}{Resolved OSR points and conditions}{35}{section*.255}
-\contentsline {subsubsection}{The continuation function \& StateMap}{36}{section*.285}
-\contentsline {section}{\numberline {3.4}A classification summary}{37}{section.286}
-\contentsline {chapter}{\numberline {4}OSR in RJIT}{39}{chapter.288}
-\contentsline {section}{\numberline {4.1}Overview}{39}{section.289}
-\contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{39}{subsection.290}
-\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{40}{subsection.291}
-\contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{41}{subsection.292}
-\contentsline {subsubsection}{General}{41}{section*.293}
-\contentsline {subsubsection}{The RJIT compilation flow}{41}{section*.294}
-\contentsline {subsubsection}{The function's SEXP}{43}{section*.320}
-\contentsline {subsubsection}{The closure's SEXP}{43}{section*.321}
-\contentsline {section}{\numberline {4.2}OSR Handler}{44}{section.322}
-\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{44}{subsection.323}
-\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{45}{subsection.324}
-\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{48}{subsection.373}
-\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{49}{subsection.396}
-\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{50}{subsection.397}
-\contentsline {section}{\numberline {4.3}Future work}{50}{section.398}
-\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{51}{subsection.399}
-\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{52}{subsection.400}
-\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{52}{subsection.401}
-\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{55}{chapter.402}
-\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{55}{section.403}
-\contentsline {subsection}{\numberline {5.1.1}Justification}{55}{subsection.404}
-\contentsline {subsection}{\numberline {5.1.2}Challenges}{56}{subsection.405}
-\contentsline {subsection}{\numberline {5.1.3}Implementation}{57}{subsection.406}
-\contentsline {section}{\numberline {5.2}Tests}{58}{section.417}
-\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on shootout}{58}{subsection.418}
-\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{58}{subsection.419}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{58}{subsection.420}
-\contentsline {chapter}{\numberline {6}Conclusion}{59}{chapter.421}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{61}{appendix.422}
-\contentsline {chapter}{Bibliography}{63}{appendix*.423}
+\contentsline {chapter}{\numberline {2}On-Stack Replacement}{3}{chapter.33}
+\contentsline {section}{\numberline {2.1}Overview}{3}{section.34}
+\contentsline {subsection}{\numberline {2.1.1}Definition}{3}{subsection.35}
+\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{4}{subsection.36}
+\contentsline {section}{\numberline {2.2}On-Stack Replacement Mechanisms}{5}{section.37}
+\contentsline {subsection}{\numberline {2.2.1}The OSR Points}{5}{subsection.38}
+\contentsline {subsubsection}{Guarded \& Unguarded}{5}{section*.40}
+\contentsline {subsubsection}{OSR Entries \& OSR Exits}{6}{section*.43}
+\contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{6}{subsection.46}
+\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{7}{section*.49}
+\contentsline {subsubsection}{The OSR transition at a low-level}{8}{section*.59}
+\contentsline {subsubsection}{The transition as a Function call}{8}{section*.65}
+\contentsline {subsection}{\numberline {2.2.3}Versionning}{11}{subsection.154}
+\contentsline {subsubsection}{One version}{11}{section*.155}
+\contentsline {subsubsection}{Multiple Versions}{11}{section*.156}
+\contentsline {subsubsection}{Caching vs. Generating on the fly}{12}{section*.157}
+\contentsline {section}{\numberline {2.3}The Deoptimization case}{12}{section.158}
+\contentsline {subsection}{\numberline {2.3.1}Why the Deoptimization case is more interesting?}{12}{subsection.159}
+\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{13}{subsection.160}
+\contentsline {subsubsection}{The Interpreter}{13}{section*.162}
+\contentsline {subsubsection}{The compiled base version}{14}{section*.163}
+\contentsline {subsubsection}{A less optimized version}{14}{section*.164}
+\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{15}{section.165}
+\contentsline {subsection}{\numberline {2.4.1}The OSR trade-offs}{15}{subsection.166}
+\contentsline {subsection}{\numberline {2.4.2}Limits on optimizations}{15}{subsection.167}
+\contentsline {chapter}{\numberline {3}Related Work}{17}{chapter.168}
+\contentsline {section}{\numberline {3.1}The origins: SELF Debugging}{17}{section.169}
+\contentsline {section}{\numberline {3.2}OSR \& VMs}{20}{section.177}
+\contentsline {subsection}{\numberline {3.2.1}Java HotSpot}{20}{subsection.178}
+\contentsline {subsection}{\numberline {3.2.2}Jikes RVM}{21}{subsection.179}
+\contentsline {subsection}{\numberline {3.2.3}WebKit VM}{22}{subsection.183}
+\contentsline {section}{\numberline {3.3}OSR \& LLVM}{24}{section.185}
+\contentsline {subsection}{\numberline {3.3.1}What is LLVM?}{24}{subsection.186}
+\contentsline {subsection}{\numberline {3.3.2}Why do we want OSR in LLVM?}{25}{subsection.188}
+\contentsline {subsection}{\numberline {3.3.3}OSR as an LLVM library: the McOSR implementation}{26}{subsection.189}
+\contentsline {subsection}{\numberline {3.3.4}Another LLVM OSR library: OSR Kit}{30}{subsection.206}
+\contentsline {subsubsection}{Open vs. Resolved OSR}{31}{section*.215}
+\contentsline {subsubsection}{Resolved OSR points and conditions}{33}{section*.273}
+\contentsline {subsubsection}{The continuation function \& StateMap}{34}{section*.303}
+\contentsline {section}{\numberline {3.4}A classification summary}{35}{section.304}
+\contentsline {chapter}{\numberline {4}OSR in RJIT}{37}{chapter.306}
+\contentsline {section}{\numberline {4.1}Overview}{37}{section.307}
+\contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{37}{subsection.308}
+\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{38}{subsection.309}
+\contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{39}{subsection.310}
+\contentsline {subsubsection}{General}{39}{section*.311}
+\contentsline {subsubsection}{The RJIT compilation flow}{39}{section*.312}
+\contentsline {subsubsection}{The function's SEXP}{41}{section*.338}
+\contentsline {subsubsection}{The closure's SEXP}{41}{section*.339}
+\contentsline {section}{\numberline {4.2}OSR Handler}{42}{section.340}
+\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{42}{subsection.341}
+\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{43}{subsection.342}
+\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{45}{subsection.391}
+\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{47}{subsection.414}
+\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{47}{subsection.415}
+\contentsline {section}{\numberline {4.3}Future work}{48}{section.416}
+\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{48}{subsection.417}
+\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{49}{subsection.418}
+\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{50}{subsection.419}
+\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{51}{chapter.420}
+\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{51}{section.421}
+\contentsline {subsection}{\numberline {5.1.1}Justification}{51}{subsection.422}
+\contentsline {subsection}{\numberline {5.1.2}Challenges}{52}{subsection.423}
+\contentsline {subsection}{\numberline {5.1.3}Implementation}{53}{subsection.424}
+\contentsline {section}{\numberline {5.2}Tests}{54}{section.435}
+\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on shootout}{54}{subsection.436}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{54}{subsection.437}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{54}{subsection.438}
+\contentsline {chapter}{\numberline {6}Conclusion}{55}{chapter.439}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{57}{appendix.440}
+\contentsline {chapter}{Bibliography}{59}{appendix*.441}

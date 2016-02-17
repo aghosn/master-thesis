@@ -1,11 +1,11 @@
-int fbase (a,b) {
+fbase <- function (a,b) {
 PROLOG:
 	if (OSR_LABEL == 0001)
-		goto OSR1;
+		goto OSR1
 	else if (OSR_LABEL == 0002)
-		goto OSR2;
+		goto OSR2
 	else 
-		goto ENTRY;
+		goto ENTRY
 ENTRY: 
 	//The regular entry code
 	//...
@@ -18,9 +18,9 @@ CONT2:
 	//that corresponds to osr2.
 	//...
 OSR1:
-	load_state1();
-	goto CONT1;
+	load_state1()
+	goto CONT1
 OSR2:
-	load_state2();
-	goto CONT2;
+	load_state2()
+	goto CONT2
 }

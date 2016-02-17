@@ -17,27 +17,23 @@
 \section{Overview}
 \subsection{Definition}
 
-PROF VITEK remark: Begin with motivating example, compilers for dynamic languages suc as JS, Ruby, R, = great challenges for compiler when they know very little ahead of time.\\
-
-%Replace some portion of code while it is executing 
-%Used to optimize code that is running 
-%Used to undo an invalid optimization of the code that is running
-On-Stack replacement (OSR) is a concept that allows to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the interrupted function at the point and state at which it was interrupted.
-The action of transferring the execution using the OSR mechanism is called an \textit{OSR transition}.\\
+On-Stack replacement (OSR) is a concept that consists in replacing a program that is currently executing with another, potentially very different program, while preserving the execution state.
+OSR implementations allow to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the execution in the new function at the correct instruction point and state.
+The action of transferring the execution using the OSR mechanism is called a \textit{transition}.\\
 
 On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing function into another version of itself.
 This transformation mechanism has been used to allow transitions between different levels of code optimizations.
 We can therefore reduce it to two main purposes: (1) transforming an executing function into a more optimized version of itself, and (2) undoing transformations that were previously performed.
 While similar, these two types of transformation have very different goals.\\
 
-In several virtual machines (\cite{paleczny2001java, lameed2013modular} MORE), some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
+In several virtual machines\cite{paleczny2001java, lameed2013modular, holzle1992debugging, fink2003design, soman2006efficient, duboscq2014speculation, OSRKit, WebKitFTL}, some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
 When the virtual machine (VM) identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
-This differs from a simple Just-In-Time (JIT) compiler, since the recompilation and transfer of execution both take place during the execution of the function, rather than just before its execution.
+This differs from a simple Just-In-Time (JIT) compiler, since the recompilation and transfer of execution both take place during the execution of the function, rather than just before it.
 However, both techniques rely on the same assumption, namely, that run-time profiling data enables to uncover new optimization opportunities.\\
 
 On-Stack replacement allows a compiler to perform speculative transformations.
 Some optimizations rely on assumptions that are not bound to hold during the entire execution of a program.
-A simple example is function inlining in an environment where functions can be redefined at run time.
+A simple example is function inlining in an environment where functions can be redefined at runtime.
 A regular, and correct, compiler would not allow to inline a function that might be modified during the execution.
 The OSR mechanism, however, enables to perform such an optimization.
 Whenever the assumption fails, i.e., the function is redefined, the OSR mechanism will enable to transfer the execution to a corresponding piece of code where the inlining has not been performed.
@@ -66,18 +62,19 @@ As an adaptative compilation mechanism, it enables to delay the compilation of a
 These information can then be used to produce higher quality compiled code, with better execution performances.\\
 
 REFORMULATE AND USE QIAN CITED PAPERS!!
-For dynamic languages and VMs, code specialization is the most efficient technique to improve performances (IS THAT TRUE? FIND AND CITE).
+For dynamic languages and VMs, code specialization is an efficient technique to improve performances.
 Code specialization consists in tuning the code to better fit a particular use, hence yielding better performances.
 Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
 One of the main challenges is to identify which version better fits the current execution need.
-This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.\\
+This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.
+On-stack replacement enables to speculatively specialize code, while preserving the program's correctness.\\
 
 OSR, coupled with an efficient compiler to generate and keep track of specialized functions, enables to uncover new opportunities to fine tune a portion of code.
 While techniques like JIT compilation can generate specialized code at a function level, i.e., before the function's execution, OSR enables to make such tuning while a function is running.
 For example, in the case of a long running loop inside a function, JIT techniques would need to wait until the function is called anew to improve its run time performance by recompiling it. 
 OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance of program's execution.\\
 
-OSR is a tool that enables the compiler to recompile and optimize at almost any time during the execution of a program.
+OSR mechanisms enable the compiler to recompile and optimize at almost any time during the execution of a program.
 A clever compiler can perform iterative recompilation of the code in order to improve the quality of the generated compiled artefact.
 OSR enables these iteration steps to be closer to each other and potentially converge to a better solution faster than other dynamic compilation techniques.\\
 
@@ -169,14 +166,12 @@ Mistakingly not taking an OSR entry is a missed opportunity for better performan
 Missing a required OSR exit leads to a possibly incorrect behaviour of the program.\\
 
 \subsection{The Transition Mechanism}
-The OSR mechanism can be narrowed down to its core functionality: allowing a transition at run time from the middle of a running function to a corresponding instruction in the middle of another version of this function.
+The OSR mechanism can be narrowed down to its core functionality: allowing a transition at runtime from the middle of a running function to a corresponding instruction in the middle of another version of this function.
 This transition mechanism is therefore the cornerstone of any OSR implementation.
 This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
 
 In the reminder of this section, we use the terminology introduced by definitions \ref{from} and \ref{continuation}, and taken from the OSRKit\cite{OSRKit} project.
 These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.\\
-
-THE BASE FUNCTION DEFINITION\\
 
 \begin{definition}\label{from}
 A function from which we perform an OSR transition is called a \textbf{from function} or \textbf{source version}.
@@ -210,7 +205,7 @@ As a result, the OSR transition implementation must provide a function \textit{f
 
 An OSR transition is transparent to the user, i.e., it should not be observed by the user running the program.
 The OSR transition can be viewed as a mechanism that deviates the program from its current execution path in order to either improve the performances (the optimization process) or preserve correctness (the deoptimization process).
-It is part of the compilation/execution framework and, aside form a performance variation, should not impact the execution of the program, e.g., a correct program should not crash because of an OSR transition.\\
+It is part of the compilation/execution framework and, aside from a performance variation, should not impact the execution of the program, e.g., a correct program should not crash because of an OSR transition.\\
 
 An OSR transition can be either \textit{unidirectional} or \textit{bidirectional}.
 In the case of a bidirectional mapping between the source and the destination version, the OSR framework must also provide a function \textit{f'} that is the inverse of \textit{f}.  
@@ -218,16 +213,34 @@ In the case of a bidirectional mapping between the source and the destination ve
 \[f'(S_d) = S_s\]
 If the source is a less optimized version of the destination, $f'$ is used during the deoptimization case.
 The deoptimization case presents a greater challenge than the optimization one.
-Consider the unoptimized code in the Snippet \ref{Unoptimized case}, and its optimized version in Snippet ??.
+Consider the unoptimized code in Figure \ref{unoptimizedcase}, and its optimized version in Figure \ref{optimizedcase}.
 
-\begin{lstlisting}[caption=Unoptimized case]{Unoptimized case}
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \begin{lstlisting}
 a <- 5
 b <- 6
 c <- a+b
-\end{lstlisting}\label{unoptimizedcase}
-\begin{lstlisting}[caption=Optimized case]{Optimized case}\label{optimizedcase}
+    \end{lstlisting}
+  \caption{Unoptimized case}
+  \label{unoptimizedcase}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \begin{lstlisting}
+  
+  
 c <- 11
-\end{lstlisting}
+    \end{lstlisting}
+  \caption{Optimized case}
+  \label{optimizedcase}
+\end{subfigure}
+\caption{Variable elimination example.}
+\label{variableEliminationExample}
+\end{figure}
+
 
 The function \textit{f'} must provide a way to re-generate \textit{a} and \textit{b} from \textit{c}. 
 To this end, it must remember the steps that led to the optimized version of the code, and must be able to reverse them.
@@ -248,9 +261,11 @@ At a machine code level, an ideal OSR transition can be summarised into 5 steps:
     \item Save the local live values, i.e., the on-stack values in the current stack frame.
     \item Modify the current stack frame to introduce the expected local values, add expected stack frames or remove the stack frames that are not needed.
     \item put the correct content inside the registers.
-    \item modify the program counter and resume execution.
-\end{enumerate}
-In order to perform such a modification of the runtime stack and registers, the OSR framework must have complete control over the machine executing the program.
+    \item modify the program counter and resume the execution.
+\end{enumerate}\\
+
+There exists several examples of OSR implementations that manipulate the program state at machine code level to allow the continuation function to execute in the current stack frame\cite{chambers1991making, holzle1992debugging, suganuma2006region}.
+In order to perform such a modification of the runtime stack and registers, the OSR framework must have extensive control over the machine executing the program.
 This requirement is easier to satisfy if the execution is performed inside a virtual machine that enables to access and modify the execution stack and the registers.
 Section \ref{OSR&VM} expands on the relation between OSR implementations and virtual machines.
 Furthermore, as explained in \ref{HLREQ}, reconstructing a state from a set of live values is challenging. 
@@ -258,11 +273,9 @@ Performing this operation at such a low level is hard.
 The compiled version of the code loses the high-level semantics specific to the language, translates some high-level operations into several sequential instructions and performs some low level ressource management (e.g., register allocation) that requires the OSR mechanism to perfectly understand how the compiled code is generated in order to enable the OSR transition at machine code level.\\
 
 While tempting for its fine-grained control over the transition, the implementation of the OSR mechanism at a low level seems to unveil great challenges.
-An alternative solution is to encapsulate the entire process at a higher level, closer to the original program's semantics.
-%TODO
-CITE PAPERS THAT DO THAT FROM FLEXIBLE OSR.
+An alternative solution is to encapsulate the entire process at a higher level, closer to the original program's semantics.\\
 
-\subsubsection{Transition as a Function call}
+\subsubsection{The transition as a Function call}
 %A function call at a high level
     %In fact, a function call is the basic way of jumping to another portion of code
     %Propagate the state
@@ -271,9 +284,9 @@ CITE PAPERS THAT DO THAT FROM FLEXIBLE OSR.
     %Single entry point to the continuation function means for each spot we need a function
     %Multiple entry points
 An OSR transition can be modelled as a function call.
-As explained previously, an OSR transition needs to propagate values and jump to a continuation point outside of the current execution path.
-A function call allows to "modify" the program counter.
-The OSR transition therefore correspond to a function call from the from function, to a continuation function responsible for executing the new version of the code.\\
+As explained previously, a transition needs to propagate values and jump to a continuation point outside of the current execution path.
+A function call allows to modify the program counter and jump to another portion of code.
+The OSR transition can therefore be viewed as a function call, from the source version, to the destination version containing the newly generated code.\\
 
 In order to propagate the current execution state, there are two main solutions: 
 \begin{enumerate}
@@ -283,34 +296,75 @@ In order to propagate the current execution state, there are two main solutions:
 
 The first option implies that the from function must dump its state into a buffer before calling the continuation function.
 The continuation function starts its execution by loading the values it needs from the buffer.
-This solution has the drawback of increasing both the from function and the continuation function lengths, i.e., the OSR propagation of the state has a greater impact on the performance of the execution than a simple function call cost.\\
+This solution has the drawback of increasing both the from function and the continuation function lengths, i.e., the propagation of the state has a greater impact on the performance of the execution than a simple function call cost.
+Figure \ref{fig:bufferExample} provides a simple example of an OSR mechanism, implemented as a function call, that relies on a buffer to propagate the state in the continuation function.
+In the from function Figure \ref{fig:fromFuncBuff}, lines 10 to 13 enable to save the current state in a shared buffer.
+In the continuation function, i.e., Figure \ref{fig:ContFuncBuff}, lines 4 to 7 load the state from the buffer.\\
 
-\includecode{Figures/ffromBuff.c}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/bufferFrom.c}
+        \caption{From function.}
+        \label{fig:fromFuncBuff}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/bufferCont.c}
+        \caption{Continuation function.}
+        \label{fig:ContFuncBuff}   
+    \end{subfigure}
+    \caption{Using a buffer to pass live values in an OSR transition.}
+    \label{fig:bufferExample}
+\end{figure}
 
 For the second option, most of the work needed to propagate the state is performed during the compilation.
 Values are passed as arguments to the call to the continuation function.
 If there is not a one-to-one mapping between the from variables and the continuation ones, some compensation code is executed, either before the call or at the beginning of the continuation function, in order to assign the correct values to the continuation local variables.
 The cost of executing the compensation code is also present in the first option, i.e., both solutions have to perform the same set of transformations in order to generate the expected local values.
-On the other hand, the second option does not require to access shared memory to store and load propagated values, and is therefore expected to have a smaller cost at execution.\\
-\begin{minipage}{\linewidth}
-\includecode{Figures/funCall.c}
-\includecode{Figures/MultipleEntry.c}
-\end{minipage}
+On the other hand, the second option does not require to access shared memory to store and load propagated values, and is therefore expected to have a smaller cost at execution.
+Figure \ref{fig:CallExample} provides the same OSR transition as in Figure \ref{fig:bufferExample}, but passes live values as arguments to the continuation function.\\
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/callFrom.c}
+        \caption{From function.}
+        \label{fig:fromFuncCall}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/callCont.c}
+        \caption{Continuation function.}
+        \label{fig:ContFuncCall}   
+    \end{subfigure}
+    \caption{Live values as arguments in an OSR transition.}
+    \label{fig:CallExample}
+\end{figure}
+
+%multiple entries
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.8\textwidth}
+\includecode{Code/MultipleEntry.c}
+\end{subfigure}
+\caption{Instrumented function with multiple entry points.}
+\label{fig:multipleentry}
+\end{figure}
 
 The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the OSR point in the from function.
 In order to decrease the space complexity, one might want to enable multiple entry points per function.
-Consider Figure REF, where $f_{base}$ provides three entry points: (1)the regular entry point $ENTRY$, (2)a continuation $CONT1$ and (3)a second continuation $CONT2$.
-The function $f_{base}$ can therefore be used as a continuation function for any from function that has an OSR transition from a point that corresponds to either $CONT1$ or $CONT2$, as well as for regular function calls.
-In order to allow multiple entry points, the $f_{base}$ is instrumented, i.e., a $PROLOG$ is executed at its beginning.
-The $PROLOG$ is responsible for identifying the $f_{base}$'s caller. 
-In FIG, this is done by checking the value of a general flag, called $OSR\_LABEL$.
-According to this value, it then jumps to the correct instruction inside the function, and, if an OSR transition is being performed, loads the state from the scratch buffer, as described before.
+Consider Figure \ref{fig:multipleentry}, where $f_{base}$ provides three entry points: (1) the regular entry point ENTRY, (2) a continuation CONT1 and (3) a second continuation CONT2.
+The function $f_{base}$ can therefore be used as a continuation function for any from function that has an OSR transition from a point that corresponds to either CONT1 or CONT2, as well as for regular function calls.
+In order to allow multiple entry points, the $f_{base}$ is instrumented, i.e., a PROLOG is executed at its beginning.
+The PROLOG is responsible for identifying the $f_{base}$'s caller. 
+In Figure \ref{fig:multipleentry}, this is done by checking the value of a general flag, called \textit{OSR\_LABEL}.
+According to this value, it then jumps to the correct instruction inside the function, and, if an OSR transition is being performed, loads the state from the shared buffer, as described before.
 
 This instrumentation has an impact on performance as it requires an extra computation at the beginning of the function. 
 On the other hand, the second technique that we described to propagate the state modifies the function's signature.
 If the set of values to propagate is different at the two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
 Therefore, we can expect the second solution to have, in general, a higher space complexity (i.e., many versions of the function live in memory at the same time) but a better performance during execution (i.e., smaller execution time).\\
-MAYBE CITE PAPER FROM OSRKIT.
 
 \subsection{Versionning}
 On-stack replacement requires, at some point, two have at least two versions of a function: the from function and the continuation function.

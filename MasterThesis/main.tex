@@ -53,9 +53,10 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 
 
-\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2,escapechar=, style=custom#1]{#2}}
+\newcommand{\includecode}[2][c]{\lstinputlisting[escapechar=, style=custom#1]{#2}}
 
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,
