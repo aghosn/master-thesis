@@ -22,12 +22,12 @@ PROF VITEK remark: Begin with motivating example, compilers for dynamic language
 %Replace some portion of code while it is executing 
 %Used to optimize code that is running 
 %Used to undo an invalid optimization of the code that is running
-On-Stack replacement (OSR) is a set of techniques that allow to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the interrupted function at the point and state at which it was interrupted.
+On-Stack replacement (OSR) is a concept that allows to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the interrupted function at the point and state at which it was interrupted.
 The action of transferring the execution using the OSR mechanism is called an \textit{OSR transition}.\\
 
 On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing function into another version of itself.
 This transformation mechanism has been used to allow transitions between different levels of code optimizations.
-We can therefore reduce it to two main purposes: (1)transforming an executing function into a more optimized version of itself, and (2)undoing transformations that were previously performed.
+We can therefore reduce it to two main purposes: (1) transforming an executing function into a more optimized version of itself, and (2) undoing transformations that were previously performed.
 While similar, these two types of transformation have very different goals.\\
 
 In several virtual machines (\cite{paleczny2001java, lameed2013modular} MORE), some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.

@@ -126,6 +126,25 @@ If the callee pointer references another function, it performs an ic stub call.
 Once the ic callee function is compiled, the ic stub replaces itself in the caller with a call to the ic callee.
 In order to do so, the ic stub relies on LLVM intrinsics called Stackmaps\cite{llvmStackMap} and Patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
 
+The compilation flow can be reduced to the following steps:
+\begin{enumerate}
+    \item The function's AST is extracted from the SEXP.
+    \item The JIT compiler produces walks the AST and produces the corresponding LLVM IR.
+        \begin{itemize}
+        \item Calls to non-intrinsic functions are compiled as ic stubs.
+        \item A special instrumentation is set at every call instruction as an LLVM attribute\cite{llvmAttribute}.
+        \end{itemize}
+    \item When the \textit{jitAll} function is called on the compiler instance, every call instruction in every function in the module is visited.\label{jitAll}
+        \begin{itemize}
+        \item Safepoints are inserted at every call and used by the garbage collector during the execution.
+        \item Patchpoints\cite{llvmPatchpoints} are inserted at ic stubs.
+        \end{itemize}
+    \item The native code corresponding to each function is generated and inserted into the corresponding SEXPs.
+\end{enumerate}
+
+The output of the compiler at step \ref{jitAll} is a blotted piece of LLVM IR from which R semantics are hard to extract. 
+Figure REF provides the LLVM IR for a very simple R function before and after the instrumentation.\\
+
 \subsubsection{The function's SEXP}
 In GNUR and RJIT, a function is represented by a special SEXP. 
 This SEXP has a NATIVESXP type when the function is compiled by the RJIT compiler, and a LANGSXP, i.e., a language construct, when it is not.
@@ -150,8 +169,8 @@ In general, the environment is used to access variable values as well as functio
 \subsubsection{The closure's SEXP}
 In R, a closure contains a function and the environment associated to it.
 A closure SEXP has type CLOSXP.
-The CAR of a SEXP closure is a function SEXP.
-The CDR of a SEXP closure is an environment SEXP, of type ENVSXP.
+The BODY of a SEXP closure is a function SEXP.
+The TAG of a SEXP closure is an environment SEXP, of type ENVSXP.
 A closure also contains the formals, i.e., the arguments symbols of the function.
 The getFunction intrinsic, that enables to resolve a function, returns a closure.
 The environment is made of cons cells, and is essential to the execution of a function.
@@ -167,41 +186,24 @@ Then, it presents the OSR Handler implementation, and the solutions adopted for 
  
 \subsection{Additional challenges in RJIT}\label{additionalchallenges}
 
-%Compilation flow
-RJIT, and more specifically its compilation flow and the instrumentation to enable run time garbage collection and call resolution, uncovers additional challenges in the use of OSR Kit\cite{OSRKit} for the deoptimization case.\\
+The RJIT LLVM IR uncovers additional challenges in the use of OSR Kit\cite{OSRKit} for the deoptimization case.
+RJIT LLVM IR specificities, such as the instrumentation for the garbage collector and the ic stub calls, require specially care when used along side the OSR library.\\
 
-RJIT provides a just-in-time compiler, i.e., functions are compiled just before being evaluated.
-The compilation flow can be broken down to these elementary steps: 
-\begin{enumerate}
-    \item The function is extracted from the R SEXP closure.
-    \item If the function is not of type NATIVESXP, in other words, if the function has not been jitted before, the RJIT compiler is summoned.
-    \item The function is compiled into an LLVM IR.
-    \item Calls to non-intrinsic functions are compiled as inline cached stubs (ic stubs), that is, special call instructions which, at run time, resolve the callee, compile it, replace themselves with a call to an inlined cached version of the target, and make the call.
-    \item Every patchpoint and safepoint, set as LLVM attributes\cite{llvmAttribute} to call instructions, is visited in order to add special instrumentation for the garbage collector and the correct execution of ic stubs.\label{jitAll}
-\end{enumerate}
-
-The final step is performed by calling the \textit{jitAll} function on the compiler instance.
-All functions generated with this instance of the compiler will be instrumented during this call.
-The final result of the compilation is a blotted piece of LLVM IR from which the R semantics are hard to extract.\\
-
-In order to perform transformations based on R semantics, a fresh non-instrumented (i.e., without the safepoint and patchpoint machinery) version of the LLVM IR is needed.
-A fresh non-instrumented IR can be obtained from the compiler, by (re)compiling the function, without calling step \ref{jitAll} above.
-If the function was not previously compiled, this solution is the only available option.
-If the function was previously compiled, but not instrumented, the LLVM IR can be extracted and used for the transformation.
-If it was instrumented, the IR is unusable, and we therefore need to re-compile it.
-Recompiling functions is not a satisfactory solution. 
-We therefore have to find a way to avoid this case as much as possible.\\
+In order to perform transformations based on R semantics, a fresh non-instrumented (i.e., without the Safepoint and Patchpoint machinery) version of the LLVM IR is needed.
+The non-instrumented IR corresponds to the compiler's output, before calling the \textit{jitAll} function.
+For functions that were never compiled, invoking the compiler and extracting the non-instrumented IR seems like a reasonable solution.
+However, for functions that were fully compiled previously, i.e., functions that have an instrumented LLVM IR, re-invoking the compiler in order to obtain a non-instrumented IR is not a satisfactory solution.
+We therefore have to find a way to avoid re-compiling functions unnecessarily.\\
 
 Simply cloning the LLVM IR is not enough in RJIT.
-As explained above, special instrumentation is inserted as attributes to call instructions and used for the instrumentation in step \ref{jitAll}.
-In order to fully compile and execute a clone, the LLVM attributes need to be set at each of its call instructions to allow the safepoint instrumentation.
+In order to fully compile and execute a clone, its LLVM attributes need to be set at each of its call instructions to allow the Safepoint instrumentation.
 This is mandatory and, if not done properly, leads to failures during the execution.
-Another problem with clones arises from the targets of function calls. 
-The callee function has to be an LLVM function declared in the current module. 
-If the clone comes from a different module than the one in which its compilation is being performed, the callee might not be present in the current module and triggers compilation errors. 
+Another problem with clones arises from the targets of function calls.
+In LLVM, a callee has to be an LLVM function declared in the same module.
+Therefore, compiling a clone of a function compiled in a different module requires to ensure that every callee is defined in the current compilation module.
 One last thing to take care of are the ic stubs calls.
 An ic stub takes as argument a pointer to its caller.
-When a function containing ic stubs is cloned, those pointers point to the original function.
+When a function containing ic stubs is cloned, the caller pointer arguments point to the original function.
 This needs to be fixed if the clone is to be fully compiled and executed.
 Section \ref{osrkitlimitations} states that one drawback in the OSR Kit implementation comes from the number of clones that have to be generated to insert a resolved OSR point.
 In RJIT, the cost of fixing the LLVM IR, as explained in this paragraph, has to be added to the cost of cloning.\\
