@@ -358,8 +358,7 @@ Since it pertains to a different goal, we decided to implement our own solution.
 The instructions that enable to replace the function's version in the closure are left to the user. 
 This provides some flexibility on how to decide whether or not to replace the current function.\\
 
-In our example, we mentioned replacing the invalidated optimized version by the \textit{toInstrument} function.
-This choice has several advantages.
+Replacing the invalidated optimized version by the \textit{toInstrument} function presents several advantages.
 First, since the \textit{toInstrument} was used to generate the continuation function, we know that it is correct and does not contain the invalidated transformations.
 Second, when the continuation function's ic stubs are executed, the RJIT framework generates inlined cached version of the target function, and is supposed to replace the ic stubs by a call to this inlined cached functions.
 For that purpose, it uses the ic stub argument that points to its caller.
