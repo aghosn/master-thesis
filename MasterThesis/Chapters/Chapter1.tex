@@ -21,7 +21,7 @@ In order to improve interpreted languages performance, just-in-time (JIT) compil
 Since in interpreted languages, little is known about the program ahead of time, a JIT compiler relies on runtime profiling data to perform adaptative optimizations and generate efficient compiled code at runtime.
 The set of optimizations enabled in a JIT compiler are often more restricted than in a static compiler, where the entire program is available during the compilation.
 For example, in a static compiler, function $g$ in FIGURE REF can be type-checked, $H$ and $f$ are known and their calls can be inlined and optimized.
-In a dynamic language, $H$ and $f$ might not be yet defined or can be modified, their types are unknown, and no optimization can performed.
+In a dynamic language, $H$ and $f$ might not be yet defined or can be modified, their types are unknown, and no optimization can be performed.
 As a result, new techniques are needed to lift restrictions in JIT compilers, and enable more agressive, speculative optimizations.\\
 
 %\begin{wrapfigure}[11]{l}{6.5cm}
@@ -50,7 +50,27 @@ The focus of this thesis is to provide an OSR implementation in RJIT, a JIT comp
 The next section gives an overview of our solution and its implementation.\\
 
 \section{Proposed Solution}
-Description of what I've done.
+%First is overview of OSR implementations
+%Second OSR deoptimization for RJIT compiler
+%Third a speculative inliner to test the design
+The first contribution of this thesis is an overview and synthesis of existing on-stack replacement implementations.
+This thesis describes in details the main approaches taken to implement OSR, and their advantages and drawbacks.\\
+
+The second and main contribution of this thesis is the implementation of OSR RJIT, an efficient OSR mechanism in the RJIT compiler for R, that enables agressive speculative optimizations while preserving the correctness of the program.
+The implementation focuses on the on-stack replacement deoptimization mechanism in RJIT, and strives to provide code instrumentation with as little overhead as possible.\\
+
+The third and final contribution of this thesis is the implementation of an OSR-based speculative inliner in RJIT.
+The OSR inliner is used to evaluate our OSR implementation and provides an example of an interesting use of the OSR concept in an R compiler.\\
 
 \section{Paper Overview}
 Explain each chapter.
+The rest of this thesis is organized as follows: Chapter \ref{Chapter2} provides an overview of the on-stack replacement concept, defines OSR related vocabulary, and gives a high-level description of OSR mechanisms.
+Chapter \ref{Chapter3} presents related work, i.e., implementations of OSR mechanisms in different virtual machines. It also provides a classification summary that regroups the differences between each implementation.
+Chapter \ref{Chapter4New} OSR RJIT, the implementation of efficient OSR deoptimization in the RJIT compiler for R.
+Chapter \ref{Chapter5} presents experimental results obtain with a speculative inliner, based on OSR RJIT mechanisms.
+Finally, Chapter \ref{Chapter6} concludes and presents ideas for future work.\\ 
+
+
+
+
+
