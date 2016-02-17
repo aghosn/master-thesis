@@ -1,14 +1,4 @@
 /**
- * @brief      Creates a copy of a function SEXP with a new LLVM function.
- *
- * @param[in]  func  SEXP that we want to copy.
- * @param      llvm  Function* to put inside the copied SEXP.
- *
- * @return     The new copy of the SEXP, containing the LLVM Function.
- */
-static SEXP cloneSEXP(SEXP func, Function *llvm);
-
-/**
  * @brief      Adds a function SEXP to the current compilation module.
  *
  * @param[in]  f     The SEXP of type NATIVESXP to add to the module.

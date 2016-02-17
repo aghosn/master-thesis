@@ -239,15 +239,18 @@ The non-instrumented LLVM IR no longer exists.
 The naive solution is to recompile the function from scratch, which seems very expensive.\\
 
 The OSR Handler enables to record non-instrumented IRs that it encounters.
+Non-instrumented IRs are registered in the \textit{base version} map, a map from a SEXP closure to a NATIVESXP function SEXP.
 This singleton provides a special function, called \textit{getFreshIR}, that takes as parameter a SEXP closure and a compiler instance, and returns a function SEXP (see signature Figure REF).
 The OSR Handler extracts the function from the closure, and checks its type.
-Depending on the type of the function, it selects the less costly solution to get the non-instrumented IR.\\
+Depending on the type of the function and the content of the base version map, it selects the less costly solution to get the non-instrumented IR.\\
 
-If the function is not a NATIVESXP, i.e., if it is not compiled, the OSR Handler invokes the compiler on the function, and creates two clones of the resulting LLVM IR.
-One clone is stored in the \textit{base versions} map, a map from a SEXP closure to a NATIVESXP function SEXP.
-The stored clone does not belong to the current module and will not be instrumented if the \textit{jitAll} function is called.
-One should note that, in order to save time during execution, the OSRHandler does not fix the IR for the version stored in the map.
-The other clone is wrapped into a copy of the original function SEXP and returned to the user.\\
+\includecode{Code/getFreshIR.h}
+
+The OSR Handler \textit{getFreshIR} function compiles and registers non-NATIVESXP functions (case \ref{toCompile}).
+The OSR Handler invokes the compiler on the function, and creates two clones of the resulting non-instrumented IR.
+Both clones are not part of the current compilation module, i.e., their IRs are not instrumented when the jitAll function is called.
+One clone is wrapped inside a copy of the function SEXP and stored in the base version map.
+The other clone is also wrapped inside a copy of the function SEXP and returned to the getFreshIR caller.\\
 
 Calling \textit{getFreshIR} on a function that was not previously compiled can be viewed as an ahead of time (AOT) compilation strategy.
 RJIT is a JIT compiler, i.e., functions are compiled just before being executed.
@@ -255,22 +258,16 @@ Using the \textit{getFreshIR} can force the function's compilation to happen at 
 As a small optimization, the OSR Handler sets the result of the compilation inside the corresponding closure.
 By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
-\includecode{Code/getFreshIR.h}
-PROBLEM REFORMULATE\\
-
-If the function is a NATIVESXP, the OSR Handler looks for the closure inside the base version map. 
-If the map contains an entry for the closure, it simply clones the IR, encloses it in a copy of the function SEXP and returns it.
-If the function is not in the base version map, the OSR Handler extracts the function's module.
-This can be easily done by accessing the function's LLVM parent.
-If the module is the same as the compiler's module, according to RJIT's behavior, we can assume that the IR is not instrumented.
-RJIT creates one module per compiler instance, and calls the \textit{jitAll} function just before destroying the execution engine and the compiler instance, and returning to the R interpreter.
-The OSR Handler therefore adds an entry for the closure to the base versions map, by simply cloning the function's IR. 
-It then creates a second clone of the non-instrumented IR, creates a new SEXP containing the clone, and returns it.\\
-
-If the compiled function's module is not the same as the compiler's one, the OSR Handler concludes that the LLVM IR of the function is instrumented.
-As a result, it checks if a non-instrumented IR was registered in the \textit{base versions} map.
-If such an entry exists, the OSR Handler constructs a copy of the function SEXP that contains a clone of the non-instrumented function and returns it.
-Otherwise, the OSR Handler has no choice but to recompile the function, add an entry of the resulting non instrumented IR in the base version map, and construct a function SEXP to return to the user, as explained before.\\
+The \textit{getFreshIR} strives to avoid recompiling NATIVESXP.
+When the closure passed as argument to the \textit{getFreshIR} call has an entry in the base version map, a clone of the stored function SEXP is returned.
+Cloning the function SEXP requires to clone the LLVM IR, and insert it in a new function SEXP with the same constant pool.
+When the closure passed as argument does not have an entry in the base version map, the OSR Handler must determine if the IR is instrumented or not.
+RJIT creates one module per compiler instance, and performs the \textit{jitAll} call just before returning to the interpreter.
+As a result, if an LLVM IR's module is the same as the current compiler's module, the LLVM IR is not instrumented.
+In this case, the getFreshIR creates an entry for this closure in the base versions and returns the proper clone to the user, as explained before.
+For an LLVM IR with a different module, that does not have an entry in the base version map, the OSR Handler has no order choice than to recompile the function.
+In this case, it also creates a proper entry in the base version map and returns a copy to the user.
+This situation can be avoided by making sure that for every function compiled, a proper entry is registered in the OSR Handler's base version map.\\
 
 \includecode{Code/baseVersion.h}
 
@@ -284,6 +281,10 @@ The inliner could further decide to inline all the calls inside $B$'s body.
 In that case, if the inliner relies on the OSR Handler to get $B$'s IR, it will have to run on each separate clone to inline the call sites they contain, therefore performing the same transformations multiple times.
 On the other hand, if the inliner's transformations depend on the location of the call to $B$, it is guaranteed to obtain fresh and independent IRs through the OSR Handler.\\
 
+\begin{minipage}{\linewidth}
+\includecode{Code/utilities.h}
+\end{minipage}
+
 A cloned function that needs to be fully compiled has to be fixed.
 As explained in Section \ref{additionalchallenges}, the IR of a cloned function has incorrect attributes instrumentation, incorrect arguments to its ic stub calls, and might have missing targets in its call instructions, i.e., the callee has not been declared in the module.
 A cloned function also needs to be added to the compilation module in order to be fully compiled.
@@ -292,14 +293,10 @@ The \textit{resetSafepoints} function takes care of adding the proper safepoints
 It further verifies that every callee in call instructions has been declared in the module. 
 If that is not the case, it adds the proper function definition to the module.
 The OSR Handler provides another function, \textit{addSexpToModule}, that enables to add a function to the current compilation module.
-Moreover, a function needs to be wrapped inside a function SEXP before being returned to the GNUR interpreter.
-The OSR Handler provides a \textit{cloneSexp} function that enables to create the proper SEXP for a function. 
-Finally, in order to link the native code generated for an LLVM IR, the compilation engine needs to record a mapping between an LLVM IR and a SEXP. 
-The \textit{addRelocation} function enables to do that for a clone SEXP and the cloned function it contains.
-These utilities functions are divided so that each of them provides a single, fully contained, functionality. 
-It enables the user to have a fine-grained control over the LLVM IR clones, and only perform the modifications that he desires.\\
-
-\includecode{Code/utilities.h}
+Finally, the compilation engine requires to register an explicit mapping between an LLVM IR and a SEXP to properly link the generated native code in the function SEXP.
+The \textit{addRelocation} function enables to register a mapping for a clone SEXP and the cloned function it contains.
+These utilities functions are divided so that each of them provides a single, fully contained functionality. 
+It enables the user to have a fine-grained control over the LLVM IR clones, and only perform the desired operations.\\
 
 \subsection{Simplifying the OSR exit insertion}
 
@@ -312,26 +309,27 @@ In other words, considering the \textit{insertResolvedOSR}, the \textit{lPad} ar
 The OSR Kit library provides some flexibility in the choice of these two instructions. 
 This flexibility is not required in RJIT, and is removed to ensure the correctness of the implementation.\\
 
-The OSR Handler provides a clone function that clones an LLVM function, adds it to the same module as the original function, fixes the ic stubs attributes, and automatically registers a StateMap between the original and cloned function in its \textit{statemaps}, a map from a pair of LLVM function pointers to a StateMap (see Figure REF).\\
+The OSR Handler provides a special cloning function, called \textit{getToInstrument}, that clones an LLVM function, adds it to the same module as the original function, fixes its IR, and automatically registers a StateMap between the original and the cloned function in its \textit{statemaps}, a map from a pair of LLVM function pointers to a StateMap (see Figure REF).\\
 \includecode{Code/statemaps.h}
 
 The cloned function can be called to generate what is called, in RJIT, the \textit{toInstrument} function.
-The \textit{toInstrument} function is the argument passed as the continuation function to the \textit{insertResolvedOSR} function.
+The \textit{toInstrument} function is the argument passed as the continuation function to the \textit{insertResolvedOSR} call.
 As explained in Section \ref{osrkitlimitations}, the OSR Kit library will clone the \textit{toInstrument} function to generate the continuation.
 It relies on a StateMap that is passed as argument to the function call. 
 Thanks to the OSR Handler statemaps, this argument can be omitted and automatically retrieved.\\
 
-One might notice that the \textit{toInstrument} function was added to the module, and will therefore be fully compiled when the \textit{jitAll} function will be called.
+The \textit{toInstrument} function is added to the module, and will therefore be fully compiled upon the \textit{jitAll} call.
 As explained in Section \ref{additionalchallenges}, the continuation function's ic stub calls cannot use the continuation function's pointer as argument for the caller. 
-The \textit{toInstrument} function's address is therefore used instead.
-The \textit{toInstrument} function has another important role that is detailed in the next section.\\
+The \textit{toInstrument} function's address is used instead, which in turns requires the toInstrument function to be part of the module and go through the entire compilation.
+The \textit{toInstrument} function has another important role detailed in Section \ref{improvingexits}.\\
 
-The OSR Handler provides a function, called \textit{insertOSRExit}, that provides the simplified interface described in this section.
-It further provides a default OSR configuration.
+The OSR Handler provides a function, called \textit{insertOSRExit}, that exhibits the simplified interface described in this section to insert OSR exits.
 The function's prototype is provided in Figure REF.
-The last argument is described in Section \ref{improvingexits}.\\
+Section \ref{improvingexits} describes in details the role of the last argument.\\
 
+\begin{minipage}{\linewidth}
 \includecode{Code/insertOSRExit.h}
+\end{minipage}
 
 \subsection{Improving the exits}\label{improvingexits}
 %OSR kit not well suited for osr exits. 
@@ -342,15 +340,16 @@ The continuation function mechanism does not fit the OSR exits well.
 As explained in Section \ref{osrkitlimitations}, once an OSR exit is fired, it is likely to be fired in subsequent calls.
 Triggering an OSR exit has a cost that might not be negligible.
 The OSR Kit\cite{OSRKit} library does not provide any mechanism to improve that special case.
-Furthermore, Section \ref{additionalchallenges} describes another problem with continuation functions.
-If a continuation function contains an ic stub, the caller pointer argument has to be the \textit{toInstrument} address, since the continuation function does not have the correct signature.\\
+Furthermore, Section \ref{additionalchallenges} explains that continuation functions do not have valid signatures for ic stubs.\\
 
 The OSR Handler, via the \textit{insertOSRExit} method, enables to add a special compensation code at the beginning of the OSR ENTRY block in the continuation function, to answer these limitations.
 The compensation code can be any valid vector of LLVM instructions.
 This can be used to avoid triggering the OSR exit repeatedly once it has been fired a first time.
-For example, the compensation vector can contain a special call to a C++ function, that takes as argument a unique id that identifies the continuation function. 
-The C++ function then retrieves the toInstrument function, which is a valid, fully compiled version of the original function, and replaces the incorrect optimized function by the toInstrument version in the correct closure.
-As a result, all subsequent calls to the same function will execute a version that was not optimized with the assumption that failed and triggered the OSR exit.
+For example, the compensation vector can contain a special call to a C++ function, that takes as argument a unique identifier for the continuation function. 
+The C++ function then uses this identifier to retrieve the corresponding toInstrument function.
+The toInstrument function is a valid, fully compiled version of the original function, that does not contain the invalidated optimization.
+The C++ function then replaces the incorrect optimized function by the toInstrument function in the closure.
+As a result, all subsequent call to the closure will execute a correct version of the function.
 This enables to avoid the cost of triggering an exit upon every call to the function.\\
 
 The compensation code in the OSR Handler does not rely on the OSR Kit compensation code mechanism.

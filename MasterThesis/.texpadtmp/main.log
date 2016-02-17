@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  16 FEB 2016 20:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  16 FEB 2016 21:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2316,162 +2316,168 @@ Underfull \hbox (badness 10000) in paragraph at lines 233--240
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--245
+Underfull \hbox (badness 10000) in paragraph at lines 241--246
+
+ []
+
+(./Code/getFreshIR.h [43])
+Overfull \hbox (0.29532pt too wide) in paragraph at lines 249--254
+[]\T1/ppl/m/n/10.95 The OSR Han-dler \T1/ppl/m/it/10.95 get-FreshIR \T1/ppl/m/n
+/10.95 func-tion com-piles and reg-is-ters non-NATIVESXP func-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--251
-
- []
-
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
-
- []
-
-(./Code/getFreshIR.h)
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 255--260
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--269
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--274
+Underfull \hbox (badness 10000) in paragraph at lines 261--271
 
  []
 
 (./Code/baseVersion.h)
-Underfull \hbox (badness 10000) in paragraph at lines 277--286
+Underfull \hbox (badness 10000) in paragraph at lines 274--283
 
  []
 
-[44]
-Underfull \hbox (badness 10000) in paragraph at lines 287--301
-
- []
-
-(./Code/utilities.h [45])
-Underfull \hbox (badness 10000) in paragraph at lines 306--308
-
+[44] (./Code/utilities.h)
+Overfull \hbox (17.0pt too wide) in paragraph at lines 284--287
+[]$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--314
+Underfull \hbox (badness 10000) in paragraph at lines 288--300
+
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 306--311
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
 
  []
 
 (./Code/statemaps.h)
-Underfull \hbox (badness 10000) in paragraph at lines 318--323
+Underfull \hbox (badness 10000) in paragraph at lines 315--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--328
+Underfull \hbox (badness 10000) in paragraph at lines 321--325
 
  []
 
-[46]
-Underfull \hbox (badness 10000) in paragraph at lines 329--333
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--329
 
  []
 
 (./Code/insertOSRExit.h)
-Underfull \hbox (badness 10000) in paragraph at lines 341--347
+Overfull \hbox (17.0pt too wide) in paragraph at lines 330--333
+[]$[]$ 
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 339--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--355
+Underfull \hbox (badness 10000) in paragraph at lines 345--354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--370
 
  []
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 356--361
+Underfull \hbox (badness 10000) in paragraph at lines 372--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--371
+Underfull \hbox (badness 10000) in paragraph at lines 376--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--376
+Underfull \hbox (badness 10000) in paragraph at lines 380--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--380
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--390
+Underfull \hbox (badness 10000) in paragraph at lines 392--395
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 393--396
+Underfull \hbox (badness 10000) in paragraph at lines 400--405
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--406
+Underfull \hbox (badness 10000) in paragraph at lines 407--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--418
+Underfull \hbox (badness 10000) in paragraph at lines 418--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--422
+Underfull \hbox (badness 10000) in paragraph at lines 422--426
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--431
 
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 423--427
+Underfull \hbox (badness 10000) in paragraph at lines 434--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--432
+Underfull \hbox (badness 10000) in paragraph at lines 441--447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--441
+Underfull \hbox (badness 10000) in paragraph at lines 450--456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--448
+Underfull \hbox (badness 10000) in paragraph at lines 457--464
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 451--457
-
- []
-
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 458--465
-
- []
-
-) (./Chapters/Chapter5.tex
-Underfull \hbox (badness 10000) in paragraph at lines 466--2
+[50]) (./Chapters/Chapter5.tex
+Underfull \hbox (badness 10000) in paragraph at lines 465--2
 
  []
 
@@ -2798,13 +2804,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29542 strings out of 493706
- 523677 string characters out of 6145768
+ 29540 strings out of 493706
+ 523649 string characters out of 6145768
  854005 words of memory out of 5000000
- 32503 multiletter control sequences out of 15000+600000
+ 32501 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,56p,10377b,3090s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,12n,56p,10377b,3110s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (83 pages).
