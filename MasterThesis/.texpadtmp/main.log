@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  18 FEB 2016 12:08
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  18 FEB 2016 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2919,76 +2919,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--53
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 54--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--66
+Underfull \hbox (badness 10000) in paragraph at lines 69--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--77
+Underfull \hbox (badness 10000) in paragraph at lines 73--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--82
+Underfull \hbox (badness 10000) in paragraph at lines 85--89
+
+ []
+
+[56] (./Code/functionCall.c)
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--88
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
-
- []
-
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 91--94
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
+Underfull \hbox (badness 10000) in paragraph at lines 119--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--115
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--137
+Underfull \hbox (badness 10000) in paragraph at lines 123--131
 
  []
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
 
  []
 
-) (./Chapters/Chapter6.tex [58]
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+[58]) (./Chapters/Chapter6.tex [59] [60
+
+]
 Chapter 6.
 --------------------
  6. Conclusion
@@ -3063,16 +3060,14 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [59
-
-] [60
+) (./Appendices/AppendixA.tex [61] [62
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [61] [62
+) [63] [64
 
 ]
 Overfull \hbox (0.93102pt too wide) in paragraph at lines 281--281
@@ -3092,7 +3087,7 @@ Overfull \hbox (8.05923pt too wide) in paragraph at lines 281--281
 tal -[] patchpoint -[]
  []
 
-[63]
+[65]
 Overfull \hbox (5.35594pt too wide) in paragraph at lines 281--281
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
@@ -3118,9 +3113,9 @@ Overfull \hbox (24.38016pt too wide) in paragraph at lines 281--281
 /10.95 (vis-ited on 02/01/2016). 
  []
 
-[64]
+[66]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 285.
- [65]
+ [67]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 285.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -3134,13 +3129,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29900 strings out of 493706
- 529347 string characters out of 6145768
- 859877 words of memory out of 5000000
- 32823 multiletter control sequences out of 15000+600000
+ 29908 strings out of 493706
+ 529516 string characters out of 6145768
+ 860012 words of memory out of 5000000
+ 32828 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (85 pages).
+xpadtmp/main.pdf (87 pages).

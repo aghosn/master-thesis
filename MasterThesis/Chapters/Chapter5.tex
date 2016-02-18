@@ -16,7 +16,7 @@
 %----------------------------------------------------------------------------------------
 This Chapter presents an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR exits to preserve the program's correctness.
 We first describe the inliner's implementation.
-We then rely on this implementation to test the performances of the main features provided by the OSR implementation in RJIT.\\
+We then rely on this implementation to test the performances of the main features provided by OSR RJIT.\\
 
 \section{A speculative inliner for RJIT}
 \subsection{Justification}
@@ -28,10 +28,10 @@ R is a dynamic language.
 Dynamic programming languages have the particularity to perform, at runtime, common programming behaviors executed during the compilation in static programming languages.
 Extending the program, adding code, extending objects and definitions, type setting or modifying the type system are such behaviors that, in dynamic programming languages, can take place at runtime.
 These particularities make certain common static compilation optimizations hard to implement in a dynamic programming language.
-One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the body of the called function.\\
+One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the body of the function called.\\
 
 Chapter \ref{Chapter2} presents the on-stack replacement(OSR) mechanism.
-The OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performances at runtime.
+The OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performance at runtime.
 If the assumption fails, the OSR mechanisms preserve correctness in the program.
 Thanks to this versatile tool, static programming languages optimizations can be performed speculatively in a compiler for a dynamic programming language.\\
 
@@ -40,7 +40,7 @@ An R function is wrapped in a closure, and might be redefined at any time during
 As a result, the only viable way of allowing function inlining in RJIT is to rely on OSR mechanisms.\\
 
 Inlining is an interesting optimization, and its impact on the code performance is hard to predict. 
-It holds an important trade-off between time and space, i.e., how much improvement in terms of speed can be obtain, at the cost of some extra space.
+It holds an important trade-off between time and space, i.e., how much improvement in terms of speed can be obtained, at the cost of some extra space.
 Furthermore, excessive inlining might increase register pressure and deplete the instruction cache, therefore decreasing the speed of the program's execution.
 Finally, inlining can be viewed as a first step toward other optimizations.
 Copying a function's body at its call site enables to enlarge the scope considered by the compiler, and might therefore uncover new opportunities for optimizations.\\
@@ -51,8 +51,14 @@ Second, in order to inline a function call, a copy of the callee's body needs to
 This body, in RJIT OSR, can be obtained through the OSR Handler API.
 Function inlining might further force AOT compilation of the inlined functions, hence enabling us to test every aspect of the functionalities provided by the OSR Handler.\\
 
-USED IN OTHER PAPERS\\
-
+RJIT does not gather profiling information that enable to identify good targets for inlining.
+This is, however, far from being a limitation.
+On the contrary, it is a perfect case study for OSR mechanisms in R.
+Although inlining function calls in R produces unsound compiled code, the OSR mechanism enables to ensure that the program is correct.
+As explained in Section \ref{justificationgoals}, R performance bottlenecks are consequences of the language semantics.
+In the future, the OSR mechanism is destined to enable to break R semantics, and to produce unsound, highly optimized code.
+Profiling will give insights on whether or not the program might benefit from such optimizations, but is not expected to be able to ensure that any of these transformations is sound.
+Not relying on a profiler and blindly inlining function calls, whenever it is possible, shows how much flexibility this OSR implementation truly brings to RJIT.\\ 
 
 \subsection{Challenges}
 %Function Calls -> how to identify them
@@ -73,22 +79,32 @@ If no match is found, it accesses the enclosing environments until either reachi
 The compiler then emits instructions to load arguments to the function call.
 Finally, an ic stub is generated. 
 The ic stub takes as arguments the result of the call to the \textit{getFunction} intrinsic, the arguments provided to the call, a pointer to the caller, the current constant pool, and the environment.
-When executed once, the ic stub replaces itself with a call to a inlined cached wrapper function dedicated to the callee.\\
+When executed once, the ic stub replaces itself with a call to an inlined cached wrapper function dedicated to the callee.
+Figure \ref{fig:functioncall} provides a simple R function that performs a function call, and the equivalent LLVM IR generated by RJIT.\\
 
 In the OSR inliner, function calls can be identified by looking for ic stubs.
 The OSR inliner has to run on non-instrumented LLVM IR. 
 The ic stubs have not yet been replaced by inlined cached wrappers.
 Therefore, even though a function call is compiled into several instructions, ic stubs and their arguments are enough to obtain all the information corresponding to a function call.\\
 
-EXAMPLE FUNCTION CALL\\
+\begin{figure}[h]
+\includecode{Code/functionCall.c}
+\caption{Example of RJIT LLVM IR for a function call.}
+\label{fig:functioncall}
+\end{figure}
 
-In order to inline a function call, the OSR inliner needs to obtain a clone of the callee's LLVM IR.
+
+The OSR inliner needs to obtain a clone of the callee's LLVM IR, in order to inline a function call.
 If the callee was never compiled before, the \textit{getFreshIR} function will trigger an AOT compilation of the function.
 Since the OSR inliner heavily relies on fresh IR, one challenge is to try to minimize the amount of cloning required in order to perform the transformations.\\
 
-TODO CREATE NEW RHO\\
+Inlining in R requires to create a dedicated environment for the inlined function.
+Implementing a sound name mangler in R is hard. 
+It requires to check that fresh names do not collide with parent or child environments.
+Furthermore, replacing arguments with their actual values is not semantically correct, due to the way promises are evaluated.
+For these reasons, creating a dedicated environment appears to be the only sound solution.\\
 
-The OSR Kit mechanism requires to generate a \textit{toInstrument} clone per function call inlined.
+The OSR Kit mechanism requires to associate a \textit{toInstrument} clone to every function call inlined.
 The continuation function has to be a clone of the base function used to generate the optimized one.
 One challenge is to carefully implement the inlining in order to limit the number of \textit{toInstrument} functions generated.\\
 
@@ -102,25 +118,26 @@ As a result, in order to save compilation time, it is important to perform such 
 %The algorithm to inline.
 This section describes the implementation of the OSR inliner.
 The OSR inliner relies on a special C++ class, called \textit{FunctionCall}, to extract function calls in the LLVM IR and easily access its elements. 
-The OSR inliner also provides different mods, that enables more or less aggressive speculative inlining.\\
+The OSR inliner also provides different modes, that enables more or less aggressive speculative inlining.\\
 
 The FunctionCall class provides a static function, called \textit{getFunctionCalls}, that takes an LLVM IR as input, and extracts the function calls it contains.
 For each ic stub call, the function creates an instance of the FunctionCall class. 
 A FunctionCall object gives quick access to each element of the function call, i.e., the result of the \textit{getFunction} call, the arguments to the call, and the additional elements of the ic stub call.
-The \textit{getFunctionCalls} returns a list a list of FunctionCall instances.
+The \textit{getFunctionCalls} returns a list of FunctionCall instances.
 It is important to note that, for efficiency and better integration, the \textit{getFunctionCalls}, or any similar function that needs to go through the LLVM IR instructions and match a specific pattern, will be able to rely on the pass \& match mechanism being developed in RJIT.
 RJIT provides a special matcher mechanism, combined to the LLVM passes implementation, that enables to extract special patterns from the LLVM IR.
-One of its main benefits is to reduce the number of iterations on the entire LLVM IR.
+One of its main goals is to reduce the number of iterations on the entire LLVM IR, by merging different passes.
 Unfortunately, this feature was not yet ready at the time at which the RJIT OSR project was implemented.\\
 
 The OSR inliner algortihm is a very basic, aggressive, speculative inliner. 
 RJIT does not have a profiler or a static analyzer yet.
 As a result, the OSR inliner cannot rely on any extra information to decide if a call should be inlined or not.
-The OSR inliner, however, proposes different mods of execution, that enable more or less aggressive inlining techniques.
-The default mod of execution inlines all the calls inside the current function, as long as a body can be obtained for the callee.
+The OSR inliner proposes different modes of execution, that enable more or less aggressive inlining techniques.
+The default mode of execution inlines all the calls inside the current function, as long as a body can be obtained for the callee.
 The OSR inliner does not inline recursive calls.
-A more agressive mod, called \textit{all inline}, enables to recursively apply the OSR inliner on the body of the functions being inlined.
+A more agressive mode, called \textit{all inline}, enables to recursively apply the OSR inliner on the body of the functions being inlined.
 \\
+
 
 The OSR inliner implements a very naive inlining algorithm.
 The copy of the function in which we inline the calls is called the \textit{working copy}.
@@ -128,7 +145,7 @@ Function calls are extracted by calling the \textit{getFunctionCalls}.
 TODO FUNCTION CALLS SAME TARGET, GROUPED TOGETHER?.
 For each function call, the symbol accessed by the \textit{getFunction} call is extracted from the constant pool associated with the function.
 A GNUR function, that takes as parameters a symbol and an environment, enables to access the corresponding closure.
-If a closure is found, the default mod calls \textit{getFreshIR} on the closure to obtain the a clone of the code to inline.
+If a closure is found, the default mod calls \textit{getFreshIR} on the closure to obtain the a clone of the code to inline.s
 If the OSR inliner runs in the \textit{all inline} mod, it needs to obtain a fully inlined version of the function.
 To do this, it runs the OSR inliner on the resolved closure.
 In order to save compilation time, it caches the result of the inlining into a local map.
