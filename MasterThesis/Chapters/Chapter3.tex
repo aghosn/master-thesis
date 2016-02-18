@@ -567,31 +567,33 @@ Chapter\ref{Chapter4} expands on the question.\\
 \section{A classification summary}
 %TODO some kind of sum up and comparison, related to what we had in chapter 2.
 This section presents a summary of the various OSR implementations presented in this Chapter.
-The summary focuses the state propagation technique, the types of OSR points supported, the implementation of the transition mechanism, the multi-version support, and the deoptimization specifications.\\
+The summary is presented in Table \ref{tab:Summary} and focuses on the state propagation technique, the types of OSR points supported, the implementation of the transition mechanism, and the target of OSR exits.\\
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+\clearpage
 
-\begin{table}[]
+\begin{landscape}
+\begin{table}[h!]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|
+                 p{\dimexpr 0.12\linewidth-2\tabcolsep}|}
 \hline
-                                   & SELF Debugger & HotSpot & Graal & Jikes RVM & WebKit & McOSR  & OSR Kit \\ \hline
-State Propagation technique        &               &         &       &           &        &           &         \\ \hline
-Transition mechanism               &               &         &       &           &        &           &         \\ \hline
-Modification of function signature &               &         &       &           &        &           &         \\ \hline
-Multiple entry points per function &               &         &       &           &        &           &         \\ \hline
-OSR point                          &               &         &       &           &        &           &         \\ \hline
-OSR point position                 &               &         &       &           &        &           &         \\ \hline
-Guarded                            &               &         &       &           &        &           &         \\ \hline
-Unguarded                          &               &         &       &           &        &           &         \\ \hline
-Multiple versions live             &               &         &       &           &        &           &         \\ \hline
-Deoptimization support             &               &         &       &           &        &           &         \\ \hline
-Exit target                        &               &         &       &           &        &           &         \\ \hline
-Performance results                &               &         &       &           &        &           &         \\ \hline
+& SELF & HotSpot & Graal & Jikes RVM & WebKit & McOSR & OSR Kit \\ \hline
+State propagation & Scope descriptors & JVM state \& native frames & FrameState nodes & JVM scope descriptor, VARMAP \& call arguments & Buffer \& Stackmaps & Mapping between live values & Call arguments \\ \hline
+Transition mechanism & Stack frames \& PC manipulation & Trampoline to interpreter & Trampoline to interpreter & Function call & Trampoline to baseline & Function call & Function call \\ \hline
+Modification of function signature & No & No & No & Yes & No & No & Yes \\ \hline
+Multiple \shortstack{entry points \\ Opt/Deopt} & Yes/Yes & No/Yes & No/Yes & No/No & No/Yes & No/Yes & No/No \\ \hline
+OSR points locations & Mostly method prologues \& backward branches & Mostly backward branches \& safepoints & Between side effecting nodes & Mostly method prologues \& loop headers & Mostly method prologues \& loop headers & Mostly method prologues \& loop headers & Anywhere the state can be reconstructed \\ \hline
+Guarded/ Unguarded & Both & Both & Both & Both & Both & Guarded & Guarded \\ \hline
+Exit target & Unoptimized compiled version & Interpreter & Interpreter & Less optimized compiled version & Baseline JIT & Less optimized compiled version & Less optimized compiled version \\ \hline
 \end{tabular}
-}
-\caption{Summary of OSR implementations and their features.}
-\label{my-label}
+\caption{Summary of different OSR implementations features.}
+\label{tab:Summary}
 \end{table}
+\end{landscape}
+\clearpage

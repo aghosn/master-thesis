@@ -47,7 +47,7 @@ On-stack replacement implementations are state-of-the-art features in advanced v
 
 
 The R programming language suffers from very poor performances. 
-It further exhibits a lazy evaluation of dynamically typed elements which prevent many common compiler optimizations from being performed.
+It further exhibits a lazy evaluation of dynamically typed elements which prevents many common compiler optimizations from being performed.
 Even worse, performance bottlenecks in R are intimately linked to R semantics. 
 A JIT compiler for R, equipped with an efficient OSR implementation, could lift up such restrictions.
 The focus of this thesis is to provide an OSR implementation in RJIT, a JIT compiler for R, that enables to perform speculative optimizations while preserving the correctness of the program's execution.
