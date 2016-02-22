@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  18 FEB 2016 16:18
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  22 FEB 2016 12:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2959,33 +2959,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--114
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--122
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--131
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--133
 
  []
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 132--140
+Underfull \hbox (badness 10000) in paragraph at lines 134--143
+
+ []
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 169--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--154
+Underfull \hbox (badness 10000) in paragraph at lines 175--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 181--185
 
  []
 
-[58]) (./Chapters/Chapter6.tex [59] [60
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Overfull \hbox (28.9792pt too wide) in paragraph at lines 202--205
+\T1/ppl/m/n/10.95 The OS-RHan-dler \T1/ppl/m/it/10.95 get-FreshIR \T1/ppl/m/n/1
+0.95 func-tion is de-signed to pro-vide quick ac-cess to non-instrumented
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--211
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+
+ []
+
+) (./Chapters/Chapter6.tex [60]
 Chapter 6.
 --------------------
  6. Conclusion
@@ -3060,7 +3104,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [61] [62
+) (./Appendices/AppendixA.tex [61
+
+] [62
 
 ]
 Appendix A.
@@ -3129,10 +3175,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29908 strings out of 493706
- 529516 string characters out of 6145768
- 860012 words of memory out of 5000000
- 32828 multiletter control sequences out of 15000+600000
+ 29909 strings out of 493706
+ 529540 string characters out of 6145768
+ 860016 words of memory out of 5000000
+ 32829 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s

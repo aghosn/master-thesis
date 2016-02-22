@@ -71,10 +71,13 @@
 \contentsline {subsection}{\numberline {5.1.1}Justification}{55}{subsection.458}
 \contentsline {subsection}{\numberline {5.1.2}Challenges}{56}{subsection.459}
 \contentsline {subsection}{\numberline {5.1.3}Implementation}{57}{subsection.472}
-\contentsline {section}{\numberline {5.2}Tests}{59}{section.483}
-\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on shootout}{59}{subsection.484}
-\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{59}{subsection.485}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{59}{subsection.486}
-\contentsline {chapter}{\numberline {6}Conclusion}{61}{chapter.487}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{63}{appendix.488}
-\contentsline {chapter}{Bibliography}{65}{appendix*.489}
+\contentsline {section}{\numberline {5.2}Tests}{59}{section.482}
+\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{59}{subsection.483}
+\contentsline {subsubsection}{General execution comparison}{59}{section*.484}
+\contentsline {subsubsection}{Cost of default mode vs. regular compilation}{59}{section*.485}
+\contentsline {subsubsection}{Cost of all inline mode vs. regular compilation}{59}{section*.486}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{59}{subsection.487}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{59}{subsection.488}
+\contentsline {chapter}{\numberline {6}Conclusion}{61}{chapter.489}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{63}{appendix.490}
+\contentsline {chapter}{Bibliography}{65}{appendix*.491}
