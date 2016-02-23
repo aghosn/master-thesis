@@ -249,7 +249,8 @@ We therefore have to come up with an alternate solution.\\
 
 The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
 
-\subsection{Reducing the number of compilation}
+\subsection{Reducing the number of compilation}\label{section:reducecompilations}
+TALK ABOUT GARBAGE COLLECTION!!!\\
 
 Transformations that act on R semantics have to be performed on a non-instrumented LLVM IR.
 As explained before, obtaining such IR might be harder than expected. 
@@ -492,6 +493,7 @@ It is too early in the implementation process to identify which optimizations mi
 As a result, we did not put efforts in the implementation of this solution.\\
 
 \subsection{A cleaner, more integrated way of getting a fresh IR}
+ALSO SOLVES THE GC PROBLEM\\
 
 The OSR Handler is a prototype, a proof of concept, to experiment OSR transitions in RJIT. 
 As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR Inliner (see Chapter \ref{Chapter5}), in their own classes.
