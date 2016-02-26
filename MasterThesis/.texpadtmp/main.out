@@ -74,7 +74,7 @@
 \BOOKMARK [3][-]{section*.491}{Cost\040of\040default\040mode\040vs.\040regular\040compilation}{subsection.489}% 74
 \BOOKMARK [3][-]{section*.492}{Cost\040of\040all\040inline\040mode\040vs.\040regular\040compilation}{subsection.489}% 75
 \BOOKMARK [2][-]{subsection.493}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.488}% 76
-\BOOKMARK [2][-]{subsection.494}{OSR\040Handler\040getFreshIR\040vs.\040Always\040recompiling}{section.488}% 77
+\BOOKMARK [2][-]{subsection.494}{OSR\040Handler\040getFreshIR\040vs.\040Parsing\040the\040AST}{section.488}% 77
 \BOOKMARK [0][-]{chapter.495}{Conclusion}{}% 78
 \BOOKMARK [0][-]{appendix.496}{Appendix\040Title\040Here}{}% 79
 \BOOKMARK [0][-]{appendix*.497}{Bibliography}{}% 80

@@ -54,18 +54,18 @@
 \contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{41}{subsection.316}
 \contentsline {subsubsection}{General}{41}{section*.317}
 \contentsline {subsubsection}{The RJIT compilation}{42}{section*.319}
-\contentsline {subsubsection}{The function's SEXP}{45}{section*.369}
-\contentsline {subsubsection}{The closure's SEXP}{45}{section*.370}
-\contentsline {section}{\numberline {4.2}OSR Handler}{45}{section.371}
-\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{46}{subsection.372}
-\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{47}{subsection.373}
-\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{50}{subsection.425}
-\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{50}{subsection.450}
-\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{52}{subsection.451}
-\contentsline {section}{\numberline {4.3}Future work}{52}{section.452}
-\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{53}{subsection.453}
-\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{54}{subsection.454}
-\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{54}{subsection.455}
+\contentsline {subsubsection}{The function's SEXP}{46}{section*.369}
+\contentsline {subsubsection}{The closure's SEXP}{46}{section*.370}
+\contentsline {section}{\numberline {4.2}OSR Handler}{46}{section.371}
+\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{47}{subsection.372}
+\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{48}{subsection.373}
+\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{51}{subsection.425}
+\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{51}{subsection.450}
+\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{53}{subsection.451}
+\contentsline {section}{\numberline {4.3}Future work}{53}{section.452}
+\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{54}{subsection.453}
+\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{55}{subsection.454}
+\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{55}{subsection.455}
 \contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{57}{chapter.456}
 \contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{57}{section.457}
 \contentsline {subsection}{\numberline {5.1.1}Justification}{57}{subsection.458}
@@ -77,7 +77,7 @@
 \contentsline {subsubsection}{Cost of default mode vs. regular compilation}{62}{section*.491}
 \contentsline {subsubsection}{Cost of all inline mode vs. regular compilation}{62}{section*.492}
 \contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{62}{subsection.493}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Always recompiling}{62}{subsection.494}
-\contentsline {chapter}{\numberline {6}Conclusion}{63}{chapter.495}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{65}{appendix.496}
-\contentsline {chapter}{Bibliography}{67}{appendix*.497}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{62}{subsection.494}
+\contentsline {chapter}{\numberline {6}Conclusion}{65}{chapter.495}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{67}{appendix.496}
+\contentsline {chapter}{Bibliography}{69}{appendix*.497}

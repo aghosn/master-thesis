@@ -31,13 +31,13 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{42}{figure.caption.318}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces R simple function.\relax }}{43}{figure.caption.345}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{43}{figure.caption.348}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.357}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{47}{figure.caption.377}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{48}{figure.caption.390}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{49}{figure.caption.394}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{50}{figure.caption.426}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{51}{figure.caption.430}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.348}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{45}{figure.caption.357}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{48}{figure.caption.377}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{49}{figure.caption.390}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.394}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.426}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.430}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{59}{figure.caption.460}
 \addvspace {10\p@ }

@@ -14,9 +14,9 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
-This Chapter presents an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR exits to preserve the program's correctness.
-We first describe the inliner's implementation.
-We then rely on this implementation to test the performances of the main features provided by OSR RJIT.\\
+This Chapter presents experimental results obtained for the RJIT OSR.
+The first section describes an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR exits to preserve the program's correctness.
+The second section presents benchmarking results obtained while evaluating the OSR Inliner, and RJIT OSR main features, i.e., the compensation code to replace invalidated functions, and the \textit{getFreshIR} function.\\
 
 \section{A speculative inliner for RJIT}
 \subsection{Justification}
@@ -27,11 +27,11 @@ We then rely on this implementation to test the performances of the main feature
 R is a dynamic language. 
 Dynamic programming languages have the particularity to perform, at runtime, common programming behaviors executed during the compilation in static programming languages.
 Extending the program, adding code, extending objects and definitions, type setting or modifying the type system are such behaviors that, in dynamic programming languages, can take place at runtime.
-These particularities make certain common static compilation optimizations hard to implement in a dynamic programming language.
-One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the body of the function called.\\
+These particularities make certain common static compilation optimizations hard to implement in a dynamic language.
+One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the callee's body.\\
 
 Chapter \ref{Chapter2} presents the on-stack replacement(OSR) mechanism.
-The OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performance at runtime.
+OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performance at runtime.
 If the assumption fails, the OSR mechanisms preserve correctness in the program.
 Thanks to this versatile tool, static programming languages optimizations can be performed speculatively in a compiler for a dynamic programming language.\\
 
@@ -43,7 +43,7 @@ Inlining is an interesting optimization, and its impact on the code performance 
 It holds an important trade-off between time and space, i.e., how much improvement in terms of speed can be obtained, at the cost of some extra space.
 Furthermore, excessive inlining might increase register pressure and deplete the instruction cache, therefore decreasing the speed of the program's execution.
 Finally, inlining can be viewed as a first step toward other optimizations.
-Copying a function's body at its call site enables to enlarge the scope considered by the compiler, and might therefore uncover new opportunities for optimizations.\\
+Copying a function's body at its call site enables to enlarge the scope considered by the compiler, and might therefore uncover new optimization opportunities.\\
 
 Apart from being a viable OSR-based speculative optimization in RJIT, inlining allows to put some pressure on the OSR Handler's mechanisms.
 First, as explained in Chapter \ref{Chapter4New}, the OSR mechanism requires to obtain fresh clones of functions bodies via the OSR Handler's functions.
@@ -51,7 +51,7 @@ Second, in order to inline a function call, a copy of the callee's body needs to
 This body, in RJIT OSR, can be obtained through the OSR Handler API.
 Function inlining might further force AOT compilation of the inlined functions, hence enabling us to test every aspect of the functionalities provided by the OSR Handler.\\
 
-RJIT does not gather profiling information that enable to identify good targets for inlining.
+RJIT does not gather profiling information that enable to identify good candidates for inlining.
 This is, however, far from being a limitation.
 On the contrary, it is a perfect case study for OSR mechanisms in R.
 Although inlining function calls in R produces unsound compiled code, the OSR mechanism enables to ensure that the program is correct.
@@ -67,7 +67,7 @@ Not relying on a profiler and blindly inlining function calls, whenever it is po
 %IR fresh + AOT behavior
 %TODO ENVIRONMENT !!!!!!!!
 An OSR-based speculative inliner for RJIT needs to be implemented at the LLVM IR level.
-This requires to be able to identify function calls inside the LLVM IR, extract the callee's SEXP from the environment, and perform the appropriated transformations on the IR.
+This requires to identify function calls inside the LLVM IR, extract the callee's SEXP from the environment, and perform the appropriate transformations on the IR.
 While relatively simple conceptually, implementing such a mechanism presents several challenges in RJIT.\\
 
 An R function call corresponds to several instructions in the RJIT LLVM IR.
@@ -132,7 +132,7 @@ RJIT provides a special matcher mechanism, combined to the LLVM passes implement
 One of its main goals is to reduce the number of iterations on the entire LLVM IR, by merging different passes.
 Unfortunately, this feature was not yet ready at the time at which the RJIT OSR project was implemented.\\
 
-The OSR inliner algortihm is a very basic, aggressive, speculative inliner. 
+The OSR inliner implements is a very basic, aggressive, speculative inlining algorithm. 
 RJIT does not have a profiler or a static analyzer yet.
 As a result, the OSR inliner cannot rely on any extra information to decide if a call should be inlined or not.
 The OSR inliner proposes different modes of execution, that enable more or less aggressive inlining techniques.
@@ -150,7 +150,7 @@ The callee's closure can be obtained by looking up the symbol of the function ca
 In the \textit{all inline} mode, the OSR inliner generates a fully inlined LLVM IR for each different callee, i.e., it inlines all the calls inside each compiled callee. 
 In the default mode, the OSR inliner simply calls the getFreshIR method to obtain the callee's LLVM IR.
 The OSR inliner creates the toInstrument clone of the outer function.
-The toInstrument will be used as to create the continuation function for each OSR exit inserted in the outer function.
+The toInstrument is used to create the continuation function for each OSR exit inserted in the outer function.
 It is wrapped in a valid function SEXP, added to the module, and has a valid IR.
 Then, for each different callee, the OSR inliner proceeds as follows: 
 \begin{enumerate}
@@ -162,7 +162,7 @@ Then, for each different callee, the OSR inliner proceeds as follows:
             \item Insert instructions to create a new environment that contains the correct arguments to values mappings, before the ic stub.\label{step:newrho}
             \item Replace all accesses to the environment, i.e., rho argument, in the callee's body by the newly created environment.
             \item Move the callee's body inside the outer function, after the instruction of step \ref{step:newrho}.
-            \item Replace all return instructions by forwarding the return value to a $\phi$-node inserted after the callee's body.\label{step:phinode}
+            \item Replace all the callee's return instructions by forwarding the return value to a $\phi$-node inserted after the callee's body.\label{step:phinode}
             \item Remove the ic stub.
             \item Replace the ic stub in the transitive mapping between the toInstrument and the outer function by a mapping between the toInstrument corresponding ic stub and the $\phi$-node created in step \ref{step:phinode}.\label{step:updatemap}
             \item Call the insertOSRExit with the outer function as the from function, the toInstrument as the continuation function, instructions that compare the result of the \textit{getFunction} call with the hard coded address of the callee's closure as the OSR condition, and the \textit{constant} call as the transition point, i.e., the instruction that was directly above the ic stub in the original outer function.
@@ -180,10 +180,10 @@ Any subsequent call to a callee will therefore benefit from either a fully compi
 
 The continuation function for an OSR exit corresponds to the fully unoptimized base function. 
 The toInstrument function is used to generate the continuation function and does not contain any inlined call.
-This enables to limit the number of toInstrument functions generated during the transformation of the outer function and avoid cascading triggering of OSR exits.
+This enables to limit the number of toInstrument functions generated during the transformation of the outer function and avoid triggering OSR exits in cascade.
 This also illustrates that, even though it does not correspond to the behavior encouraged by the OSR Kit library, a few careful updates (step \ref{step:updatemap}) to the transitive map enable to preserve a mapping between a base function, and a working copy being modified.
 On the other hand, ideally, the continuation function should inline all calls that did not fail.
-This solution can be implemented with on-the-fly compilation of the continuation function, but is not provided in this prototype.fa\\
+This solution can be implemented with on-the-fly compilation of the continuation function, but is not provided in this prototype.\\
 
 The OSR Inliner provides a compensation code generator mechanism. 
 The compensation code is a simple call to a C++ function, that takes as argument an integer identifier.
@@ -209,32 +209,61 @@ The cost of an OSR exit corresponds to the cost of the OSR condition, and the fu
 
 In simple examples, this cost can be neglected.\\ 
 
-\subsection{OSR Handler getFreshIR vs. Always recompiling}
-%Intro
+\subsection{OSR Handler getFreshIR vs. Parsing the AST}
+%Role of the OSR Handler getFreshIR 
+    %Avoid translation step from AST to LLVM IR every time a fresh IR needs to be otbained 
+    %Supposed to be faster than walking the AST and generating the llvm ir instructions.
+    %Still has some expensive cost, i.e., registering a copy during first compilation, cloning to get a working copy, fixing the IR.
+    %Hence need to evaluate its performances.
+    %Rely on shootout benchmarks, instrumented such that each function (i.e., 172 functions) is used.
 
-%One execution is more expensive, so need to test fully generated.
-%Overhead 
-%Fully generated
-The OSRHandler \textit{getFreshIR} function is designed to provide quick access to non-instrumented LLVM IR, and avoid function re-compilation every time the IR is needed.
-Reusing LLVM IR across different modules, however, is hard.
-As described in Section \ref{section:reducecompilations}, it requires to fix the cloned IR by iterating through every instruction.
-This iteration might prove to have a high impact on the overall execution cost.
-As a result, we evaluate the efficiency of the \textit{getFreshIR} and utilities functions by comparing their performance to a basic compilation.\\
+%Overall execution
+    %Cost of the registering the working copy 
+        %Less than half of the cost of generating  the IR. 
+        %Not significant compared to the jitAll cost, i.e., final step to generate the native code.
 
-During a single compilation pass, the \textit{getFreshIR} function is expected to be less efficient than simply compiling the function SEXP.
-In fact, for a function SEXP that was never compiled, the getFreshIR function needs to go through the entire compilation of the function, in addition to generating the correct entries in the base version map.
-We evaluate the overhead of the getFreshIR method compared to the simple compilation by generating a fully compiled and correct version of every function contained in the Shootout benchmarks, using the OSRHandler functions.
-The result of this experiment is provided in FIGURE REF.\\
+%Case when the OSR Handler contains a clone for each function.
+    %That is the true use case, i.e., functions are jitted, executed. Hot functions are then promoted for optimizations. 
+    %Compare time required to parse AST and generate the LLVM IR, and the the time required to get a Fresh and correct IR via the OSR Handler. 
+    %Benchmarks are instrumented to have all possible instructions invalidated in the clone, i.e., worst case. 
+%Results show that the ratio between getting the working copy and the "translation" is constant, does not vary with the number of instructions in the IR, and is arround 0.33, i.e., it is 3 times faster to get the IR via the OSR Handler than to generate it by reparsing the AST.
+%Provide an histogram that represents the frequency of the observed costs for obtaining the IR using both techniques.
+%See that with the OSR handler, the costs are concentrated between lalalala. 
 
-COMMENT ON RESULTS.\\
+The OSR Handler, via the \textit{getFreshIR} and its utilities functions, enables to obtain a fresh, non-instrumented, and correct LLVM IR for a function.
+This is meant to avoid the translation step from ASTs to LLVM IR every time a fresh non-instrumented IR is needed, e.g., for optimizations.
+Obtaining a fresh IR via the OSR Handler, for an already compiled function, is supposed to be faster than walking the entire function's AST and re-generating the corresponding LLVM IR instructions.
+The OSR Handler, however, performs some expensive operations, with non-negligible costs, such as registering a copy of the function in the base version map during the function's first compilation, cloning the base version entry to obtain a fresh working copy, and fixing the LLVM IR of clones.
+As a result, we evaluate the OSR Handler's mechanisms performance, compared to a regular translation from ASTs to LLVM IR.
+To do so, we rely on the Shootout benchmarks\cite{Shootout}, instrumented such that each function in the benchmarks is used.\\
 
-The getFreshIR is interesting when an LLVM IR needs to be used accros different modules.
-During the first compilation of a function, the OSR Handler performs extra work to be able to speed up later re-uses of the generated LLVM IR.
-We therefore perform a second experiment, in which the base version map is fully generated.
-Then, for each function in the Shootout benchmarks, we measure the time required to obtain a correct, fully compiled function by using the OSR Handler functions. 
-We compare these measurements with the cost of recompiling from scratch every function.\\
+Registering an entry in the base version map increases the cost of a function's first compilation.
+A first experiment therefore consists in comparing the cost of this first compilation via the OSR Handler, and via the regular RJIT mechanism. 
+Unsurprisingly, the OSR Handler exhibits poorer performances. 
+The reason is that it has to generate the LLVM IR corresponding to the function's AST, as well as cloning the obtained IR and registering the clone in the base version map, hence introducing an overhead of VALUE compared to the RJIT compilation.
+CONTINUE\\
 
 
-COMMENT ON RESULTS.\\
+The OSR Handler is supposed to improve the RJIT's performances in the presence of optimizations re-compilations.
+The expected execution flow is that functions a jitted, and executed. 
+When a function becomes hot, i.e., when it has been executed several times, it becomes a candidate for re-compilation and optimizations.
+This corresponds to the real use case of the OSR Handler's mechanisms.
+As a result, we need to evaluate the cost of obtaining a fresh and correct IR from the OSR Handler, when the base version map already contains an entry for the function, and compare it to the cost of generating the IR from the AST.
+We therefore perform a second experiment, where the OSR Handler has a fully generated base version map.
+In this experiment, we further ensure that every call instruction inside the clones obtained via the \textit{getFreshIR} function need to be fixed.
+This corresponds to the worst case scenario for the execution of the \textit{resetSafepoints} function, and thus provides an upper bound on the performance evaluation.\\
 
+Our second experiment yields encouraging results.
+A first observation is that the time ratio between obtaining the IR via the OSR Handler and via RJIT translation is constant, regardless of the number of LLVM IR instructions generated, with a median value at \textbf{0.33}. 
+In other words, it seems that obtaining a fresh and correct IR, for an arbitrarily sized function, via the OSR Handler, is in average at least \textbf{three} times faster than generating it from the AST.
+These results can further be improved if less instructions need to be fixed.
+As explained in Section \ref{section:cleanerIR}, a future solution would be to save an entire module per function in order to avoid having to fix LLVM IR instructions.
+With this solution, the cost of obtaining a fresh non instrumented IR would include the cost of loading an LLVM module into the current compilation module. 
+Since it is not part of our implementation, we do not provide any estimation for this cost.\\
 
+Figure REF presents an histogram corresponding to our second experiment.
+The histogram represents the distribution of times observed to obtain a fresh, non-instrumented, and correct IR, via RJIT and via the OSR Handler, on the same set of functions.
+For the OSR Handler, all values are contained between X and X.
+HOW TO COMMENT PROPERLY AN HISTOGRAM.\\
+
+CONCLUDE\\
