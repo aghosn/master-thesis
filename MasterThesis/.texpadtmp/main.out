@@ -70,11 +70,8 @@
 \BOOKMARK [2][-]{subsection.472}{Implementation}{section.457}% 70
 \BOOKMARK [1][-]{section.488}{Tests}{chapter.456}% 71
 \BOOKMARK [2][-]{subsection.489}{GNUR\040RJIT\040vs.\040Inlining\040on\040Shootout\040benchmarks}{section.488}% 72
-\BOOKMARK [3][-]{section*.490}{General\040execution\040comparison}{subsection.489}% 73
-\BOOKMARK [3][-]{section*.491}{Cost\040of\040default\040mode\040vs.\040regular\040compilation}{subsection.489}% 74
-\BOOKMARK [3][-]{section*.492}{Cost\040of\040all\040inline\040mode\040vs.\040regular\040compilation}{subsection.489}% 75
-\BOOKMARK [2][-]{subsection.493}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.488}% 76
-\BOOKMARK [2][-]{subsection.494}{OSR\040Handler\040getFreshIR\040vs.\040Parsing\040the\040AST}{section.488}% 77
-\BOOKMARK [0][-]{chapter.495}{Conclusion}{}% 78
-\BOOKMARK [0][-]{appendix.496}{Appendix\040Title\040Here}{}% 79
-\BOOKMARK [0][-]{appendix*.497}{Bibliography}{}% 80
+\BOOKMARK [2][-]{subsection.490}{OSR\040Exit\040vs.\040Replacing\040the\040closure}{section.488}% 73
+\BOOKMARK [2][-]{subsection.491}{OSR\040Handler\040getFreshIR\040vs.\040Parsing\040the\040AST}{section.488}% 74
+\BOOKMARK [0][-]{chapter.493}{Conclusion}{}% 75
+\BOOKMARK [0][-]{appendix.494}{Appendix\040Title\040Here}{}% 76
+\BOOKMARK [0][-]{appendix*.495}{Bibliography}{}% 77

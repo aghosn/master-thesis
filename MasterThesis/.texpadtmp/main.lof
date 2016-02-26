@@ -40,5 +40,6 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.430}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{59}{figure.caption.460}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{64}{figure.caption.492}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

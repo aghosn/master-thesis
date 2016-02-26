@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 12:13
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 13:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3021,54 +3021,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--194
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--209
+Underfull \hbox (badness 10000) in paragraph at lines 203--206
 
  []
 
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--239
+Underfull \hbox (badness 10000) in paragraph at lines 230--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--245
+Underfull \hbox (badness 10000) in paragraph at lines 237--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--255
+Underfull \hbox (badness 10000) in paragraph at lines 244--252
 
  []
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 256--263
+Underfull \hbox (badness 10000) in paragraph at lines 253--260
 
  []
 
+File: Figures/withoutJitAll.pdf Graphic file (type QTm)
+<use  "Figures/withoutJitAll.pdf" >
 
-Overfull \hbox (21.09564pt too wide) in paragraph at lines 264--268
-\T1/ppl/m/n/10.95 his-togram rep-re-sents the dis-tri-bu-tion of times ob-serve
-d to ob-tain a fresh, non-instrumented,
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 267--271
+\T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
+ ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--268
+Underfull \hbox (badness 10000) in paragraph at lines 267--271
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 269--2
+Underfull \hbox (badness 10000) in paragraph at lines 272--2
 
  []
 
-[63] [64
-
-]
+[63] [64]
 Chapter 6.
 --------------------
  6. Conclusion
@@ -3143,7 +3146,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendices/AppendixA.tex [65] [66
+) (./Appendices/AppendixA.tex [65
+
+] [66
 
 ]
 Appendix A.
@@ -3212,10 +3217,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29913 strings out of 493706
- 529617 string characters out of 6145768
- 860244 words of memory out of 5000000
- 32833 multiletter control sequences out of 15000+600000
+ 29915 strings out of 493706
+ 529662 string characters out of 6145768
+ 860411 words of memory out of 5000000
+ 32834 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s

@@ -195,9 +195,6 @@ CODE EXAMPLE OF INLINING, TOINSTRUMENT AND CONT.\\
 \section{Tests}
 \subsection{GNUR RJIT vs. Inlining on Shootout benchmarks}
 
-\subsubsection{General execution comparison}
-\subsubsection{Cost of default mode vs. regular compilation}
-\subsubsection{Cost of all inline mode vs. regular compilation}
 \subsection{OSR Exit vs. Replacing the closure}
 %OSR Handler enables to replace the continuation
 %Avoids triggering the exit all of the time. 
@@ -261,7 +258,13 @@ As explained in Section \ref{section:cleanerIR}, a future solution would be to s
 With this solution, the cost of obtaining a fresh non instrumented IR would include the cost of loading an LLVM module into the current compilation module. 
 Since it is not part of our implementation, we do not provide any estimation for this cost.\\
 
-Figure REF presents an histogram corresponding to our second experiment.
+\begin{figure}[h]
+    \includegraphics[scale=1]{Figures/withoutJitAll}
+    \caption{OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.}
+    \label{fig:withoutJitAll}
+\end{figure}
+
+Figure \ref{fig:withoutJitAll} presents an histogram corresponding to our second experiment.
 The histogram represents the distribution of times observed to obtain a fresh, non-instrumented, and correct IR, via RJIT and via the OSR Handler, on the same set of functions.
 For the OSR Handler, all values are contained between X and X.
 HOW TO COMMENT PROPERLY AN HISTOGRAM.\\
