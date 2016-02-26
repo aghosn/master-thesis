@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 13:27
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3052,6 +3052,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 253--260
 
 File: Figures/withoutJitAll.pdf Graphic file (type QTm)
 <use  "Figures/withoutJitAll.pdf" >
+Overfull \hbox (38.46391pt too wide) in paragraph at lines 262--263
+[][] 
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
