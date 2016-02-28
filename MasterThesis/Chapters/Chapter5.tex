@@ -204,7 +204,135 @@ CODE EXAMPLE OF INLINING, TOINSTRUMENT AND CONT.\\
      
 %Regular execution, in average 1.03352 ratio, so takes 5% more, max is 1.209086 for spectralnorm-alt.r
 
-%Generating everything and then doing the runs: 
+%Generating everything and then doing the runs:
+
+This section presents an evaluation of the OSR Inliner, based on the Shootout benchmarks\cite{Shootout}.
+As explained in Section \ref{Justification}, the OSR Inliner is a proof of concept, showing that the RJIT OSR enables to break R semantics at a function's level while preserving the overall correctness of the program.
+In this section, we compare the all inline mode, i.e., the agressive OSR Inliner, against the regular mode, i.e., RJIT without any inlining.
+We first report some general numbers and observations gather in the all inline mode. 
+We then compare the execution time obtained in both modes.
+Finally, we describe some experiments performed on the OSR Exits.\\
+
+%Stats 
+    % No exit. 
+        %Kind of good, since we had no profiler. Gives hope that inlining could be much easier, and redefining functions might not be that common. Or simply the benchmark suite is too well written.
+        %Describe how we play with it later on.
+    % Calls inlined 
+        % some bad benchmarks -> list 
+            % function contains most of the program
+        % Some surprising benchmarks, e.g., pidigits.r 36 calls inlined (out of 237), but resulted in 9747 lines inlined, and reuse of entries over 10 compilations phases.
+    % Very little reuse of the IR. Several explanations
+        % No recompilation for the moment. Need heuristics based on feedback from the runtime profile. 
+        % Probably able to inline user defined functions, since most bench rely on libraries coded in C, and hence no body for them (Builtins). As a result, most calls are inlined during the first JIT compilation. 
+        %OSR inliner avoids unnecessary the base version map lookup   
+
+We instrumented the RJIT compiler to gather interesting information about the OSR Inliner's execution on the Shootout benchmarks.
+A first observation is that none of the benchmarks triggered an OSR Exit.
+This is a surprising result, since the OSR Inliner relied on no profiler, and blindly inlined function calls whenever it could.
+We therefore hope that, in most R programs, the redefinition of functions might be rare enough to consider very agressive speculative inlining.
+We note, however, that this might be a specificity of the benchmark suite, and recommend to inspect a broader class of R programs before making any assertion.
+OSR Exits are studied in more details later in this section, and in Section REF.\\
+
+The Shootout benchmarks present very heterogenous results in terms of number of calls inlined.
+On all versions of the \textit{revercomplement}, \textit{spectralnorm} and \textit{mandelbrot} benchmarks, only one call was inlined, namely, the benchmark's most important function was inlined in the function serving as entry point for the program.
+These benchmarks all contain one function, implementing the benchmark's algorithm.
+All calls correspond to built-in functions, which are either library functions implemented in C, or functions with a lot of arguments and default values.
+Since the OSR Inliner does not support default arguments, these calls could not be considered for inlining.
+On the other hand, other benchmarks present more interesting results. 
+For example, the \textit{pidigit.r} benchmark's execution led to 36 calls inlined (out of 237 calls, counting calls to built-ins functions), which corresponds to a total of 9747 lines inlined.
+In this benchmark, the OSR Handler enable to provide fresh LLVM IR, without going through the AST to LLVM IR translation, in 10 separate compilation modules.\\
+
+The use of the OSR Handler base version map, for the Shootout benchmarks, yielded a disappointing result.
+All the benchmarks, except \textit{pidigit.r}, did not re-use LLVM IR accros different compilation modules.
+This, however, has several explanations.
+First, the OSR Handler base version map is intended to avoid re-translating ASTs to LLVM IR, for already compiled functions.
+A fresh IR is needed when a function is re-compiled, or, in the case of the OSR Inliner, when a function call is inlined.
+RJIT, for the moment, does not collect any profiling information on the program's execution and does not perform any optimization. 
+Thus, no re-compilation is triggered for unmodified, already compiled, functions.
+Another explanation is that the OSR Inliner mainly inlines user-defined functions, i.e., the functions defined inside the benchmark (as opposed to built-ins functions).
+When the OSR Inliner runs on the benchmark's entry point, it recursively inlines calls, hence reaching all the user-defined functions and inlining them whenever it is possible.
+Subsequent JIT compilations correspond to calls that the OSR Inliner could not inline previously, mainly library functions, that do not call any of the function's cached in the base version map.
+As a result, in order to evaluate the efficiency of the base version map, another form of experiment is required.
+Section \ref{section:getfreshtest} focuses on the evaluation of the getFreshIR function and the OSR Handler's mechanisms.\\
+
+In a regular execution, the OSR Inliner's performance is close to RJIT execution time.
+On average, over the entire Shootout benchmarks, in the all inline mode, the execution time is equal to 1.033 times the regular RJIT execution time.
+The slowest execution time registered was for the \textit{"spectralnorm-alt.r"}, that equals on average 1.21 times the equivalent RJIT execution time.
+We suspect that the overhead introduced by registering fresh IRs, and the OSR Inliner's transformations performed on the IR, are the main reasons for this small slow down.
+In fact, benchmarks that executed faster in the all inline mode than in the regular are the ones cited above, where only one call was inlined.
+Moreover, benchmarks that present numerous calls inlined, e.g., \textit{pidigit.r}, have ratios closer to 1.10.
+As a result, we suppose that the overhead of blindly inlining function calls is superior to the possible gain in speed. 
+In order to verify this hypothesis, we perform a second experiment where the entire compilation overhead is removed.\\
+
+Our second experiment measures the average execution time per benchmark, while removing the compilation overhead.
+We execute the benchmark a first time, so that all functions are compiled. 
+We then measure 100 complete executions in the all inline mode, and compare the results to the RJIT execution.
+Once again, the difference between the two modes of execution is negligible, i.e., the all inline mode's execution is, in average, equal to 1.004 times the regular RJIT execution.
+We notice a small decrease in the average ratio between the two modes of execution.
+Although not significatif, this small variation could imply that the OSR Inliner's transformations are responsible for the most part of the slow down observed.
+\\
+
+Aggressively inlining all calls, whenever possible, does not impact on the the Shootout benchmarks execution times.
+The OSR Inliner breaks R semantics by blindly inlining calls.
+This, however, proved to be without consequence since no OSR exit was taken during the execution of the entire benchmark suite.
+We can therefore assume that, in most R programs, the number of function's redefinition might be low enough to allow a more efficient inliner to trigger performance improvements. 
+The OSR Inliner preserves the function call's logic by creating a dedicated environment for the inlined function.
+Creating the environment is one of the dominating costs of a function call.
+Implementing a more aggressive inliner, that removes the need to create a dedicated environment for the inlined function, would potentially lead to a greater difference, in terms of execution time, compared to the regular RJIT.\\
+
+\begin{table}[h!]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+bench & AST translations & calls & clones & inlined lines & inlined calls & toInstr & miss & success & RJIT AST translations\\ \hline
+binarytrees-2.r & 9 & 118 & 20 & 166 & 2 & 2 & 9 & 0 & 7\\ \hline
+binarytrees-naive.r & 8 & 115 & 20 & 332 & 4 & 2 & 8 & 0 & 5\\ \hline
+binarytrees.r & 8 & 95 & 18 & 190 & 2 & 2 & 8 & 0 & 6\\ \hline
+fannkuchredux-naive.r & 3 & 5 & 7 & 26 & 1 & 1 & 3 & 0 & 2\\ \hline
+fannkuchredux.r & 4 & 7 & 9 & 26 & 1 & 1 & 4 & 0 & 3\\ \hline
+fasta-2.r & 9 & 33 & 22 & 556 & 4 & 2 & 9 & 0 & 6\\ \hline
+fasta-3.r & 9 & 40 & 22 & 728 & 4 & 2 & 9 & 0 & 6\\ \hline
+fasta-naive.r & 8 & 34 & 21 & 743 & 5 & 3 & 8 & 0 & 5\\ \hline
+fasta-naive2.r & 8 & 35 & 21 & 819 & 5 & 3 & 8 & 0 & 5\\ \hline
+fasta.r & 12 & 74 & 28 & 428 & 4 & 2 & 12 & 0 & 9\\ \hline
+fastaredux-naive.r & 8 & 41 & 21 & 1055 & 5 & 3 & 8 & 0 & 5\\ \hline
+fastaredux.r & 9 & 40 & 22 & 864 & 4 & 2 & 9 & 0 & 6\\ \hline
+knucleotide-brute.r & 9 & 40 & 21 & 488 & 3 & 3 & 9 & 0 & 6\\ \hline
+knucleotide-brute2.r & 9 & 41 & 21 & 527 & 3 & 3 & 9 & 0 & 6\\ \hline
+knucleotide-brute3.r & 9 & 40 & 21 & 517 & 3 & 3 & 9 & 0 & 6\\ \hline
+knucleotide.r & 13 & 51 & 29 & 490 & 3 & 3 & 13 & 0 & 10\\ \hline
+mandelbrot-ascii.r & 4 & 17 & 9 & 138 & 1 & 1 & 4 & 0 & 3\\ \hline
+mandelbrot-naive-ascii.r & 3 & 13 & 7 & 152 & 1 & 1 & 3 & 0 & 2\\ \hline
+mandelbrot-naive.r & 7 & 26 & 15 & 162 & 1 & 1 & 7 & 0 & 6\\ \hline
+mandelbrot-noout-naive.r & 4 & 17 & 9 & 124 & 1 & 1 & 4 & 0 & 3\\ \hline
+mandelbrot-noout.r & 4 & 16 & 9 & 133 & 1 & 1 & 4 & 0 & 3\\ \hline
+mandelbrot.r & 8 & 30 & 17 & 148 & 1 & 1 & 8 & 0 & 7\\ \hline
+nbody-2.r & 12 & 41 & 27 & 264 & 3 & 2 & 12 & 0 & 9\\ \hline
+nbody-3.r & 13 & 42 & 29 & 264 & 3 & 2 & 13 & 0 & 10\\ \hline
+nbody-naive.r & 9 & 49 & 21 & 560 & 3 & 2 & 9 & 0 & 6\\ \hline
+nbody-naive2.r & 10 & 37 & 23 & 370 & 3 & 2 & 10 & 0 & 7\\ \hline
+nbody.r & 11 & 39 & 25 & 274 & 3 & 2 & 11 & 0 & 8\\ \hline
+pidigits.r & 20 & 237 & 86 & 9747 & 36 & 14 & 20 & 10 & 7\\ \hline
+regexdna.r & 6 & 19 & 13 & 95 & 1 & 1 & 6 & 0 & 5\\ \hline
+reversecomplement-2.r & 7 & 17 & 15 & 64 & 1 & 1 & 7 & 0 & 6\\ \hline
+reversecomplement-naive.r & 7 & 18 & 15 & 74 & 1 & 1 & 7 & 0 & 6\\ \hline
+reversecomplement.r & 7 & 17 & 15 & 58 & 1 & 1 & 7 & 0 & 6\\ \hline
+spectralnorm-alt.r & 7 & 90 & 15 & 84 & 1 & 1 & 7 & 0 & 6\\ \hline
+spectralnorm-alt2.r & 7 & 90 & 15 & 88 & 1 & 1 & 7 & 0 & 6\\ \hline
+spectralnorm-alt3.r & 6 & 91 & 13 & 118 & 1 & 1 & 6 & 0 & 5\\ \hline
+spectralnorm-alt4.r & 6 & 88 & 13 & 79 & 1 & 1 & 6 & 0 & 5\\ \hline
+spectralnorm-math.r & 16 & 202 & 33 & 35 & 1 & 1 & 16 & 0 & 15\\ \hline
+spectralnorm-naive.r & 5 & 86 & 11 & 76 & 1 & 1 & 5 & 0 & 4\\ \hline
+spectralnorm.r & 5 & 85 & 11 & 72 & 1 & 1 & 5 & 0 & 4\\ \hline
+
+\end{tabular}}%
+\caption{Statistics on OSR Inliner's execution}
+\label{tab:statsinliner}
+\end{table}
+\clearpage
+
+
 
 \subsection{OSR Exit vs. Replacing the closure}
 %OSR Handler enables to replace the continuation
@@ -217,7 +345,7 @@ The cost of an OSR exit corresponds to the cost of the OSR condition, and the fu
 
 In simple examples, this cost can be neglected.\\ 
 
-\subsection{OSR Handler getFreshIR vs. Parsing the AST}
+\subsection{OSR Handler getFreshIR vs. Parsing the AST}\label{section:getfreshtest}
 %Role of the OSR Handler getFreshIR 
     %Avoid translation step from AST to LLVM IR every time a fresh IR needs to be otbained 
     %Supposed to be faster than walking the AST and generating the llvm ir instructions.
