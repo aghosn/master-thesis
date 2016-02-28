@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 13:44
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  26 FEB 2016 16:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3021,38 +3021,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--194
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--206
+Underfull \hbox (badness 10000) in paragraph at lines 211--214
 
  []
 
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--236
+Underfull \hbox (badness 10000) in paragraph at lines 238--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--242
+Underfull \hbox (badness 10000) in paragraph at lines 245--250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--252
+Underfull \hbox (badness 10000) in paragraph at lines 252--260
 
  []
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 253--260
+Underfull \hbox (badness 10000) in paragraph at lines 261--268
 
  []
 
 File: Figures/withoutJitAll.pdf Graphic file (type QTm)
 <use  "Figures/withoutJitAll.pdf" >
-Overfull \hbox (38.46391pt too wide) in paragraph at lines 262--263
+Overfull \hbox (38.46391pt too wide) in paragraph at lines 270--271
 [][] 
  []
 
@@ -3060,18 +3060,23 @@ Overfull \hbox (38.46391pt too wide) in paragraph at lines 262--263
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 267--271
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 275--281
 \T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
  ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--271
+Underfull \hbox (badness 10000) in paragraph at lines 275--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 272--2
+Underfull \hbox (badness 10000) in paragraph at lines 285--2
 
  []
 

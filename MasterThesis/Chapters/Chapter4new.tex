@@ -136,7 +136,7 @@ In order to do so, the ic stub relies on LLVM intrinsics called Stackmaps\cite{l
 The compilation flow can be reduced to the following steps:
 \begin{enumerate}
     \item The function's AST is extracted from the SEXP.
-    \item The JIT compiler produces walks the AST and produces the corresponding LLVM IR.
+    \item The JIT compiler traverses the AST and produces the corresponding LLVM IR.
         \begin{itemize}
         \item Calls to non-intrinsic functions are compiled as ic stubs.
         \item A special instrumentation is set at every call instruction as an LLVM attribute\cite{llvmAttribute}.
