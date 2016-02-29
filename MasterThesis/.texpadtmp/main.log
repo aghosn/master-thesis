@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 FEB 2016 19:06
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 FEB 2016 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3076,61 +3076,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 353--356
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 357--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--386
+Underfull \hbox (badness 10000) in paragraph at lines 383--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--392
+Underfull \hbox (badness 10000) in paragraph at lines 390--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--402
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 403--410
+Underfull \hbox (badness 10000) in paragraph at lines 397--405
 
  []
 
 [65
 
 ]
-File: Figures/withoutJitAll.pdf Graphic file (type QTm)
- <use  "Figures/withoutJitAll.pdf" >
-Overfull \hbox (38.46391pt too wide) in paragraph at lines 412--413
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 406--413
+
  []
 
+File: Figures/withoutJitAll2.pdf Graphic file (type QTm)
+<use  "Figures/withoutJitAll2.pdf" >
 
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 417--423
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 420--426
 \T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
  ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--423
+Underfull \hbox (badness 10000) in paragraph at lines 420--426
 
  []
 
-[66]
-Underfull \hbox (badness 10000) in paragraph at lines 424--426
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--429
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 427--2
+Underfull \hbox (badness 10000) in paragraph at lines 430--2
 
  []
 
-[67] [68
+[66] [67] [68
 
 ]
 Chapter 6.
@@ -3277,7 +3275,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  29918 strings out of 493706
- 529717 string characters out of 6145768
+ 529719 string characters out of 6145768
  860586 words of memory out of 5000000
  32837 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000

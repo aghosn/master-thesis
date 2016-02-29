@@ -355,8 +355,9 @@ This mechanism allows to avoid triggering the OSR exit every time the function i
 The cost of an OSR exit corresponds to the cost of the OSR condition, and the function call to the continuation function.\\
 
 In simple examples, this cost can be neglected.
-For example, if the OSR condition corresponds to a single, not expensive, comparison, 
-\\ 
+For example, if the OSR condition corresponds to a single, not expensive, comparison, its cost is very small.
+On the other hand, if the condition needs to perform an expensive operation, such as a lookup in the environment, or if the OSR Exit is located inside a hot loop, executing an invalidated code might increase the program's execution time.
+As a result, we construct a micro-benchmark to illustrate the possible gain of performance that the compensation code allows.\\ 
 
 \subsection{OSR Handler getFreshIR vs. Parsing the AST}\label{section:getfreshtest}
 %Role of the OSR Handler getFreshIR 
@@ -411,7 +412,7 @@ With this solution, the cost of obtaining a fresh non instrumented IR would incl
 Since it is not part of our implementation, we do not provide any estimation for this cost.\\
 
 \begin{figure}[h]
-    \includegraphics[scale=0.9]{Figures/withoutJitAll}
+    \includegraphics[scale=0.9]{Figures/withoutJitAll2}
     \caption{OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.}
     \label{fig:withoutJitAll}
 \end{figure}
