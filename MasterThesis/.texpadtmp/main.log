@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 FEB 2016 17:47
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  28 FEB 2016 19:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3035,72 +3035,68 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--235
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--244
+Underfull \hbox (badness 10000) in paragraph at lines 236--246
 
  []
 
 
-Overfull \hbox (2.11444pt too wide) in paragraph at lines 245--257
+Overfull \hbox (2.11444pt too wide) in paragraph at lines 247--259
 []\T1/ppl/m/n/10.95 The use of the OSR Han-dler base ver-sion map, for the Shoo
 tout bench-marks, yielded
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--257
+Underfull \hbox (badness 10000) in paragraph at lines 247--259
 
  []
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 258--266
+Underfull \hbox (badness 10000) in paragraph at lines 260--268
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--274
+Underfull \hbox (badness 10000) in paragraph at lines 269--281
 
  []
 
 
-Overfull \hbox (11.25722pt too wide) in paragraph at lines 275--282
-[]\T1/ppl/m/n/10.95 Aggressively in-lin-ing all calls, when-ever pos-si-ble, do
-es not im-pact on the the Shootout
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--282
+Underfull \hbox (badness 10000) in paragraph at lines 282--286
 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 287--293
+
+ []
 
 [63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 342--345
+Underfull \hbox (badness 10000) in paragraph at lines 353--356
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--375
+Underfull \hbox (badness 10000) in paragraph at lines 380--386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--381
+Underfull \hbox (badness 10000) in paragraph at lines 387--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--391
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--399
+Underfull \hbox (badness 10000) in paragraph at lines 403--410
 
  []
 
@@ -3109,28 +3105,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 392--399
 ]
 File: Figures/withoutJitAll.pdf Graphic file (type QTm)
  <use  "Figures/withoutJitAll.pdf" >
-Overfull \hbox (38.46391pt too wide) in paragraph at lines 401--402
+Overfull \hbox (38.46391pt too wide) in paragraph at lines 412--413
 [][] 
  []
 
 
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 406--412
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 417--423
 \T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
  ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--412
+Underfull \hbox (badness 10000) in paragraph at lines 417--423
 
  []
 
 [66]
-Underfull \hbox (badness 10000) in paragraph at lines 413--415
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 416--2
+Underfull \hbox (badness 10000) in paragraph at lines 427--2
 
  []
 
@@ -3282,7 +3278,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  29918 strings out of 493706
  529717 string characters out of 6145768
- 860558 words of memory out of 5000000
+ 860586 words of memory out of 5000000
  32837 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
