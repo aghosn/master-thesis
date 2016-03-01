@@ -666,6 +666,28 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{RUsage}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Smith}{S.}%
+     {David~M.}{D.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SDM1}
+  \strng{fullhash}{SDM1}
+  \field{sortinit}{S}
+  \field{title}{{Revolution Analytics: a 5-minutes history} Revolution
+  Analytics: a 5-minutes history.}
+  \verb{url}
+  \verb http://www.slideshare.net/RevolutionAnalytics/revolution-analytics-a-5m
+  \verb inute-history
+  \endverb
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{soman2006efficient}{inproceedings}{}
   \name{author}{2}{}{%
     {{}%

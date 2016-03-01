@@ -100,7 +100,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \addresses{6a rue de la Saint Martin, Saint Julien en Genevois, 74160, FRANCE} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
 \subject{Computer Science} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
-\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\keywords{R, LLVM, on-stack replacement, just-in-time compilation, runtime deoptimization, speculative optimizations} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{https://www.epfl.ch/}{Ecole Polytechnique Federale de Lausanne}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://ic.epfl.ch/computer-science}{Computer Science}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{\href{http://lara.epfl.ch/w/}{LARA}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
@@ -188,7 +188,28 @@ Prof. Viktor \textsc{Kuncak}
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 
-The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+%R is slow. 
+%As for dynamic languages, compiler have trouble because little is known ahead of time.
+    %Hence optimizations are limited. 
+%R also suffers from inherent to its semantics.
+
+%This thesis presents RJIT OSR, an on-stack replacement based prototype for runtime deoptimization in R. 
+%On-stack replacement definition.
+%RJIT OSR allows aggressive speculative optimizations, that break R semantics in order to reach better performances, while preserving the overall correctness of the program.
+R is a dynamic programming language that combines functional and object-oriented features.
+R has become a popular language for statistical computing, with more than 2 millions users worldwide\cite{RUsage}.
+However, R suffers from poor performances\cite{morandat2012evaluating}.
+As a dynamic and reflective language, R provides very few guarantees about a program at runtime.
+It is thus hardly amenable to many common compiler optimizations.
+As a further matter, R performance bottlenecks seem to be inherent to its semantics\cite{morandat2012evaluating}.
+
+This thesis presents RJIT OSR, an on-stack replacement based prototype for runtime deoptimization in R.
+On-stack replacement consists in dynamically transferring execution between different programs, while propagating the execution state.
+RJIT OSR relies on on-stack replacement to preserve an R program's correctness while enabling aggressive, speculative and unsound compiler optimizations.
+RJIT OSR enables the compiler to target R performance bottlenecks, by locally breaking R semantics.\\ 
+
+\noindent
+\textbf{\textit{Keywords:}} \keywordnames.
 
 \end{abstract}
 
@@ -200,7 +221,6 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 
 The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
-
 \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
