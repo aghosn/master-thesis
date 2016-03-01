@@ -291,22 +291,20 @@
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{by}
 \newenvironment{abstract}{
 	\checktoopen
-	\tttypeout{\abstractname}
+	\tttypeout{\@title }
 	\null\vfil
 	\begin{center}
-	{\normalsize \MakeUppercase{\univname} \par} % University name in capitals
-	\bigskip
-	{\huge\textit{\abstractname} \par}
-	\bigskip
-	{\normalsize \facname \par} % Faculty name
-	{\normalsize \deptname \par} % Department name
-	\bigskip
-	{\normalsize \degreename\par} % Degree name
-	\bigskip
-	{\normalsize\bfseries \@title \par} % Thesis title
+	{\huge \@title \par} % Thesis title
 	\medskip
 	{\normalsize \byname{} \authorname \par} % Author name
 	\bigskip
+	{\normalisize Submitted to the School of Computer Science in partial fulfilment of the requirements\\ for the degree of Master in Computer Science\\ at the\par}
+	\medskip
+	{\normalsize \MakeUppercase{\univname} \par} % University name in capitals
+	\medskip
+	{March 11th 2016\par}
+	\bigskip
+	{\huge\textit{\abstractname} \par}
 	\end{center}
 }
 {

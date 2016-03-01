@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 MAR 2016 13:47
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 MAR 2016 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -519,22 +519,22 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 .................................................
 . LaTeX info: "xparse/define-environment"
 . 
-. Defining environment 'abbreviations' with sig. ' m ' on line 329.
+. Defining environment 'abbreviations' with sig. ' m ' on line 327.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-environment"
 . 
-. Defining environment 'constants' with sig. ' m ' on line 345.
+. Defining environment 'constants' with sig. ' m ' on line 343.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-environment"
 . 
-. Defining environment 'symbols' with sig. ' m ' on line 361.
+. Defining environment 'symbols' with sig. ' m ' on line 359.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-environment"
 . 
-. Defining environment 'acknowledgements' with sig. '' on line 378.
+. Defining environment 'acknowledgements' with sig. '' on line 376.
 .................................................
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -634,7 +634,7 @@ LaTeX Info: Redefining \pageref on input line 6369.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 383.
+(scrhack)             need that hack, on input line 381.
 
 
 Package hyperref Message: Driver (autodetected): hxetex.
@@ -666,11 +666,11 @@ tly
 )
 \Hy@SectionHShift=\skip68
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 394.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 394.
-Package hyperref Info: Option `colorlinks' set `true' on input line 394.
-Package hyperref Info: Option `unicode' set `true' on input line 394.
-Package hyperref Info: Option `breaklinks' set `true' on input line 394.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 392.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 392.
+Package hyperref Info: Option `colorlinks' set `true' on input line 392.
+Package hyperref Info: Option `unicode' set `true' on input line 392.
+Package hyperref Info: Option `breaklinks' set `true' on input line 392.
 \c@definition=\count159
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
@@ -1260,10 +1260,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
 ]
 --------------------
- Abstract
+ RJIT OSR: Efficient Runtime Deoptimization for R
 --------------------
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 188.
+./main.tex:188: Undefined control sequence.
+\abstract ...orname \par } \bigskip {\normalisize 
+                                                  Submitted to the School of...
+l.188 \begin{abstract}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 [5
 
 ] [6
@@ -1279,6 +1288,9 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 210.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 4.
+
 [9])
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -3331,10 +3343,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29959 strings out of 493706
- 530452 string characters out of 6145768
- 860932 words of memory out of 5000000
- 32866 multiletter control sequences out of 15000+600000
+ 29960 strings out of 493706
+ 530463 string characters out of 6145768
+ 861075 words of memory out of 5000000
+ 32867 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
