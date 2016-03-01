@@ -365,13 +365,20 @@ The call to the continuation function is considered as constant.
 The two other elements, however, can be made as expensive as we want, very easily.
 It is also important to note that for OSR Exits contained in loops, without compensation code, these costs appear at each iteration.\\
 
-Figure REF presents the code for our micro-benchmark. 
+Figure \ref{fig:microbenchmark} presents the code for our micro-benchmark. 
 We insert an OSR exit before each function call, with an OSR condition that retrieves the callee's closure from the environment and always triggers the exit.
 We execute the benchmark with and without compensation code to replace the invalidated function, and measure the entire execution time.
 All measures are performed once all compilations are done, and $g$ has been executed once.
 We observe a 40\% slow down in the code without compensation compared to the one with compensation.
 The micro-benchmark is a fairly simple and common piece of code.
 We can therefore be confident that the compensation code has the potential to improve performances in regular R programs.\\
+
+\begin{figure}[h]
+\includecode{Code/microbenchmark.r}
+\caption{The micro-benchmark.}
+\label{fig:microbenchmark}
+\end{figure}
+
 
 \subsection{OSR Handler getFreshIR vs. Parsing the AST}\label{section:getfreshtest}
 %Role of the OSR Handler getFreshIR 

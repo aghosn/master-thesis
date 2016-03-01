@@ -74,7 +74,7 @@
 \contentsline {section}{\numberline {5.2}Tests}{62}{section.488}
 \contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{62}{subsection.489}
 \contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{66}{subsection.491}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{66}{subsection.492}
-\contentsline {chapter}{\numberline {6}Conclusion}{71}{chapter.494}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{73}{appendix.495}
-\contentsline {chapter}{Bibliography}{75}{appendix*.496}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{67}{subsection.512}
+\contentsline {chapter}{\numberline {6}Conclusion}{71}{chapter.514}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{73}{appendix.515}
+\contentsline {chapter}{Bibliography}{75}{appendix*.516}

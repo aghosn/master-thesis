@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  29 FEB 2016 21:16
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  29 FEB 2016 21:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2779,57 +2779,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 441--444
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--454
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--456
 
  []
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 456--466
+Underfull \hbox (badness 10000) in paragraph at lines 458--468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--472
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--475
+Underfull \hbox (badness 10000) in paragraph at lines 473--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--480
+Underfull \hbox (badness 10000) in paragraph at lines 478--482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--489
+Underfull \hbox (badness 10000) in paragraph at lines 485--491
 
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 490--496
+Underfull \hbox (badness 10000) in paragraph at lines 492--498
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--506
+Underfull \hbox (badness 10000) in paragraph at lines 502--508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--514
+Underfull \hbox (badness 10000) in paragraph at lines 509--516
 
  []
 
 ) (./Chapters/Chapter5.tex
-Underfull \hbox (badness 10000) in paragraph at lines 515--2
+Underfull \hbox (badness 10000) in paragraph at lines 517--2
 
  []
 
@@ -3099,55 +3104,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--375
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 397--403
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 404--414
+(./Code/microbenchmark.r)
+Underfull \hbox (badness 10000) in paragraph at lines 404--410
 
  []
 
 [66
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 416--424
+Underfull \hbox (badness 10000) in paragraph at lines 411--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 425--432
+Underfull \hbox (badness 10000) in paragraph at lines 423--431
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--439
+
+ []
+
+[67]
 File: Figures/withoutJitAll2.pdf Graphic file (type QTm)
-<use  "Figures/withoutJitAll2.pdf" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 439--445
+ <use  "Figures/withoutJitAll2.pdf" >
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 446--452
 \T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
  ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--452
 
  []
 
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 449--2
+Underfull \hbox (badness 10000) in paragraph at lines 456--2
 
  []
 
-[68] [69] [70
+[69] [70
 
 ]
 Chapter 6.
@@ -3293,10 +3295,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29918 strings out of 493706
- 529719 string characters out of 6145768
- 860586 words of memory out of 5000000
- 32837 multiletter control sequences out of 15000+600000
+ 29938 strings out of 493706
+ 530016 string characters out of 6145768
+ 860642 words of memory out of 5000000
+ 32853 multiletter control sequences out of 15000+600000
  38791 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
