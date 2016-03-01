@@ -62,19 +62,20 @@
 \contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{51}{subsection.425}
 \contentsline {subsection}{\numberline {4.2.4}Improving the exits}{51}{subsection.450}
 \contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{53}{subsection.451}
-\contentsline {section}{\numberline {4.3}Future work}{53}{section.452}
+\contentsline {section}{\numberline {4.3}Other prototypes \& Future work}{53}{section.452}
 \contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{54}{subsection.453}
-\contentsline {subsection}{\numberline {4.3.2}On-the-fly compilation}{55}{subsection.454}
-\contentsline {subsection}{\numberline {4.3.3}A cleaner, more integrated way of getting a fresh IR}{55}{subsection.455}
-\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{57}{chapter.456}
-\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{57}{section.457}
-\contentsline {subsection}{\numberline {5.1.1}Justification}{57}{subsection.458}
-\contentsline {subsection}{\numberline {5.1.2}Challenges}{58}{subsection.459}
-\contentsline {subsection}{\numberline {5.1.3}Implementation}{59}{subsection.472}
-\contentsline {section}{\numberline {5.2}Tests}{62}{section.488}
-\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{62}{subsection.489}
-\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{66}{subsection.491}
-\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{67}{subsection.512}
-\contentsline {chapter}{\numberline {6}Conclusion}{71}{chapter.514}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{73}{appendix.515}
-\contentsline {chapter}{Bibliography}{75}{appendix*.516}
+\contentsline {subsection}{\numberline {4.3.2}Unguarded OSR points \& lazy deoptimization}{55}{subsection.454}
+\contentsline {subsection}{\numberline {4.3.3}On-the-fly compilation}{56}{subsection.470}
+\contentsline {subsection}{\numberline {4.3.4}A cleaner, more integrated way of getting a fresh IR}{56}{subsection.471}
+\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{59}{chapter.472}
+\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{59}{section.473}
+\contentsline {subsection}{\numberline {5.1.1}Justification}{59}{subsection.474}
+\contentsline {subsection}{\numberline {5.1.2}Challenges}{60}{subsection.475}
+\contentsline {subsection}{\numberline {5.1.3}Implementation}{61}{subsection.488}
+\contentsline {section}{\numberline {5.2}Tests}{64}{section.504}
+\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{64}{subsection.505}
+\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{68}{subsection.507}
+\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{69}{subsection.528}
+\contentsline {chapter}{\numberline {6}Conclusion}{73}{chapter.530}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{75}{appendix.531}
+\contentsline {chapter}{Bibliography}{77}{appendix*.532}

@@ -437,12 +437,10 @@ It then calls the \textit{resetSafepoints} on the working copy to fix the IR, an
 The working copy contains all the OSR exits needed for correctness, and all the continuation functions, and their corresponding \textit{toInstrument} versions are generated and part of the current module.\\
 
 
-\section{Future work}
+\section{Other prototypes \& Future work}
 This Section describes solutions, design ideas, that were partially implemented but not fully explored during this master thesis.
 RJIT being a young project, it lacks some supporting tools, e.g., a profiler or a code analyser, that could uncover new possibilities for the OSR implementation.
 In the future, the development of the RJIT framework should enable to provide new incentives to implement more complex OSR-based speculative optimizations, or extend the OSR mechanisms.\\
-
-ADD ABOUT UNGUARDED OSR AND GIVE EXAMPLE\\
 
 \subsection{Transitive StateMaps}
 %Trying to improve the field of possibilities
@@ -479,6 +477,52 @@ If we further extend the framework to automatically update the StateMap while mo
 This solution would be similar to the VARMAP in the Jikes RVM OSR implementation\cite{soman2006efficient}.
 According to discussion we had with the OSR Kit designers, \citean{OSRKit} are working on a similar idea on the OSR Kit build compensation branch\cite{OSRKitGit}.
 The idea is to provide basic LLVM transformation functions, e.g, addInstruction, removeInstruction etc., that automatically update the StateMap.\\
+
+\subsection{Unguarded OSR points \& lazy deoptimization}
+
+The OSR Kit\cite{OSRKit} library only provides guarded OSR points.
+As explained in Section \ref{section:osrpoints}, unguarded OSR points correspond to portion of the code that can be overwritten, at runtime, based on external events detected by the runtime framework.
+In certain cases, unguarded OSR points enable to decrease the overhead introduced by the OSR mechanisms. 
+For example, consider the unoptimized function in Figure \ref{fig:lazydeoptnorm}. 
+In $f$, the variable $x$ is deemed constant. 
+The compiler would therefore like to speculatively replace the return instruction by the value of $x$, hence avoiding the cost of an environment lookup (Figure \ref{fig:lazydeoptopt}).
+A guarded OSR exit does not allow any performance gain in that case.
+In fact, the guard, i.e. the OSR condition, must check that $x$ is equal to $3$, and hence cancels any benefit obtained from the constant propagation optimization.
+With an unguarded OSR point, however, the execution environment (here GNUR), is instrumented to detect reassignments to $x$.
+Assuming there are more reads then writes, and that the value for $x$ is rarely modified, we can expect the unguarded point to have better performances than a guarded one.\\
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/lazyDeoptNorm.r}
+        \caption{Unoptimized function.}
+        \label{fig:lazydeoptnorm}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includecode{Code/lazyDeoptOpt.r}
+        \caption{Optimized Function.}
+        \label{fig:lazydeoptopt}   
+    \end{subfigure}
+    \caption{Use case for unguarded OSR points.}
+    \label{fig:unguardedosrpointexample}
+\end{figure}
+
+In RJIT OSR, we were able to construct a prototype for unguarded OSR Exits and lazy deoptimization.
+The base assumption is that any function call might invalidate a speculative optimization.
+Each call instruction is therefore instrumented with a patchpoint\ref{llvmPatchpoints} that enables to insert, at runtime, a call to the continuation function, whenever a speculative optimization is invalidated.
+We were able to re-use parts of the OSR Kit library to generate the continuation function and the OSR Exit call itself.
+Consider the example in Figure REF.
+The function $g$, re-assigns the $x$ to a new value.
+GNUR is instrumented to detect re-assignments to symbols used during a speculative optimization.
+It therefore detects that $x$ was re-assigned, and patches the reserved bytes following the call to $g$ with a call to the OSR exit.
+When $g$ returns to the invalidated $f$, the call to the continuation function is executed, hence triggering a lazy deoptimization of $f$.\\
+
+This prototype was not inserted in the final version of the OSR Handler.
+Unguarded OSR points require to instrument the runtime environment, i.e., GNUR, to collect feedback on the current execution and detect assumptions failures.
+The types of checks performed inserted in GNUR depend on the optimizations performed.
+As explained previously, for the moment, RJIT does not perform any optimization. 
+We therefore decided to avoid instrumenting GNUR before knowing which kinds of events need to be monitored.\\
 
 \subsection{On-the-fly compilation}
 

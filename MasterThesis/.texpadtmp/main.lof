@@ -38,9 +38,10 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.394}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.426}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.430}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Use case for unguarded OSR points.\relax }}{55}{figure.caption.455}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{59}{figure.caption.460}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{66}{figure.caption.492}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{68}{figure.caption.513}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{61}{figure.caption.476}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{68}{figure.caption.508}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{70}{figure.caption.529}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

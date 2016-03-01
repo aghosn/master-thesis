@@ -2,7 +2,7 @@
 
 \chapter{Conclusion} % Main chapter title
 
-\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter2} 
+\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter6} 
 
 %----------------------------------------------------------------------------------------
 
@@ -14,3 +14,40 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
+
+%We presented RJIT OSR, a prototype for on-stack-replacement deoptimization in RJIT.
+%Showed how the basic OSR Kit library could be extended to better fit RJIT needs.
+%Proved that re-using LLVM IR increases performance. 
+%Overview of possible OSR techniques and prototyped extensions 
+%Uncovered and prototyped possible extensions that RJIT might benefit from.
+%Implemented a proof-of-concept inliner, breaking R semantics while preserving overall correctness of the program.
+  
+
+%Future work: better integration inside RJIT itself
+    %Fresh IRs as part of the SEXP
+    %Feedback on the code and recompilation with optimizations
+    %Breaking R performance bottlenecks. 
+We presented RJIT OSR, a prototype for runtime deoptimization in RJIT, based on the OSR Kit library\cite{OSRKit}.
+We adapted the library to better fit the deoptimization case, and answered challenges particular to the RJIT project.
+Re-using LLVM IR accros different different compilation modules proved to be three times more efficient than re-doing the AST to LLVM IR translation.
+Replacing an invalidated function by a correct closure, as part of the exit mechanism, mitigates the overhead introduced by the OSR instrumentation in the presence of assumption failures.\\
+
+This report presents an overview of different OSR implementations, and common OSR mechanisms.
+In RJIT OSR, we implemented several prototypes to experiment with different techniques present in the literature.
+We believe that RJIT could greatly benefit from unguarded OSR points and lazy deoptimizations, once a good interaction with GNUR runtime environment is devised.
+We also think that providing transformation primitives that automatically update the values mapping between a base function, and an optimized one, is of great interest.\\
+
+The implementation of a speculative inliner, relying on on-stack-replacement deoptimizations for correctness, enabled to validate our RJIT OSR prototype. 
+Function call inlining is not semantically correct in R.
+However, thanks to RJIT OSR, we were able to aggressively inline calls throughout the Shootout benchmarks\cite{Shootout}.
+One of RJIT's goal is to aggressively and speculatively optimize away costly behaviors inherent to R semantics.
+On the other hand, our experience with inlining showed that implementing R-level transformations at the LLVM IR is challenging.
+Devising an intermediary representation, closer to R semantics, between GNUR ASTs, and the LLVM IR, that facilitates optimizations, and encoding OSR Exits at that level might be an interesting idea.
+LLVM would then only be part of the final compilation steps.\\
+
+We presented interesting future work.
+RJIT will soon be able to gather profiling informations about the program at runtime. 
+Once these information will become available, RJIT will need to enable runtime re-compilation and optimization of code.
+As a result, a better integration of OSR Handler's mechanisms, such as the fresh non-instrumented LLVM IR for each compiled function, might be needed. 
+We mentioned attaching non-instrumented IR directly to SEXPs.
+Other on-stack replacement mechanisms, such as unguarded points and open OSR points, will also become more attractive.\\
