@@ -194,6 +194,8 @@ CODE EXAMPLE OF INLINING, TOINSTRUMENT AND CONT.\\
 
 \section{Tests}
 \subsection{GNUR RJIT vs. Inlining on Shootout benchmarks}
+INLINING = ENABLE OTHER OPT\\
+
 %summary with stats.
 %Execution times average per file
 %Making it fail did not really changed performances, actually get closer to regular compile if disable.
@@ -276,7 +278,7 @@ Once again, the benchmarks that are made of one long function seem to be faster 
 But, we also notice that other benchmarks, such as \textit{binarytrees-naive.r}, the \textit{fasta}'s, and \textit{nbody}'s, seems to perform better in the all inline mode.
 Unfortunately, this is not enough to affirm that the slow down observed in the previous experiment is entirely due to the overhead introduced by the OSR Inliner's transformations.
 As a result, we conclude that OSR Inliner's transformations cannot account for the entire slow down.
-Other factors, related to inlining (e.g., register pressure), are also responsible for the slow down.
+Other factors, related to inlining (e.g., register pressure), are also responsible for the slow down.MEASURING CACHE MISSES, SEE MORE OF THEM IN INLINE, BUT NOT ENOUGH TO BUILD A MODEL.
 \\
 
 The similarities in terms of execution time, between the two modes, might be explained by the way the OSR Inliner inlines calls.
@@ -351,13 +353,25 @@ spectralnorm.r & 11 & 1 & 85 & 1 & 72\\ \hline
 %Need to see if this really improves performances. 
 %Should be ...
 The OSR Handler enables to add compensation code at the beginning of continuation functions, and replace the invalidated version with a correct one.
-This mechanism allows to avoid triggering the OSR exit every time the function is executed.
-The cost of an OSR exit corresponds to the cost of the OSR condition, and the function call to the continuation function.\\
+This mechanism allows to avoid triggering the OSR exit every time the function is executed.\\
 
-In simple examples, this cost can be neglected.
+In simple examples, the OSR Exti cost can be neglected.
 For example, if the OSR condition corresponds to a single, not expensive, comparison, its cost is very small.
-On the other hand, if the condition needs to perform an expensive operation, such as a lookup in the environment, or if the OSR Exit is located inside a hot loop, executing an invalidated code might increase the program's execution time.
-As a result, we construct a micro-benchmark to illustrate the possible gain of performance that the compensation code allows.\\ 
+On the other hand, if the condition needs to perform an expensive operation, such as a lookup in the environment, or if the OSR Exit is located inside a hot loop, executing an invalidated code might increase the program's execution time.\\
+
+We construct a proof-of-concept micro-benchmark to illustrate the gain of performance allowed by the compensation code. 
+There are three elements that influence the execution time: 1) The OSR condition, 2) the function call to the continuation function, 3) the execution of ic stubs inside the continuation function.
+The call to the continuation function is considered as constant.
+The two other elements, however, can be made as expensive as we want, very easily.
+It is also important to note that for OSR Exits contained in loops, without compensation code, these costs appear at each iteration.\\
+
+Figure REF presents the code for our micro-benchmark. 
+We insert an OSR exit before each function call, with an OSR condition that retrieves the callee's closure from the environment and always triggers the exit.
+We execute the benchmark with and without compensation code to replace the invalidated function, and measure the entire execution time.
+All measures are performed once all compilations are done, and $g$ has been executed once.
+We observe a 40\% slow down in the code without compensation compared to the one with compensation.
+The micro-benchmark is a fairly simple and common piece of code.
+We can therefore be confident that the compensation code has the potential to improve performances in regular R programs.\\
 
 \subsection{OSR Handler getFreshIR vs. Parsing the AST}\label{section:getfreshtest}
 %Role of the OSR Handler getFreshIR 
@@ -391,7 +405,12 @@ Registering an entry in the base version map increases the cost of a function's 
 A first experiment therefore consists in comparing the cost of this first compilation via the OSR Handler, and via the regular RJIT mechanism. 
 Unsurprisingly, the OSR Handler exhibits poorer performances. 
 The reason is that it has to generate the LLVM IR corresponding to the function's AST, as well as cloning the obtained IR and registering the clone in the base version map, hence introducing an overhead of VALUE compared to the RJIT compilation.
-CONTINUE\\
+We evaluate this overhead by breaking down a function's compilation into three steps: 1) the translation (i.e., from GNUR AST to LLVM IR), 2) registration (i.e, adding an entry in the base version map), 3) the jitAll (i.e., inserting safepoints and generating the native code).
+We measure these values over a 1000 compilations of every function implemented in the Shootout Benchmarks.
+In average, the cost of registering a function's entry in the base version map is equal to 0.21 times the cost of the translation, with a standard deviation of 0.07.
+If we further compare this result to the overall cost of a complete compilation, i.e., the cost of the translation and jitAll, we obtain a ratio of 0.004, with a standard deviation of 0.002. 
+From these numbers, we deduce that the cost of registering the entry is negligible compared to native code generation's cost.   
+As a result, we conclude that the overhead introduced by the OSR Handler to populate the base version map is insignificant compared to the overall execution, and acceptable compared to the translation's cost.\\
 
 
 The OSR Handler is supposed to improve the RJIT's performances in the presence of optimizations re-compilations.
