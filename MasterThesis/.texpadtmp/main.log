@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 MAR 2016 20:50
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  2 MAR 2016 09:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -668,7 +668,7 @@ tly
 )
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 392.
 Package hyperref Info: Option `hypertexnames' set `false' on input line 392.
-Package hyperref Info: Option `colorlinks' set `true' on input line 392.
+Package hyperref Info: Option `colorlinks' set `false' on input line 392.
 Package hyperref Info: Option `unicode' set `true' on input line 392.
 Package hyperref Info: Option `breaklinks' set `true' on input line 392.
 \c@definition=\count159
@@ -1194,7 +1194,7 @@ Package scrbase Info: activating english \symbolsname on input line 113.
 Package scrbase Info: activating english \acknowledgementname on input line 113
 .
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring ON on input line 113.
+Package hyperref Info: Link coloring OFF on input line 113.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1791,7 +1791,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
 Overfull \hbox (3.74652pt too wide) in paragraph at lines 40--41
 []\T1/ppl/m/n/10.95 In ^^P  De-bug-ging op-ti-mized code with dy-namic de-op-ti
--miza-tion^^Q[[][]16[][]], the au-thors came
+-miza-tion^^Q[[]16[]], the au-thors came
  []
 
 
@@ -3317,14 +3317,13 @@ tal -[] patchpoint -[]
 Overfull \hbox (5.35594pt too wide) in paragraph at lines 286--286
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
-5 : [][]$\T1/pcr/m/n/10.95 www . jikesrvm .
+5 : []$\T1/pcr/m/n/10.95 www . jikesrvm .
  []
 
 
 Overfull \hbox (12.4672pt too wide) in paragraph at lines 286--286
 \T1/ppl/m/it/10.95 minutes his-tory. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : 
-[][]$\T1/pcr/m/n/10.95 http : / / www . slideshare . net / RevolutionAnalytics 
-/
+[]$\T1/pcr/m/n/10.95 http : / / www . slideshare . net / RevolutionAnalytics /
  []
 
 
@@ -3341,9 +3340,9 @@ r The Bio-con-duc-tor open source soft-ware for bioin-
 
 
 Overfull \hbox (24.38016pt too wide) in paragraph at lines 286--286
-\T1/ppl/m/it/10.95 for-mat-ics. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : [][]$
-\T1/pcr/m/n/10.95 http : / / www . bioconductor . org / about/$[][] \T1/ppl/m/n
-/10.95 (vis-ited on 02/01/2016). 
+\T1/ppl/m/it/10.95 for-mat-ics. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : []$\T
+1/pcr/m/n/10.95 http : / / www . bioconductor . org / about/$[] \T1/ppl/m/n/10.
+95 (vis-ited on 02/01/2016). 
  []
 
 [78]
@@ -3362,10 +3361,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29962 strings out of 493706
- 530503 string characters out of 6145768
- 958475 words of memory out of 5000000
- 32869 multiletter control sequences out of 15000+600000
+ 29958 strings out of 493706
+ 530436 string characters out of 6145768
+ 958444 words of memory out of 5000000
+ 32865 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
