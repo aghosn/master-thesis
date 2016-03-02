@@ -301,14 +301,19 @@
 \newlabel{fig:insertresolvedosr}{{3.15}{36}{The insertResolvedOSR prototype.\relax }{figure.caption.259}{}}
 \@writefile{lol}{\contentsline {lstlisting}{Code/original.llvm}{36}{lstlisting.281}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{36}{figure.caption.280}}
+\newlabel{fig:simplifiedoriginalir}{{3.16}{36}{Simplified original LLVM IR.\relax }{figure.caption.280}{}}
 \citation{OSRKit}
 \citation{OSRKit}
 \citation{fink2003design}
 \@writefile{lol}{\contentsline {lstlisting}{Code/fromInstrumented.llvm}{37}{lstlisting.294}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces Simplified instrumented LLVM IR.\relax }}{37}{figure.caption.293}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}A classification summary}{37}{section.312}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of different OSR implementations features.\relax }}{38}{table.caption.313}}
-\newlabel{tab:Summary}{{3.1}{38}{Summary of different OSR implementations features.\relax }{table.caption.313}{}}
+\newlabel{fig:simplifiedinstrumentedir}{{3.17}{37}{Simplified instrumented LLVM IR.\relax }{figure.caption.293}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/contInstrumented.c}{37}{lstlisting.313}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{37}{figure.caption.312}}
+\newlabel{fig:simplifiedcontinuationir}{{3.18}{37}{Simplified continuation function LLVM IR.\relax }{figure.caption.312}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}A classification summary}{38}{section.331}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of different OSR implementations features.\relax }}{39}{table.caption.332}}
+\newlabel{tab:Summary}{{3.1}{39}{Summary of different OSR implementations features.\relax }{table.caption.332}{}}
 \citation{RURL}
 \citation{morandat2012evaluating}
 \citation{morandat2012evaluating}
@@ -319,127 +324,127 @@
 \citation{morandat2012evaluating}
 \citation{morandat2012evaluating}
 \citation{Rjit}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}OSR in RJIT}{39}{chapter.314}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}RJIT OSR}{41}{chapter.333}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter4New}{{4}{39}{OSR in RJIT}{chapter.314}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview}{39}{section.315}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{39}{subsection.316}}
-\newlabel{justificationgoals}{{4.1.1}{39}{Justification \& Goals}{subsection.316}{}}
+\newlabel{Chapter4New}{{4}{41}{RJIT OSR}{chapter.333}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview}{41}{section.334}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{41}{subsection.335}}
+\newlabel{justificationgoals}{{4.1.1}{41}{Justification \& Goals}{subsection.335}{}}
 \citation{OSRKit}
 \citation{OSRKitGit}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{40}{subsection.317}}
-\newlabel{osrkitlimitations}{{4.1.2}{40}{OSR Kit limitations}{subsection.317}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{41}{subsection.318}}
-\@writefile{toc}{\contentsline {subsubsection}{General}{41}{section*.319}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}OSR Kit limitations}{42}{subsection.336}}
+\newlabel{osrkitlimitations}{{4.1.2}{42}{OSR Kit limitations}{subsection.336}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}The RJIT compiler}{43}{subsection.337}}
+\@writefile{toc}{\contentsline {subsubsection}{General}{43}{section*.338}}
 \citation{llvmStackMap}
 \citation{llvmPatchpoints}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{42}{figure.caption.320}}
-\@writefile{toc}{\contentsline {subsubsection}{The RJIT compilation}{42}{section*.321}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/RAndLLVM.cpp}{42}{lstlisting.322}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{44}{figure.caption.339}}
+\@writefile{toc}{\contentsline {subsubsection}{The RJIT compilation}{44}{section*.340}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/RAndLLVM.cpp}{44}{lstlisting.341}}
 \citation{llvmAttribute}
 \citation{llvmPatchpoints}
-\newlabel{jitAll}{{3}{43}{The RJIT compilation}{Item.345}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/Rfunction.c}{43}{lstlisting.348}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces R simple function.\relax }}{43}{figure.caption.347}}
-\newlabel{fig:RSimpleFunction}{{4.2}{43}{R simple function.\relax }{figure.caption.347}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/UninstrumentedIR.c}{44}{lstlisting.351}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.350}}
-\newlabel{fig:noninstrumentedir}{{4.3}{44}{Non-instrumented RJIT LLVM IR.\relax }{figure.caption.350}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/InstrumentedIR.c}{45}{lstlisting.360}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{45}{figure.caption.359}}
-\newlabel{fig:instrumentedir}{{4.4}{45}{Instrumented RJIT LLVM IR.\relax }{figure.caption.359}{}}
+\newlabel{jitAll}{{3}{45}{The RJIT compilation}{Item.364}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/Rfunction.c}{45}{lstlisting.367}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces R simple function.\relax }}{45}{figure.caption.366}}
+\newlabel{fig:RSimpleFunction}{{4.2}{45}{R simple function.\relax }{figure.caption.366}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/UninstrumentedIR.c}{46}{lstlisting.370}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{46}{figure.caption.369}}
+\newlabel{fig:noninstrumentedir}{{4.3}{46}{Non-instrumented RJIT LLVM IR.\relax }{figure.caption.369}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/InstrumentedIR.c}{47}{lstlisting.379}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{47}{figure.caption.378}}
+\newlabel{fig:instrumentedir}{{4.4}{47}{Instrumented RJIT LLVM IR.\relax }{figure.caption.378}{}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsubsection}{The function's SEXP}{46}{section*.371}}
-\@writefile{toc}{\contentsline {subsubsection}{The closure's SEXP}{46}{section*.372}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}OSR Handler}{46}{section.373}}
+\@writefile{toc}{\contentsline {subsubsection}{The function's SEXP}{48}{section*.390}}
+\@writefile{toc}{\contentsline {subsubsection}{The closure's SEXP}{48}{section*.391}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}OSR Handler}{48}{section.392}}
 \citation{OSRKit}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{47}{subsection.374}}
-\newlabel{additionalchallenges}{{4.2.1}{47}{Additional challenges in RJIT}{subsection.374}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{48}{subsection.375}}
-\newlabel{section:reducecompilations}{{4.2.2}{48}{Reducing the number of compilation}{subsection.375}{}}
-\newlabel{toCompile}{{1}{48}{Reducing the number of compilation}{Item.376}{}}
-\newlabel{best}{{2}{48}{Reducing the number of compilation}{Item.377}{}}
-\newlabel{worst}{{3}{48}{Reducing the number of compilation}{Item.378}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/getFreshIR.h}{48}{lstlisting.380}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{48}{figure.caption.379}}
-\newlabel{fig:getfreshir}{{4.5}{48}{The getFreshIR prototype.\relax }{figure.caption.379}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/baseVersion.h}{49}{lstlisting.393}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{49}{figure.caption.392}}
-\newlabel{fig:baseversionmap}{{4.6}{49}{The base version map.\relax }{figure.caption.392}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Additional challenges in RJIT}{49}{subsection.393}}
+\newlabel{additionalchallenges}{{4.2.1}{49}{Additional challenges in RJIT}{subsection.393}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Reducing the number of compilation}{50}{subsection.394}}
+\newlabel{section:reducecompilations}{{4.2.2}{50}{Reducing the number of compilation}{subsection.394}{}}
+\newlabel{toCompile}{{1}{50}{Reducing the number of compilation}{Item.395}{}}
+\newlabel{best}{{2}{50}{Reducing the number of compilation}{Item.396}{}}
+\newlabel{worst}{{3}{50}{Reducing the number of compilation}{Item.397}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/getFreshIR.h}{50}{lstlisting.399}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{50}{figure.caption.398}}
+\newlabel{fig:getfreshir}{{4.5}{50}{The getFreshIR prototype.\relax }{figure.caption.398}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/baseVersion.h}{51}{lstlisting.412}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{51}{figure.caption.411}}
+\newlabel{fig:baseversionmap}{{4.6}{51}{The base version map.\relax }{figure.caption.411}{}}
 \citation{OSRKit}
-\@writefile{lol}{\contentsline {lstlisting}{Code/utilities.h}{50}{lstlisting.397}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.396}}
-\newlabel{fig:utilityfunctions}{{4.7}{50}{Utility functions.\relax }{figure.caption.396}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/utilities.h}{52}{lstlisting.416}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{52}{figure.caption.415}}
+\newlabel{fig:utilityfunctions}{{4.7}{52}{Utility functions.\relax }{figure.caption.415}{}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{51}{subsection.427}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/statemaps.h}{51}{lstlisting.429}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.428}}
-\newlabel{fig:statemaps}{{4.8}{51}{The statemaps.\relax }{figure.caption.428}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{51}{subsection.452}}
-\newlabel{improvingexits}{{4.2.4}{51}{Improving the exits}{subsection.452}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/insertOSRExit.h}{52}{lstlisting.433}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.432}}
-\newlabel{fig:insertoserexit}{{4.9}{52}{The insertOSRExit prototype.\relax }{figure.caption.432}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Simplifying the OSR exit insertion}{53}{subsection.446}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/statemaps.h}{53}{lstlisting.448}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{53}{figure.caption.447}}
+\newlabel{fig:statemaps}{{4.8}{53}{The statemaps.\relax }{figure.caption.447}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Improving the exits}{53}{subsection.471}}
+\newlabel{improvingexits}{{4.2.4}{53}{Improving the exits}{subsection.471}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/insertOSRExit.h}{54}{lstlisting.452}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{54}{figure.caption.451}}
+\newlabel{fig:insertoserexit}{{4.9}{54}{The insertOSRExit prototype.\relax }{figure.caption.451}{}}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{53}{subsection.453}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Other prototypes \& Future work}{53}{section.454}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Walkthrough a simple example}{55}{subsection.472}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Other prototypes \& Future work}{55}{section.473}}
 \citation{soman2006efficient}
 \citation{OSRKit}
 \citation{OSRKit}
 \citation{OSRKitGit}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{54}{subsection.455}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Unguarded OSR points \& lazy deoptimization}{55}{subsection.456}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/lazyDeoptNorm.r}{55}{lstlisting.458}}
-\newlabel{fig:lazydeoptnorm}{{4.10a}{55}{Unoptimized function.\relax }{figure.caption.457}{}}
-\newlabel{sub@fig:lazydeoptnorm}{{a}{55}{Unoptimized function.\relax }{figure.caption.457}{}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/lazyDeoptOpt.r}{55}{lstlisting.465}}
-\newlabel{fig:lazydeoptopt}{{4.10b}{55}{Optimized Function.\relax }{figure.caption.457}{}}
-\newlabel{sub@fig:lazydeoptopt}{{b}{55}{Optimized Function.\relax }{figure.caption.457}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Use case for unguarded OSR points.\relax }}{55}{figure.caption.457}}
-\newlabel{fig:unguardedosrpointexample}{{4.10}{55}{Use case for unguarded OSR points.\relax }{figure.caption.457}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}On-the-fly compilation}{56}{subsection.472}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}A cleaner, more integrated way of getting a fresh IR}{56}{subsection.473}}
-\newlabel{section:cleanerIR}{{4.3.4}{56}{A cleaner, more integrated way of getting a fresh IR}{subsection.473}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{59}{chapter.474}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Transitive StateMaps}{56}{subsection.474}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Unguarded OSR points \& lazy deoptimization}{57}{subsection.475}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/lazyDeoptNorm.r}{57}{lstlisting.477}}
+\newlabel{fig:lazydeoptnorm}{{4.10a}{57}{Unoptimized function.\relax }{figure.caption.476}{}}
+\newlabel{sub@fig:lazydeoptnorm}{{a}{57}{Unoptimized function.\relax }{figure.caption.476}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/lazyDeoptOpt.r}{57}{lstlisting.484}}
+\newlabel{fig:lazydeoptopt}{{4.10b}{57}{Optimized Function.\relax }{figure.caption.476}{}}
+\newlabel{sub@fig:lazydeoptopt}{{b}{57}{Optimized Function.\relax }{figure.caption.476}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Use case for unguarded OSR points.\relax }}{57}{figure.caption.476}}
+\newlabel{fig:unguardedosrpointexample}{{4.10}{57}{Use case for unguarded OSR points.\relax }{figure.caption.476}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}On-the-fly compilation}{58}{subsection.491}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}A cleaner, more integrated way of getting a fresh IR}{58}{subsection.492}}
+\newlabel{section:cleanerIR}{{4.3.4}{58}{A cleaner, more integrated way of getting a fresh IR}{subsection.492}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Case Study: An R Inliner}{61}{chapter.493}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{59}{Case Study: An R Inliner}{chapter.474}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{59}{section.475}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Justification}{59}{subsection.476}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Challenges}{60}{subsection.477}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/functionCall.c}{61}{lstlisting.479}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{61}{figure.caption.478}}
-\newlabel{fig:functioncall}{{5.1}{61}{Example of RJIT LLVM IR for a function call.\relax }{figure.caption.478}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Implementation}{61}{subsection.490}}
-\newlabel{step:newrho}{{3b}{62}{Implementation}{Item.495}{}}
-\newlabel{step:phinode}{{3e}{63}{Implementation}{Item.498}{}}
-\newlabel{step:updatemap}{{3g}{63}{Implementation}{Item.500}{}}
+\newlabel{Chapter5}{{5}{61}{Case Study: An R Inliner}{chapter.493}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}A speculative inliner for RJIT}{61}{section.494}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Justification}{61}{subsection.495}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Challenges}{62}{subsection.496}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/functionCall.c}{63}{lstlisting.498}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{63}{figure.caption.497}}
+\newlabel{fig:functioncall}{{5.1}{63}{Example of RJIT LLVM IR for a function call.\relax }{figure.caption.497}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Implementation}{63}{subsection.509}}
+\newlabel{step:newrho}{{3b}{64}{Implementation}{Item.514}{}}
+\newlabel{step:phinode}{{3e}{65}{Implementation}{Item.517}{}}
+\newlabel{step:updatemap}{{3g}{65}{Implementation}{Item.519}{}}
 \citation{Shootout}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Tests}{64}{section.506}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{64}{subsection.507}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Statistics on OSR Inliner's execution on the Shootout benchmarks.\relax }}{67}{table.caption.508}}
-\newlabel{tab:statsinliner}{{5.1}{67}{Statistics on OSR Inliner's execution on the Shootout benchmarks.\relax }{table.caption.508}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Tests}{66}{section.525}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}GNUR RJIT vs. Inlining on Shootout benchmarks}{66}{subsection.526}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Statistics on OSR Inliner's execution on the Shootout benchmarks.\relax }}{69}{table.caption.527}}
+\newlabel{tab:statsinliner}{{5.1}{69}{Statistics on OSR Inliner's execution on the Shootout benchmarks.\relax }{table.caption.527}{}}
 \citation{Shootout}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{68}{subsection.509}}
-\@writefile{lol}{\contentsline {lstlisting}{Code/microbenchmark.r}{68}{lstlisting.511}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{68}{figure.caption.510}}
-\newlabel{fig:microbenchmark}{{5.2}{68}{The micro-benchmark.\relax }{figure.caption.510}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{69}{subsection.530}}
-\newlabel{section:getfreshtest}{{5.2.3}{69}{OSR Handler getFreshIR vs. Parsing the AST}{subsection.530}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{70}{figure.caption.531}}
-\newlabel{fig:withoutJitAll}{{5.3}{70}{OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }{figure.caption.531}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}OSR Exit vs. Replacing the closure}{70}{subsection.528}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/microbenchmark.r}{70}{lstlisting.530}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{70}{figure.caption.529}}
+\newlabel{fig:microbenchmark}{{5.2}{70}{The micro-benchmark.\relax }{figure.caption.529}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}OSR Handler getFreshIR vs. Parsing the AST}{71}{subsection.549}}
+\newlabel{section:getfreshtest}{{5.2.3}{71}{OSR Handler getFreshIR vs. Parsing the AST}{subsection.549}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{72}{figure.caption.550}}
+\newlabel{fig:withoutJitAll}{{5.3}{72}{OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }{figure.caption.550}{}}
 \citation{OSRKit}
 \citation{Shootout}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{73}{chapter.532}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{75}{chapter.551}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{73}{Conclusion}{chapter.532}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{75}{appendix.533}}
+\newlabel{Chapter6}{{6}{75}{Conclusion}{chapter.551}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix Title Here}{77}{appendix.552}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{AppendixA}{{A}{75}{Appendix Title Here}{appendix.533}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{77}{appendix*.534}}
+\newlabel{AppendixA}{{A}{77}{Appendix Title Here}{appendix.552}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{79}{appendix*.553}}

@@ -28,20 +28,21 @@
 \contentsline {figure}{\numberline {3.15}{\ignorespaces The insertResolvedOSR prototype.\relax }}{36}{figure.caption.259}
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{36}{figure.caption.280}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Simplified instrumented LLVM IR.\relax }}{37}{figure.caption.293}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{37}{figure.caption.312}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{42}{figure.caption.320}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces R simple function.\relax }}{43}{figure.caption.347}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.350}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{45}{figure.caption.359}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{48}{figure.caption.379}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{49}{figure.caption.392}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.396}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.428}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.432}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Use case for unguarded OSR points.\relax }}{55}{figure.caption.457}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{44}{figure.caption.339}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces R simple function.\relax }}{45}{figure.caption.366}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{46}{figure.caption.369}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{47}{figure.caption.378}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The getFreshIR prototype.\relax }}{50}{figure.caption.398}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The base version map.\relax }}{51}{figure.caption.411}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Utility functions.\relax }}{52}{figure.caption.415}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The statemaps.\relax }}{53}{figure.caption.447}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The insertOSRExit prototype.\relax }}{54}{figure.caption.451}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Use case for unguarded OSR points.\relax }}{57}{figure.caption.476}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{61}{figure.caption.478}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{68}{figure.caption.510}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{70}{figure.caption.531}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{63}{figure.caption.497}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{70}{figure.caption.529}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{72}{figure.caption.550}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

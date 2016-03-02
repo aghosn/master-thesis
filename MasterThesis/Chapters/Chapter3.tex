@@ -523,11 +523,11 @@ The last instruction is automatically used by the framework as condition for an 
 If the condition succeeds, the OSR transition is fired.
 Otherwise, the execution continues in the function.\\
 
-Figures REF and REF provide an example of OSR instrumentation.
-In Figure REF, we have the R declaration of two functions, $f$ and $g$, and the simplified LLVM IR generated for $g$ in RJIT.
-Figure REF presents the instrumented version of $g$, in which a resolved OSR point has been inserted.
+Figures \ref{fig:simplifiedoriginalir} and \ref{fig:simplifiedinstrumentedir} provide an example of OSR instrumentation.
+In Figure \ref{fig:simplifiedoriginalir}, we have the R declaration of two functions, $f$ and $g$, and the simplified LLVM IR generated for $g$ in RJIT.
+Figure \ref{fig:simplifiedinstrumentedir} presents the instrumented version of $g$, in which a resolved OSR point has been inserted.
 Lines 5 and 6 correspond to the OSR condition.
-In this example, the OSR is fired if line 1 does not yield the same function for $f$ as the one that was used by the RJIT compiler when it generated the instrumented function.
+In this example, the OSR is fired if line 1 does not yield the same function for $f$ as the one that was used by the compiler when it generated the instrumented function.
 If the OSR is fired, the execution jumps to the \textit{OSR\char`_fire} basic block and calls the continuation function, namely \textit{OSRCont}.
 The OSR point \textit{OSR\char`_fire} calls the continuation and propagates its return value line 15.
 The \textit{OSR\char`_split} block corresponds to the regular continuation of the function $f$ when the OSR is not fired.\\
@@ -535,11 +535,13 @@ The \textit{OSR\char`_split} block corresponds to the regular continuation of th
 \begin{figure}[h]
 \includecode[asm]{Code/original.llvm}
 \caption{Simplified original LLVM IR.}
+\label{fig:simplifiedoriginalir}
 \end{figure}
 
 \begin{figure}[h]
 \includecode[asm]{Code/fromInstrumented.llvm}
 \caption{Simplified instrumented LLVM IR.}
+\label{fig:simplifiedinstrumentedir}
 \end{figure}
 
 \subsubsection{The continuation function \& StateMap}
@@ -553,22 +555,26 @@ The StateMap also provides an API to register and unregister mappings by directl
 Both deoptimization and optimization rely on the same kind of continuation functions, and on the same instrumentation tools.
 A continuation function, in OSR Kit, has a special function signature that takes as inputs all the variables that were live at the instruction at which the OSR transition was fired.
 Its return type is the same as the from and the base (unmodified and non-instrumented) functions.
-The OSR Kit instrumentation inserts a special basic block, called \textit{OSR ENTRY}, at the beginning of the continuation function.
+The OSR Kit instrumentation inserts a special basic block, called \textit{OSR ENTRY}, at the beginning of the continuation function (see Figure \ref{fig:simplifiedcontinuationir}).
 The OSR ENTRY is responsible for executing the \textit{compensation code} and jumping to the correct block inside the continuation function.
 The compensation code is specified by the user as a vector of instructions associated with a source value, when the OSR is inserted in the code.
-The continuation instruction, i.e., the instruction to which the OSR ENTRY jumps to is assured by the OSR Kit library to be the first instruction in the destination block.
+The continuation instruction, i.e., the instruction to which the OSR ENTRY jumps to, is assured by the OSR Kit library to be the first instruction in the destination block.
 Everything between the OSR ENTRY and the continuation block becomes dead code.
 The dead instructions are automatically eliminated by the LLVM transformation passes.
 In any case, their only impact is on the space used up by the program, their presence does not increase the execution time of the continuation function.
 It might, however, impact on later optimizations performed on the code.\\
 
-CODE EXAMPLE.\\
+\begin{figure}[h]
+\includecode[asm]{Code/contInstrumented.c}
+\caption{Simplified continuation function LLVM IR.}
+\label{fig:simplifiedcontinuationir}
+\end{figure}
 
 \citean{OSRKit} claim that passing live values as arguments to the continuation function is more efficient than loading them from a buffer.
-According to \cite{fink2003design}, generating a dedicated function to resume the execution to continue the execution, as opposed to instrument a general function to serve as continuation as well as a regular function, is expected to lead to better results.
+According to \cite{fink2003design}, generating a dedicated function to resume the execution, as opposed to instrumenting a general function to serve as continuation as well as a regular function, is expected to lead to better results.
 In other words, it is supposed to be better to keep the base function to serve regular calls, and trigger OSR transitions whenever we need them, during the execution of the function.
 This claim is debatable in the case of deoptimization.
-Chapter\ref{Chapter4} expands on the question.\\
+Chapter\ref{Chapter4New} expands on the question.\\
 
 \section{A classification summary}
 %TODO some kind of sum up and comparison, related to what we had in chapter 2.
