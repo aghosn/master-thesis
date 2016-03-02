@@ -14,6 +14,12 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
+This chapter presents the on-stack replacement related work and focuses on on-stack replacement implementations in virtual machines.
+The first section describes the OSR origins and SELF's debugger runtime deoptimization mechanisms.
+The second section reports different on-stack replacement implementations in virtual machines.
+The third section describes OSR implementations developed in the low-level virtual machine (LLVM). 
+Finally, the fourth section contains a recapitulatory table of different OSR implementations.
+
 \section{The origins: SELF Debugging}\label{SELF}
 %SELF needs aggressive optimizations to have reasonable performance. 
 %But that prevents from debugging
@@ -292,7 +298,7 @@ Implementing OSR for LLVM not only serves several languages, but also allows to 
 As explained previously, LLVM supports several instruction sets corresponding to different architectures.
 By implementing OSR in LLVM, we get portability among these platforms for free.\\
 
-\subsection{OSR as an LLVM library: the McOSR implementation}\label{McOSR}
+\subsection{McOSR for LLVM}\label{McOSR}
 The McOSR OSR support\cite{lameed2013modular} is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
 Lameed \& Hendren claim to have come up with a clean modular, and re-usable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
 The implementation has been tested in the MvVM/McOSR\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
@@ -423,7 +429,7 @@ Furthermore, the experimental evaluation in\cite{lameed2013modular} relies on an
 The case study presents a dynamic inliner that decides to inline a function call if the function is less than 20 basic blocks long, or if it is less than 50 basic blocks long and has an interpreter environment associated with its body. 
 This requirement for inlining is one that can be checked statically and, hence, seems a little artificial.\\
 
-\subsection{Another LLVM OSR library: OSR Kit}\label{describeOSRKit}
+\subsection{OSR Kit for LLVM}\label{describeOSRKit}
 OSR Kit\cite{OSRKit} is a general purpose, target independent, implementation of on-stack replacement for LLVM.
 As such, it can be used by any LLVM based compiler.
 The main goals of the OSR Kit project are:
@@ -546,7 +552,7 @@ The StateMap also provides an API to register and unregister mappings by directl
 
 Both deoptimization and optimization rely on the same kind of continuation functions, and on the same instrumentation tools.
 A continuation function, in OSR Kit, has a special function signature that takes as inputs all the variables that were live at the instruction at which the OSR transition was fired.
-Its return type is the same as the from and the base (unmodified and un-instrumented) functions.
+Its return type is the same as the from and the base (unmodified and non-instrumented) functions.
 The OSR Kit instrumentation inserts a special basic block, called \textit{OSR ENTRY}, at the beginning of the continuation function.
 The OSR ENTRY is responsible for executing the \textit{compensation code} and jumping to the correct block inside the continuation function.
 The compensation code is specified by the user as a vector of instructions associated with a source value, when the OSR is inserted in the code.

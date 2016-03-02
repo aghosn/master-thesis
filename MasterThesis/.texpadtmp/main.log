@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 MAR 2016 15:55
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  1 MAR 2016 20:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1260,7 +1260,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
 ]
 --------------------
- RJIT OSR: Efficient Runtime Deoptimization for R
+ Efficient Runtime Deoptimization for R
 --------------------
 ./main.tex:188: Undefined control sequence.
 \abstract ...orname \par } \bigskip {\normalisize 
@@ -1465,139 +1465,147 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--22
+
+ []
+
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 24.
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--33
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--41
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--47
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--63
+Underfull \hbox (badness 10000) in paragraph at lines 63--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--71
+Underfull \hbox (badness 10000) in paragraph at lines 70--76
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--76
+Underfull \hbox (badness 10000) in paragraph at lines 77--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--85
+Underfull \hbox (badness 10000) in paragraph at lines 82--85
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 119--123
+Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--136
+Underfull \hbox (badness 10000) in paragraph at lines 124--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--141
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 142--145
+Underfull \hbox (badness 10000) in paragraph at lines 142--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--167
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--172
+Underfull \hbox (badness 10000) in paragraph at lines 167--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
+Underfull \hbox (badness 10000) in paragraph at lines 174--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 206--209
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--249
+Underfull \hbox (badness 10000) in paragraph at lines 211--214
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--254
 
  []
 
 [9]
 
-./Chapters/Chapter2.tex:266: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:271: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.266 
+l.271 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--274
+Underfull \hbox (badness 10000) in paragraph at lines 272--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
+Underfull \hbox (badness 10000) in paragraph at lines 291--295
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 297--303
+Underfull \hbox (badness 10000) in paragraph at lines 302--308
 
  []
 
@@ -1605,102 +1613,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--303
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 3.
 ) (./Code/bufferCont.c)
-Underfull \hbox (badness 10000) in paragraph at lines 321--327
+Underfull \hbox (badness 10000) in paragraph at lines 326--332
 
  []
 
-(./Code/callFrom.c) (./Code/callCont.c)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(./Code/MultipleEntry.c)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 364--368
+[11] (./Code/callFrom.c) (./Code/callCont.c) (./Code/MultipleEntry.c) [12]
+Underfull \hbox (badness 10000) in paragraph at lines 369--373
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 408--415
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--391
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 427--431
+Underfull \hbox (badness 10000) in paragraph at lines 415--422
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--441
+Underfull \hbox (badness 10000) in paragraph at lines 434--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--447
+Underfull \hbox (badness 10000) in paragraph at lines 439--448
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 452--456
+Underfull \hbox (badness 10000) in paragraph at lines 449--454
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--463
 
  []
 
 File: Figures/wheretoexit.png Graphic file (type QTm)
 <use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 459--461
+Overfull \hbox (9.04208pt too wide) in paragraph at lines 466--468
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--472
+Underfull \hbox (badness 10000) in paragraph at lines 476--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--477
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--482
+Underfull \hbox (badness 10000) in paragraph at lines 480--484
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 488--495
+Underfull \hbox (badness 10000) in paragraph at lines 485--489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 496--502
+Underfull \hbox (badness 10000) in paragraph at lines 495--502
 
  []
 
 
-LaTeX Warning: Reference `Chapter4' on page 16 undefined on input line 510.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
+Underfull \hbox (badness 10000) in paragraph at lines 503--509
 
  []
 
 
-LaTeX Warning: Reference `Chapter4' on page 16 undefined on input line 527.
+Underfull \hbox (badness 10000) in paragraph at lines 514--519
+
+ []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--528
+Underfull \hbox (badness 10000) in paragraph at lines 520--535
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 537--543
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 553--563
+Underfull \hbox (badness 10000) in paragraph at lines 558--568
 
  []
 
@@ -1780,23 +1779,23 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--33
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
  []
 
 
-Overfull \hbox (3.74652pt too wide) in paragraph at lines 34--35
+Overfull \hbox (3.74652pt too wide) in paragraph at lines 40--41
 []\T1/ppl/m/n/10.95 In ^^P  De-bug-ging op-ti-mized code with dy-namic de-op-ti
--miza-tion^^Q[[][]15[][]], the au-thors came
+-miza-tion^^Q[[][]16[][]], the au-thors came
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
@@ -1806,134 +1805,123 @@ File: Figures/Figure1.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
 
 [19
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 60--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--73
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--79
 
  []
 
 File: Figures/Figure2.png Graphic file (type QTm)
-<use  "Figures/Figure2.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
+<use  "Figures/Figure2.png" > [20]
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--103
+Underfull \hbox (badness 10000) in paragraph at lines 101--109
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--118
+Underfull \hbox (badness 10000) in paragraph at lines 119--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 125--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--137
+Underfull \hbox (badness 10000) in paragraph at lines 133--143
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 138--147
+Underfull \hbox (badness 10000) in paragraph at lines 144--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--152
+Underfull \hbox (badness 10000) in paragraph at lines 154--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--160
+Underfull \hbox (badness 10000) in paragraph at lines 161--166
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 172--180
+Underfull \hbox (badness 10000) in paragraph at lines 178--186
 
  []
 
 
-Overfull \hbox (1.48387pt too wide) in paragraph at lines 181--194
+Overfull \hbox (1.48387pt too wide) in paragraph at lines 187--200
 \T1/ppl/m/n/10.95 proach, while de-cou-pling the OSR im-ple-men-ta-tion from th
 e op-ti-miza-tion pro-cess. They
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--194
-
- []
-
-File: Figures/FTL.png Graphic file (type QTm)
-<use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 202--204
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--217
+Underfull \hbox (badness 10000) in paragraph at lines 187--200
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 218--224
+File: Figures/FTL.png Graphic file (type QTm)
+ <use  "Figures/FTL.png" >
+Overfull \hbox (9.52382pt too wide) in paragraph at lines 208--210
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--230
+Underfull \hbox (badness 10000) in paragraph at lines 224--230
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
+Underfull \hbox (badness 10000) in paragraph at lines 231--236
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 243--246
+Underfull \hbox (badness 10000) in paragraph at lines 237--248
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--255
+Underfull \hbox (badness 10000) in paragraph at lines 249--252
 
  []
 
@@ -1942,38 +1930,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--261
 
  []
 
-File: Figures/SSAForm.png Graphic file (type QTm)
-<use  "Figures/SSAForm.png" >
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--273
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 275--282
+File: Figures/SSAForm.png Graphic file (type QTm)
+ <use  "Figures/SSAForm.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--290
+Underfull \hbox (badness 10000) in paragraph at lines 281--288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--294
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--300
+Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 309--311
+Underfull \hbox (badness 10000) in paragraph at lines 297--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--317
 
  []
 
@@ -1987,13 +1977,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [28]
 
-./Chapters/Chapter3.tex:344: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:350: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 
+l.350 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2001,8 +1991,11 @@ or  <return>  to continue without it.
 
 File: Figures/BaseCFG.png Graphic file (type QTm)
 <use  "Figures/BaseCFG.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: Figures/InsertCFG.png Graphic file (type QTm)
- <use  "Figures/InsertCFG.png" >
+<use  "Figures/InsertCFG.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2012,20 +2005,20 @@ File: Figures/OSRPassCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:368: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:374: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.368 
+l.374 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--383
+Underfull \hbox (badness 10000) in paragraph at lines 375--389
 
  []
 
@@ -2041,84 +2034,88 @@ File: Figures/FOptCFG.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-./Chapters/Chapter3.tex:399: LaTeX Error: There's no line here to end.
+./Chapters/Chapter3.tex:405: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.399 
+l.405 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--405
+Underfull \hbox (badness 10000) in paragraph at lines 407--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--418
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 406--412
+Underfull \hbox (badness 10000) in paragraph at lines 419--424
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 419--425
+Underfull \hbox (badness 10000) in paragraph at lines 425--431
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 441--445
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
+Underfull \hbox (badness 10000) in paragraph at lines 447--451
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 449--452
+Underfull \hbox (badness 10000) in paragraph at lines 452--454
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--463
+Underfull \hbox (badness 10000) in paragraph at lines 461--463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--466
+Underfull \hbox (badness 10000) in paragraph at lines 464--469
 
  []
 
-(./Code/DestFunGenerator.c) (./Code/OpenOSR.c)
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--472
+
+ []
+
+(./Code/DestFunGenerator.c)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./Code/OpenOSR.c)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--485
+Underfull \hbox (badness 10000) in paragraph at lines 485--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--495
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 486--489
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 490--493
+Underfull \hbox (badness 10000) in paragraph at lines 496--499
 
  []
 
@@ -2128,7 +2125,7 @@ File: Figures/OSRKitResolvedScenario.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
@@ -2137,16 +2134,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--519
+Underfull \hbox (badness 10000) in paragraph at lines 517--525
 
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 520--528
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--534
 
  []
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+[34] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -2164,270 +2161,270 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--546
+Underfull \hbox (badness 10000) in paragraph at lines 547--552
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 547--558
+Underfull \hbox (badness 10000) in paragraph at lines 553--564
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
 
-LaTeX Warning: Reference `Chapter4' on page 37 undefined on input line 565.
+LaTeX Warning: Reference `Chapter4' on page 37 undefined on input line 571.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--566
+Underfull \hbox (badness 10000) in paragraph at lines 567--572
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--571
+Underfull \hbox (badness 10000) in paragraph at lines 575--577
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 State prop-a-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 Scope de-
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 587--587
+Underfull \hbox (badness 3746) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 JVM state &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 FrameState
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 JVM scope
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 \T1/ppl/m/n/10.95 de-scrip-tor,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 \T1/ppl/m/n/10.95 VARMAP
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 587--587
+Underfull \hbox (badness 5847) in paragraph at lines 593--593
 \T1/ppl/m/n/10.95 & call ar-gu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 Buffer &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 Mapping
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 \T1/ppl/m/n/10.95 be-tween live
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []|\T1/ppl/m/n/10.95 Call ar-gu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--588
+Underfull \hbox (badness 10000) in paragraph at lines 594--594
 []|\T1/ppl/m/n/10.95 Transition
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--588
+Underfull \hbox (badness 10000) in paragraph at lines 594--594
 []|\T1/ppl/m/n/10.95 Stack frames
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--589
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
 []|\T1/ppl/m/n/10.95 Modification
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--589
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
 \T1/ppl/m/n/10.95 of func-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--590
+Underfull \hbox (badness 10000) in paragraph at lines 596--596
 []|\T1/ppl/m/n/10.95 Multiple
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Mostly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 method
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 pro-logues
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 & back-ward
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Mostly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 back-ward
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 branches &
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 591--591
+Underfull \hbox (badness 3536) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Between side
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 ef-fect-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Mostly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 method
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 pro-logues &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Mostly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 method
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 pro-logues &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\T1/ppl/m/n/10.95 Mostly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 method
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 pro-logues &
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 591--591
+Underfull \hbox (badness 6792) in paragraph at lines 597--597
 \T1/ppl/m/n/10.95 state can be
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--592
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
 []|\T1/ppl/m/n/10.95 Guarded/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 []|\T1/ppl/m/n/10.95 Unoptimized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 \T1/ppl/m/n/10.95 com-piled
  []
 
@@ -3365,10 +3362,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29961 strings out of 493706
- 530480 string characters out of 6145768
- 861677 words of memory out of 5000000
- 32868 multiletter control sequences out of 15000+600000
+ 29962 strings out of 493706
+ 530503 string characters out of 6145768
+ 958475 words of memory out of 5000000
+ 32869 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
