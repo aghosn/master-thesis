@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  2 MAR 2016 09:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  2 MAR 2016 11:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1827,7 +1827,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--79
  []
 
 File: Figures/Figure2.png Graphic file (type QTm)
-<use  "Figures/Figure2.png" > [20]
+<use  "Figures/Figure2.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
@@ -3332,7 +3336,7 @@ Overfull \hbox (2.60896pt too wide) in paragraph at lines 286--286
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-
+[78]
 Overfull \hbox (2.9228pt too wide) in paragraph at lines 286--286
 []\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
 r The Bio-con-duc-tor open source soft-ware for bioin-
@@ -3345,9 +3349,8 @@ Overfull \hbox (24.38016pt too wide) in paragraph at lines 286--286
 95 (vis-ited on 02/01/2016). 
  []
 
-[78]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
- [79]
+[79]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -3361,13 +3364,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29958 strings out of 493706
- 530436 string characters out of 6145768
- 958444 words of memory out of 5000000
- 32865 multiletter control sequences out of 15000+600000
+ 29959 strings out of 493706
+ 530461 string characters out of 6145768
+ 950540 words of memory out of 5000000
+ 32866 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,14n,56p,10377b,2383s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,56p,10377b,2385s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (95 pages).

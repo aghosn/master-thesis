@@ -662,6 +662,27 @@
   \field{year}{2012}
 \endentry
 
+\entry{HotspotPerfURL}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Oracle}{O.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{O1}
+  \strng{fullhash}{O1}
+  \field{sortinit}{O}
+  \field{title}{{The Java HotSpot Performance Engine} The Java HotSpot
+  Performance Engine.}
+  \verb{url}
+  \verb http://www.oracle.com/technetwork/java/whitepaper-135217.html
+  \endverb
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{JikesRVMURL}{online}{}
   \name{author}{1}{}{%
     {{}%

@@ -14,8 +14,8 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
-This chapter presents the on-stack replacement related work and focuses on on-stack replacement implementations in virtual machines.
-The first section describes the OSR origins and SELF's debugger runtime deoptimization mechanisms.
+This chapter presents the on-stack replacement related work and focuses on OSR implementations in virtual machines.
+The first section describes the OSR origins and SELF debugger runtime deoptimization mechanisms.
 The second section reports different on-stack replacement implementations in virtual machines.
 The third section describes OSR implementations developed in the low-level virtual machine (LLVM). 
 Finally, the fourth section contains a recapitulatory table of different OSR implementations.
@@ -33,13 +33,13 @@ It relies on a pure message-based model of computation that, while enabling high
 As a result, the language's implementation depends on a set of aggressive optimizations to achieve good performances\cite{chambers1992design, holzle1992debugging}.
 SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
 
-Providing source level code interactive debugging is hard in the presence of optimizations.
+Providing source level interactive debugging is hard in the presence of optimizations.
 Single stepping or obtaining values for certain source level variables might not be possible.
 For a language such as SELF, that heavily relies on aggressive optimizations, implementing a source code level debugger requires new techniques.\\
 
-In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came up with a new mechanism that enables to dynamically de-optimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviour.\\
+In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came up with a new mechanism that enables to dynamically deoptimize code at specific interrupt points in order to provide source code level debugging while preserving expected behaviors.\\
 
-\citean{holzle1992debugging} present the main challenges encountered to provide debugging behaviours, due to the optimizations performed by the SELF compiler. 
+\citean{holzle1992debugging} present the main challenges encountered to provide debugging behaviors, due to the optimizations performed by the SELF compiler. 
 Displaying the stack according to a source-level view is impeded by optimizations such as inlining, register allocation and copy propagation.
 For example, when a function is inlined at a call site, only a single activation frame is visible, while the source level code expects to see two of them.
 Figure \ref{stackframes}, taken from \cite{holzle1992debugging}, provides another example of activations discordances between physical and source-level stacks.
@@ -86,9 +86,9 @@ At time t2, D is called by C which is called by A, hence, the debugger displays 
 \end{figure}
 
 
-The de-optimization process follows 5 steps described in \cite{holzle1992debugging} and summed up here:
+The deoptimization process follows 5 steps described in \cite{holzle1992debugging} and summed up here:
 \begin{enumerate}
-    \item Save the physical stack frame and remove it from the run time stack.
+    \item Save the physical stack frame and remove it from the runtime stack.
     \item Determine the virtual activations in the physical one, the local variables and the virtual PC.
     \item Generate completely unoptimized compiled methods and physical activations for each virtual one.
     \item Find the unique new physical PC for each virtual activation and initialise (e.g., return addresses and frame pointers) the physical activations created in the previous step.
@@ -103,8 +103,8 @@ It requires to be able to recover the state at every single point of the program
 The SELF debugger relies on a weaker, relaxed restriction by enabling deoptimization only at certain points called \textit{interrupt points}. 
 At an interrupt point, the program state is guaranteed to be consistent. 
 The paper\cite{holzle1992debugging} defines two kinds of interrupt points: method prologues, and backward branches (i.e., end of loop bodies).
-It estimates the length of the longest code sequence that cannot be interrupted to be a few dozen of instruction, i.e., the average length of a code sequence that does not contain neither a call nor a loop end.
-Interrupt points are also inserted at all possible run time errors to allow better debugging of synchronous events such as arithmetic overflow. 
+It estimates the length of the longest code sequence that cannot be interrupted, i.e., the  length of a code sequence that does not contain neither a call nor a loop end, to be a few dozens of instructions.
+Interrupt points are also inserted at all possible runtime errors to allow better debugging of synchronous events such as arithmetic overflow. 
 The generated debugging information are needed only at interrupt points, which reduces the space used to support basic debugger operations (as opposed to allowing interrupts at any instruction boundary).\\
 
 Providing a debugger for SELF limits the set of optimizations that the compiler can support, and decreases the performances of the program when the execution is resumed. 
@@ -117,34 +117,34 @@ The execution should proceed at full speed, but some stack frames might have bee
 
 \section{OSR \& VMs}
 Virtual machines are privileged environments in which on-stack replacement can be used to its full power.
-As seen in \ref{WhyOSRInteresting}, OSR is as useful as the compiler's profiler is efficient.
+As seen in section \ref{WhyOSRInteresting}, OSR is as useful as the compiler's profiler is efficient.
 A virtual machine (VM) has control over the resources allocation, enables to control the code that is generated by the compiler, maintains important run time data, and state information about the program being executed.
-Furthermore, modern virtual machines already provide adaptative strategies to recompile hot functions\cite{arnold2000adaptive, paleczny2001java, holzle1994third, suganuma2001dynamic}, and dispatch calls to the new compiled versions.
+Furthermore, modern virtual machines already provide adaptative strategies to recompile hot functions\cite{arnold2000adaptive, paleczny2001java, holzle1994third, suganuma2001dynamic}, and dispatch calls to the newly compiled versions.
 OSR enables this transition to happen when the function is executing, rather than during a future call.\\
 
 This section presents several examples of VMs that support on-stack replacement. 
-The section is divided into two parts: we first presents several solutions that provide OSR for various virtual machines, then we briefly introduce LLVM, a VM presenting an interesting framework in which we believe on-stack replacement mechanism should fit.\\ 
+The section is divided into two parts: we first present several solutions that provide OSR for various virtual machines, then we briefly introduce LLVM, a VM presenting an interesting framework in which we believe on-stack replacement mechanism should fit.\\ 
 
 \subsection{Java HotSpot}\label{HotSpot}
 
-The Java HotSpot Performance Engine is a Java virtual machine developed and maintained by Oracle.
+The Java HotSpot Performance Engine\cite{HotspotPerfURL} is a Java virtual machine developed and maintained by Oracle.
 The Java HotSpot VM provides features such as a class loader, a bytecode interpreter, Client and Server virtual machines, several garbage collectors, just-in-time compilation and adaptive optimizations.\\
 
-The Java HotSpot Server Compiler\cite{paleczny2001java} supports on-stack replacement of interpreter frames with compiled-code frames, and deoptimization from compiled-code back to the interpreter.
+The Java HotSpot Server Compiler\cite{paleczny2001java} supports on-stack replacement of interpreter frames by compiled-code frames, and deoptimization from compiled-code back to the interpreter.
 It relies on adaptative optimizations, that focus on performance critical methods\cite{paleczny2001java, holzle1994third}.
 The Java HotSpot Server compiler identifies such methods by using method-entry and backward-branch counters, along with other heuristics related to the method's caller.
-Thanks to these counters, the run time system is able to identify frequently executed or long running methods and compile them to improve their run time performance.
+Thanks to these counters, the runtime system is able to identify frequently executed or long running methods and compile them to improve their runtime performance.
 It can further decide to compile one or several of the methods callers.
 This is called an \textit{upward traversal} and enables to speed the path that leads to a hot method's invocation.  
 On-stack replacement is used when the backward-branch counter exceeds the \textit{OnStackReplacementThreshold} value.
 The continuation function is compiled with an \textit{additional} entry point at the target of the backward-branch.
 A continuation function is therefore able to serve OSR transitions as well as future method invocations.
-The run time system transfers the execution from the interpreter to this newly compiled code.\\
+The runtime system transfers the execution from the interpreter to this newly compiled code.\\
 
 In HotSpot, deoptimization might be triggered by two different events: the compilation of a reference to an uninitialised class, and a class loading that invalidates some previous compilation optimization.
 Class initialization and class loading are performed by the interpreter. 
 Whenever a reference to an uninitialized class is compiled, HotSpot generates an uncommon trap, i.e., a trampoline back to interpreted mode. 
-The optimized code is  marked as being unusable, and any thread entering the method are interpreted until the recompilation of the method is achieved properly. 
+The optimized code is  marked as being unusable, and any thread entering the method is interpreted until the recompilation of the method is achieved properly. 
 The second form of deoptimization happens when a class loading invalidates some optimization performed while generating compiled code (e.g., inlining of methods).
 A thread that is executing in the invalidated method is "rolled forward"\cite{paleczny2001java} to a safepoint.
 When the safepoint is reached, their native frame is extracted and converted into an interpreter frame.
@@ -153,7 +153,7 @@ For consistency, the class load that invalidated the compiled method becomes vis
 
 The deoptimization process requires the Java HotSpot to be able to generate an interpreter JVM state at different points of the program.
 In order to do so, the Java HotSpot Server records the "exact JVM state"\cite{paleczny2001java} at each safepoint and procedure call.
-This implies that the entire JVM state is considered live at the safepoint, which in turns, might extend the live range of some values.
+This implies that the entire JVM state is considered live at the safepoint, which in turn, might extend the live range of some values.
 During code emission, the compiler emits a table that maps the JVM state to the resting place of the generated optimized code's JVM state information.\\
 
 \subsection{Jikes RVM}
@@ -168,7 +168,7 @@ Jikes RVM is an extensible framework in which on-stack replacement techniques ha
 %The first
 \citean{fink2003design} implemented OSR support in Jikes RVM. 
 Their implementation relies on JVM scope descriptor, associated to method activation frames.
-A scope descriptor contains the thread running the activation, the bytecode index that corresponds to the program counter, values of all local and stack locations, and a reference to the activation's stack frame.
+A scope descriptor contains the thread running the activation, the bytecode index that corresponds to the program counter, values of all locals and stack locations, and a reference to the activation's stack frame.
 The OSR transition is divided into three steps: 
 \begin{enumerate}
     \item Extract the compiler-independent state from a suspended thread. 
@@ -193,7 +193,7 @@ Once the compilation completes, the VARMAP is encoded into a compressed map that
 The VARMAP is decoupled from the compiled code, i.e., it does not influence the liveness of local variables.
 \citean{soman2006efficient} also propose an alternative lazy triggering of on-stack replacement.
 Lazy triggering consists in taking an OSR transition due to events in the environment, i.e., events triggered by the runtime. 
-Whenever the runtime deems an assumption invalide, it invokes a helper function called \textit{OSR helper} that either patches the code of the executing methods to call the OSR process, or it modifies return addresses of the callees of the method to point to the OSR helper.
+Whenever the runtime deems an assumption invalid, it invokes a helper function called \textit{OSR helper} that either patches the code of the executing methods to call the OSR process, or it modifies return addresses of the callees of the method to point to the OSR helper.
 When a callee returns, the OSR helper creates a new stack frame with the state extracted from the specialized method's stack and saves all of the specialized method registers into its stack frame. 
 The return address of the OSR helper points to the current instruction in the specialized code, which is then used during OSR to identify the location to resume the execution in the new version of the method.
 Lazy triggering improves the code efficiency by avoiding the extra cost of guards evaluations.\\
@@ -202,7 +202,7 @@ Lazy triggering improves the code efficiency by avoiding the extra cost of guard
 
 WebKit\cite{WebKitURL} is an open source web browser engine used to improve JavaScript performances.
 It exhibits a Four-Tier VM architecture. 
-The WebKit run-time compilation flow is described by Figure \ref{FTL}.\\
+The WebKit runtime compilation flow is described by Figure \ref{FTL}.\\
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/FTL}
@@ -211,14 +211,14 @@ The WebKit run-time compilation flow is described by Figure \ref{FTL}.\\
 \label{FTL}
 \end{figure}
  
-Forward arrows represent \textit{OSR entries}, i.e., a transformation that yields a more optimized version of the code at run time.
-Backward arrows correspond to \textit{OSR exits}, i.e., a transformation that yields a less optimized version of the code at run time.
+Forward arrows represent \textit{OSR entries}, i.e., a transformation that yields a more optimized version of the code at runtime.
+Backward arrows correspond to \textit{OSR exits}, i.e., a transformation that yields a less optimized version of the code at runtime.
 The low level interpreter (LLInt) is used for low latency start up.
 The baseline JIT generates WebKit bytecode with no optimization enabled.
 The transition from the first tier to the second one happens when a statement is executed more than a hundred times or a function is called more than six times.
 The data flow graph (DFG) JIT is triggered when a statement executes more than a thousand times or a function is called more than sixty-six times.
 The Fourth-Tier LLVM(FTL)\cite{WebKitFTL} relies on LLVM machine code optimizations to generate a fast version of portions of the code.
-In order to hide the costs of the translation to LLVM IR and its compilation time, the FTL is triggered only for long running portions of the code that are currently executing.
+In order to hide the cost of the translation to LLVM IR and its compilation time, the FTL is triggered only for long running portions of the code that are currently executing.
 There are two kinds of transitions in WebKit: the ones contained entirely inside the WebKit framework (i.e., transitions 1,2 \& 4 in Figure \ref{FTL}), and the ones that involve LLVM (i.e., 3 \& 5 in Figure \ref{FTL}).\\
 
 Transitions to and from LLVM are hard. 
@@ -226,7 +226,7 @@ There is no control over the stack layout or the optimized code produced by LLVM
 In the case of transition 3, a different LLVM version is generated for each entry point that the framework desires to have inside this function.
 In WebKit, such entry points are located at loop headers. 
 This choice makes sense with regard to the condition to enter the FTL, i.e., transition 3 is taken for long running portions of code that could be improved thanks to LLVM low level optimizations.
-WebKit has to generate a different version of the function for each entry points for two main reasons: LLVM allows only single entry points to functions (going around this limitation would require to modify LLVM IR and implementation), and instrumenting a function with several entry points would impact on the quality and performance of the generated native code by extending the code's length and restricting code motion.\\
+WebKit has to generate a different version of the function for each entry point for two main reasons: 1) LLVM allows only single entry points for functions, and 2) instrumenting a function with several entry points would impact on the quality and performance of the generated native code by extending the code's length and restricting code motion.\\
 
 Performing transition 3 requires to get the current state of execution and identify the entry point corresponding to the current instruction being executed.
 The DFG dumps its state into a scratch buffer.
@@ -259,11 +259,11 @@ These optimizations are performed on an intermediate representation (IR) of the 
 The LLVM framework also provides tools to convert and link code into machine dependent assembly code for a specific target platform.
 LLVM supports several instruction sets including ARM, MIPS, AMD TeraScale, and x86/x86-64\cite{llvmUrl}.\\
 
-The LLVM intermediary representation is a language-independent set of instructions that also provides a type system.
+The LLVM intermediate representation is a language-independent set of instructions that also provides a type system.
 The LLVM IR is in static single assignment (SSA) form, which requires every variable to be defined before being used, and assigned exactly once. 
 SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction, and register allocation\cite{appel1998ssa}.
 The SSA requirement for variables to be assigned only once requires a special mechanism, called a $\phi$-node, when a value depends on which control flow branch was executed before reaching the current variable definition.
-Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after the merging of two control flow branches.\\
+Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after merging of two control flow branches.\\
 
 \begin{figure}[h]
 \centering
@@ -300,19 +300,19 @@ By implementing OSR in LLVM, we get portability among these platforms for free.\
 
 \subsection{McOSR for LLVM}\label{McOSR}
 The McOSR OSR support\cite{lameed2013modular} is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
-Lameed \& Hendren claim to have come up with a clean modular, and re-usable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
-The implementation has been tested in the MvVM/McOSR\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
-Their implementation answers to five challenges, listed in the paper\cite{lameed2013modular}, and reproduced here:\\ 
+Lameed \& Hendren claim to have come up with a clean modular, and reusable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
+The implementation has been tested in the McVM/McOSR\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
+Their implementation answers five challenges, listed in the paper\cite{lameed2013modular}, and reproduced here:\\ 
 
 \begin{enumerate}
     \item Identifying correct interrupt points and using the current LLVM IR to represent them.
-    \item Using the LLVM tools to correctly transform the IR while preserving a correct control flow graph. 
+    \item Using the LLVM tools to transform the IR while preserving a correct control flow graph. 
     \item Making a new version of a function available at the same address as the old one.
     \item Providing a clean API for the OSR library, that is compatible with LLVM's inlining capabilities.
     \item Integrating OSR without modifying the LLVM installation.
 \end{enumerate}
 
-\citean{lameed2013modular} claim to support optimization and re-optimization, as well as de-optimization by going back to the previous version of the function.
+\citean{lameed2013modular} claim to support optimization and re-optimization, as well as deoptimization by going back to the previous version of the function.
 Figure \ref{OSR classification} shows that this feature only allows single-steps to be taken, i.e., the OSR library implemented in\cite{lameed2013modular} does not seem to allow to skip intermediary versions.\\
 
 \begin{figure}[h]
@@ -323,7 +323,7 @@ Figure \ref{OSR classification} shows that this feature only allows single-steps
 \label{OSR classification}
 \end{figure}
 
-The McOSR library that provides OSR functionalities fit into the regular JIT infrastructure provided by LLVM as described in Figure \ref{McOSRArchitecture} taken from\cite{lameed2013modular}. 
+The McOSR library on-stack replacement implementation fits into the regular JIT infrastructure provided by LLVM as described in Figure \ref{McOSRArchitecture} taken from\cite{lameed2013modular}. 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/MCJitArchitecture}
@@ -424,7 +424,7 @@ The McOSR library does not provide tools to ease this process and leaves the res
 
 To the best of our knowledge, McOSR library is not currently used in production or any important project.
 As mentioned earlier, WebKit is efficiently integrated in Apple Safari's web browser, which provides useful feedback on its performances.
-The lack of usage of McOSR library prevents us from collecting performance results and assess its efficiency.
+The lack of usage of McOSR library prevents us from collecting performance results and assessing its efficiency.
 Furthermore, the experimental evaluation in\cite{lameed2013modular} relies on an example that seems artificial for our use of OSR. 
 The case study presents a dynamic inliner that decides to inline a function call if the function is less than 20 basic blocks long, or if it is less than 50 basic blocks long and has an interpreter environment associated with its body. 
 This requirement for inlining is one that can be checked statically and, hence, seems a little artificial.\\
@@ -437,7 +437,7 @@ The main goals of the OSR Kit project are:
     \item To allow chained OSR transitions, i.e., a continuation function can be instrumented to allow OSR transitions.
     \item To support OSR entries and exits via the same instrumentation.
     \item To allow transitions at arbitrary function locations.
-    \item To allow continuation functions to be either generated at run time, or already known at compilation time (i.e., generated on the fly or cached).
+    \item To allow continuation functions to be either generated at runtime, or already known at compilation time (i.e., generated on the fly or cached).
     \item To encapsulate and hide the OSR implementation details from the front-end.
     \item To encode OSR transitions entirely at the LLVM IR level.
     \item To limit the intrusiveness of the OSR instrumentation.
@@ -467,8 +467,8 @@ The $f_{stub}$ function receives all the values live at the OSR point as input, 
 The continuation function is generated by a special \textit{gen} function, that takes as inputs the base function $f$, i.e., the from function, and the OSR point that triggered the transition.\\
 %TODO code for the OSR points open. 
 
-Figure REF corresponds to the signature of the OSR Kit function that enables to insert open OSR points.
-The \textit{destFunGenerator} is the $f_{stub}$ function and is of type \textit{DestFunGenerator}, described in Figure REF.\\
+Figure \ref{fig:insertopenosr} corresponds to the signature of the OSR Kit function that enables to insert open OSR points.
+The \textit{destFunGenerator} is the $f_{stub}$ function and is of type \textit{DestFunGenerator}, described in Figure \ref{fig:destfungenerator}.\\
 
 \begin{figure}[h]
 \includecode{Code/DestFunGenerator.c}
@@ -490,10 +490,10 @@ In fact, the instrumentation, even when inserted in a separated branch, might in
 Examples of such interferences are the increase of register pressure, the alteration of code layout and instruction cache behavior.\\
 
 The \textit{resolved OSR} scenario corresponds to the case where the continuation function is known prior to fire the OSR transition, and the from function has been instrumented to transfer the execution to this specific compiled version.
-In the resolved OSR scenario, the transition is expected to be faster than in the open scenario, since there is no compilation to be performed. 
+In the resolved OSR scenario, the transition is expected to be faster than in the open scenario, since there is no compilation to perform. 
 This technique also enables to reuse functions that were compiled previously, e.g., either because several from functions have the same continuation function, or because an OSR point is fired several times during the execution of the program.\\
 
-The resolved OSR is implemented as a call to the continuation function, which takes as inputs all the live variables at the OSR point as inputs.
+The resolved OSR is implemented as a call to the continuation function, which takes as inputs all the live variables at the OSR point.
 The continuation function is instrumented to jump at the correct location inside the code to resume the execution. 
 Figure \ref{ResolvedOSRFig} illustrates the resolved OSR scenario.\\
 
@@ -505,7 +505,7 @@ Figure \ref{ResolvedOSRFig} illustrates the resolved OSR scenario.\\
 \label{ResolvedOSRFig}
 \end{figure}
 
-Figure REF corresponds to the signature of the OSR Kit function that enables to insert resolved OSR.\\
+Figure \ref{fig:insertresolvedosr} corresponds to the signature of the OSR Kit function that enables to insert resolved OSR.\\
 
 \begin{figure}[h]
 \includecode{Code/ResolvedOSR.c}

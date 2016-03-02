@@ -2,7 +2,7 @@
 /*
 /* @param Context LLVM Context to use for OSRKit.
 /* @param F Source function where to insert the OSR point.
-/* @param OSRSrc Instruction in @a F to take an OSR decision for.
+/* @param OSRSrc Instruction in @F to take an OSR decision for.
 /* @param extraInfo Address of the auxiliary data structure to pass to
 /* the code generator.
 /* @param cond Condition to evaluate in order to take an OSR decision.
@@ -12,7 +12,7 @@
 /* fired.
 /* @param valuesToTransfer Custom set of values to transfer at the OSR.
 /* point; use @c nullptr to transfer all the live values.
-/* @param LA LivenessAnalysis results computed for @a F.
+/* @param LA LivenessAnalysis results computed for @F.
 /* @param config Additional settings for the OSR point insertion.
 /* @return A pair in which the first element is the function with the
 /* inserted OSR point and the second is the OSR stub function.
