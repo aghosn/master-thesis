@@ -26,11 +26,11 @@ The second section presents benchmarking results obtained while evaluating the O
 %interesting because implies that we need to clone IR -> put some pressure on our additions.
 R is a dynamic language. 
 Dynamic programming languages have the particularity to perform, at runtime, common programming behaviors executed during the compilation in static programming languages.
-Extending the program, adding code, extending objects and definitions, type setting or modifying the type system are such behaviors that, in dynamic programming languages, can take place at runtime.
+Extending the program, adding code, extending objects and definitions, type setting or modifying the type system are such behaviors that, in dynamic languages, can take place at runtime.
 These particularities make certain common static compilation optimizations hard to implement in a dynamic language.
 One example of such optimization is inlining (i.e., inline expansion), that replaces a function call site with the callee's body.\\
 
-Chapter \ref{Chapter2} presents the on-stack replacement(OSR) mechanism.
+Chapter \ref{Chapter2} presents the on-stack replacement (OSR) mechanism.
 OSR techniques enable to implement \textit{speculative} optimizations, i.e., to transform a function based on the assumption that the result of the transformation will be correct and improve the program's performance at runtime.
 If the assumption fails, the OSR mechanisms preserve correctness in the program.
 Thanks to this versatile tool, static programming languages optimizations can be performed speculatively in a compiler for a dynamic programming language.\\
@@ -46,7 +46,7 @@ Finally, inlining can be viewed as a first step toward other optimizations.
 Copying a function's body at its call site enables to enlarge the scope considered by the compiler, and might therefore uncover new optimization opportunities.\\
 
 Apart from being a viable OSR-based speculative optimization in RJIT, inlining allows to put some pressure on the OSR Handler's mechanisms.
-First, as explained in Chapter \ref{Chapter4New}, the OSR mechanism requires to obtain fresh clones of functions bodies via the OSR Handler's functions.
+First, as explained in chapter \ref{Chapter4New}, the OSR mechanism requires to obtain fresh clones of functions bodies via the OSR Handler's functions.
 Second, in order to inline a function call, a copy of the callee's body needs to be obtained.
 This body, in RJIT OSR, can be obtained through the OSR Handler API.
 Function inlining might further force AOT compilation of the inlined functions, hence enabling us to test every aspect of the functionalities provided by the OSR Handler.\\
@@ -55,10 +55,10 @@ RJIT does not gather profiling information that enable to identify good candidat
 This is, however, far from being a limitation.
 On the contrary, it is a perfect case study for OSR mechanisms in R.
 Although inlining function calls in R produces unsound compiled code, the OSR mechanism enables to ensure that the program is correct.
-As explained in Section \ref{justificationgoals}, R performance bottlenecks are consequences of the language semantics.
+As explained in section \ref{justificationgoals}, R performance bottlenecks are consequences of the language semantics.
 In the future, on-stack replacement is destined to enable to break R semantics, and to produce unsound, highly optimized code.
 Profiling will give insights on whether or not the program might benefit from such optimizations, but is not expected to be able to ensure that any of these transformations is sound.
-Not relying on a profiler and blindly inlining function calls, whenever it is possible, shows how much flexibility this OSR implementation truly brings to RJIT.\\ 
+Not relying on a profiler and blindly inlining function calls, whenever it is possible, illustrates how much flexibility this OSR implementation truly brings to RJIT.\\ 
 
 \subsection{Challenges}
 %Function Calls -> how to identify them
