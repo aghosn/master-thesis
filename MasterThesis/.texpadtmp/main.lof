@@ -51,4 +51,3 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces The micro-benchmark.\relax }}{73}{figure.caption.616}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{75}{figure.caption.637}
 \addvspace {10\p@ }
-\addvspace {10\p@ }
