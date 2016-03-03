@@ -43,7 +43,12 @@
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Use case for unguarded OSR points.\relax }}{57}{figure.caption.477}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{63}{figure.caption.498}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The micro-benchmark.\relax }}{70}{figure.caption.530}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces OSR Handler vs. RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{72}{figure.caption.551}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A simple R code.\relax }}{66}{figure.caption.526}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The original LLVM IR for function g in Figure \ref {fig:simplercode}.\relax }}{66}{figure.caption.534}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The LLVM IR for function f in Figure \ref {fig:simplercode}.\relax }}{66}{figure.caption.548}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The LLVM IR of g after executing the OSR inliner.\relax }}{67}{figure.caption.557}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces The continuation function corresponding to the LLVM IR in Figure \ref {fig:inlinedouter}.\relax }}{68}{figure.caption.589}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The micro-benchmark.\relax }}{73}{figure.caption.616}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{75}{figure.caption.637}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

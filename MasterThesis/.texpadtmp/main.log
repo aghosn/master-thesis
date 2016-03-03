@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  2 MAR 2016 23:17
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  3 MAR 2016 14:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1308,13 +1308,14 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 \openout5 = `main.toc'.
 
  [10]
-(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof)
+(/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof
+[11
+
+])
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
-[11
-
-] [12]
+ [12]
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
@@ -2858,7 +2859,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 579--2
 ]
 Chapter 5.
 --------------------
- 5. Case Study: An R Inliner
+ 5. Case Study: An R inliner
 --------------------
 
 ./Chapters/Chapter5.tex:10: LaTeX Error: Command \keyword already defined.
@@ -2971,37 +2972,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--72
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--85
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
+
+ []
+
+(./Code/functionCall.c)
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--90
-
- []
-
-[62] (./Code/functionCall.c)
-Underfull \hbox (badness 10000) in paragraph at lines 98--101
+Underfull \hbox (badness 10000) in paragraph at lines 103--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 113--116
 
  []
 
@@ -3036,135 +3032,162 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--192
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 193--200
+
+ []
+
+(./Code/originalR.r)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./Code/originalouter.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./Code/originalinner.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--228
+
+ []
+
+[65] (./Code/outerInliner.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./Code/continuation.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--251
+
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 267--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 287--293
 
  []
 
-[65]
-
-LaTeX Warning: Reference `Justification' on page 66 undefined on input line 212
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--217
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 294--304
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--248
-
- []
-
-
-Overfull \hbox (2.11444pt too wide) in paragraph at lines 249--261
+[68]
+Overfull \hbox (2.11444pt too wide) in paragraph at lines 305--317
 []\T1/ppl/m/n/10.95 The use of the OSR Han-dler base ver-sion map, for the Shoo
 tout bench-marks, yielded
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--261
-
- []
-
-[66]
-Underfull \hbox (badness 10000) in paragraph at lines 262--270
+Underfull \hbox (badness 10000) in paragraph at lines 305--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--283
+Underfull \hbox (badness 10000) in paragraph at lines 318--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--288
+Underfull \hbox (badness 10000) in paragraph at lines 327--342
 
  []
 
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 289--295
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 343--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--355
 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[68] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 355--357
+[70] [71]
+Underfull \hbox (badness 10000) in paragraph at lines 415--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--361
+Underfull \hbox (badness 10000) in paragraph at lines 418--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--367
+Underfull \hbox (badness 10000) in paragraph at lines 422--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--375
+Underfull \hbox (badness 10000) in paragraph at lines 428--441
 
  []
 
 (./Code/microbenchmark.r)
-Underfull \hbox (badness 10000) in paragraph at lines 404--410
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--476
 
  []
 
-[70
+[72
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 411--421
+Underfull \hbox (badness 10000) in paragraph at lines 477--487
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--431
+Underfull \hbox (badness 10000) in paragraph at lines 489--497
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 432--439
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 498--505
 
  []
 
-[71]
 File: Figures/withoutJitAll2.pdf Graphic file (type QTm)
- <use  "Figures/withoutJitAll2.pdf" >
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 446--452
+<use  "Figures/withoutJitAll2.pdf" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.89369pt too wide) in paragraph at lines 512--518
 \T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
  ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--452
+Underfull \hbox (badness 10000) in paragraph at lines 512--518
 
  []
 
-[72]
-Underfull \hbox (badness 10000) in paragraph at lines 453--455
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--521
 
  []
 
 ) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 456--2
+Underfull \hbox (badness 10000) in paragraph at lines 522--2
 
  []
 
-[73] [74
+[74] [75] [76
 
 ]
 Chapter 6.
@@ -3261,14 +3284,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--268
 
  []
 
-(./Appendices/AppendixA.tex [75] [76
+(./Appendices/AppendixA.tex [77] [78
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [77] [78
+) [79] [80
 
 ]
 Overfull \hbox (0.93102pt too wide) in paragraph at lines 286--286
@@ -3288,7 +3311,7 @@ Overfull \hbox (8.05923pt too wide) in paragraph at lines 286--286
 tal -[] patchpoint -[]
  []
 
-[79]
+[81]
 Overfull \hbox (5.35594pt too wide) in paragraph at lines 286--286
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
@@ -3307,7 +3330,7 @@ Overfull \hbox (2.60896pt too wide) in paragraph at lines 286--286
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-[80]
+[82]
 Overfull \hbox (2.9228pt too wide) in paragraph at lines 286--286
 []\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
 r The Bio-con-duc-tor open source soft-ware for bioin-
@@ -3321,27 +3344,24 @@ Overfull \hbox (24.38016pt too wide) in paragraph at lines 286--286
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
-[81]
+[83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 290.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 290.
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29992 strings out of 493706
- 531042 string characters out of 6145768
- 948609 words of memory out of 5000000
- 32896 multiletter control sequences out of 15000+600000
+ 30086 strings out of 493706
+ 532603 string characters out of 6145768
+ 977176 words of memory out of 5000000
+ 32975 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2385s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (97 pages).
+xpadtmp/main.pdf (99 pages).
