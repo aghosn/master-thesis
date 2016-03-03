@@ -356,48 +356,48 @@ On the other hand, these slow downs are meaningless since we purposefully create
 \begin{table}[h!]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-benchmark & \#clones & \#toInstrument & \#calls & \#inlined calls & \#inlined lines\\ \hline
-binarytrees-2.r & 20 & 2 & 118 & 2 & 166\\ \hline
-binarytrees-naive.r & 20 & 2 & 115 & 4 & 332\\ \hline
-binarytrees.r & 18 & 2 & 95 & 2 & 190\\ \hline
-fannkuchredux-naive.r & 7 & 1 & 5 & 1 & 26\\ \hline
-fannkuchredux.r & 9 & 1 & 7 & 1 & 26\\ \hline
-fasta-2.r & 22 & 2 & 33 & 4 & 556\\ \hline
-fasta-3.r & 22 & 2 & 40 & 4 & 728\\ \hline
-fasta-naive.r & 21 & 3 & 34 & 5 & 743\\ \hline
-fasta-naive2.r & 21 & 3 & 35 & 5 & 819\\ \hline
-fasta.r & 28 & 2 & 74 & 4 & 428\\ \hline
-fastaredux-naive.r & 21 & 3 & 41 & 5 & 1055\\ \hline
-fastaredux.r & 22 & 2 & 40 & 4 & 864\\ \hline
-knucleotide-brute.r & 21 & 3 & 40 & 3 & 488\\ \hline
-knucleotide-brute2.r & 21 & 3 & 41 & 3 & 527\\ \hline
-knucleotide-brute3.r & 21 & 3 & 40 & 3 & 517\\ \hline
-knucleotide.r & 29 & 3 & 51 & 3 & 490\\ \hline
-mandelbrot-ascii.r & 9 & 1 & 17 & 1 & 138\\ \hline
-mandelbrot-naive-ascii.r & 7 & 1 & 13 & 1 & 152\\ \hline
-mandelbrot-naive.r & 15 & 1 & 26 & 1 & 162\\ \hline
-mandelbrot-noout-naive.r & 9 & 1 & 17 & 1 & 124\\ \hline
-mandelbrot-noout.r & 9 & 1 & 16 & 1 & 133\\ \hline
-mandelbrot.r & 17 & 1 & 30 & 1 & 148\\ \hline
-nbody-2.r & 27 & 2 & 41 & 3 & 264\\ \hline
-nbody-3.r & 29 & 2 & 42 & 3 & 264\\ \hline
-nbody-naive.r & 21 & 2 & 49 & 3 & 560\\ \hline
-nbody-naive2.r & 23 & 2 & 37 & 3 & 370\\ \hline
-nbody.r & 25 & 2 & 39 & 3 & 274\\ \hline
-pidigits.r & 86 & 14 & 237 & 36 & 9747\\ \hline
-regexdna.r & 13 & 1 & 19 & 1 & 95\\ \hline
-reversecomplement-2.r & 15 & 1 & 17 & 1 & 64\\ \hline
-reversecomplement-naive.r & 15 & 1 & 18 & 1 & 74\\ \hline
-reversecomplement.r & 15 & 1 & 17 & 1 & 58\\ \hline
-spectralnorm-alt.r & 15 & 1 & 90 & 1 & 84\\ \hline
-spectralnorm-alt2.r & 15 & 1 & 90 & 1 & 88\\ \hline
-spectralnorm-alt3.r & 13 & 1 & 91 & 1 & 118\\ \hline
-spectralnorm-alt4.r & 13 & 1 & 88 & 1 & 79\\ \hline
-spectralnorm-math.r & 33 & 1 & 202 & 1 & 35\\ \hline
-spectralnorm-naive.r & 11 & 1 & 86 & 1 & 76\\ \hline
-spectralnorm.r & 11 & 1 & 85 & 1 & 72\\ \hline
+benchmark & \#toInstrument & \#calls & \#inlined calls & \#inlined lines\\ \hline
+binarytrees-2.r & 2 & 118 & 2 & 166\\ \hline
+binarytrees-naive.r & 2 & 115 & 4 & 332\\ \hline
+binarytrees.r & 2 & 95 & 2 & 190\\ \hline
+fannkuchredux-naive.r  & 1 & 5 & 1 & 26\\ \hline
+fannkuchredux.r & 1 & 7 & 1 & 26\\ \hline
+fasta-2.r & 2 & 33 & 4 & 556\\ \hline
+fasta-3.r & 2 & 40 & 4 & 728\\ \hline
+fasta-naive.r & 3 & 34 & 5 & 743\\ \hline
+fasta-naive2.r & 3 & 35 & 5 & 819\\ \hline
+fasta.r & 2 & 74 & 4 & 428\\ \hline
+fastaredux-naive.r & 3 & 41 & 5 & 1055\\ \hline
+fastaredux.r & 2 & 40 & 4 & 864\\ \hline
+knucleotide-brute.r & 3 & 40 & 3 & 488\\ \hline
+knucleotide-brute2.r & 3 & 41 & 3 & 527\\ \hline
+knucleotide-brute3.r & 3 & 40 & 3 & 517\\ \hline
+knucleotide.r & 3 & 51 & 3 & 490\\ \hline
+mandelbrot-ascii.r  & 1 & 17 & 1 & 138\\ \hline
+mandelbrot-naive-ascii.r  & 1 & 13 & 1 & 152\\ \hline
+mandelbrot-naive.r & 1 & 26 & 1 & 162\\ \hline
+mandelbrot-noout-naive.r & 1 & 17 & 1 & 124\\ \hline
+mandelbrot-noout.r & 1 & 16 & 1 & 133\\ \hline
+mandelbrot.r & 1 & 30 & 1 & 148\\ \hline
+nbody-2.r & 2 & 41 & 3 & 264\\ \hline
+nbody-3.r & 2 & 42 & 3 & 264\\ \hline
+nbody-naive.r & 2 & 49 & 3 & 560\\ \hline
+nbody-naive2.r & 2 & 37 & 3 & 370\\ \hline
+nbody.r & 2 & 39 & 3 & 274\\ \hline
+pidigits.r & 14 & 237 & 36 & 9747\\ \hline
+regexdna.r & 1 & 19 & 1 & 95\\ \hline
+reversecomplement-2.r & 1 & 17 & 1 & 64\\ \hline
+reversecomplement-naive.r  & 1 & 18 & 1 & 74\\ \hline
+reversecomplement.r & 1 & 17 & 1 & 58\\ \hline
+spectralnorm-alt.r  & 1 & 90 & 1 & 84\\ \hline
+spectralnorm-alt2.r & 1 & 90 & 1 & 88\\ \hline
+spectralnorm-alt3.r & 1 & 91 & 1 & 118\\ \hline
+spectralnorm-alt4.r & 1 & 88 & 1 & 79\\ \hline
+spectralnorm-math.r & 1 & 202 & 1 & 35\\ \hline
+spectralnorm-naive.r & 1 & 86 & 1 & 76\\ \hline
+spectralnorm.r & 1 & 85 & 1 & 72\\ \hline
 
 \end{tabular}}%
 \caption{Statistics on OSR inliner's execution on the Shootout benchmarks.}
