@@ -16,7 +16,7 @@
 %----------------------------------------------------------------------------------------
 This chapter presents the on-stack replacement concepts.
 The first section provides an overview of on-stack replacement principles.
-A second section presents on-stack replacement mechanisms, and defines OSR related vocabulary.
+The second section presents on-stack replacement mechanisms, and defines OSR related vocabulary.
 The third section focuses on the use of on-stack replacement for runtime deoptimization.
 Finally, the fourth section summarizes constraints on OSR implementations.\\
 
@@ -24,13 +24,13 @@ Finally, the fourth section summarizes constraints on OSR implementations.\\
 \subsection{Definition}
 
 On-Stack replacement (OSR) is a concept that consists in replacing a program that is currently executing with another, potentially very different program, while preserving the execution state.
-OSR implementations allow to interrupt running code during the execution of a function, transform it, e.g., re-optimize it, and resume the execution in the new function at the correct instruction point and state.
+OSR implementations allow to interrupt running code during the execution of a function, transform it, e.g., reoptimize it, and resume the execution in the new function at the correct instruction and state.
 The action of transferring the execution using the OSR mechanism is called a \textit{transition}.\\
 
 On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing function into another version of itself.
 This transformation mechanism has been used to allow transitions between different levels of code optimizations.
 We can therefore reduce it to two main purposes: (1) transforming an executing function into a more optimized version of itself, and (2) undoing transformations that were previously performed.
-While similar, these two types of transformation have very different goals.\\
+While similar, these two types of transformations have very different goals.\\
 
 In several virtual machines\cite{paleczny2001java, lameed2013modular, holzle1992debugging, fink2003design, soman2006efficient, duboscq2014speculation, OSRKit, WebKitFTL}, some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
 When the virtual machine (VM) identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
@@ -61,7 +61,7 @@ The next section presents the advantages that OSR uncovers in both cases.
 This section highlights the benefits of using on-stack replacement, with respect to both otpimization and deoptimization.\\
 
 On-Stack replacement increases the power of dynamic compilation.
-A function can be recompile while it is executing.
+A function can be recompiled while it is executing.
 This enables more aggressive adaptative compilation than just-in-time (JIT) compilation.
 In fact, the OSR mechanism, in theory, allows to perform a recompilation at any instruction boundary. 
 As an adaptative compilation mechanism, it enables to delay the compilation of a code artefact and therefore enables to gather more information about the current execution profile.
@@ -134,7 +134,7 @@ A guarded OSR point is an OSR point which execution is subjected to an explicit 
 In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
 \end{definition}
 \begin{definition}
-An unguarded OSR point does not require to check a boolean condition before being executed. 
+An unguarded OSR point does not require to locally check a boolean condition before being executed. 
 \end{definition}
 The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation\cite{fink2003design, soman2006efficient} and the WebKit OSR implementation\cite{WebKitURL}).
 Both solutions present different advantages and fit different use cases.\\
@@ -145,7 +145,7 @@ As explained previously, one of OSR's most interesting use case is long running 
 Executing many times the branching test can therefore greatly impact the program's performance.\\
 
 Unguarded OSR points enable to avoid this overhead by letting the framework modify the running function on external/environmental events.
-In WebKit\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at run time, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
+In WebKit\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at runtime, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
 This can be viewed as a lazy triggering of an OSR transition, i.e., the instrumentation to enable the transition can be added just before being executed.\\
 
 \subsubsection{OSR Entries \& OSR Exits}
@@ -175,10 +175,10 @@ The OSR mechanism can be narrowed down to its core functionality: allowing a tra
 This transition mechanism is therefore the cornerstone of any OSR implementation.
 This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
 
-In the reminder of this section, we use the terminology introduced by definitions \ref{from} and \ref{continuation}, and taken from the OSR Kit\cite{OSRKit} project.
+In the reminder of this section, we use the terminology introduced by definitions \ref{from}, \ref{base}, and \ref{continuation}, and taken from the OSR Kit\cite{OSRKit} project.
 These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.\\
 
-\begin{definition}
+\begin{definition}\label{base}
 A base function is a non-instrumented function. 
 It serves as a base input for compiler transformations.
 \end{definition}
@@ -296,7 +296,7 @@ An alternative solution is to encapsulate the entire process at a higher level, 
 An OSR transition can be modelled as a function call.
 As explained previously, a transition needs to propagate values and jump to a continuation point outside of the current execution path.
 A function call allows to modify the program counter and jump to another portion of code.
-The OSR transition can therefore be viewed as a tail function call, from the source version, to the destination version containing the newly generated code.\\
+The OSR transition can therefore be viewed as a tail function call from the source version to the destination version containing the newly generated code.\\
 
 In order to propagate the current execution state, there are two main solutions: 
 \begin{enumerate}
@@ -362,18 +362,18 @@ Figure \ref{fig:CallExample} provides the same OSR transition as in Figure \ref{
 \label{fig:multipleentry}
 \end{figure}
 
-The OSR transition requires to enter the continuation function at a special entry point, that corresponds to the OSR point in the from function.
+The OSR transition requires to enter the continuation function at a special instruction that corresponds to the OSR point in the from function.
 In order to decrease the space complexity, one might want to enable multiple entry points per function.
 Consider Figure \ref{fig:multipleentry}, where $f_{base}$ provides three entry points: (1) the regular entry point ENTRY, (2) a continuation CONT1 and (3) a second continuation CONT2.
 The function $f_{base}$ can therefore be used as a continuation function for any from function that has an OSR transition from a point that corresponds to either CONT1 or CONT2, as well as for regular function calls.
 In order to allow multiple entry points, the $f_{base}$ is instrumented, i.e., a prologue block is executed at its beginning.
-The prologue is responsible for identifying the $f_{base}$'s caller. 
+The prologue is responsible for identifying $f_{base}$'s caller. 
 In Figure \ref{fig:multipleentry}, this is done by checking the value of a general flag, called \textit{OSR\_LABEL}.
-According to this value, it then jumps to the correct instruction inside the function, and, if an OSR transition is being performed, loads the state from the shared buffer, as described before.
+According to this value, it then jumps to the correct instruction inside the function, and, if an OSR transition is being performed, loads the state from the shared buffer, as described before.\\
 
-This instrumentation has an impact on performance as it requires an extra computation at the beginning of the function. 
+The instrumentation for multiple entries per function has an impact on performance, as it requires an extra computation at the beginning of the function. 
 On the other hand, the second technique that we described to propagate the state modifies the function's signature.
-If the set of values to propagate is different at the two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
+If the set of values to propagate is different at two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
 Therefore, we can expect the second solution to have, in general, a higher space complexity (i.e., many versions of the function live in memory at the same time) but a better performance during execution (i.e., smaller execution time).\\
 
 \subsection{Versionning}
@@ -419,7 +419,7 @@ Other calls, that will take the same OSR entry, do not benefit from the OSR cond
 
 Depending on the reusability of a function's version, and its likelihood to be needed later in the execution, a time vs. space complexity trade-off appears.
 Generating a continuation function on the fly is time consuming.
-If the same OSR entry is taken multiple times, and leads to the same version of a function, caching this version might improve run time performances.
+If the same OSR entry is taken multiple times, and leads to the same version of a function, caching this version might improve runtime performances.
 On the other hand, if OSR entries are rarely taken, i.e., if OSR transitions are rare, generating the continuation function on the fly enables to save memory space. 
 The cost of the compilation is amortised by the improvements allowed by the optimization and the live range of the function. 
 In other words, generating on the fly is viable if the time performance gain of the optimized version over the entire execution is larger than the time required to generate the continuation function.
@@ -427,10 +427,10 @@ Furthermore, generating the continuation function on the fly enables to take int
 
 %SHOULD I SAY SOMETHING ABOUT HOW PROGRAM SPECIFIC THAT IS? 
 
-\section{The Deoptimization case}
+\section{On-Stack Replacement Deoptimization}
 %TODO NOT SURE ABOUT GREATE CHALLENGE...
 This section presents an overview of the deoptimization case with on-stack replacement.
-The deoptimization case presents several interesting design decisions and trade-offs.
+OSR deoptimization presents several interesting design decisions and trade-offs.
 
 \subsection{Why is deoptimization more interesting?}\label{WhyDeopt}
 %TODO for correctness
@@ -438,10 +438,10 @@ The deoptimization case presents several interesting design decisions and trade-
 %Relies on the quality of profiler and assumptions made
 On-stack replacement main interest lies in dynamic deoptimization of code.
 As explained in \ref{WhyOSRInteresting}, OSR can be used to deoptimize code in order to preserve correctness.
-A compiler, equipped with an efficient implementation of OSR, is allowed to perform adaptive optimizations, based on some assumptions that might fail at some point, during the execution.
+A compiler, equipped with an efficient implementation of OSR, is allowed to perform adaptive optimizations, based on some assumptions that might fail at some point during the execution.
 Put in another way, OSR enables aggressive speculative optimizations of code by providing a mechanism that preserves correctness.\\
 
-OSR strives to enable common optimizations performed by static programming language compilers in dynamic language compilers.
+OSR strives to enable common optimizations performed by static programming languages compilers in dynamic language compilers.
 For example, consider the function inlining optimization, which replaces a function call site with the body of the callee. 
 Inlining in static programming languages is a common optimization.
 It enables to eliminate the overhead of a function call and return, and enlarges the scope considered for further optimizations.
@@ -463,7 +463,7 @@ As a result, the OSR deoptimization process allows a greater flexibility but sho
 %This section describes different options.
 The OSR deoptimization case is interesting in the latitude it leaves with regard to where the optimized code should exit.
 In the OSR entry case, the continuation function is a more optimized version of the code.
-In the OSR exit case, there is still a choice to make: should the continuation function be a fully unoptimized version of the code? Or should we strive to obtain the most optimized version of the code?
+In the OSR exit case, there is still a choice to make: should the continuation function be a fully unoptimized version of the code? Or should we strive to obtain the most optimized and correct version of the code?
 This section describes several targets for OSR exits, and tries to present the advantages, disadvantages, and requirements for each option.\\
 
 \begin{figure}[h]
@@ -474,7 +474,7 @@ This section describes several targets for OSR exits, and tries to present the a
 \label{OSR exit options}
 \end{figure}
 
-\subsubsection{The Interpreter}
+\subsubsection{The interpreter}
 %List some examples that go to interpreter
 %Good if have full control over the interpreter
 %Bad for performance
@@ -487,7 +487,7 @@ The execution framework can therefore easily generate the correct state to resum
 Furthermore, this approach gets rid of any assumption taken by the execution framework and goes back to a safe environment.
 Another way to put it would be to say that, since an assumption failed, the framework takes the conservative decision to go back to an assumption free environment to resume the execution.\\
 
-Going back to the interpreter is a conservative approach that might impede on the performance of the program.
+Going back to the interpreter is a conservative approach that might impede the performance of the program.
 The interpreted version of the function is assumed to be slow.
 As a result, the function's execution will drastically slow down after exiting to the interpreter.
 The question is then the following: can we provide the same correctness guarantees while exiting to a more efficient version of the function?\\
@@ -508,7 +508,7 @@ On the other hand, the compiled version of the continuation function is expected
 On a theoretical point of view, going back to the base version avoids cascading OSR exits.
 Since an exit was taken, it implies that one of the compiler's assumptions failed.
 As it is hard to keep track of interferences and relations between different optimization steps, a compiler profiler might not have the means to detect how one assumption's failure impacts other assumptions that were taken.
-It might be the case that undoing one optimization would yield an incorrect version of the code due to interferences between optimizations (in the worst case), or trigger other OSR exits.
+It might be the case that undoing one optimization yields an incorrect version of the code due to interferences between optimizations (in the worst case), or triggers other OSR exits.
 An OSR exit also gives some feedback to the compiler's profiler that might improve the decisions that it takes for later speculative optimizations.
 Restarting the optimization process from scratch might therefore yield a more performant version of the code, compared to the version obtained by undoing the optimization that failed.\\
 
@@ -546,7 +546,7 @@ OSR Kit, presented in Section \ref{describeOSRKit}, can be used to implement suc
 %as seen in this chapter, many design and implementation choices, might lead to very different results.
 %Should cache or generate on the fly? How much reusability? How much performance gain?
 %It has hard, if not impossible, to come up with one global solution.
-On-stack replacement is a powerful technique, that requires to be tailored to its use cases in order to exhibit good results.
+On-stack replacement is a powerful technique that requires to be tailored to its use cases in order to exhibit good results.
 As seen in this chapter, OSR can be implemented in several different ways, which in turn might lead to very sparse performance results.
 For example, should the framework cache the compiled versions or should it generate the continuation functions on the fly?
 This dilemma cannot be answered in the general case.

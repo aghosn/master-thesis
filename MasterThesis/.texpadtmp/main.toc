@@ -23,10 +23,10 @@
 \contentsline {subsubsection}{One version}{13}{section*.157}
 \contentsline {subsubsection}{Multiple Versions}{14}{section*.158}
 \contentsline {subsubsection}{Caching vs. Generating on the fly}{14}{section*.159}
-\contentsline {section}{\numberline {2.3}The Deoptimization case}{14}{section.160}
+\contentsline {section}{\numberline {2.3}On-Stack Replacement Deoptimization}{14}{section.160}
 \contentsline {subsection}{\numberline {2.3.1}Why is deoptimization more interesting?}{14}{subsection.161}
 \contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{15}{subsection.162}
-\contentsline {subsubsection}{The Interpreter}{16}{section*.164}
+\contentsline {subsubsection}{The interpreter}{16}{section*.164}
 \contentsline {subsubsection}{The compiled base version}{16}{section*.165}
 \contentsline {subsubsection}{A less optimized version}{16}{section*.166}
 \contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{17}{section.167}

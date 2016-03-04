@@ -20,10 +20,10 @@
 \BOOKMARK [3][-]{section*.157}{One\040version}{subsection.156}% 20
 \BOOKMARK [3][-]{section*.158}{Multiple\040Versions}{subsection.156}% 21
 \BOOKMARK [3][-]{section*.159}{Caching\040vs.\040Generating\040on\040the\040fly}{subsection.156}% 22
-\BOOKMARK [1][-]{section.160}{The\040Deoptimization\040case}{chapter.34}% 23
+\BOOKMARK [1][-]{section.160}{On-Stack\040Replacement\040Deoptimization}{chapter.34}% 23
 \BOOKMARK [2][-]{subsection.161}{Why\040is\040deoptimization\040more\040interesting?}{section.160}% 24
 \BOOKMARK [2][-]{subsection.162}{Where\040do\040we\040exit?}{section.160}% 25
-\BOOKMARK [3][-]{section*.164}{The\040Interpreter}{subsection.162}% 26
+\BOOKMARK [3][-]{section*.164}{The\040interpreter}{subsection.162}% 26
 \BOOKMARK [3][-]{section*.165}{The\040compiled\040base\040version}{subsection.162}% 27
 \BOOKMARK [3][-]{section*.166}{A\040less\040optimized\040version}{subsection.162}% 28
 \BOOKMARK [1][-]{section.167}{Constraints\040on\040the\040OSR\040Mechanism}{chapter.34}% 29
