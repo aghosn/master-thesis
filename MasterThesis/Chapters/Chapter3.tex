@@ -29,9 +29,9 @@ Finally, the fourth section contains a recapitulatory table of different OSR imp
 %Interrupt points (where, why, how)
 %Function invalidation
 SELF is a pure object-oriented programming language.
-It relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the languages performances\cite{chambers1991making, holzle1991optimizing}.
-As a result, the language's implementation depends on a set of aggressive optimizations to achieve good performances\cite{chambers1992design, holzle1992debugging}.
-SELF provides an interactive environment, based on interpreter semantics at compiled-code speed performances.\\
+It relies on a pure message-based model of computation that, while enabling high expressiveness and rapid prototyping, impedes the language's performance\cite{chambers1991making, holzle1991optimizing}.
+As a result, the language's implementation depends on a set of aggressive optimizations to achieve good execution times\cite{chambers1992design, holzle1992debugging}.
+SELF provides an interactive environment, based on interpreter semantics, at compiled code speed performance.\\
 
 Providing source level interactive debugging is hard in the presence of optimizations.
 Single stepping or obtaining values for certain source level variables might not be possible.
@@ -42,7 +42,7 @@ In \citetitle{holzle1992debugging}\cite{holzle1992debugging}, the authors came u
 \citean{holzle1992debugging} present the main challenges encountered to provide debugging behaviors, due to the optimizations performed by the SELF compiler. 
 Displaying the stack according to a source-level view is impeded by optimizations such as inlining, register allocation and copy propagation.
 For example, when a function is inlined at a call site, only a single activation frame is visible, while the source level code expects to see two of them.
-Figure \ref{stackframes}, taken from \cite{holzle1992debugging}, provides another example of activations discordances between physical and source-level stacks.
+Figure \ref{stackframes}, taken from \cite{holzle1992debugging}, provides another example of activation discordances between physical and source-level stacks.
 In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', and hence disappears from the physical stack.\\
 \begin{figure}[h]
 \centering
@@ -61,7 +61,7 @@ Compiler optimizations prevent dynamic changes from being performed in the debug
 \citean{holzle1992debugging} identify two separate issues: changing variable values, and modifying procedures (i.e., functions).
 To illustrate the first case, the paper\cite{holzle1992debugging} relies on an example where a variable is assigned the sum of two other variables.
 The compiler identifies the two variables as being constants and replaces the addition by a direct constant assignment.
-A debugger that allows to change variable values at run time would then yield a non correct behaviour if the user modifies one of the two variables. 
+A debugger that allows to change variable values at runtime would then yield a non correct behavior if the user modifies one of the two variables. 
 This problem does not arise in the case of unoptimized code since the addition is still present. 
 For procedures, \citean{holzle1992debugging} provide an example where a function has been inlined by the compiler, but redefined by the user in the debugger.\\
 
