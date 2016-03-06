@@ -383,9 +383,9 @@ Then \textit{f} calls itself, executing the new version of the function.
 This works since the new version lives at the same address as the previous one and is instrumented to jump to the correct instruction, i.e., the one corresponding to the current point at which OSR was triggered.
 Figure \ref{FCFG} represents the CFG of \textit{f} before the OSR instrumentation.
 Figure \ref{InstFCFG} shows the instrumentation of \textit{f} that enables to jump to the correct instruction in the middle of the function. 
-A prolog entry block is inserted at the function header.
+A prologue entry block is inserted at the function header.
 This block checks the \textit{OSR flag} to know if an OSR transition is being performed.
-If that is the case, it branches to the prolog block that restores the state before resuming the execution at the correct instruction.\\
+If that is the case, it branches to the prologue block that restores the state before resuming the execution at the correct instruction.\\
 
 \begin{figure}[h]
 \centering
@@ -427,7 +427,8 @@ As mentioned earlier, WebKit is efficiently integrated in Apple Safari's web bro
 The lack of usage of McOSR library prevents us from collecting performance results and assessing its efficiency.
 Furthermore, the experimental evaluation in\cite{lameed2013modular} relies on an example that seems artificial for our use of OSR. 
 The case study presents a dynamic inliner that decides to inline a function call if the function is less than 20 basic blocks long, or if it is less than 50 basic blocks long and has an interpreter environment associated with its body. 
-This requirement for inlining is one that can be checked statically and, hence, seems a little artificial.\\
+This requirement for inlining is one that can either be checked statically or dynamically using standard JIT techniques. 
+Thus, this case study seems a little artificial.\\
 
 \subsection{OSR Kit for LLVM}\label{describeOSRKit}
 OSR Kit\cite{OSRKit} is a general purpose, target independent, implementation of on-stack replacement for LLVM.
@@ -459,7 +460,7 @@ A heavy instrumentation of the LLVM IR might impede on the performances observed
 \subsubsection{Open vs. Resolved OSR}
 
 The \textit{open OSR} scenario corresponds to the case where the continuation function is generated on the fly, when the OSR transition is fired.
-Deferring the compilation of the continuation function allows profiled-guided compilation strategies to gather as much information as possible about the current state of the execution, and therefore generate the best possible code.\\
+Deferring the compilation of the continuation function allows profiled-guided compilation strategies to gather as much information as possible about the current state of the execution, and therefore generate higher-quality compiler code.\\
 
 The open OSR scenario is implemented as a call to a stub function, call it $f_{stub}$.
 The $f_{stub}$ function is responsible for generating the continuation function, and then transferring the execution to it.
@@ -487,7 +488,7 @@ Both of them rely on a \textit{gen} function to generate the continuation functi
 However, \citean{OSRKit} made the choice to perform these operations, i.e., generating the continuation function and transferring the execution, inside a separated function, rather than instrumenting the from function directly.
 This choice was made in order to minimize the code injected inside the from function.
 In fact, the instrumentation, even when inserted in a separated branch, might interfere with compiler optimizations.
-Examples of such interferences are the increase of register pressure, the alteration of code layout and instruction cache behavior.\\
+Examples of such interferences are the increase of register pressure, and the alteration of code layout and instruction cache behavior.\\
 
 The \textit{resolved OSR} scenario corresponds to the case where the continuation function is known prior to fire the OSR transition, and the from function has been instrumented to transfer the execution to this specific compiled version.
 In the resolved OSR scenario, the transition is expected to be faster than in the open scenario, since there is no compilation to perform. 
@@ -546,7 +547,7 @@ The \textit{OSR\char`_split} block corresponds to the regular continuation of th
 
 \subsubsection{The continuation function \& StateMap}
 
-The OSR Kit library heavily relies on a special object, called a \textit{StateMap}, to keep a mapping between the from function and the continuation function.
+The OSR Kit library heavily relies on a special object, called a \textit{StateMap}, to keep a mapping between the from and the continuation functions.
 The StateMap enables to register unidirectional and bidirectional mappings between LLVM instructions and function arguments.
 The default constructor for a StateMap relies on the LLVM ValueToValueMapTy\cite{VMap}(VMap) to automatically extract the mappings.
 A VMap can be filled with such mappings when the LLVM cloning functions are used, i.e., the OSR Kit encourages you to generate the continuation function by cloning either the base or the from function such that a VMap is already available when the framework needs to introduce the instrumentation.
@@ -574,12 +575,12 @@ It might, however, impact on later optimizations performed on the code.\\
 According to \cite{fink2003design}, generating a dedicated function to resume the execution, as opposed to instrumenting a general function to serve as continuation as well as a regular function, is expected to lead to better results.
 In other words, it is supposed to be better to keep the base function to serve regular calls, and trigger OSR transitions whenever we need them, during the execution of the function.
 This claim is debatable in the case of deoptimization.
-Chapter\ref{Chapter4New} expands on the question.\\
+Chapter \ref{Chapter4New} expands on the question.\\
 
 \section{A classification summary}
 %TODO some kind of sum up and comparison, related to what we had in chapter 2.
-This section presents a summary of the various OSR implementations presented in this Chapter.
-The summary is presented in Table \ref{tab:Summary} and focuses on the state propagation technique, the types of OSR points supported, the implementation of the transition mechanism, and the target of OSR exits.\\
+This section presents a summary of the various OSR implementations presented in this chapter.
+The summary is presented in Table \ref{tab:Summary} and focuses on the state propagation techniques, the types of OSR points supported, the implementation of the transition mechanism, and the target of OSR exits.\\
 
 \clearpage
 

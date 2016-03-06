@@ -15,9 +15,9 @@
 
 %----------------------------------------------------------------------------------------
 This chapter presents RJIT OSR, our implementation of on-stack replacement, based on the OSR Kit\cite{OSRKit} library, that enables runtime deoptimization in R.
-The first section presents an overview and introduction to our work, by describing RJIT OSR goals, the limitations encountered in OSR Kit, and RJIT, the LLVM-based just-in-time compiler for R in which RJIT OSR is implemented.
-The second section presents RJIT OSR implementation.
-The third presents prototypes and extensions implemented for RJIT OSR.
+The first section presents an overview and introduction to our work, by describing RJIT OSR goals, the limitations encountered in OSR Kit and RJIT, the LLVM-based just-in-time compiler for R in which RJIT OSR is implemented.
+The second section presents RJIT OSR's implementation.
+The third section presents prototypes and extensions implemented for RJIT OSR.
 
 \section{Overview}
 \subsection{Justification \& Goals}\label{justificationgoals}
@@ -27,23 +27,23 @@ R is a dynamic, lazy, functional, object oriented programming language where the
 The dynamic features provided by the language include reflection over the environment, the ability to generate source code for unevaluated expressions and to treat text as code (e.g., functions \textit{parse} and \textit{eval}).
 Even though R is considered functional, i.e., functions are first-class values, and arguments are deep copied and lazily evaluated, the language does not optimize recursions and, instead, encourages vectorized operations.\\
 
-Although very flexible and widely used for statistical data analysis\cite{RUsage}, the R programming language's implementation suffers from poor execution performances, compared to equivalent programs executed in C or Python\cite{morandat2012evaluating}.
+Although very flexible and widely used for statistical data analysis\cite{RUsage}, the R programming language's implementation suffers from poor execution performance, compared to equivalent programs executed in C or Python\cite{morandat2012evaluating}.
 According to \citean{morandat2012evaluating}, on the Shootout baseline benchmarks suite\cite{Shootout}, R is on average 501 times slower than C and 43 times slower than Python.
 According to \cite{morandat2012evaluating}, R programs usually consume large amounts of memory, and spend an important part of the execution (e.g., on average 30\% for the Shootout benchmarks) doing memory management.
 These slow downs have various causes.
 For example, in R, all user data must be heap allocated and garbage collected, when languages like C allow stack allocated data.
 Another R behavior that has a large impact on memory consumption is boxing.
-All numeric data has to be boxed in R, leading to high overheads in programs containing an important amount of single numbers.
+All numeric data have to be boxed in R, leading to high overheads in programs containing an important amount of single numbers.
 For example, in the Bioconductor corpus of programs\cite{Bioconductor}, 36\% of vectors allocated contained only a single number\cite{morandat2012evaluating}.
 It is important to note that other R specific behaviors, such as looking up variables, matching parameters with arguments, and copy-on-write mechanisms used for call-by-value semantics have non negligible impacts on R programs performances\cite{morandat2012evaluating}.\\
 
 The RJIT project\cite{Rjit} strives to improve R performances by providing an LLVM based JIT compiler for R.
 The RJIT compiler plugs into a modified version of the GNUR\cite{RURL} interpreter and enables to JIT compile R programs into native code.
 The RJIT compiler is still pretty young, only a few months old.
-As a result, RJIT is currently trying to identify code behaviors that impact the execution performances, and plans to optimize code compilation to decrease their costs.
+As a result, RJIT is currently trying to identify code behaviors that impact the execution performance, and plans to optimize code compilation to decrease their costs.
 Due to R semantics, such compilation optimizations might be hard to implement.
 More specifically, as explained above, R performance limitations are intrinsically linked to R semantics.
-On-stack replacement therefore appeared as an interesting solution to enable aggressive and speculative optimizations, able to generate compiled code that does not respect R semantics, while preserving the correctness of the program's execution.
+On-stack replacement therefore appeared as an interesting solution to enable aggressive and speculative optimizations, able to generate compiled code that does not respect R semantics, while preserving the overall program's correctness.
 The goal of this master thesis is thus to prototype a flexible and extensible OSR mechanism for speculative optimizations.\\
 
 This master thesis prototypes OSR runtime deoptimization mechanisms in RJIT.
@@ -83,7 +83,7 @@ The resolved OSR corresponds to our requirements for deoptimization.
 The optimized version is obtained by applying a transformation on a base function.
 Since OSR points cannot be tampered with, the mapping between the OSR exit and the base function is guaranteed to be preserved, regardless of the subsequent (valid) optimizations performed on the optimized function.
 Another way to see this is that the OSR exit is a call to the continuation function, which takes as arguments all the values needed at the continuation function to reconstruct the computation state and continue the execution.
-As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to be executed properly.
+As long as the OSR exit call is preserved, and its arguments valid, the continuation function should be able to execute properly.
 For the overall execution to be correct, additional constraints, such as preventing instructions with side-effects from crossing OSR points, are however still required.
 In the light of these observations, it makes sense to instrument the base function to generate a continuation function for the OSR exit.\\
 
@@ -102,10 +102,10 @@ The OSR Kit framework does not provide the mechanisms required to avoid this ext
 %General information
 The RJIT project is an LLVM based JIT Compiler for the R programming language.
 It relies on GNUR\cite{RURL}, an interpreter for R. 
-GNUR provides and AST interpreter, a bytecode compiler and a bytecode interpreter for R.
+GNUR provides an abstract syntax tree interpreter, a bytecode compiler and a bytecode interpreter for R.
 The RJIT compiler takes as input a symbolic expression (SEXP), i.e., a special C structure generated by GNUR while parsing R programs.
 A SEXP represents R constructs and contains the AST representation of an R element.
-A SEXP has a type, and can be seen as a lisp-like cons cells, composed of two pointers, CAR and CDR.
+A SEXP has a type, and can be seen as a lisp-like cons cell, composed of two pointers, CAR and CDR.
 A SEXP has many other elements, that we do not detail here.
 Depending on its type, each SEXP element corresponds to a specific attribute (see examples for closures and functions below). 
 The GNUR interpreter has been instrumented to call the JIT compiler before evaluating a non-compiled SEXP. 
@@ -139,7 +139,7 @@ This wrapper function tests that the callee pointer that it gets as argument poi
 If that is the case, it performs the call to the callee, and propagates the value returned after the call.
 If the callee pointer references another function, it performs an ic stub call.
 Once the ic callee function is compiled, the ic stub replaces itself in the caller with a call to the ic callee.
-In order to do so, the ic stub relies on LLVM intrinsics called Stackmaps\cite{llvmStackMap} and Patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
+In order to do so, the ic stub relies on LLVM intrinsics called stackmaps\cite{llvmStackMap} and patchpoints\cite{llvmPatchpoints}, and on the caller's pointer it received as argument.\\
 
 The compilation flow can be reduced to the following steps:
 \begin{enumerate}
@@ -147,7 +147,7 @@ The compilation flow can be reduced to the following steps:
     \item The JIT compiler traverses the AST and produces the corresponding LLVM IR.
         \begin{itemize}
         \item Calls to non-intrinsic functions are translated into ic stubs.
-        \item A safepoints and patchpoint ids are set at every call instruction as LLVM attributes\cite{llvmAttribute}.
+        \item Safepoint and patchpoint ids are set at every call instruction as LLVM attributes\cite{llvmAttribute}.
         \end{itemize}
     \item When the \textit{jitAll} function is called on the compiler instance, every call instruction in every function in the module is visited.\label{jitAll}
         \begin{itemize}
@@ -192,7 +192,7 @@ In the case of a compiled function, the CAR element contains a pointer to the na
 The CDR element, in both cases, contains the constant pool associated to the function, i.e., the list of symbols defined inside the function.
 For a compiled function, the TAG element of the SEXP contains the function's LLVM IR.\\
 
-When the GNUR interpreter evaluates a function SEXP, it checks its SEXP type. 
+When the GNUR interpreter evaluates a function SEXP, it checks its type. 
 If the function is compiled, it performs the call to the native code. 
 If not, it calls the RJIT compiler, and executes the resulting native code.\\
 
@@ -208,12 +208,12 @@ In general, the environment is used to access variable values as well as functio
 \subsubsection{The closure's SEXP}
 In R, a closure contains a function and the environment associated to it.
 A closure SEXP has type CLOSXP.
-The BODY of a SEXP closure is a function SEXP.
+The body element of a SEXP closure is a function SEXP.
 The TAG of a SEXP closure is an environment SEXP, of type ENVSXP.
-A closure also contains the formals, i.e., the arguments symbols of the function.
-The getFunction intrinsic, that enables to resolve a function, returns a closure.
 The environment is made of cons cells, and is essential to the execution of a function.
-Local variables and function argument values are set inside the environment.\\
+Local variables and function argument values are set inside the environment.
+A closure also contains the formals, i.e., the arguments symbols of the function.
+The \textit{getFunction} intrinsic, that enables to resolve a function, returns a closure.\\
 
 
 \section{OSR Handler}

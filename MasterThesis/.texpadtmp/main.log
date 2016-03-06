@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 MAR 2016 21:30
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 MAR 2016 15:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2067,37 +2067,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--424
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 425--431
+Underfull \hbox (badness 10000) in paragraph at lines 425--432
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 447--451
+Underfull \hbox (badness 10000) in paragraph at lines 448--452
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 452--454
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--458
+Underfull \hbox (badness 10000) in paragraph at lines 456--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--463
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--469
+Underfull \hbox (badness 10000) in paragraph at lines 465--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--472
+Underfull \hbox (badness 10000) in paragraph at lines 471--473
 
  []
 
@@ -2110,17 +2110,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 485--491
+Underfull \hbox (badness 10000) in paragraph at lines 486--492
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--496
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 496--499
+Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
  []
 
@@ -2130,7 +2130,7 @@ File: Figures/OSRKitResolvedScenario.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 
  []
 
@@ -2139,12 +2139,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 508--509
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--525
+Underfull \hbox (badness 10000) in paragraph at lines 518--526
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 526--534
+Underfull \hbox (badness 10000) in paragraph at lines 527--535
 
  []
 
@@ -2166,262 +2166,262 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--554
+Underfull \hbox (badness 10000) in paragraph at lines 550--555
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 555--566
+Underfull \hbox (badness 10000) in paragraph at lines 556--567
 
  []
 
 [36] (./Code/contInstrumented.c)
-Underfull \hbox (badness 10000) in paragraph at lines 573--578
+Underfull \hbox (badness 10000) in paragraph at lines 574--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--583
+Underfull \hbox (badness 10000) in paragraph at lines 582--584
 
  []
 
 [37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 State prop-a-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 Scope de-
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 599--599
+Underfull \hbox (badness 3746) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 JVM state &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 FrameState
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 JVM scope
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 \T1/ppl/m/n/10.95 de-scrip-tor,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 \T1/ppl/m/n/10.95 VARMAP
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 599--599
+Underfull \hbox (badness 5847) in paragraph at lines 600--600
 \T1/ppl/m/n/10.95 & call ar-gu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 Buffer &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 Mapping
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 \T1/ppl/m/n/10.95 be-tween live
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 Call ar-gu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
 []|\T1/ppl/m/n/10.95 Transition
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
 []|\T1/ppl/m/n/10.95 Stack frames
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--601
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
 []|\T1/ppl/m/n/10.95 Modification
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--601
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
 \T1/ppl/m/n/10.95 of func-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--602
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
 []|\T1/ppl/m/n/10.95 Multiple
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 []|\T1/ppl/m/n/10.95 Mostly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 method
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 pro-logues
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 & back-ward
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-[]|\T1/ppl/m/n/10.95 Mostly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 back-ward
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 branches &
- []
-
-
-Underfull \hbox (badness 3536) in paragraph at lines 603--603
-[]|\T1/ppl/m/n/10.95 Between side
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 ef-fect-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-[]|\T1/ppl/m/n/10.95 Mostly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 method
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 pro-logues &
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-[]|\T1/ppl/m/n/10.95 Mostly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 method
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 pro-logues &
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-[]|\T1/ppl/m/n/10.95 Mostly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 method
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 pro-logues &
- []
-
-
-Underfull \hbox (badness 6792) in paragraph at lines 603--603
-\T1/ppl/m/n/10.95 state can be
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 method
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 pro-logues
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 & back-ward
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\T1/ppl/m/n/10.95 Mostly
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 back-ward
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 branches &
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 604--604
+[]|\T1/ppl/m/n/10.95 Between side
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 ef-fect-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\T1/ppl/m/n/10.95 Mostly
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 method
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 pro-logues &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\T1/ppl/m/n/10.95 Mostly
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 method
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 pro-logues &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\T1/ppl/m/n/10.95 Mostly
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 method
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 pro-logues &
+ []
+
+
+Underfull \hbox (badness 6792) in paragraph at lines 604--604
+\T1/ppl/m/n/10.95 state can be
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--605
 []|\T1/ppl/m/n/10.95 Guarded/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []|\T1/ppl/m/n/10.95 Unoptimized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 com-piled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []|\T1/ppl/m/n/10.95 Less op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 ti-mized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--605
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 com-piled
  []
 
@@ -3350,7 +3350,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30080 strings out of 493706
  532463 string characters out of 6145768
- 976360 words of memory out of 5000000
+ 976209 words of memory out of 5000000
  32973 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

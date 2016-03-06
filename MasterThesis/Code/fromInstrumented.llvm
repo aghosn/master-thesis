@@ -6,11 +6,11 @@ start:
   br i1 %1, label %OSR_fire, label %OSR_split
 
 OSR_split:                                      ; preds = %start
-  %2 = call  @constant(%consts, i32 0) 
-  %3 = call  @icStub_1(%0, %2, %f, %rho, (, , i32)* @gFrom, i64 13) 
+  %2 = call @constant(%consts, i32 0) 
+  %3 = call @icStub_1(%0, %2, %f, %rho, (, , i32)* @gFrom, i64 13) 
   ret  %3
 
 OSR_fire:                                         ; preds = %start
-  %OSRRet = call  @OSRCont(%rho, %consts)
-  ret  %OSRRet
+  %OSRRet = call @OSRCont(%rho, %consts)
+  ret %OSRRet
 }
