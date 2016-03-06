@@ -254,7 +254,7 @@ $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
 According to Section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the continuation function's signature in order to pass all the live values during an OSR transition.
 As a result, the continuation function might not be of type $T$.
 Enabling any type in the ic stub is not a viable solution, i.e., it requires too much work and goes against the type policies enforced by the RJIT framework. 
-We therefore have to come up with an alternate solution.\\
+We therefore have to come up with an alternative solution.\\
 
 The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
 
@@ -293,7 +293,7 @@ The OSR Handler \textit{getFreshIR} function compiles and registers non-NATIVESX
 The OSR Handler invokes the compiler on the function, and creates two clones of the resulting non-instrumented IR.
 Both clones are not part of the current compilation module, i.e., their IRs are not instrumented when the jitAll function is called.
 One clone is wrapped inside a copy of the function SEXP and stored in the base version map.
-The other clone is also wrapped inside a copy of the function SEXP and returned to the getFreshIR caller.\\
+The other clone is also wrapped inside a copy of the function SEXP and returned to the user.\\
 
 Calling \textit{getFreshIR} on a function that was not previously compiled can be viewed as an ahead of time (AOT) compilation strategy.
 RJIT is a JIT compiler, i.e., functions are compiled just before being executed.
