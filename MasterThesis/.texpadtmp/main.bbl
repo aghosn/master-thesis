@@ -683,6 +683,17 @@
   \field{urlyear}{2016}
 \endentry
 
+\entry{Oracle}{online}{}
+  \field{sortinit}{O}
+  \field{title}{{Oracle} Oracle.}
+  \verb{url}
+  \verb http://www.oracle.com/index.html
+  \endverb
+  \field{urlday}{01}
+  \field{urlmonth}{02}
+  \field{urlyear}{2016}
+\endentry
+
 \entry{JikesRVMURL}{online}{}
   \name{author}{1}{}{%
     {{}%

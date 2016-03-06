@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  4 MAR 2016 16:30
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  5 MAR 2016 20:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2520,7 +2520,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--39
 
 Overfull \hbox (14.33861pt too wide) in paragraph at lines 40--48
 \T1/ppl/m/n/10.95 based JIT com-piler for R. The RJIT com-piler plugs into a mo
-d-i-fied ver-sion of the GNUR[[]32[]]
+d-i-fied ver-sion of the GNUR[[]33[]]
  []
 
 
@@ -3348,13 +3348,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30079 strings out of 493706
- 532446 string characters out of 6145768
- 976185 words of memory out of 5000000
- 32972 multiletter control sequences out of 15000+600000
+ 30080 strings out of 493706
+ 532463 string characters out of 6145768
+ 976360 words of memory out of 5000000
+ 32973 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,14n,56p,10377b,2387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
 xpadtmp/main.pdf (97 pages).
