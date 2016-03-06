@@ -263,7 +263,7 @@ The LLVM intermediate representation is a language-independent set of instructio
 The LLVM IR is in static single assignment (SSA) form, which requires every variable to be defined before being used, and assigned exactly once. 
 SSA enables or improves several compiler optimizations among which constant propagation, value range propagation, sparse conditional constant propagation, dead code elimination, global value numbering, partial redundancy elimination, strength reduction, and register allocation\cite{appel1998ssa}.
 The SSA requirement for variables to be assigned only once requires a special mechanism, called a $\phi$-node, when a value depends on which control flow branch was executed before reaching the current variable definition.
-Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after merging of two control flow branches.\\
+Figure \ref{SSA example} provides an example where we have to choose between two possible values for a variable after merging two control flow branches.\\
 
 \begin{figure}[h]
 \centering
@@ -284,7 +284,7 @@ Other languages, like Haskell, Scala, Swift, Rust, Ada, and Fortran also have an
 LLVM basic types enable to support object-oriented languages, such as Java and Python, dynamically typed languages like R, or statically typed like Scala.
 LLVM also enables to model functional languages such as Haskell, as well as imperative ones. 
 Furthermore, it supports reflection and, thanks to dynamic linking, modular languages (e.g., Haskell).
-The tools provided enable static compilation as well as dynamic compilation techniques such as Just-In-Time compilation (JIT).\\
+The tools provided enable static compilation as well as dynamic compilation techniques such as just-in-time compilation.\\
 
 \subsection{Why do we want OSR in LLVM?}
 
@@ -301,7 +301,7 @@ By implementing OSR in LLVM, we get portability among these platforms for free.\
 \subsection{McOSR for LLVM}\label{McOSR}
 The McOSR OSR support\cite{lameed2013modular} is an attempt at providing an OSR library compatible with the standard LLVM implementation. 
 Lameed \& Hendren claim to have come up with a clean modular, and reusable technique completely defined at the LLVM IR level and compatible with the standard LLVM distribution.
-The implementation has been tested in the McVM/McOSR\cite{chevalier2010optimizing, McVM}, an open source VM and JIT for MATLAB, built on LLVM.
+The implementation has been tested in the McVM/McJIT\cite{chevalier2010optimizing, McVM}, an open source VM for MATLAB based on LLVM's JIT implementation.
 Their implementation answers five challenges, listed in the paper\cite{lameed2013modular}, and reproduced here:\\ 
 
 \begin{enumerate}
@@ -312,7 +312,7 @@ Their implementation answers five challenges, listed in the paper\cite{lameed201
     \item Integrating OSR without modifying the LLVM installation.
 \end{enumerate}
 
-\citean{lameed2013modular} claim to support optimization and re-optimization, as well as deoptimization by going back to the previous version of the function.
+\citean{lameed2013modular} claim to support optimization and reoptimization, as well as deoptimization by going back to the previous version of the function.
 Figure \ref{OSR classification} shows that this feature only allows single-steps to be taken, i.e., the OSR library implemented in\cite{lameed2013modular} does not seem to allow to skip intermediary versions.\\
 
 \begin{figure}[h]
