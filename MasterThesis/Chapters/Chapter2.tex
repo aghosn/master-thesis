@@ -14,7 +14,7 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
-This chapter presents the on-stack replacement concepts.
+This chapter introduces on-stack replacement.
 The first section provides an overview of on-stack replacement principles.
 The second section presents on-stack replacement mechanisms, and defines OSR related vocabulary.
 The third section focuses on the use of on-stack replacement for runtime deoptimization.
@@ -48,7 +48,7 @@ In this case, OSR is used to allow potentially erroneous transformations while p
 In summary, on-stack replacement is a powerful technique that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
 The next section presents the advantages that OSR uncovers in both cases.
 
-\subsection{Why is OSR interesting?}\label{WhyOSRInteresting}
+\subsection{On-Stack Replacement Benefits}\label{WhyOSRInteresting}
 %The optimization case
      %wait until enough profiling information is gathered to make some new assumptions and improve code quality
     %Some enable to have several specialised versions of the code live at the same time.
@@ -58,7 +58,7 @@ The next section presents the advantages that OSR uncovers in both cases.
     %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
     %The real difference: optimization is for performance, deoptimazation is for correctness.
     
-This section highlights the benefits of using on-stack replacement, with respect to both otpimization and deoptimization.\\
+%This section highlights the benefits of using on-stack replacement, with respect to both otpimization and deoptimization.\\
 
 On-Stack replacement increases the power of dynamic compilation.
 A function can be recompiled while it is executing.
@@ -90,7 +90,7 @@ OSR enables to revert back to a safe version during the execution.\\
 
 \section{On-Stack Replacement Mechanisms}
 
-\subsection{The OSR Points}\label{section:osrpoints}
+\subsection{Transition Points}\label{section:osrpoints}
 %TODO do a definition case for that
 %Several names for it 
 %what it is: a point in the code from which we can suspend the exec and optimize the current version of the code
@@ -110,65 +110,64 @@ OSR enables to revert back to a safe version during the execution.\\
     %McOSR inserter and instrument passes (need a code transformer + OSR Label)
     %Jikes
 On-stack replacement is enabled at specific instruction boundaries in the user's code.
-Depending on the OSR implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
+Depending on the implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
 In the literature, such boundaries were given various names, e.g., \textit{interrupt points}~\cite{holzle1992debugging}, \textit{OSR points}~\cite{fink2003design, holzle1992debugging, WebKitURL, lameed2013modular}, \textit{OSR entries}, and \textit{OSR exits}~\cite{WebKitURL, lameed2013modular}.
 This section presents the terminology for such points that will be used in the reminder of this report.
 
 \begin{definition}\label{OSRPointDefinition}
 An OSR point is a portion of code that belongs to the OSR instrumentation.
 It is located at an instruction boundary at which the program can be suspended.
-OSR points can correspond to several instructions inserted by the OSR framework and enable to switch the execution from one version of the code to another.
+OSR points can correspond to several instructions and enable to perform the transition from one version of the code to another.
 \end{definition}
 
 %TODO continue this part by explaining why we need it to be safe
-An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., points where the state is guaranteed to be consistent.
+An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., instruction boundaries where the state is guaranteed to be consistent.
 For example, as explained in Section \ref{SELF}, the SELF debugger~\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
-An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.
-As a result, different OSR implementations yield different restrictions on the location of OSR points.\\
+An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which the execution can resume.
+As a result, different implementations yield different restrictions on the location of OSR points.\\
 
 \subsubsection{Guarded \& Unguarded}
 
 OSR points can be divided into two categories: \textit{guarded} and \textit{unguarded}.
 \begin{definition}
-A guarded OSR point is an OSR point which execution is subjected to an explicit boolean test, called the OSR condition.
+A guarded OSR point's execution depends on an explicit boolean test, called the OSR condition.
 In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
 \end{definition}
 \begin{definition}
 An unguarded OSR point does not require to locally check a boolean condition before being executed. 
 \end{definition}
-The distinction between guarded and unguarded OSR points is present in the literature (e.g., Jikes RVM OSR implementation\cite{fink2003design, soman2006efficient} and the WebKit OSR implementation\cite{WebKitURL}).
+The distinction between guarded and unguarded points is present in the literature (e.g., Jikes RVM~\cite{fink2003design, soman2006efficient} and WebKit~\cite{WebKitURL}).
 Both solutions present different advantages and fit different use cases.\\
 
 While simple to model at a high-level, a guarded OSR point presents the disadvantage of increasing the code's length. 
 A boolean condition needs to be tested every time the execution comes across an OSR point.
-As explained previously, one of OSR's most interesting use case is long running loop's optimization.
-Executing many times the branching test can therefore greatly impact the program's performance.\\
+As a result, the repeated evaluation of conditions might undermine the performance improvements obtain via on-stack replacement, especially in the case of long running loops optimization.\\
 
 Unguarded OSR points enable to avoid this overhead by letting the framework modify the running function on external/environmental events.
-In WebKit~\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at runtime, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
-This can be viewed as a lazy triggering of an OSR transition, i.e., the instrumentation to enable the transition can be added just before being executed.\\
+WebKit~\cite{WebKitURL}, for example, overwrites portion of the compiled code, at runtime, in order to introduce an unconditional transition.
+This can be viewed as a lazy triggering of on-stack replacement, i.e., the instrumentation to enable the transition can be added just before being executed.\\
 
-\subsubsection{OSR Entries \& OSR Exits}
+\subsubsection{Entries \& Exits}
 
 There is a further distinction between OSR points that are responsible for optimizing the code, and the ones that are used to deoptimize.
-For that, we will use the same terminology as in WebKit~\cite{WebKitURL} and McOSR~\cite{lameed2013modular}.
+We adopt the same terminology as in WebKit~\cite{WebKitURL} and McOSR~\cite{lameed2013modular}.
 
 \begin{definition}\label{OSREntryDefinition}
-An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
-They are used in the optimization process.
+An OSR point that enables to replace the current version of the code with one in which we expect to have better performance is called an \textbf{entry}.
+OSR entries are used in the optimization process.
 \end{definition}
 
 \begin{definition}
-An OSR exit is an OSR point that enables to exit the current version of the code when it is invalidated.
+An OSR point that enables to exit the current version of the code when it is invalidated is called an \textbf{exit}.
 OSR exits are responsible for preserving the correctness of the program.
 They are used in the deoptimization process.
 \end{definition}
 
 At the implementation level, OSR entries and exits are very similar, if not identical. 
-They both are OSR points and will trigger an OSR transition.
-Conceptually, however, an OSR exit is part of the mechanism that enables to protect the correctness of the program.
-Mistakingly not taking an OSR entry is a missed opportunity for better performances.
-Missing a required OSR exit leads to a possibly incorrect behaviour of the program.\\
+They both are OSR points and will trigger a transition.
+Conceptually, however, an exit is part of the mechanism that enables to protect the correctness of the program.
+Mistakingly not taking an entry is a missed opportunity for better performances.
+Missing a required exit leads to a possibly incorrect behavior of the program.\\
 
 \subsection{The Transition Mechanism}
 The OSR mechanism can be narrowed down to its core functionality: allowing a transition at runtime from the middle of a running function to a corresponding instruction in the middle of another version of this function.

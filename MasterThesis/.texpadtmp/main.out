@@ -7,11 +7,11 @@
 \BOOKMARK [0][-]{chapter.34}{On-Stack\040Replacement}{}% 7
 \BOOKMARK [1][-]{section.35}{Overview}{chapter.34}% 8
 \BOOKMARK [2][-]{subsection.36}{Definition}{section.35}% 9
-\BOOKMARK [2][-]{subsection.37}{Why\040is\040OSR\040interesting?}{section.35}% 10
+\BOOKMARK [2][-]{subsection.37}{On-Stack\040Replacement\040Benefits}{section.35}% 10
 \BOOKMARK [1][-]{section.38}{On-Stack\040Replacement\040Mechanisms}{chapter.34}% 11
-\BOOKMARK [2][-]{subsection.39}{The\040OSR\040Points}{section.38}% 12
+\BOOKMARK [2][-]{subsection.39}{Transition\040Points}{section.38}% 12
 \BOOKMARK [3][-]{section*.41}{Guarded\040&\040Unguarded}{subsection.39}% 13
-\BOOKMARK [3][-]{section*.44}{OSR\040Entries\040&\040OSR\040Exits}{subsection.39}% 14
+\BOOKMARK [3][-]{section*.44}{Entries\040&\040Exits}{subsection.39}% 14
 \BOOKMARK [2][-]{subsection.47}{The\040Transition\040Mechanism}{section.38}% 15
 \BOOKMARK [3][-]{section*.51}{High-Level\040requirements\040and\040challenges\040for\040OSR\040transitions}{subsection.47}% 16
 \BOOKMARK [3][-]{section*.61}{The\040OSR\040transition\040at\040a\040low-level}{subsection.47}% 17

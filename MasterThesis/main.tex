@@ -81,12 +81,13 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \lstdefinestyle{customasm}{
   belowcaptionskip=1\baselineskip,
   frame=singleb,
-  xleftmargin=\parindent,
+  xleftmargin=2em,,
   language=[x86masm]Assembler,
   basicstyle=\footnotesize\ttfamily,
   commentstyle=\itshape\color{purple!40!black},
   captionpos=b,
   numbers=left,
+  framexleftmargin=1.5em,
 }
 
 \lstset{escapechar=@,style=customc}

@@ -6,19 +6,19 @@
 \contentsline {chapter}{Acknowledgements}{vii}{Doc-Start}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.6}
 \contentsline {section}{\numberline {1.1}Proposed Solution}{2}{section.32}
-\contentsline {section}{\numberline {1.2}Paper Overview}{3}{section.33}
+\contentsline {section}{\numberline {1.2}Paper Overview}{2}{section.33}
 \contentsline {chapter}{\numberline {2}On-Stack Replacement}{5}{chapter.34}
 \contentsline {section}{\numberline {2.1}Overview}{5}{section.35}
 \contentsline {subsection}{\numberline {2.1.1}Definition}{5}{subsection.36}
-\contentsline {subsection}{\numberline {2.1.2}Why is OSR interesting?}{6}{subsection.37}
+\contentsline {subsection}{\numberline {2.1.2}On-Stack Replacement Benefits}{6}{subsection.37}
 \contentsline {section}{\numberline {2.2}On-Stack Replacement Mechanisms}{7}{section.38}
-\contentsline {subsection}{\numberline {2.2.1}The OSR Points}{7}{subsection.39}
+\contentsline {subsection}{\numberline {2.2.1}Transition Points}{7}{subsection.39}
 \contentsline {subsubsection}{Guarded \& Unguarded}{7}{section*.41}
-\contentsline {subsubsection}{OSR Entries \& OSR Exits}{8}{section*.44}
+\contentsline {subsubsection}{Entries \& Exits}{8}{section*.44}
 \contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{8}{subsection.47}
 \contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{9}{section*.51}
 \contentsline {subsubsection}{The OSR transition at a low-level}{10}{section*.61}
-\contentsline {subsubsection}{The transition as a function call}{11}{section*.67}
+\contentsline {subsubsection}{The transition as a function call}{10}{section*.67}
 \contentsline {subsection}{\numberline {2.2.3}Versionning}{13}{subsection.156}
 \contentsline {subsubsection}{One version}{13}{section*.157}
 \contentsline {subsubsection}{Multiple Versions}{13}{section*.158}

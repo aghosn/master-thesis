@@ -30,9 +30,9 @@ As a result, new techniques are needed to lift restrictions in JIT compilers, an
 \label{fig:example}
 \end{figure}
 
-On-stack replacement (OSR) is a concept that consists in replacing a program that is executing, by another program, while preserving the execution state.
-Being able to switch between different programs, at runtime, while preserving the progress made so far by the execution, enables to implement aggressive speculative optimizations in JIT compilers.
-The lack of information about the program's content is compensated by allowing the compiler to take any assumption about the program, and perform optimizations based on this assumption.
+On-stack replacement (OSR) refers to a runtime compiler transformation technique that allows to replace a program that is executing by another program.
+Being able to change a program, while preserving the progress made so far in the execution, enables JIT compilers to perform speculative optimizations.
+The lack of information about a program’s possible behavior is compensated by allowing the compiler to take any assumption about the program, and perform optimizations based on this assumption.
 Whenever the assumption fails at runtime, the invalidated compiled program is replaced by a correct version, which resumes the execution.\\
 
 \begin{wrapfigure}[13]{l}{6.5cm}
@@ -45,10 +45,7 @@ Whenever the assumption fails, e.g., $f$ triggers a redefinition of $H$, OSR all
 The execution resumes at line 9 in Figure \ref{fig:example}.
 On-stack replacement implementations are state-of-the-art features in advanced virtual machines and JIT compilers.\\
 
-
-The R programming language suffers from very poor performances~\cite{morandat2012evaluating}. 
-It further exhibits a lazy evaluation of dynamically typed elements which prevents many common compiler optimizations from being performed.
-Even worse, performance bottlenecks in R are intimately linked to R semantics. 
+The poor performance of the R programming language is intimately linked to its semantics~\cite{morandat2012evaluating}. R combines lazy evaluation, lack of type annotations and reflective features to effectively prevent many common compiler optimizations from being performed.
 A JIT compiler for R, equipped with an efficient OSR implementation, could lift such restrictions, by generating more efficient unsound code, while preserving the correctness of the program.
 The focus of this thesis is to provide an OSR implementation in RJIT, a JIT compiler for R, that enables to perform speculative optimizations while preserving the correctness of the program's execution.
 The next section gives an overview of our solution and its implementation.\\
@@ -60,19 +57,15 @@ The next section gives an overview of our solution and its implementation.\\
 The first contribution of this thesis is an overview and synthesis of existing on-stack replacement implementations.
 This thesis describes in details the main approaches taken to implement OSR, and their advantages and drawbacks.\\
 
-The second and main contribution of this thesis is the implementation of RJIT OSR, an efficient OSR mechanism in the RJIT compiler for R, that enables agressive speculative optimizations while preserving the correctness of the program.
-The implementation focuses on the on-stack replacement deoptimization mechanism in RJIT, and strives to provide code instrumentation with as little overhead as possible.
-RJIT OSR prototypes a mechanism that could, in the future, enable to remove performance bottlenecks that are specific to R semantics.\\
+The second contribution of this thesis is the implementation of an efficient OSR mechanism in the RJIT compiler. The implementation focuses on the on-stack replacement deoptimization mechanism in RJIT, and strives to provide code instrumentation with as little overhead as possible.\\
 
-The third and final contribution of this thesis is the implementation of an OSR-based speculative inliner in RJIT.
-Function call inlining presents an interesting challenge in R, that requires to consider most of R and RJIT specificities.
-The OSR inliner is used to evaluate our OSR implementation and provides an example of an interesting use of the OSR concept in an R compiler.\\
+The third contribution of this thesis is the implementation of a speculative inliner. Function call inlining presents an interesting challenge in R, that requires to consider most of the language and its specificities. The inliner is used to evaluate our OSR implementation.\\
 
 \section{Paper Overview}
 
-The rest of this thesis is organized as follows: Chapter \ref{Chapter2} provides an overview of the on-stack replacement concept, defines OSR related vocabulary, and gives a high-level description of OSR mechanisms.
-Chapter \ref{Chapter3} presents related work, i.e., implementations of OSR mechanisms in different virtual machines. It also provides a classification summary that regroups the differences between each implementation.
-Chapter \ref{Chapter4New} describes RJIT OSR, the implementation of efficient OSR deoptimization in the RJIT compiler for R.
+The rest of this thesis is organized as follows: Chapter \ref{Chapter2} provides an overview of the on-stack replacement concept, defines related vocabulary, and gives a high-level description of OSR mechanisms.
+Chapter \ref{Chapter3} presents related work, i.e., on-stack replacement implementations in different virtual machines. It also provides a classification summary that regroups the differences between each implementation.
+Chapter \ref{Chapter4New} describes RJIT OSR, the implementation of efficient runtime deoptimization in the RJIT compiler for R.
 Chapter \ref{Chapter5} presents experimental results obtained with a speculative inliner, based on RJIT OSR.
 Finally, Chapter \ref{Chapter6} concludes and presents ideas for future work.\\ 
 
