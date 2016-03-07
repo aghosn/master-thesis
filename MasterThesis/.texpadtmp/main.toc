@@ -11,13 +11,13 @@
 \contentsline {section}{\numberline {2.1}Overview}{5}{section.35}
 \contentsline {subsection}{\numberline {2.1.1}Definition}{5}{subsection.36}
 \contentsline {subsection}{\numberline {2.1.2}On-Stack Replacement Benefits}{6}{subsection.37}
-\contentsline {section}{\numberline {2.2}On-Stack Replacement Mechanisms}{7}{section.38}
+\contentsline {section}{\numberline {2.2}Terminology \& Mechanisms}{7}{section.38}
 \contentsline {subsection}{\numberline {2.2.1}Transition Points}{7}{subsection.39}
 \contentsline {subsubsection}{Guarded \& Unguarded}{7}{section*.41}
 \contentsline {subsubsection}{Entries \& Exits}{8}{section*.44}
-\contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{8}{subsection.47}
-\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{9}{section*.51}
-\contentsline {subsubsection}{The OSR transition at a low-level}{10}{section*.61}
+\contentsline {subsection}{\numberline {2.2.2}The Transition}{8}{subsection.47}
+\contentsline {subsubsection}{High-Level requirements and challenges for transitions}{9}{section*.51}
+\contentsline {subsubsection}{The low-level transition}{10}{section*.61}
 \contentsline {subsubsection}{The transition as a function call}{10}{section*.67}
 \contentsline {subsection}{\numberline {2.2.3}Versionning}{13}{subsection.156}
 \contentsline {subsubsection}{One version}{13}{section*.157}

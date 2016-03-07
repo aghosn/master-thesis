@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 11:36
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 13:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1568,9 +1568,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--218
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 254--258
 
  []
@@ -1640,12 +1637,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 386--395
 
  []
 
-[13]
+
 Underfull \hbox (badness 10000) in paragraph at lines 419--426
 
  []
 
-
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 438--442
 
  []
@@ -1686,12 +1683,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 489--493
 
  []
 
-[15]
+
 Underfull \hbox (badness 10000) in paragraph at lines 499--506
 
  []
 
-
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 507--513
 
  []
@@ -1716,7 +1713,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 562--572
 
  []
 
-[17]) (./Chapters/Chapter3.tex [18]
+) (./Chapters/Chapter3.tex [17] [18]
 Chapter 3.
 --------------------
  3. Related Work
@@ -3364,7 +3361,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30080 strings out of 493706
  532463 string characters out of 6145768
- 976329 words of memory out of 5000000
+ 976290 words of memory out of 5000000
  32973 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

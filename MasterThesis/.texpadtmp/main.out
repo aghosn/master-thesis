@@ -8,13 +8,13 @@
 \BOOKMARK [1][-]{section.35}{Overview}{chapter.34}% 8
 \BOOKMARK [2][-]{subsection.36}{Definition}{section.35}% 9
 \BOOKMARK [2][-]{subsection.37}{On-Stack\040Replacement\040Benefits}{section.35}% 10
-\BOOKMARK [1][-]{section.38}{On-Stack\040Replacement\040Mechanisms}{chapter.34}% 11
+\BOOKMARK [1][-]{section.38}{Terminology\040&\040Mechanisms}{chapter.34}% 11
 \BOOKMARK [2][-]{subsection.39}{Transition\040Points}{section.38}% 12
 \BOOKMARK [3][-]{section*.41}{Guarded\040&\040Unguarded}{subsection.39}% 13
 \BOOKMARK [3][-]{section*.44}{Entries\040&\040Exits}{subsection.39}% 14
-\BOOKMARK [2][-]{subsection.47}{The\040Transition\040Mechanism}{section.38}% 15
-\BOOKMARK [3][-]{section*.51}{High-Level\040requirements\040and\040challenges\040for\040OSR\040transitions}{subsection.47}% 16
-\BOOKMARK [3][-]{section*.61}{The\040OSR\040transition\040at\040a\040low-level}{subsection.47}% 17
+\BOOKMARK [2][-]{subsection.47}{The\040Transition}{section.38}% 15
+\BOOKMARK [3][-]{section*.51}{High-Level\040requirements\040and\040challenges\040for\040transitions}{subsection.47}% 16
+\BOOKMARK [3][-]{section*.61}{The\040low-level\040transition}{subsection.47}% 17
 \BOOKMARK [3][-]{section*.67}{The\040transition\040as\040a\040function\040call}{subsection.47}% 18
 \BOOKMARK [2][-]{subsection.156}{Versionning}{section.38}% 19
 \BOOKMARK [3][-]{section*.157}{One\040version}{subsection.156}% 20

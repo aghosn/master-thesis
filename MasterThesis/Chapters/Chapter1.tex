@@ -45,7 +45,7 @@ Whenever the assumption fails, e.g., $f$ triggers a redefinition of $H$, OSR all
 The execution resumes at line 9 in Figure \ref{fig:example}.
 On-stack replacement implementations are state-of-the-art features in advanced virtual machines and JIT compilers.\\
 
-The poor performance of the R programming language is intimately linked to its semantics~\cite{morandat2012evaluating}. R combines lazy evaluation, lack of type annotations and reflective features to effectively prevent many common compiler optimizations from being performed.
+The poor performance of the R programming language is intimately linked to its semantics~\cite{morandat2012evaluating}. R combines lazy evaluation, lack of type annotations and reflective features that effectively prevent many common compiler optimizations from being performed.
 A JIT compiler for R, equipped with an efficient OSR implementation, could lift such restrictions, by generating more efficient unsound code, while preserving the correctness of the program.
 The focus of this thesis is to provide an OSR implementation in RJIT, a JIT compiler for R, that enables to perform speculative optimizations while preserving the correctness of the program's execution.
 The next section gives an overview of our solution and its implementation.\\
