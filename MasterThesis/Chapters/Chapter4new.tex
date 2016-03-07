@@ -308,7 +308,7 @@ When the closure passed as argument does not have an entry in the base version m
 RJIT creates one module per compiler instance, and performs the \textit{jitAll} call just before returning to the interpreter.
 As a result, if an LLVM IR's module is the same as the current compiler's module, the LLVM IR is not instrumented.
 In this case, the getFreshIR creates an entry for this closure in the base versions and returns the proper clone to the user, as explained before.
-For an LLVM IR with a different module, that does not have an entry in the base version map, the OSR Handler has no other choice than to recompile the function, i.e., re-parse the ASTs and generate the non-instrumented LLMV IR.
+For an LLVM IR with a different module, that does not have an entry in the base version map, the OSR Handler has no other choice than to recompile the function, i.e., re-parse the ASTs and generate the non-instrumented LLVM IR.
 In this case, it also creates a proper entry in the base version map and returns a copy to the user.
 This situation can be avoided by making sure that for every function compiled, a proper entry is registered in the OSR Handler's base version map.\\
 
@@ -321,9 +321,9 @@ This situation can be avoided by making sure that for every function compiled, a
 The non-instrumented IR obtained through the \textit{getFreshIR} function corresponds to the original AST of the function, i.e., no transformation has been applied on this IR. 
 In other words, all the transformations performed while compiling the function the first time are not reflected on the stored IR. 
 This is a choice that we made in order to keep different optimization passes independent.
-In some cases, that solution implies that we have to re-do the same transformation on the same function several times.
+In some cases, that solution implies that we have to redo the same transformation on the same function several times.
 For example, consider a function $A$ that calls $B$ several times.
-An inliner would inline every call sites in A.
+An inliner would inline every call sites in $A$.
 The inliner could further decide to inline all the calls inside $B$'s body.
 In that case, if the inliner relies on the OSR Handler to get $B$'s IR, it will have to run on each separate clone to inline the call sites they contain, therefore performing the same transformations multiple times.
 On the other hand, if the inliner's transformations depend on the location of the call to $B$, it is guaranteed to obtain fresh and independent IRs via the OSR Handler.\\
@@ -354,7 +354,7 @@ Preventing collection of items in the map would introduce an important memory le
 Completely deleting the entries is, however, a drastic solution.
 A better solution would be to delete only items that correspond to closures that are no longer live, and protect the other entries.
 This solution requires a tighter interaction with the garbage collector and was not implemented. 
-We however devise an alternate solution in section \ref{section:futurework}.\\
+We however devise an alternative solution in section \ref{section:futurework}.\\
 
 \subsection{Simplifying the OSR exit insertion}
 
