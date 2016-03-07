@@ -32,7 +32,7 @@ This transformation mechanism has been used to allow transitions between differe
 We can therefore reduce it to two main purposes: (1) transforming an executing function into a more optimized version of itself, and (2) undoing transformations that were previously performed.
 While similar, these two types of transformations have very different goals.\\
 
-In several virtual machines\cite{paleczny2001java, lameed2013modular, holzle1992debugging, fink2003design, soman2006efficient, duboscq2014speculation, OSRKit, WebKitFTL}, some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
+In several virtual machines~\cite{paleczny2001java, lameed2013modular, holzle1992debugging, fink2003design, soman2006efficient, duboscq2014speculation, OSRKit, WebKitFTL}, some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
 When the virtual machine (VM) identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
 This differs from a simple Just-In-Time (JIT) compiler, since the recompilation and transfer of execution both take place during the execution of the function, rather than just before it.
 However, both techniques rely on the same assumption, namely, that runtime profiling data enables to uncover new optimization opportunities.\\
@@ -67,7 +67,7 @@ In fact, the OSR mechanism, in theory, allows to perform a recompilation at any 
 As an adaptative compilation mechanism, it enables to delay the compilation of a code artefact and therefore enables to gather more information about the current execution profile.
 These information can then be used to produce higher quality compiled code, with better execution performances.\\
 
-For dynamic languages, code specialization is an efficient technique to improve performances\cite{gal2009trace}.
+For dynamic languages, code specialization is an efficient technique to improve performances~\cite{gal2009trace}.
 Code specialization consists in tuning the code to better fit a particular use case and set of types, hence yielding better performances.
 Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
 One of the main challenges is to identify which version better fits the current execution need.
@@ -111,7 +111,7 @@ OSR enables to revert back to a safe version during the execution.\\
     %Jikes
 On-stack replacement is enabled at specific instruction boundaries in the user's code.
 Depending on the OSR implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
-In the literature, such boundaries were given various names, e.g., \textit{interrupt points}\cite{holzle1992debugging}, \textit{OSR points} \cite{fink2003design, holzle1992debugging, WebKitURL, lameed2013modular}, \textit{OSR entries}, and \textit{OSR exits}\cite{WebKitURL, lameed2013modular}.
+In the literature, such boundaries were given various names, e.g., \textit{interrupt points}~\cite{holzle1992debugging}, \textit{OSR points}~\cite{fink2003design, holzle1992debugging, WebKitURL, lameed2013modular}, \textit{OSR entries}, and \textit{OSR exits}~\cite{WebKitURL, lameed2013modular}.
 This section presents the terminology for such points that will be used in the reminder of this report.
 
 \begin{definition}\label{OSRPointDefinition}
@@ -122,7 +122,7 @@ OSR points can correspond to several instructions inserted by the OSR framework 
 
 %TODO continue this part by explaining why we need it to be safe
 An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., points where the state is guaranteed to be consistent.
-For example, as explained in Section \ref{SELF}, the SELF debugger\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
+For example, as explained in Section \ref{SELF}, the SELF debugger~\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
 An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which we can resume the execution.
 As a result, different OSR implementations yield different restrictions on the location of OSR points.\\
 
@@ -145,13 +145,13 @@ As explained previously, one of OSR's most interesting use case is long running 
 Executing many times the branching test can therefore greatly impact the program's performance.\\
 
 Unguarded OSR points enable to avoid this overhead by letting the framework modify the running function on external/environmental events.
-In WebKit\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at runtime, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
+In WebKit~\cite{WebKitURL}, for example, an unguarded OSR point corresponds to a portion of code that can be overwritten at runtime, without recompiling the running function, in order to introduce an unconditional execution of an OSR point.
 This can be viewed as a lazy triggering of an OSR transition, i.e., the instrumentation to enable the transition can be added just before being executed.\\
 
 \subsubsection{OSR Entries \& OSR Exits}
 
 There is a further distinction between OSR points that are responsible for optimizing the code, and the ones that are used to deoptimize.
-For that, we will use the same terminology as in WebKit\cite{WebKitURL} and McOSR\cite{lameed2013modular}.
+For that, we will use the same terminology as in WebKit~\cite{WebKitURL} and McOSR~\cite{lameed2013modular}.
 
 \begin{definition}\label{OSREntryDefinition}
 An OSR entry is an OSR point that enables to replace the current version of the code with one in which we expect to have better performances.
@@ -175,7 +175,7 @@ The OSR mechanism can be narrowed down to its core functionality: allowing a tra
 This transition mechanism is therefore the cornerstone of any OSR implementation.
 This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
 
-In the reminder of this section, we use the terminology introduced by definitions \ref{from}, \ref{base}, and \ref{continuation}, and taken from the OSR Kit\cite{OSRKit} project.
+In the reminder of this section, we use the terminology introduced by definitions \ref{from}, \ref{base}, and \ref{continuation}, and taken from the OSR Kit~\cite{OSRKit} project.
 These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.\\
 
 \begin{definition}\label{base}
@@ -255,7 +255,7 @@ c <- 11
 The function \textit{f'} must provide a way to re-generate \textit{a} and \textit{b} from \textit{c}. 
 To this end, it must remember the steps that led to the optimized version of the code, and must be able to reverse them.
 This implies a lot of metadata attached to each version of the optimized code generated by the compiler and might quickly increase the space complexity of the OSR support.
-The VARMAP structure in the Jikes RVM OSR implementation\cite{soman2006efficient} and the scope descriptors in SELF debugger\cite{holzle1992debugging} are examples of such metadata attached to the code that enable to recover the values of $a$ and $b$ from $c$.\\
+The VARMAP structure in the Jikes RVM OSR implementation~\cite{soman2006efficient} and the scope descriptors in SELF debugger~\cite{holzle1992debugging} are examples of such metadata attached to the code that enable to recover the values of $a$ and $b$ from $c$.\\
  
 \subsubsection{The OSR transition at a low-level}
 %low-level transition description.
@@ -274,7 +274,7 @@ At a machine code level, an ideal OSR transition can be summarised into 5 steps:
     \item modify the program counter and resume the execution.
 \end{enumerate}\\
 
-There exists several examples of OSR implementations that manipulate the program state at machine code level to allow the continuation function to execute in the current stack frame\cite{chambers1991making, holzle1992debugging, suganuma2006region}.
+There exists several examples of OSR implementations that manipulate the program state at machine code level to allow the continuation function to execute in the current stack frame~\cite{chambers1991making, holzle1992debugging, suganuma2006region}.
 In order to perform such a modification of the runtime stack and registers, the OSR framework must have extensive control over the machine executing the program.
 This requirement is easier to satisfy if the execution is performed inside a virtual machine that enables to access and modify the execution stack and the registers.
 Section \ref{OSR&VM} expands on the relation between OSR implementations and virtual machines.
@@ -300,8 +300,8 @@ The OSR transition can therefore be viewed as a tail function call from the sour
 
 In order to propagate the current execution state, there are two main solutions: 
 \begin{enumerate}
-    \item Dumping the state in a shared memory location (e.g., as in the McOSR implementation\cite{lameed2013modular} and WebKit\cite{WebKitURL}), or
-    \item Passing all the needed values as function call arguments to the continuation function(e.g., as in OSR Kit\cite{OSRKit} and Jikes RVM OSR \cite{fink2003design}).
+    \item Dumping the state in a shared memory location (e.g., as in the McOSR implementation~\cite{lameed2013modular} and WebKit~\cite{WebKitURL}), or
+    \item Passing all the needed values as function call arguments to the continuation function(e.g., as in OSR Kit~\cite{OSRKit} and Jikes RVM OSR~\cite{fink2003design}).
 \end{enumerate}
 
 The first option implies that the from function must dump its state into a buffer before calling the continuation function.
@@ -385,7 +385,7 @@ Furthermore, the continuation function can either be generated on the fly, i.e.,
 %Good for space
 %Jikes on the fly, interpreter kind of on the fly. 
 Allowing only one live compiled version of the function enables to simplify the high-level model of the program's execution.
-Some OSR implementations, such as the McOSR\cite{lameed2013modular}, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
+Some OSR implementations, such as the McOSR~\cite{lameed2013modular}, replace the from function with the continuation one in-place, i.e., the continuation function is compiled and registered at the from function's address.
 This technique enables to propagate the optimized version through out the code without requiring any modification of the callers.
 One can view it as an eager propagation of optimizations.
 Therefore, one can assume that the overall performance of the execution should be improved by the global use of this optimized version.
@@ -479,7 +479,7 @@ This section describes several targets for OSR exits, and tries to present the a
 %Good if have full control over the interpreter
 %Bad for performance
 A first option is to OSR exit back to the interpreter. 
-This approach has been taken by some virtual machines, such as Graal\cite{duboscq2014speculation} or the Java HotSpot VM\cite{paleczny2001java} (see Section \ref{HotSpot} for more details).
+This approach has been taken by some virtual machines, such as Graal~\cite{duboscq2014speculation} or the Java HotSpot VM\cite{paleczny2001java} (see Section \ref{HotSpot} for more details).
 This corresponds to the OSR exit 1 in Figure \ref{OSR exit options}.\\
 
 Going back to the interpreter enables to have complete control over the execution environment.
@@ -499,7 +499,7 @@ The question is then the following: can we provide the same correctness guarante
 %Still pretty slow.
 Another option is to OSR exit to a base, compiled version of the function.
 It corresponds to the OSR exit 2 in Figure \ref{OSR exit options}.
-This is the approach taken by the WebKit framework\cite{WebKitURL}(see Section \ref{webkit}).
+This is the approach taken by the WebKit framework~\cite{WebKitURL}(see Section \ref{webkit}).
 It represents a good intermediary between performance and complexity.
 If the OSR framework does not have control over the execution environment, it requires careful instrumentation of the compiled code in order to properly propagate the execution state.
 If the continuation function is generated on the fly, taking this OSR transition implies suffering the cost of compiling a proper continuation function.
@@ -519,7 +519,7 @@ Restarting the optimization process from scratch might therefore yield a more pe
 A third option is to exit to an optimized version of the function that does not rely on the assumption that failed.
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted and the base versions.
-This behavior can be observed in McOSR\cite{lameed2013modular} (see Section \ref{McOSR}) and OSR Kit\cite{OSRKit}(see Section \ref{describeOSRKit}).
+This behavior can be observed in McOSR~\cite{lameed2013modular} (see Section \ref{McOSR}) and OSR Kit~\cite{OSRKit}(see Section \ref{describeOSRKit}).
 This option strives to get the best possible performances, even in the presence of an assumption's failure.\\
 
 As explained previously, there are two options to get the continuation function: either generate on the fly a new fully optimized version that does not rely on the assumption that failed, or "undo" the optimization that failed.
@@ -563,8 +563,8 @@ Furthermore, the program's behavior might depend on some runtime condition, and 
 The OSR instrumentation of the code limits the optimizations that the compiler can perform.
 First, the OSR points must be preserved by the compiler, during the transformations.
 This has also the disadvantage of impeding on the compiler's performance and more specifically on the quality of the code that it produces.
-For example, in the Java HotSpot\cite{paleczny2001java}, the OSR instrumentation might extend the live range of variables, therefore preventing the compiler from removing them.
-Another example is the SELF Debugger\cite{holzle1992debugging}, which deoptimization process does not support tail call elimination and therefore does not implement it in the compiler.
+For example, in the Java HotSpot~\cite{paleczny2001java}, the OSR instrumentation might extend the live range of variables, therefore preventing the compiler from removing them.
+Another example is the SELF Debugger~\cite{holzle1992debugging}, which deoptimization process does not support tail call elimination and therefore does not implement it in the compiler.
 Tail call elimination is a compiler optimization that enables, in the case of a tail call, to avoid allocating a new stack frame for the callee. 
 It is commonly used to optimize tail call recursions.
 The SELF debugger has no way of knowing how many stack frames were eliminated and is therefore unable to reconstruct them properly.

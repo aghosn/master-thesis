@@ -8,7 +8,7 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Variable elimination example.\relax }}{10}{figure.caption.52}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Using a buffer to pass live values in an OSR transition.\relax }}{11}{figure.caption.70}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Live values as arguments in an OSR transition.\relax }}{12}{figure.caption.103}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{13}{figure.caption.128}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{12}{figure.caption.128}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces OSR exit options}}{15}{figure.caption.163}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces physical vs. source-level stacks}}{20}{figure.caption.172}
@@ -21,7 +21,7 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{30}{figure.caption.204}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{31}{figure.caption.205}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{31}{figure.caption.206}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}.}}{32}{figure.caption.207}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}.}}{32}{figure.caption.207}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces The DestFunGenerator type.\relax }}{34}{figure.caption.218}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces The insertOpenOSR prototype.\relax }}{35}{figure.caption.232}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Resolved OSR Scenario}}{35}{figure.caption.259}

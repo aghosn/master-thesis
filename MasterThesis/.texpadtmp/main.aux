@@ -90,13 +90,13 @@
 \@writefile{toc}{\contentsline {subsubsection}{OSR Entries \& OSR Exits}{8}{section*.44}}
 \newlabel{OSREntryDefinition}{{2.2.4}{8}{OSR Entries \& OSR Exits}{definition.45}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}The Transition Mechanism}{8}{subsection.47}}
+\citation{soman2006efficient}
+\citation{holzle1992debugging}
 \newlabel{base}{{2.2.6}{9}{The Transition Mechanism}{definition.48}{}}
 \newlabel{from}{{2.2.7}{9}{The Transition Mechanism}{definition.49}{}}
 \newlabel{continuation}{{2.2.8}{9}{The Transition Mechanism}{definition.50}{}}
 \@writefile{toc}{\contentsline {subsubsection}{High-Level requirements and challenges for OSR transitions}{9}{section*.51}}
 \newlabel{HLREQ}{{2.2.2}{9}{High-Level requirements and challenges for OSR transitions}{section*.51}{}}
-\citation{soman2006efficient}
-\citation{holzle1992debugging}
 \citation{chambers1991making}
 \citation{holzle1992debugging}
 \citation{suganuma2006region}
@@ -128,13 +128,13 @@
 \newlabel{sub@fig:ContFuncCall}{{b}{12}{Continuation function.\relax }{figure.caption.103}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Live values as arguments in an OSR transition.\relax }}{12}{figure.caption.103}}
 \newlabel{fig:CallExample}{{2.3}{12}{Live values as arguments in an OSR transition.\relax }{figure.caption.103}{}}
+\@writefile{lol}{\contentsline {lstlisting}{Code/MultipleEntry.c}{12}{lstlisting.129}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{12}{figure.caption.128}}
+\newlabel{fig:multipleentry}{{2.4}{12}{Instrumented function with multiple entry points.\relax }{figure.caption.128}{}}
 \citation{lameed2013modular}
-\@writefile{lol}{\contentsline {lstlisting}{Code/MultipleEntry.c}{13}{lstlisting.129}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{13}{figure.caption.128}}
-\newlabel{fig:multipleentry}{{2.4}{13}{Instrumented function with multiple entry points.\relax }{figure.caption.128}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Versionning}{13}{subsection.156}}
 \@writefile{toc}{\contentsline {subsubsection}{One version}{13}{section*.157}}
-\@writefile{toc}{\contentsline {subsubsection}{Multiple Versions}{14}{section*.158}}
+\@writefile{toc}{\contentsline {subsubsection}{Multiple Versions}{13}{section*.158}}
 \@writefile{toc}{\contentsline {subsubsection}{Caching vs. Generating on the fly}{14}{section*.159}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}On-Stack Replacement Deoptimization}{14}{section.160}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Why is deoptimization more interesting?}{14}{subsection.161}}
@@ -144,10 +144,10 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{15}{subsection.162}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces OSR exit options}}{15}{figure.caption.163}}
 \newlabel{OSR exit options}{{2.5}{15}{OSR exit options}{figure.caption.163}{}}
+\@writefile{toc}{\contentsline {subsubsection}{The interpreter}{15}{section*.164}}
 \citation{WebKitURL}
 \citation{lameed2013modular}
 \citation{OSRKit}
-\@writefile{toc}{\contentsline {subsubsection}{The interpreter}{16}{section*.164}}
 \@writefile{toc}{\contentsline {subsubsection}{The compiled base version}{16}{section*.165}}
 \@writefile{toc}{\contentsline {subsubsection}{A less optimized version}{16}{section*.166}}
 \citation{paleczny2001java}
@@ -155,7 +155,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{17}{section.167}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}The OSR trade-offs}{17}{subsection.168}}
 \newlabel{tradeOffs}{{2.4.1}{17}{The OSR trade-offs}{subsection.168}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Limits on optimizations}{18}{subsection.169}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Limits on optimizations}{17}{subsection.169}}
 \citation{chambers1991making}
 \citation{holzle1991optimizing}
 \citation{chambers1992design}
@@ -278,8 +278,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{31}{figure.caption.206}}
 \newlabel{FCFG}{{3.10}{31}{A CFG of a running function before inserting the blocks for state recovery}{figure.caption.206}{}}
 \citation{OSRKit}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref  {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}.}}{32}{figure.caption.207}}
-\newlabel{InstFCFG}{{3.11}{32}{The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form\cite {lameed2013modular}}{figure.caption.207}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref  {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}.}}{32}{figure.caption.207}}
+\newlabel{InstFCFG}{{3.11}{32}{The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}}{figure.caption.207}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}OSR Kit for LLVM}{32}{subsection.208}}
 \newlabel{describeOSRKit}{{3.3.4}{32}{OSR Kit for LLVM}{subsection.208}{}}
 \newlabel{llvmTransformPasses}{{8}{32}{OSR Kit for LLVM}{Item.216}{}}

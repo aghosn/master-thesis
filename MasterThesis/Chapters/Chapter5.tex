@@ -264,7 +264,7 @@ Lines 7 to 9 are dead code and will be removed in the final compilation steps.\\
 
 %Generating everything and then doing the runs:
 
-This section presents an evaluation of the OSR inliner, based on the Shootout benchmarks\cite{Shootout}.
+This section presents an evaluation of the OSR inliner, based on the Shootout benchmarks~\cite{Shootout}.
 As explained in section \ref{section:justificationinlining}, the OSR inliner is a proof of concept, showing that the RJIT OSR enables to break R semantics at a function's level while preserving the overall correctness of the program.
 In this section, we compare the all inline mode, i.e., the agressive OSR inliner, against the regular mode, i.e., RJIT without any inlining.
 We first report some general numbers and observations gathered in the all inline mode. 
@@ -472,7 +472,7 @@ This is meant to avoid the translation step from ASTs to LLVM IR every time a fr
 Obtaining a fresh IR via the OSR Handler, for an already compiled function, is supposed to be faster than walking the entire function's AST and re-generating the corresponding LLVM IR instructions.
 The OSR Handler, however, performs some expensive operations, with non-negligible costs, such as registering a copy of the function in the base version map during the function's first compilation, cloning the base version entry to obtain a fresh working copy, and fixing the LLVM IR of clones.
 As a result, we evaluate the OSR Handler's mechanisms performance, compared to a regular translation from ASTs to LLVM IR.
-To do so, we rely on the Shootout benchmarks\cite{Shootout}, instrumented such that each function in the benchmarks is used.\\
+To do so, we rely on the Shootout benchmarks~\cite{Shootout}, instrumented such that each function in the benchmarks is used.\\
 
 Registering an entry in the base version map increases the cost of a function's first compilation.
 A first experiment therefore consists in comparing the cost of this first compilation via the OSR Handler, and via the regular RJIT mechanism. 

@@ -27,7 +27,7 @@
     %Fresh IRs as part of the SEXP
     %Feedback on the code and recompilation with optimizations
     %Breaking R performance bottlenecks. 
-We presented RJIT OSR, a prototype for runtime deoptimization in RJIT, based on the OSR Kit library\cite{OSRKit}.
+We presented RJIT OSR, a prototype for runtime deoptimization in RJIT, based on the OSR Kit library~\cite{OSRKit}.
 We adapted the library to better fit the deoptimization case, and answered challenges particular to the RJIT project.
 Reusing LLVM IR accros different compilation modules proved to be three times more efficient than redoing the AST to LLVM IR translation.
 Replacing an invalidated function by a correct closure, as part of the exit mechanism, mitigates the overhead introduced by the OSR instrumentation in the presence of assumption failures.\\
@@ -39,7 +39,7 @@ We also think that providing transformation primitives that automatically update
 
 The implementation of a speculative inliner, relying on on-stack-replacement deoptimizations for correctness, enabled to validate our RJIT OSR prototype. 
 Function call inlining is not semantically correct in R.
-However, thanks to RJIT OSR, we were able to aggressively inline calls throughout the Shootout benchmarks\cite{Shootout}.
+However, thanks to RJIT OSR, we were able to aggressively inline calls throughout the Shootout benchmarks~\cite{Shootout}.
 One of RJIT's goal is to aggressively and speculatively optimize away costly behaviors inherent to R semantics.
 On the other hand, our experience with inlining showed that implementing R-level transformations at the LLVM IR is challenging.
 Devising an intermediary representation, closer to R semantics, between GNUR ASTs, and the LLVM IR, that facilitates optimizations, and encoding OSR exits at that level might be an interesting idea.

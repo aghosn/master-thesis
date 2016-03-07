@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  6 MAR 2016 19:10
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 10:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1528,12 +1528,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 142--146
 
  []
 
-
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
@@ -1563,11 +1563,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 216--219
 
  []
 
-[9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 255--259
 
  []
 
+[9]
 
 ./Chapters/Chapter2.tex:276: LaTeX Error: There's no line here to end.
 
@@ -1591,12 +1595,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 285--287
 
  []
 
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 296--300
 
  []
 
-
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 307--313
 
  []
@@ -1610,20 +1614,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 331--337
  []
 
 [11] (./Code/callFrom.c) (./Code/callCont.c) (./Code/MultipleEntry.c)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 365--373
 
  []
 
-
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 374--378
 
  []
 
-[12]
+
 Underfull \hbox (badness 10000) in paragraph at lines 387--396
 
  []
@@ -1664,12 +1664,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--484
 
  []
 
-[15]
+
 Underfull \hbox (badness 10000) in paragraph at lines 485--489
 
  []
 
-
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 490--494
 
  []
@@ -1689,12 +1689,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 519--524
 
  []
 
-[16]
+
 Underfull \hbox (badness 10000) in paragraph at lines 525--540
 
  []
 
-
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 549--555
 
  []
@@ -1787,12 +1787,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
- []
-
-
-Overfull \hbox (3.74652pt too wide) in paragraph at lines 40--41
-[]\T1/ppl/m/n/10.95 In ^^P  De-bug-ging op-ti-mized code with dy-namic de-op-ti
--miza-tion^^Q[[]16[]], the au-thors came
  []
 
 
@@ -2518,9 +2512,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--39
  []
 
 
-Overfull \hbox (14.33861pt too wide) in paragraph at lines 40--48
+Overfull \hbox (16.41911pt too wide) in paragraph at lines 40--48
 \T1/ppl/m/n/10.95 based JIT com-piler for R. The RJIT com-piler plugs into a mo
-d-i-fied ver-sion of the GNUR[[]33[]]
+d-i-fied ver-sion of the GNUR [[]33[]]
  []
 
 
@@ -3350,7 +3344,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30080 strings out of 493706
  532463 string characters out of 6145768
- 976209 words of memory out of 5000000
+ 976210 words of memory out of 5000000
  32973 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
