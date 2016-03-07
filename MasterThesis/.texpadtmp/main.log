@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 13:55
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 15:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1643,73 +1643,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--426
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 438--442
+Underfull \hbox (badness 10000) in paragraph at lines 438--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--452
+Underfull \hbox (badness 10000) in paragraph at lines 442--450
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--458
+Underfull \hbox (badness 10000) in paragraph at lines 451--456
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 463--467
+Underfull \hbox (badness 10000) in paragraph at lines 461--465
 
  []
 
 File: Figures/wheretoexit.png Graphic file (type QTm)
 <use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 470--472
+Overfull \hbox (9.04208pt too wide) in paragraph at lines 468--470
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--483
+Underfull \hbox (badness 10000) in paragraph at lines 478--481
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--488
+Underfull \hbox (badness 10000) in paragraph at lines 482--486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--493
+Underfull \hbox (badness 10000) in paragraph at lines 487--491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--506
+Underfull \hbox (badness 10000) in paragraph at lines 497--504
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 507--513
+Underfull \hbox (badness 10000) in paragraph at lines 505--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 518--523
+Underfull \hbox (badness 10000) in paragraph at lines 516--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 524--539
+Underfull \hbox (badness 10000) in paragraph at lines 522--537
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 548--554
+Underfull \hbox (badness 10000) in paragraph at lines 546--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--572
+Underfull \hbox (badness 10000) in paragraph at lines 560--570
 
  []
 
@@ -3361,7 +3361,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30080 strings out of 493706
  532463 string characters out of 6145768
- 976290 words of memory out of 5000000
+ 976274 words of memory out of 5000000
  32973 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

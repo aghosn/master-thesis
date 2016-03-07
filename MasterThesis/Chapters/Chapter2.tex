@@ -389,7 +389,7 @@ This technique enables to propagate the optimized version through out the code w
 One can view it as an eager propagation of optimizations.
 The overall performance of the execution should be improved by the global use of this optimized version.
 On the other hand, this technique requires to ensure that any OSR entry taken is based on a condition that holds at any possible call site of the function.
-It might therefore prevent the function's specialization in local sub-scopes.
+It might therefore prevent function specialization in local sub-scopes.
 Moreover, depending on the OSR implementation, it might require to trigger an OSR transition for frames in the middle of the execution stack.
 \\
 
@@ -403,12 +403,12 @@ Fine-grained specialization of functions enables to improve performance locally.
 In fact, allowing multiple versions of the same function to be live at the same time enables to optimize a function according to local conditions, regardless of other call sites states.
 While attractive for the extra flexibility it provides, this solution presents several disadvantages.
 First, it might increase space complexity.
-In fact, allowing such fine specialization might lead to having one version per call site.
-If not carefully handled, this can lead to a dramatic increase of memory usage.
+In fact, allowing such specialization might lead to having one version per call site.
+If not carefully handled, this can dramatically increase memory usage.
 Second, this technique is a lazy propagation of optimizations.
 Assume different calls to the same function.
 In one call execution, call it $C_1$, an OSR condition allows to take a specific OSR entry.
-Other calls, that will take the same OSR entry, do not benefit from the OSR condition tested by $C_1$, i.e., they will have to wait until they reach the same OSR entry, and verify the same condition, before taking the OSR transition.
+Other calls, that will take the same OSR entry, do not benefit from the OSR condition tested by $C_1$, i.e., they will have to wait until they reach the same entry, and verify the same condition, before taking the transition.
 
 
 
@@ -431,32 +431,30 @@ Furthermore, generating the continuation function on the fly enables to take int
 This section presents an overview of the deoptimization case with on-stack replacement.
 OSR deoptimization presents several interesting design decisions and trade-offs.
 
-\subsection{Why is deoptimization more interesting?}\label{WhyDeopt}
+\subsection{Deoptimization Benefits}\label{WhyDeopt}
 %TODO for correctness
 %Enable aggressive adaptive optimizations
 %Relies on the quality of profiler and assumptions made
 On-stack replacement main interest lies in dynamic deoptimization of code.
-As explained in \ref{WhyOSRInteresting}, OSR can be used to deoptimize code in order to preserve correctness.
 A compiler, equipped with an efficient implementation of OSR, is allowed to perform adaptive optimizations, based on some assumptions that might fail at some point during the execution.
 Put in another way, OSR enables aggressive speculative optimizations of code by providing a mechanism that preserves correctness.\\
 
-OSR strives to enable common optimizations performed by static programming languages compilers in dynamic language compilers.
-For example, consider the function inlining optimization, which replaces a function call site with the body of the callee. 
-Inlining in static programming languages is a common optimization.
+On-stack replacement enables to perform optimizations which are common in static languages compilers, but unsound in dynamic languages.
+Function call inlining, for example, is a common optimization performed in static programming languages compilers. 
 It enables to eliminate the overhead of a function call and return, and enlarges the scope considered for further optimizations.
-While very common in static languages, inlining proves to be more difficult to implement in compilers for dynamic languages, if functions can be redefined at run time.
+While very common in static languages, inlining proves to be more difficult to implement in compilers for dynamic languages, if functions can be redefined at runtime.
 OSR allows to perform speculative inlining of function calls. 
 The assumption taken by the compiler is that the function call corresponds to a specific function body. 
 A guarded OSR point checks that the inlined function was not redefined before executing the inlined body.
 If the assumption fails, i.e., the function was redefined, the OSR mechanism allows to exit to a version of the code where the call was not inlined.\\
 
-The OSR mechanism is only a tool, which efficiency depends on the quality of the assumptions made.
+The OSR mechanism is a tool, which efficiency depends on the quality of the assumptions made.
 This is even more visible in the deoptimization case.
 The optimization case remains useful for regular optimizations, i.e., an OSR entry can be allowed by some profiling data gathered during the execution, and based on some fact that will hold for the rest of the execution.
 On the other hand, an agressive assumption-based optimization exposes a trade-off between the performance improvement that it allows on one side, and the cost it has in the case of an assumption failure on the other.
 As a result, the OSR deoptimization process allows a greater flexibility but should be coupled with an efficient profiler in order to identify cases where and when the program's execution might benefit from aggressive speculative optimizations.\\
 
-\subsection{Where do we exit?}
+\subsection{The Exit Target}
 %Interesting because flexibility in where to exit.
 %Depending on the trade off between time we can spend generating the exit, control over the environment etc.
 %This section describes different options.
@@ -477,13 +475,13 @@ This section describes several targets for OSR exits, and tries to present the a
 %List some examples that go to interpreter
 %Good if have full control over the interpreter
 %Bad for performance
-A first option is to OSR exit back to the interpreter. 
+A first option is to exit back to the interpreter. 
 This approach has been taken by some virtual machines, such as Graal~\cite{duboscq2014speculation} or the Java HotSpot VM\cite{paleczny2001java} (see Section \ref{HotSpot} for more details).
 This corresponds to the OSR exit 1 in Figure \ref{OSR exit options}.\\
 
 Going back to the interpreter enables to have complete control over the execution environment.
-The execution framework can therefore easily generate the correct state to resume the execution.
-Furthermore, this approach gets rid of any assumption taken by the execution framework and goes back to a safe environment.
+The runtime framework has a fine-grained control over the interpreter state in which the execution is resumed.
+This approach further gets rid of any assumption taken by the compiler and goes back to a safe environment.
 Another way to put it would be to say that, since an assumption failed, the framework takes the conservative decision to go back to an assumption free environment to resume the execution.\\
 
 Going back to the interpreter is a conservative approach that might impede the performance of the program.
@@ -506,9 +504,9 @@ On the other hand, the compiled version of the continuation function is expected
 
 On a theoretical point of view, going back to the base version avoids cascading OSR exits.
 Since an exit was taken, it implies that one of the compiler's assumptions failed.
-As it is hard to keep track of interferences and relations between different optimization steps, a compiler profiler might not have the means to detect how one assumption's failure impacts other assumptions that were taken.
+As it is hard to keep track of interferences and relations between different optimization steps, a profiler might not have the means to detect how one assumption's failure impacts other assumptions that were taken.
 It might be the case that undoing one optimization yields an incorrect version of the code due to interferences between optimizations (in the worst case), or triggers other OSR exits.
-An OSR exit also gives some feedback to the compiler's profiler that might improve the decisions that it takes for later speculative optimizations.
+An OSR exit also gives some feedback to the compiler's profiler that might improve the decisions taken for later speculative optimizations.
 Restarting the optimization process from scratch might therefore yield a more performant version of the code, compared to the version obtained by undoing the optimization that failed.\\
 
 \subsubsection{A less optimized version}
@@ -519,7 +517,7 @@ A third option is to exit to an optimized version of the function that does not 
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted and the base versions.
 This behavior can be observed in McOSR~\cite{lameed2013modular} (see Section \ref{McOSR}) and OSR Kit~\cite{OSRKit}(see Section \ref{describeOSRKit}).
-This option strives to get the best possible performances, even in the presence of an assumption's failure.\\
+This option strives to get the best possible performance, even in the presence of an assumption's failure.\\
 
 As explained previously, there are two options to get the continuation function: either generate on the fly a new fully optimized version that does not rely on the assumption that failed, or "undo" the optimization that failed.
 Undoing an optimization is hard, especially when it is intertwined with other transformations performed on the code.
@@ -529,13 +527,13 @@ If that is not the case, we exit to a version of the code that is missing severa
 For example, consider Figure \ref{OSR exit options}. 
 If the assumption used for transformation $O3$ fails, we can easily exit to the version on which we applied the transformation, i.e., $O2(O1(f))$.
 This corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
-However, if the assumptions used for $O2$ fails, there is no previous version of $f$ that corresponds to $O3(O1(f))$ and generating one on the fly, from $O3(O2(O1(f)))$, is hard, since it requires to undo $O2$.
-One possible solution, in that case, is to generate the continuation function on the fly.
+However, if the assumptions used for $O2$ fails, there is no previous version of $f$ that corresponds to $O3(O1(f))$ and generating one from $O3(O2(O1(f)))$ requires to undo $O2$.
+Another solution, in that case, is to generate the continuation function on the fly.
 Starting from $f$, we apply $O1$ and then $O3$, yielding $O3(O1(f))$.
 This is a viable solution if and only if it is possible to find a mapping between $O3(O2(O1(f)))$ and $O3(O1(f))$.
-If such a mapping does not exist, the OSR implementation must ensure that no transformation messes with the OSR instrumentation.
+If such a mapping does not exist, the compiler must ensure that no transformation messes with the OSR instrumentation.
 In that case, we can always go back to the version on which we applied the transformation that failed, e.g., $O1(f)$ in our example.
-OSR Kit, presented in Section \ref{describeOSRKit}, can be used to implement such a solution.\\
+OSR Kit, presented in section \ref{describeOSRKit}, can be used to implement such a solution.\\
 
 \section{Constraints on the OSR Mechanism}
 \subsection{The OSR trade-offs}\label{tradeOffs}
@@ -560,9 +558,9 @@ Furthermore, the program's behavior might depend on some runtime condition, and 
 \subsection{Limits on optimizations}
 
 The OSR instrumentation of the code limits the optimizations that the compiler can perform.
-First, the OSR points must be preserved by the compiler, during the transformations.
-This has also the disadvantage of impeding on the compiler's performance and more specifically on the quality of the code that it produces.
-For example, in the Java HotSpot~\cite{paleczny2001java}, the OSR instrumentation might extend the live range of variables, therefore preventing the compiler from removing them.
+OSR points must be preserved by the compiler, for correctness, during the transformations.
+Such instrumentation might increase variable live ranges, restrict code motion, or 
+For example, in the Java HotSpot~\cite{paleczny2001java}, the instrumentation might extend the live range of variables, therefore preventing the compiler from removing them.
 Another example is the SELF Debugger~\cite{holzle1992debugging}, which deoptimization process does not support tail call elimination and therefore does not implement it in the compiler.
 Tail call elimination is a compiler optimization that enables, in the case of a tail call, to avoid allocating a new stack frame for the callee. 
 It is commonly used to optimize tail call recursions.

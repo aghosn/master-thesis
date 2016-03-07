@@ -24,8 +24,8 @@
 \contentsline {subsubsection}{Multiple Versions}{13}{section*.158}
 \contentsline {subsubsection}{Caching vs. Generating on the fly}{14}{section*.159}
 \contentsline {section}{\numberline {2.3}On-Stack Replacement Deoptimization}{14}{section.160}
-\contentsline {subsection}{\numberline {2.3.1}Why is deoptimization more interesting?}{14}{subsection.161}
-\contentsline {subsection}{\numberline {2.3.2}Where do we exit?}{15}{subsection.162}
+\contentsline {subsection}{\numberline {2.3.1}Deoptimization Benefits}{14}{subsection.161}
+\contentsline {subsection}{\numberline {2.3.2}The Exit Target}{15}{subsection.162}
 \contentsline {subsubsection}{The interpreter}{15}{section*.164}
 \contentsline {subsubsection}{The compiled base version}{16}{section*.165}
 \contentsline {subsubsection}{A less optimized version}{16}{section*.166}
