@@ -46,7 +46,7 @@
 \contentsline {subsubsection}{Open vs. Resolved OSR}{33}{section*.217}
 \contentsline {subsubsection}{Resolved OSR points and conditions}{34}{section*.280}
 \contentsline {subsubsection}{The continuation function \& StateMap}{35}{section*.312}
-\contentsline {section}{\numberline {3.4}A classification summary}{38}{section.332}
+\contentsline {section}{\numberline {3.4}A classification summary}{37}{section.332}
 \contentsline {chapter}{\numberline {4}RJIT OSR}{41}{chapter.334}
 \contentsline {section}{\numberline {4.1}Overview}{41}{section.335}
 \contentsline {subsection}{\numberline {4.1.1}Justification \& Goals}{41}{subsection.336}

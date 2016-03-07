@@ -63,7 +63,8 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
   belowcaptionskip=1\baselineskip,
   breaklines=true,
   frame=b,
-  xleftmargin=\parindent,
+  %xleftmargin=\parindent,
+  xleftmargin=2em,
   language=C,
   showstringspaces=false,
   basicstyle=\footnotesize\ttfamily,
@@ -73,7 +74,8 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
   stringstyle=\color{orange},
   tabsize=2,
   captionpos=b,
-    numbers=left,
+  numbers=left,
+  framexleftmargin=1.5em,
 }
 
 \lstdefinestyle{customasm}{
@@ -199,12 +201,12 @@ Prof. Viktor \textsc{Kuncak}
 R is a dynamic programming language that combines functional and object-oriented features.
 R has become a popular language for statistical computing, with more than 2 million users worldwide~\cite{RUsage}.
 However, R suffers from poor performances~\cite{morandat2012evaluating}.
-As a dynamic and reflective language, R provides very few guarantees about a program at runtime.
+As a dynamic and reflective language, any R construct can be modified or redefined at runtime.
 It is thus hardly amenable to many common compiler optimizations.
 As a further matter, R performance bottlenecks seem to be inherent to its semantics~\cite{morandat2012evaluating}.
 
 This thesis presents RJIT OSR, an on-stack replacement based prototype for runtime deoptimization in R.
-On-stack replacement consists in dynamically transferring execution between different programs, while propagating the execution state.
+On-stack replacement refers to a compiler technique that dynamically transfers execution between different programs, while propagating the execution state.
 RJIT OSR relies on on-stack replacement to preserve an R program's correctness while enabling aggressive, speculative and unsound compiler optimizations.
 RJIT OSR allows the compiler to target R performance bottlenecks, by locally breaking R semantics.\\ 
 

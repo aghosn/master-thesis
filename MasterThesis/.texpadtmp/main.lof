@@ -24,14 +24,14 @@
 \contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}.}}{32}{figure.caption.207}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces The DestFunGenerator type.\relax }}{34}{figure.caption.218}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces The insertOpenOSR prototype.\relax }}{35}{figure.caption.232}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Resolved OSR Scenario}}{35}{figure.caption.259}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Resolved OSR Scenario}}{36}{figure.caption.259}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces The insertResolvedOSR prototype.\relax }}{36}{figure.caption.260}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{36}{figure.caption.281}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{37}{figure.caption.281}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Simplified instrumented LLVM IR.\relax }}{37}{figure.caption.294}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{37}{figure.caption.313}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{38}{figure.caption.313}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{44}{figure.caption.340}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of LLVM IR for basic R code.\relax }}{44}{figure.caption.342}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of LLVM IR for basic R code.\relax }}{45}{figure.caption.342}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces R simple function.\relax }}{45}{figure.caption.368}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{46}{figure.caption.371}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{47}{figure.caption.380}
