@@ -39,7 +39,7 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces The base version map.\relax }}{49}{figure.caption.423}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.427}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.459}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces The insertOSRExit prototype.\relax }}{52}{figure.caption.463}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The \textsf {\ttfamily insertOSRExit} prototype.\relax }}{52}{figure.caption.463}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Use case for unguarded OSR points.\relax }}{55}{figure.caption.488}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{61}{figure.caption.509}

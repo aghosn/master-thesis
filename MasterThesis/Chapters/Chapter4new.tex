@@ -53,7 +53,7 @@ Instead of reimplementing the same transition mechanisms for RJIT OSR, the choic
 This enables to focus on the deoptimization case which, according to section \ref{WhyDeopt}, is the most challenging and interesting use case of on-stack replacement.
 The OSR deoptimization further allows speculative optimizations, which enable the RJIT compiler to port static compilation optimizations to R, while preserving the correctness of the program being executed.\\
 
-\subsection{OSR Kit limitations}\label{osrkitlimitations}
+\subsection{OSR Kit Limitations}\label{osrkitlimitations}
 
 %While very flexible, comes short on several points
     %Open OSR, not really fitting our case.
@@ -96,7 +96,7 @@ Finally, as it was the case for the open OSR, the resolved OSR does not take int
 Although less expensive than the open OSR, a resolved OSR exit that fires at every execution adds the costs of evaluating the OSR condition, and a function call and return, compared to the base unoptimized function.
 The OSR Kit framework does not provide the mechanisms required to avoid this extra cost.\\
 
-\subsection{The RJIT compiler}
+\subsection{The RJIT Compiler}
 \subsubsection{General}
 
 %General information
@@ -118,7 +118,7 @@ Afterwards, the GNUR interpreter executes the native code.\\
     \caption{RJIT compilation flow.}
 \end{figure}
 
-\subsubsection{The RJIT compilation}
+\subsubsection{The compilation flow}
 RJIT walks the SEXP AST and generates the corresponding LLVM IR.
 Since R is a dynamic language, most R constructs need to be simulated by LLVM calls to special functions, called R intrinsics.
 Intrinsic functions provide basic functionalities, such as resolving a closure from a symbol and the current environment, getting a value associated with a symbol, setting a local variable, creating a promise, or performing generic arithmetic operations.
@@ -223,7 +223,7 @@ The OSR Handler has two main goals: 1) to mitigate the limitations of the OSR Ki
 This section proceeds as follow: first, it exposes the additional challenges that are inherent to the use of the OSR Kit library in RJIT.
 Then, it presents the OSR Handler implementation, and the solutions adopted for each problem encountered while enabling OSR deoptimization in RJIT.\\
  
-\subsection{Additional challenges in RJIT}\label{additionalchallenges}
+\subsection{Additional Challenges in RJIT}\label{additionalchallenges}
 
 The RJIT LLVM IR uncovers additional challenges in the use of OSR Kit~\cite{OSRKit} for the deoptimization case.
 RJIT LLVM IR specificities, such as the instrumentation for the garbage collector and the ic stub calls, require specially care when used along side the OSR library.\\
@@ -258,7 +258,7 @@ We therefore have to come up with an alternative solution.\\
 
 The next sections present the solutions implemented in RJIT to mitigate the OSR Kit limitations in the deoptimization case, while answering the above challenges particular to the RJIT framework.\\
 
-\subsection{Reducing the number of compilation}\label{section:reducecompilations}
+\subsection{Reducing the Number of Compilations}\label{section:reducecompilations}
 
 Transformations that act on R semantics have to be performed on a non-instrumented LLVM IR.
 As explained before, obtaining such IR might be harder than expected. 
@@ -356,7 +356,7 @@ A better solution would be to delete only items that correspond to closures that
 This solution requires a tighter interaction with the garbage collector and was not implemented. 
 We however devise an alternative solution in section \ref{section:futurework}.\\
 
-\subsection{Simplifying the OSR exit insertion}
+\subsection{Simplifying the OSR Exit Insertions}
 
 Section \ref{osrkitlimitations} explains our choice to use resolved OSR from the OSR Kit\cite{OSRKit} library.
 The resolved OSR API is provided in Section \ref{describeOSRKit}.\\
@@ -391,11 +391,11 @@ Section \ref{improvingexits} describes in details the role of the last argument.
 
 \begin{figure}[h]
 \includecode{Code/insertOSRExit.h}
-\caption{The insertOSRExit prototype.}
+\caption{The \codekey{insertOSRExit} prototype.}
 \label{fig:insertoserexit}
 \end{figure}
 
-\subsection{Improving the exits}\label{improvingexits}
+\subsection{Improving the Exits}\label{improvingexits}
 %OSR kit not well suited for osr exits. 
 %The call stub when executed will go replace itself in the toInstrument function, not in the stub.
 %Hence compensation 
@@ -406,7 +406,7 @@ Triggering an OSR exit has a cost that might not be negligible.
 The OSR Kit~\cite{OSRKit} library does not provide any mechanism to improve that special case.
 Moreover, section \ref{additionalchallenges} explains that continuation functions do not have valid signatures for ic stubs, which requires to come up with a special hack to make them work properly.\\
 
-The OSR Handler, via the \codekey{insertOSRExit} method, enables to add a special compensation code at the beginning of the \codekey{OSR\char`_ENTRY-} block in the continuation function, to answer these limitations.
+The OSR Handler, via the \codekey{insertOSRExit} method, enables to add a special compensation code at the beginning of the \codekey{OSR\char`_ENTRY} block in the continuation function, to answer these limitations.
 The compensation code can be any valid vector of LLVM instructions.
 This can be used to avoid triggering the OSR exit repeatedly once it has been fired a first time.
 For example, the compensation vector can contain a special call to a C++ function, that takes as argument a unique identifier for the continuation function. 
@@ -431,7 +431,7 @@ As a result, when the continuation function's ic stubs are executed, the ic stub
 This ensures that taking an OSR exit will have as little impact on the overall execution time as possible.
 Furthermore, this mechanism ensures that executing a function twice, while experiencing an OSR exit in the first execution, will still have good performances compared to executing the non-optimized version the same number of times.\\
 
-\subsection{Walkthrough a simple example}
+\subsection{Walkthrough a Simple Example}
 In this Section, we provide a full example of a possible use of the OSR Handler's mechanisms.
 It describes which functions are called, and how every element is used.
 This example enables to show how the OSR Handler abstracts away all the different challenges that we described before, and enables to focus on the transformations performed on the input function.\\
@@ -493,7 +493,7 @@ This solution would be similar to the VARMAP in the Jikes RVM OSR implementation
 According to a discussion we had with the OSR Kit designers, \citean{OSRKit} are working on a similar idea on the OSR Kit build compensation branch~\cite{OSRKitGit}.
 The idea is to provide basic LLVM transformation functions, e.g, addInstruction, removeInstruction etc., that automatically update the StateMap.\\
 
-\subsection{Unguarded OSR points \& lazy deoptimization}
+\subsection{Unguarded OSR Points \& Lazy Deoptimization}
 
 The OSR Kit~\cite{OSRKit} library only provides guarded OSR points.
 As explained in section \ref{section:osrpoints}, unguarded OSR points correspond to portion of the code that can be overwritten, at runtime, based on external events detected by the runtime framework.
@@ -539,7 +539,7 @@ Depending on the speculative assumptions performed, different watchpoints need t
 As explained previously, for the moment, RJIT does not perform any optimization. 
 We therefore decided to avoid instrumenting GNUR before knowing which kinds of events need to be monitored.\\
 
-\subsection{On-the-fly compilation}
+\subsection{On-the-fly Compilation}
 
 Generating the OSR exit continuation on the fly is hard in general. 
 Section \ref{osrkitlimitations} details the challenges that this technique presents.
@@ -555,7 +555,7 @@ Second, the kind of transformations that RJIT would like to perform are not yet 
 It is too early in the implementation process to identify which optimizations might improve the execution of the function.
 As a result, we did not put efforts in the implementation of this solution.\\
 
-\subsection{A cleaner, more integrated way of getting a fresh IR}\label{section:cleanerIR}
+\subsection{A Better Integration}\label{section:cleanerIR}
 
 The OSR Handler is a prototype, a proof of concept, to experiment with OSR transitions in RJIT. 
 As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR inliner (see chapter \ref{Chapter5}), in their own classes.

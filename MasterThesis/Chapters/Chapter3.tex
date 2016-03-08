@@ -20,7 +20,7 @@ The second section reports different on-stack replacement implementations in vir
 The third section describes OSR implementations developed in the low-level virtual machine (LLVM). 
 Finally, the fourth section contains a recapitulatory table of different OSR implementations.
 
-\section{The origins: SELF Debugging}\label{SELF}
+\section{The Origins: SELF Debugging}\label{SELF}
 %SELF needs aggressive optimizations to have reasonable performance. 
 %But that prevents from debugging
 %Hence OSR enables selective deoptimization at runtime, which provides source level information 
@@ -251,7 +251,7 @@ The web browser engine is used in Apple Web browser Safari and enables a net imp
 Although successful, it does not provide a general and reusable framework for OSR in LLVM that other projects could benefit from.\\
 
 \section{OSR \& LLVM}\label{OSR&VM}
-\subsection{What is LLVM?}
+\subsection{LLVM Overview}
 %TODO cite the llvm paper?
 LLVM~\cite{llvmUrl, lattner2004llvm}, formerly called Low-Level Virtual Machine, is a compiler infrastructure that provides a set of reusable libraries.
 LLVM provides the middle layers of a compiler system and a large set of optimizations for compile-time, link-time, runtime, and idle-time for arbitrary programming languages.
@@ -286,7 +286,7 @@ LLVM also enables to model functional languages such as Haskell, as well as impe
 Furthermore, it supports reflection and, thanks to dynamic linking, modular languages (e.g., Haskell).
 The tools provided enable static compilation as well as dynamic compilation techniques such as just-in-time compilation.\\
 
-\subsection{Why do we want OSR in LLVM?}
+\subsection{Benefits of OSR in LLVM}
 
 On-stack replacement high-level mechanism is language-independent.
 Therefore, implementing OSR as a clean modular addition to LLVM would enable developers to leverage this feature in many programming languages, without requiring them to write a new compiler from scratch.

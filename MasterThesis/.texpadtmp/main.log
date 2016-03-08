@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 16:23
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 16:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1309,7 +1309,16 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 
  [10]
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.lof
-[11
+LaTeX Font Info:    Try loading font information for T1+phv on input line 42.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 42.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [11
 
 ])
 \tf@lof=\write6
@@ -1331,15 +1340,7 @@ Chapter 1.
 --------------------
  1. Introduction
 --------------------
-LaTeX Font Info:    Try loading font information for T1+phv on input line 23.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
-File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
-)
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 23.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 Underfull \hbox (badness 10000) in paragraph at lines 18--26
 
  []
@@ -3358,11 +3359,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30125 strings out of 493706
- 533220 string characters out of 6145768
- 968270 words of memory out of 5000000
- 33009 multiletter control sequences out of 15000+600000
- 39563 words of font info for 71 fonts, out of 8000000 for 9000
+ 30127 strings out of 493706
+ 533246 string characters out of 6145768
+ 968245 words of memory out of 5000000
+ 33011 multiletter control sequences out of 15000+600000
+ 41621 words of font info for 73 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
 
