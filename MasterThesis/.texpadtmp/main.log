@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 16:34
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3310,41 +3310,29 @@ l/m/it/10.95 Com-piler Con-struc-tion\T1/ppl/m/n/10.95 . Springer.
  []
 
 
+Overfull \hbox (6.81187pt too wide) in paragraph at lines 300--300
+[]\T1/ppl/m/n/10.95 LLVM De-vel-oper Group. \T1/ppl/m/it/10.95 LLVM doc-u-men-t
+a-tion LLVM Patch-points. \T1/ppl/m/n/10.95 2003. \T1/ppl/m/sc/10.95 url\T1/ppl
+/m/n/10.95 : []$\T1/pcr/m/n/10.95 http :
+ []
+
+
 Overfull \hbox (8.05923pt too wide) in paragraph at lines 300--300
 \T1/pcr/m/n/10.95 / / llvm . org / docs / StackMaps . html # llvm -[] experimen
 tal -[] patchpoint -[]
  []
 
 [79]
-Overfull \hbox (5.35594pt too wide) in paragraph at lines 300--300
-[]\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
-s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
-5 : []$\T1/pcr/m/n/10.95 www . jikesrvm .
- []
-
-
-Overfull \hbox (12.4672pt too wide) in paragraph at lines 300--300
-\T1/ppl/m/it/10.95 minutes his-tory. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : 
-[]$\T1/pcr/m/n/10.95 http : / / www . slideshare . net / RevolutionAnalytics /
- []
-
-
 Overfull \hbox (2.60896pt too wide) in paragraph at lines 300--300
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
 [80]
-Overfull \hbox (2.9228pt too wide) in paragraph at lines 300--300
-[]\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
-r The Bio-con-duc-tor open source soft-ware for bioin-
- []
-
-
-Overfull \hbox (24.38016pt too wide) in paragraph at lines 300--300
-\T1/ppl/m/it/10.95 for-mat-ics. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : []$\T
-1/pcr/m/n/10.95 http : / / www . bioconductor . org / about/$[] \T1/ppl/m/n/10.
-95 (vis-ited on 02/01/2016). 
+Overfull \hbox (22.16118pt too wide) in paragraph at lines 300--300
+[]\T1/ppl/m/n/10.95 R Core Team. \T1/ppl/m/it/10.95 The R project\T1/ppl/m/n/10
+.95 . 1993. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : []$\T1/pcr/m/n/10.95 www 
+. r -[] project . org$[] \T1/ppl/m/n/10.95 (vis-ited on 02/01/2016). 
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 304.
@@ -3361,7 +3349,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30127 strings out of 493706
  533246 string characters out of 6145768
- 968245 words of memory out of 5000000
+ 968013 words of memory out of 5000000
  33011 multiletter control sequences out of 15000+600000
  41621 words of font info for 73 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
