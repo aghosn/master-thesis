@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 22:28
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 11:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3102,45 +3102,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 305--317
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--342
+Underfull \hbox (badness 10000) in paragraph at lines 318--327
 
  []
 
 [69]
-Underfull \hbox (badness 10000) in paragraph at lines 343--347
+File: Figures/execReal5.pdf Graphic file (type QTm)
+ <use  "Figures/execReal5.pdf" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 339--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--355
+Underfull \hbox (badness 10000) in paragraph at lines 355--359
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--367
 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[70] [71]
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+[71
+
+
+
+
+] [72]
+Underfull \hbox (badness 10000) in paragraph at lines 427--429
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--421
+Underfull \hbox (badness 10000) in paragraph at lines 430--433
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--427
+Underfull \hbox (badness 10000) in paragraph at lines 434--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--441
+Underfull \hbox (badness 10000) in paragraph at lines 440--453
 
  []
 
@@ -3149,24 +3160,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 428--441
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--476
+Underfull \hbox (badness 10000) in paragraph at lines 482--488
 
  []
 
-[72
+[73
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 477--487
+Underfull \hbox (badness 10000) in paragraph at lines 489--499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--497
+Underfull \hbox (badness 10000) in paragraph at lines 501--513
 
  []
 
-[73]
-Underfull \hbox (badness 10000) in paragraph at lines 498--505
+[74]
+File: Figures/RjitFlowRecomp.png Graphic file (type QTm)
+ <use  "Figures/RjitFlowRecomp.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 521--528
 
  []
 
@@ -3176,27 +3189,27 @@ File: Figures/withoutJitAll2.pdf Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (6.89369pt too wide) in paragraph at lines 512--518
-\T1/ppl/m/n/10.95 togram rep-re-sents the dis-tri-bu-tion of times ob-served to
- ob-tain a fresh, non-instrumented,
+Overfull \hbox (21.09564pt too wide) in paragraph at lines 535--541
+\T1/ppl/m/n/10.95 his-togram rep-re-sents the dis-tri-bu-tion of times ob-serve
+d to ob-tain a fresh, non-instrumented,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 512--518
+Underfull \hbox (badness 10000) in paragraph at lines 535--541
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--521
+Underfull \hbox (badness 10000) in paragraph at lines 542--544
 
  []
 
-) (./Chapters/Chapter6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 522--2
+[75]) (./Chapters/Chapter6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 545--2
 
  []
 
-[74] [75] [76
+[76] [77] [78
 
 ]
 Chapter 6.
@@ -3293,7 +3306,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--271
 
  []
 
-[77] [78
+[79] [80
 
 ]
 Overfull \hbox (0.93102pt too wide) in paragraph at lines 289--289
@@ -3313,7 +3326,7 @@ Overfull \hbox (8.05923pt too wide) in paragraph at lines 289--289
 tal -[] patchpoint -[]
  []
 
-[79]
+[81]
 Overfull \hbox (5.35594pt too wide) in paragraph at lines 289--289
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
@@ -3332,7 +3345,7 @@ Overfull \hbox (2.60896pt too wide) in paragraph at lines 289--289
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-[80]
+[82]
 Overfull \hbox (2.9228pt too wide) in paragraph at lines 289--289
 []\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
 r The Bio-con-duc-tor open source soft-ware for bioin-
@@ -3346,7 +3359,7 @@ Overfull \hbox (24.38016pt too wide) in paragraph at lines 289--289
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
-[81]
+[83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
@@ -3357,13 +3370,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30080 strings out of 493706
- 532463 string characters out of 6145768
- 976274 words of memory out of 5000000
- 32973 multiletter control sequences out of 15000+600000
+ 30086 strings out of 493706
+ 532576 string characters out of 6145768
+ 976497 words of memory out of 5000000
+ 32977 multiletter control sequences out of 15000+600000
  37827 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (97 pages).
+xpadtmp/main.pdf (99 pages).

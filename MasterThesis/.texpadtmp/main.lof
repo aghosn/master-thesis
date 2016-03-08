@@ -48,6 +48,8 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces The LLVM IR for function f in Figure \ref {fig:simplercode}.\relax }}{66}{figure.caption.548}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces The LLVM IR of g after executing the OSR inliner.\relax }}{67}{figure.caption.557}
 \contentsline {figure}{\numberline {5.6}{\ignorespaces The continuation function corresponding to the LLVM IR in Figure \ref {fig:inlinedouter}.\relax }}{68}{figure.caption.589}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces The micro-benchmark.\relax }}{73}{figure.caption.616}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.\relax }}{75}{figure.caption.637}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The execution time ratios, per benchmark, between the all inline and the regular mode.\relax }}{70}{figure.caption.614}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces The micro-benchmark.\relax }}{74}{figure.caption.617}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces The RJIT detailed compilation and recompilation flow.\relax }}{75}{figure.caption.638}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a non-instrumented and correct IR for all the functions in the Shootout benchmark.\relax }}{76}{figure.caption.639}
 \addvspace {10\p@ }

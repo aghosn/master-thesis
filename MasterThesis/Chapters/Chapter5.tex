@@ -316,13 +316,25 @@ As a result, in order to evaluate the efficiency of the base version map, anothe
 Section \ref{section:getfreshtest} focuses on the evaluation of the getFreshIR function and the OSR Handler's mechanisms.\\
 
 In a regular execution, the OSR inliner's performance is close to RJIT execution time.
-On average, over the entire Shootout benchmarks, in the all inline mode, the execution time is equal to \textbf{1.033} times the regular RJIT execution time.
+On average, over the entire Shootout benchmarks, in the all inline mode, the execution time is equal to \textbf{1.034} times the regular RJIT execution time.
 The slowest execution time registered was for the \textit{spectralnorm-alt.r}, that equals on average 1.21 times the equivalent RJIT execution time.
+Figure \ref{fig:execreal5} presents the execution time ratio between the all inline and the regular modes obtained for each benchmark.
 We suspect that the overhead introduced by registering fresh IRs, and the OSR inliner's transformations, are the main reasons for this slow down.
 In fact, benchmarks that executed faster in the all inline mode than in the regular are the ones cited above, where only one call was inlined.
 Moreover, benchmarks that present numerous calls inlined, e.g., \textit{pidigit.r}, have ratios closer to 1.10.
 As a result, we suppose that the overhead of blindly inlining function calls is superior to the possible gain in speed. 
 We perform a second experiment where the entire compilation overhead is removed.\\
+
+\clearpage
+\begin{landscape}
+\begin{figure}[h]
+    \includegraphics[scale=0.9]{Figures/execReal5}
+    \caption{The execution time ratios, per benchmark, between the all inline and the regular mode.}
+    \label{fig:execreal5}
+\end{figure}
+\end{landscape}
+\clearpage
+
 
 Our second experiment measures the average execution time per benchmark, while removing the compilation overhead.
 For both modes, we execute the benchmark a first time, so that all functions are compiled. 
@@ -356,9 +368,9 @@ On the other hand, these slow downs are meaningless since we purposefully create
 \begin{table}[h!]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|r|r|r|r|}
 \hline
-benchmark & \#toInstrument & \#calls & \#inlined calls & \#inlined lines\\ \hline
+\textbf{Benchmark} & \textbf{\#toInstrument} & \textbf{\#Calls} & \textbf{\#Inlined calls} & \textbf{\#Inlined instructions}\\ \hline \hline
 binarytrees-2.r & 2 & 118 & 2 & 166\\ \hline
 binarytrees-naive.r & 2 & 115 & 4 & 332\\ \hline
 binarytrees.r & 2 & 95 & 2 & 190\\ \hline
@@ -407,7 +419,7 @@ spectralnorm.r & 1 & 85 & 1 & 72\\ \hline
 
 
 
-\subsection{OSR Exit vs. Replacing the closure}\label{section:osrexitsvsreplacing}
+\subsection{OSR Exit vs. Replacing the Closure}\label{section:osrexitsvsreplacing}
 %OSR Handler enables to replace the continuation
 %Avoids triggering the exit all of the time. 
 %Need to see if this really improves performances. 
@@ -487,13 +499,24 @@ As a result, we conclude that the overhead introduced by the OSR Handler to popu
 
 
 The OSR Handler is supposed to improve the RJIT's performances in the presence of optimizations and recompilations.
-The expected execution flow is that functions are jitted, and executed. 
+The expected execution flow is presented in Figure \ref{fig:rjitrecompflow}.
+GNUR parses R programs, and constructs the corresponding SEXP containing an abstract syntax tree.
+Whenever an element needs to be evaluated, the RJIT compiler is invoked. 
+The SEXP is translated into LLVM IR, instrumented, compiled to native code, and wrapped into a native SEXP before being returned to GNUR.
 When a function becomes hot, i.e., when it has been executed several times, it becomes a candidate for recompilation and optimizations.
 This corresponds to the real use case of the OSR Handler's mechanisms.
-As a result, we need to evaluate the cost of obtaining a fresh and correct IR from the OSR Handler, when the base version map already contains an entry for the function, and compare it to the cost of generating the IR from the AST.
+The OSR handler enables to skip the re-parsing of the AST and corresponds to the "\textit{recompilation}" arrow in Figure \ref{fig:rjitrecompflow}.
+As a result, we need to evaluate the cost of obtaining a non-instrumented and correct IR from the OSR Handler, when the base version map already contains an entry for the function, and compare it to the cost of generating the IR from the AST.
 We therefore perform a second experiment, where the OSR Handler has a fully generated base version map.
 In this experiment, we further ensure that every call instruction inside the clones obtained via the \textit{getFreshIR} function need to be fixed.
 This corresponds to the worst case scenario for the execution of the \textit{resetSafepoints} function, and thus provides an upper bound on the performance evaluation.\\
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.5]{Figures/RjitFlowRecomp}
+\caption{The RJIT detailed compilation and recompilation flow.}
+\label{fig:rjitrecompflow}
+\end{figure}
 
 Our second experiment yields encouraging results.
 A first observation is that the time ratio between obtaining the IR via the OSR Handler and via RJIT translation is constant, regardless of the number of LLVM IR instructions generated, with a median value at \textbf{0.33}. 
@@ -505,7 +528,7 @@ Since it is not part of our implementation, we do not provide any estimation for
 
 \begin{figure}[h]
     \includegraphics[scale=0.9]{Figures/withoutJitAll2}
-    \caption{OSR Handler versus RJIT: histogram of the time required to obtain a fresh and correct IR for all the functions in the Shootout benchmark.}
+    \caption{OSR Handler versus RJIT: histogram of the time required to obtain a non-instrumented and correct IR for all the functions in the Shootout benchmark.}
     \label{fig:withoutJitAll}
 \end{figure}
 
