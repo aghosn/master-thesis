@@ -30,9 +30,9 @@ As a result, new techniques are needed to lift restrictions in JIT compilers, an
 \label{fig:example}
 \end{figure}
 
-On-stack replacement (OSR) refers to a runtime compiler transformation technique that allows to replace a program that is executing by another program.
+On-stack replacement (OSR) refers to a runtime compiler technique that allows to replace a program that is executing by another program.
 Being able to change a program, while preserving the progress made so far in the execution, enables JIT compilers to perform speculative optimizations.
-The lack of information about a program’s possible behavior is compensated by allowing the compiler to take any assumption about the program, and perform optimizations based on this assumption.
+The lack of information about a program's possible behavior is compensated by allowing the compiler to take any assumption about the program, and perform optimizations based on this assumption.
 Whenever the assumption fails at runtime, the invalidated compiled program is replaced by a correct version, which resumes the execution.\\
 
 \begin{wrapfigure}[13]{l}{6.5cm}
@@ -46,7 +46,7 @@ The execution resumes at line 9 in Figure \ref{fig:example}.
 On-stack replacement implementations are state-of-the-art features in advanced virtual machines and JIT compilers.\\
 
 The poor performance of the R programming language is intimately linked to its semantics~\cite{morandat2012evaluating}. R combines lazy evaluation, lack of type annotations and reflective features that effectively prevent many common compiler optimizations from being performed.
-A JIT compiler for R, equipped with an efficient OSR implementation, could lift such restrictions, by generating more efficient unsound code, while preserving the correctness of the program.
+A JIT compiler for R, equipped with an efficient OSR implementation, could lift such restrictions, by generating more efficient unsound code, while preserving the overall correctness of the program.
 The focus of this thesis is to provide an OSR implementation in RJIT, a JIT compiler for R, that enables to perform speculative optimizations while preserving the correctness of the program's execution.
 The next section gives an overview of our solution and its implementation.\\
 

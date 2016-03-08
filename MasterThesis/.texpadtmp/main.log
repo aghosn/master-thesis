@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 15:28
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  7 MAR 2016 22:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1346,8 +1346,6 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
 )
-Missing character: There is no ’ in font pplr8t!
-
 Underfull \hbox (badness 10000) in paragraph at lines 33--37
 
  []
