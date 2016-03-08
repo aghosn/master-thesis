@@ -89,7 +89,7 @@ In the light of these observations, it makes sense to instrument the base functi
 
 The OSR Kit way of generating the continuation function is expensive.
 In the deoptimization case, inserting a resolved OSR exit requires to 1) clone the base function in order to obtain two copies: one is kept as is, the other will be optimized, 2) generate the continuation function. 
-Since the continuation function might have a different signature than the base function, the framework has to clone the body of the base function that will be instrumented with the OSR ENTRY block.
+Since the continuation function might have a different signature than the base function, the framework has to clone the body of the base function that will be instrumented with the \codekey{OSR\char`_ENTRY} block.
 Generating two clones of the base function, in order to insert a resolved OSR exit, might be very expensive for big functions.\\
 
 Finally, as it was the case for the open OSR, the resolved OSR does not take into account the fact that an OSR exit might be triggered at every call, once it has been fired a first time.
@@ -187,10 +187,10 @@ Figure \ref{fig:instrumentedir} provides the RJIT LLVM IR instrumented with safe
 
 \subsubsection{The function's SEXP}
 In GNUR and RJIT, a function is represented by a special SEXP. 
-This SEXP has a NATIVESXP type when the function is compiled by the RJIT compiler, and a LANGSXP, i.e., a language construct, when it is not.
-In the case of a compiled function, the CAR element contains a pointer to the native code of the function.
-The CDR element, in both cases, contains the constant pool associated to the function, i.e., the list of symbols defined inside the function.
-For a compiled function, the TAG element of the SEXP contains the function's LLVM IR.\\
+This SEXP has a \codekey{NATIVESXP} type when the function is compiled by the RJIT compiler, and a \codekey{LANGSXP}, i.e., a language construct, when it is not.
+In the case of a compiled function, the \codekey{CAR} element contains a pointer to the native code of the function.
+The \codekey{CDR} element, in both cases, contains the constant pool associated to the function, i.e., the list of symbols defined inside the function.
+For a compiled function, the \codekey{TAG} element of the SEXP contains the function's LLVM IR.\\
 
 When the GNUR interpreter evaluates a function SEXP, it checks its type. 
 If the function is compiled, it performs the call to the native code. 
@@ -200,27 +200,27 @@ In RJIT, the LLVM IR for a function always has a signature of type $T$:
 $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
 where the first SEXP element is a pointer to the constant pool associated with the function, and the second SEXP a pointer to the environment.
 As shown in Figure \ref{fig:exampleirforr}, the constant pool (CP) is used to access variable symbols. 
-For example, line 11 corresponds to a call to the \textit{genericGetVar} intrinsic, that enables to retrieve a local variable's value from the environment.
-The symbol corresponding to the variable is extracted from the CP, at index 2, and used along side the environment (i.e., \textit{rho}), to access the corresponding value.
+For example, line 11 corresponds to a call to the \codekey{genericGetVar} intrinsic, that enables to retrieve a local variable's value from the environment.
+The symbol corresponding to the variable is extracted from the CP, at index 2, and used along side the environment (i.e., \codekey{rho}), to access the corresponding value.
 In general, the environment is used to access variable values as well as function definitions (e.g., line 15).\\
 
 
 \subsubsection{The closure's SEXP}
 In R, a closure contains a function and the environment associated to it.
-A closure SEXP has type CLOSXP.
-The body element of a SEXP closure is a function SEXP.
-The TAG of a SEXP closure is an environment SEXP, of type ENVSXP.
+A closure SEXP has type \codekey{CLOSXP}.
+The \codekey{BODY} element of a SEXP closure is a function SEXP.
+The \codekey{TAG} of a SEXP closure is an environment SEXP, of type \codekey{ENVSXP}.
 The environment is made of cons cells, and is essential to the execution of a function.
 Local variables and function argument values are set inside the environment.
 A closure also contains the formals, i.e., the arguments symbols of the function.
-The \textit{getFunction} intrinsic, that enables to resolve a function, returns a closure.\\
+The \codekey{getFunction} intrinsic, that enables to resolve a function, returns a closure.\\
 
 
 \section{OSR Handler}
 This section presents the OSR Handler, a special singleton implemented in RJIT that strives to enable efficient OSR deoptimizations. 
 The OSR Handler has two main goals: 1) to mitigate the limitations of the OSR Kit~\cite{OSRKit} library exposed in \ref{osrkitlimitations}, 2) to adapt the OSR Kit library to the RJIT compiler.\\
 
-This section proceeds as follow: first, it exposes the additional challenges that are inheritant to the use of the OSR Kit library in RJIT.
+This section proceeds as follow: first, it exposes the additional challenges that are inherent to the use of the OSR Kit library in RJIT.
 Then, it presents the OSR Handler implementation, and the solutions adopted for each problem encountered while enabling OSR deoptimization in RJIT.\\
  
 \subsection{Additional challenges in RJIT}\label{additionalchallenges}
@@ -229,7 +229,7 @@ The RJIT LLVM IR uncovers additional challenges in the use of OSR Kit~\cite{OSRK
 RJIT LLVM IR specificities, such as the instrumentation for the garbage collector and the ic stub calls, require specially care when used along side the OSR library.\\
 
 In order to perform transformations based on R semantics, a fresh non-instrumented (i.e., without the safepoint and patchpoint machinery) version of the LLVM IR is needed.
-The non-instrumented IR corresponds to the compiler's output, before calling the \textit{jitAll} function.
+The non-instrumented IR corresponds to the compiler's output, before calling the \codekey{jitAll} function.
 For functions that were never compiled, invoking the compiler and extracting the non-instrumented IR seems like a reasonable solution.
 However, for functions that were fully compiled previously, i.e., functions that have an instrumented LLVM IR, re-parsing ASTs in order to obtain a non-instrumented IR is not a satisfactory solution.
 We therefore have to find a way to avoid re-generating functions IR unnecessarily.\\
@@ -272,14 +272,14 @@ There are three cases to distinguish:
 For case \ref{toCompile}, the only option is to compile the function, and extract the generated IR before the final instrumentation.
 Case \ref{best} is the best scenario.
 The LLVM IR can simply be extracted from the SEXP function, cloned, and used for the transformations.
-This case happens when the function was compiled during the current compilation unit, i.e., the function is part of the current module and was generated using the current instance of the compiler, on which the \textit{jitAll} function was not called yet.
+This case happens when the function was compiled during the current compilation unit, i.e., the function is part of the current module and was generated using the current instance of the compiler, on which the \codekey{jitAll} function was not called yet.
 Case \ref{worst} is the worst scenario.
 The non-instrumented LLVM IR no longer exists.
 The naive solution is to recompile the function from scratch, i.e., re-parse the corresponding AST and emit the corresponding non-instrumented LLVM IR, which seems very expensive.\\
 
 The OSR Handler enables to record non-instrumented IRs that it encounters.
-Non-instrumented IRs are registered in the \textit{base version} map, a map from a SEXP closure to a NATIVESXP function SEXP.
-This singleton provides a special function, called \textit{getFreshIR}, that takes as parameter a SEXP closure and a compiler instance, and returns a function SEXP (see signature Figure \ref{fig:getfreshir}).
+Non-instrumented IRs are registered in the \codekey{base version} map, a map from a SEXP closure to a \codekey{NATIVESXP} function SEXP.
+This singleton provides a special function, called \codekey{getFreshIR}, that takes as parameter a SEXP closure and a compiler instance, and returns a function SEXP (see signature Figure \ref{fig:getfreshir}).
 The OSR Handler extracts the function from the closure, and checks its type.
 Depending on the type of the function and the content of the base version map, it selects the less costly solution to get the non-instrumented IR.\\
 
@@ -289,23 +289,23 @@ Depending on the type of the function and the content of the base version map, i
 \label{fig:getfreshir}
 \end{figure}
 
-The OSR Handler \textit{getFreshIR} function compiles and registers non-NATIVESXP functions (case \ref{toCompile}).
+The OSR Handler \codekey{getFreshIR} function compiles and registers non-\codekey{NATIVESXP} functions (case \ref{toCompile}).
 The OSR Handler invokes the compiler on the function, and creates two clones of the resulting non-instrumented IR.
-Both clones are not part of the current compilation module, i.e., their IRs are not instrumented when the jitAll function is called.
+Both clones are not part of the current compilation module, i.e., their IRs are not instrumented when the \codekey{jitAll} function is called.
 One clone is wrapped inside a copy of the function SEXP and stored in the base version map.
 The other clone is also wrapped inside a copy of the function SEXP and returned to the user.\\
 
-Calling \textit{getFreshIR} on a function that was not previously compiled can be viewed as an ahead of time (AOT) compilation strategy.
+Calling \codekey{getFreshIR} on a function that was not previously compiled can be viewed as an ahead of time (AOT) compilation strategy.
 RJIT is a JIT compiler, i.e., functions are compiled just before being executed.
-Using the \textit{getFreshIR} can force the function's compilation to happen at anytime.
+Using the \codekey{getFreshIR} can force the function's compilation to happen at anytime.
 As a small optimization, the OSR Handler sets the result of the compilation inside the corresponding closure.
 By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
-The \textit{getFreshIR} strives to avoid having to re-generate LLVM IR for NATIVESXPs.
-When the closure passed as argument to the \textit{getFreshIR} call has an entry in the base version map, a clone of the stored function SEXP is returned.
+The \codekey{getFreshIR} strives to avoid having to re-generate LLVM IR for NATIVESXPs.
+When the closure passed as argument to the \codekey{getFreshIR} call has an entry in the base version map, a clone of the stored function SEXP is returned.
 Cloning the function SEXP requires to clone the LLVM IR, and insert it in a new function SEXP with the same constant pool.
 When the closure passed as argument does not have an entry in the base version map, the OSR Handler must determine if the IR is instrumented or not.
-RJIT creates one module per compiler instance, and performs the \textit{jitAll} call just before returning to the interpreter.
+RJIT creates one module per compiler instance, and performs the \codekey{jitAll} call just before returning to the interpreter.
 As a result, if an LLVM IR's module is the same as the current compiler's module, the LLVM IR is not instrumented.
 In this case, the getFreshIR creates an entry for this closure in the base versions and returns the proper clone to the user, as explained before.
 For an LLVM IR with a different module, that does not have an entry in the base version map, the OSR Handler has no other choice than to recompile the function, i.e., re-parse the ASTs and generate the non-instrumented LLVM IR.
@@ -318,7 +318,7 @@ This situation can be avoided by making sure that for every function compiled, a
 \label{fig:baseversionmap}
 \end{figure}
 
-The non-instrumented IR obtained through the \textit{getFreshIR} function corresponds to the original AST of the function, i.e., no transformation has been applied on this IR. 
+The non-instrumented IR obtained through the \codekey{getFreshIR} function corresponds to the original AST of the function, i.e., no transformation has been applied on this IR. 
 In other words, all the transformations performed while compiling the function the first time are not reflected on the stored IR. 
 This is a choice that we made in order to keep different optimization passes independent.
 In some cases, that solution implies that we have to redo the same transformation on the same function several times.
@@ -338,12 +338,12 @@ A cloned function that needs to be fully compiled has to be fixed.
 As explained in Section \ref{additionalchallenges}, the IR of a cloned function has incorrect attributes instrumentation, incorrect arguments to its ic stub calls, and might have missing targets in its call instructions, i.e., the callee has not been declared in the module.
 A cloned function also needs to be added to the compilation module in order to be fully compiled.
 The OSR Handler provides utility functions to help the user fix the LLVM IR of cloned functions in RJIT. 
-The \textit{resetSafepoints} function takes care of adding the proper safepoints and patchpoints to the IR, as well as fixing the ic stubs arguments.
+The \codekey{resetSafepoints} function takes care of adding the proper safepoints and patchpoints to the IR, as well as fixing the ic stubs arguments.
 It further verifies that every callee in call instructions has been declared in the module. 
 If that is not the case, it adds the proper function definition to the module.
-The OSR Handler provides another function, \textit{addSexpToModule}, that enables to add a function to the current compilation module.
+The OSR Handler provides another function, \codekey{addSexpToModule}, that enables to add a function to the current compilation module.
 Finally, the compilation engine requires to register an explicit mapping between an LLVM IR and a SEXP to properly link the generated native code in the function SEXP.
-The \textit{addRelocation} function enables to register a mapping between a clone SEXP and the cloned LLVM function it contains.
+The \codekey{addRelocation} function enables to register a mapping between a clone SEXP and the cloned LLVM function it contains.
 These utilities functions are divided so that each of them provides a single, fully contained functionality. 
 It enables the user to have a fine-grained control over the LLVM IR clones, and only perform the desired operations.\\
 
@@ -363,11 +363,11 @@ The resolved OSR API is provided in Section \ref{describeOSRKit}.\\
 
 RJIT imposes additional constraints on the OSR exits. 
 The continuation instruction needs to be the exact match of the from instruction.
-In other words, considering the \textit{insertResolvedOSR}, the \textit{lPad} argument is the instruction in the continuation function that corresponds to the \textit{src} argument in the from function.
+In other words, considering the \codekey{insertResolvedOSR}, the \codekey{lPad} argument is the instruction in the continuation function that corresponds to the \codekey{src} argument in the from function.
 The OSR Kit library provides some flexibility in the choice of these two instructions. 
 This flexibility is not required in RJIT, and is removed to ensure the correctness of the implementation.\\
 
-The OSR Handler provides a special cloning function, called \textit{getToInstrument}, that clones an LLVM function, adds it to the same module as the original function, fixes its IR, and automatically registers a StateMap between the original and the cloned function in its \textit{statemaps}, a map from a pair of LLVM function pointers to a StateMap (see Figure \ref{fig:statemaps}).\\
+The OSR Handler provides a special cloning function, called \codekey{getToInstrument}, that clones an LLVM function, adds it to the same module as the original function, fixes its IR, and automatically registers a StateMap between the original and the cloned function in its \codekey{statemaps}, a map from a pair of LLVM function pointers to a StateMap (see Figure \ref{fig:statemaps}).\\
 
 \begin{figure}[h]
 \includecode{Code/statemaps.h}
@@ -375,17 +375,17 @@ The OSR Handler provides a special cloning function, called \textit{getToInstrum
 \label{fig:statemaps}
 \end{figure}
 
-The \textit{toInstrument} clone is the argument passed as the continuation function to the \textit{insertResolvedOSR} call.
+The \textit{toInstrument} clone is the argument passed as the continuation function to the \codekey{insertResolvedOSR} call.
 As explained in Section \ref{osrkitlimitations}, the OSR Kit library will clone the \textit{toInstrument} function to generate the continuation.
 It relies on a StateMap that is passed as argument to the function call. 
 Thanks to the OSR Handler statemaps, this argument can be omitted and automatically retrieved.\\
 
-The \textit{toInstrument} function is added to the module, and will therefore be fully compiled upon the \textit{jitAll} call.
+The \textit{toInstrument} function is added to the module, and will therefore be fully compiled upon the \codekey{jitAll} call.
 As explained in Section \ref{additionalchallenges}, the continuation function's ic stub calls cannot use the continuation function's pointer as argument for the caller. 
 The toInstrument function's address is used instead, which in turns requires the toInstrument function to be part of the module and go through the entire compilation.
 The toInstrument function has another important role detailed in Section \ref{improvingexits}.\\
 
-The OSR Handler provides a function, called \textit{insertOSRExit}, that exhibits the simplified interface described in this section to insert OSR exits.
+The OSR Handler provides a function, called \codekey{insertOSRExit}, that exhibits the simplified interface described in this section to insert OSR exits.
 The function's prototype is provided in Figure \ref{fig:insertoserexit}.
 Section \ref{improvingexits} describes in details the role of the last argument.\\
 
@@ -406,7 +406,7 @@ Triggering an OSR exit has a cost that might not be negligible.
 The OSR Kit~\cite{OSRKit} library does not provide any mechanism to improve that special case.
 Moreover, section \ref{additionalchallenges} explains that continuation functions do not have valid signatures for ic stubs, which requires to come up with a special hack to make them work properly.\\
 
-The OSR Handler, via the \textit{insertOSRExit} method, enables to add a special compensation code at the beginning of the OSR ENTRY block in the continuation function, to answer these limitations.
+The OSR Handler, via the \codekey{insertOSRExit} method, enables to add a special compensation code at the beginning of the \codekey{OSR\char`_ENTRY-} block in the continuation function, to answer these limitations.
 The compensation code can be any valid vector of LLVM instructions.
 This can be used to avoid triggering the OSR exit repeatedly once it has been fired a first time.
 For example, the compensation vector can contain a special call to a C++ function, that takes as argument a unique identifier for the continuation function. 
@@ -436,20 +436,20 @@ In this Section, we provide a full example of a possible use of the OSR Handler'
 It describes which functions are called, and how every element is used.
 This example enables to show how the OSR Handler abstracts away all the different challenges that we described before, and enables to focus on the transformations performed on the input function.\\
 
-Assume a transformation process \textit{TransP}, that speculatively inlines function calls inside the input function. 
-\textit{TransP} receives as input the closure to optimize, and returns a closure containing the optimized version of the code.
+Assume a transformation process \codekey{TransP}, that speculatively inlines function calls inside the input function. 
+\codekey{TransP} receives as input the closure to optimize, and returns a closure containing the optimized version of the code.
 Every function call inlined has a special OSR exit instrumentation to handle runtime redefinition of the inlined functions.\\
 
-\textit{TransP} gets the LLVM IR corresponding to the input function by calling the OSR Handler \textit{getFreshIR} function.
+\codekey{TransP} gets the LLVM IR corresponding to the input function by calling the OSR Handler \codekey{getFreshIR} function.
 Call this copy the \textit{working copy}.
 It then lists all the function calls performed inside the IR.
 For each function call, sequentially, it gets a \textit{toInstrument} copy of the working copy by calling the OSR Handler clone function.
-Each toInstrument is wrapped into its own SEXP, added to the module, has its IR corrected by the \textit{reseSafepoints} function, and is added to the relocations for the final native code to SEXP mapping.
-\textit{TransP} resolves the callee, and gets its LLVM IR via the OSR Handler \textit{getFreshIR}.
-It then inlines the call in its working copy and calls the OSR Handler \textit{insertOSRExit} function.
-It then calls the \textit{resetSafepoints} on the working copy to fix the IR, and returns its enclosing closure.
+Each toInstrument is wrapped into its own SEXP, added to the module, has its IR corrected by the \codekey{reseSafepoints} function, and is added to the relocations for the final native code to SEXP mapping.
+\textit{TransP} resolves the callee, and gets its LLVM IR via the OSR Handler \codekey{getFreshIR}.
+It then inlines the call in its working copy and calls the OSR Handler \codekey{insertOSRExit} function.
+It then calls the \codekey{resetSafepoints} on the working copy to fix the IR, and returns its enclosing closure.
 The working copy contains all the OSR exits needed for correctness, all the continuation functions, and their corresponding \textit{toInstrument} versions are generated and part of the current module.
-Thanks to RJIT OSR, \textit{TransP} was able to locally break R semantics by inlining function calls, while preserving the overall correctness of the program.\\
+Thanks to RJIT OSR, \codekey{TransP} was able to locally break R semantics by inlining function calls, while preserving the overall correctness of the program.\\
 
 
 \section{Other prototypes \& Future work}\label{section:futurework}
@@ -499,12 +499,12 @@ The OSR Kit~\cite{OSRKit} library only provides guarded OSR points.
 As explained in section \ref{section:osrpoints}, unguarded OSR points correspond to portion of the code that can be overwritten, at runtime, based on external events detected by the runtime framework.
 In certain cases, unguarded OSR points enable to decrease the overhead introduced by the OSR mechanisms. 
 For example, consider the unoptimized function in Figure \ref{fig:lazydeoptnorm}. 
-In $f$, the variable $x$ is deemed constant. 
-The compiler would therefore like to speculatively replace the return instruction by the value of $x$, hence avoiding the cost of an environment lookup (Figure \ref{fig:lazydeoptopt}).
+In \codekey{f}, the variable \codekey{x} is deemed constant. 
+The compiler would therefore like to speculatively replace the return instruction by the value of \codekey{x}, hence avoiding the cost of an environment lookup (Figure \ref{fig:lazydeoptopt}).
 A guarded OSR exit does not allow any performance gain in that case.
-In fact, the guard, i.e. the OSR condition, must check that $x$ is equal to $3$, and hence cancels any benefit obtained from the constant propagation optimization.
-With an unguarded OSR point, however, the execution environment (here GNUR), is instrumented to detect reassignments to $x$.
-Assuming there are more reads then writes, and that the value for $x$ is rarely modified, we can expect the unguarded point to have better performances than a guarded one.\\
+In fact, the guard, i.e. the OSR condition, must check that \codekey{x} is equal to \codekey{3}, and hence cancels any benefit obtained from the constant propagation optimization.
+With an unguarded OSR point, however, the execution environment (here GNUR), is instrumented to detect reassignments to \codekey{x}.
+Assuming there are more reads then writes, and that the value for \codekey{x} is rarely modified, we can expect the unguarded point to have better performances than a guarded one.\\
 
 \begin{figure}[h]
     \centering
@@ -528,10 +528,10 @@ The base assumption is that any function call might invalidate a speculative opt
 Each call instruction that might invalidate an assumption is therefore instrumented with a patchpoint~\cite{llvmPatchpoints} that enables to insert, at runtime, a call to the continuation function, whenever a speculative optimization is invalidated.
 We were able to re-use parts of the OSR Kit library to generate the continuation function and the OSR exit call itself.
 Consider the example in Figure \ref{fig:unguardedosrpointexample}.
-The function $g$ is unknown and might reassign $x$ to a new value.
+The function \codekey{g} is unknown and might reassign \codekey{x} to a new value.
 GNUR is instrumented to detect reassignments to symbols used during a speculative optimization.
-It therefore detects $x$ reassignements, and patches the reserved bytes following the call to $g$ with a call to the OSR exit.
-When $g$ returns to the invalidated $f$, the call to the continuation function is executed, hence triggering a lazy deoptimization of $f$.\\
+It therefore detects \codekey{x} reassignements, and patches the reserved bytes following the call to \codekey{g} with a call to the OSR exit.
+When \codekey{g} returns to the invalidated \codekey{f}, the call to the continuation function is executed, hence triggering a lazy deoptimization of \codekey{f}.\\
 
 This prototype was not inserted in the final version of the OSR Handler.
 Unguarded OSR points require to instrument the runtime environment, i.e., GNUR, to collect feedback on the current execution and detect assumptions failures.
@@ -558,22 +558,22 @@ As a result, we did not put efforts in the implementation of this solution.\\
 \subsection{A cleaner, more integrated way of getting a fresh IR}\label{section:cleanerIR}
 
 The OSR Handler is a prototype, a proof of concept, to experiment with OSR transitions in RJIT. 
-As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR Inliner (see chapter \ref{Chapter5}), in their own classes.
+As such, the choice was made, at the beginning of the implementation, to encapsulate everything related to the OSR deoptimization mechanism, e.g., the OSR Handler, the OSR inliner (see chapter \ref{Chapter5}), in their own classes.
 In other words, everything added to RJIT was kept as independent to the main RJIT elements as possible.
 This had the double benefit of 1) enforcing clear and stable interfaces that integrate well in the compilation flow, and 2) enabled to merge the master branch updates into the OSR branch easily.
 Since the RJIT project is under active development, the second point was essential.
 On the other hand, the OSR mechanisms could be greatly simplified, and made cleaner, if properly integrated inside the RJIT framework.\\
 
 The OSR Handler, and more specifically the base versions map, could be, in the future, replaced by a careful instrumentation of the function's SEXP. 
-For the moment, the TAG attribute of a compiled function's SEXP contains the LLVM IR used to generate the native function.
+For the moment, the \codekey{TAG} attribute of a compiled function's SEXP contains the LLVM IR used to generate the native function.
 If the function went through the entire compilation flow, the LLVM IR is instrumented. 
-In RJIT, this TAG LLVM IR is mostly used for debugging purposes.
+In RJIT, this \codekey{TAG} LLVM IR is mostly used for debugging purposes.
 In the future, a non-instrumented snapshot of the function's module could be stored instead.
 When a transformation needs to be performed on an already compiled function, the snapshot can be loaded inside the current compilation module, and the non-instrumented LLVM IR of the function extracted from it.
 This has the double benefit of easily providing an LLVM IR to work on, while removing any need to fix call instruction targets in the IR (see section \ref{additionalchallenges} for more details on this matter).
 This also enables a better integration with R garbage collector. 
 LLVM IRs can be collected at the same time as the closures, without requiring any additional mechanism.\\
 
-For the moment, many parts of the implementation rely on the fact that a function's SEXP TAG contains the LLVM IR of the native code. 
+For the moment, many parts of the implementation rely on the fact that a function's SEXP \codekey{TAG} contains the LLVM IR of the native code. 
 As a result, this would not be a trivial change and needs the approval of the entire team.
 However, after talking to the main developers, the decision was made to make this change happen in the future.\\

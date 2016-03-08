@@ -50,6 +50,6 @@
 \contentsline {figure}{\numberline {5.6}{\ignorespaces The continuation function corresponding to the LLVM IR in Figure \ref {fig:inlinedouter}.\relax }}{66}{figure.caption.600}
 \contentsline {figure}{\numberline {5.7}{\ignorespaces The execution time ratios, per benchmark, between the all inline and the regular mode.\relax }}{68}{figure.caption.625}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces The micro-benchmark.\relax }}{72}{figure.caption.628}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces The RJIT detailed compilation and recompilation flow.\relax }}{73}{figure.caption.649}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces The RJIT detailed compilation and possible recompilation flow.\relax }}{73}{figure.caption.649}
 \contentsline {figure}{\numberline {5.10}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a non-instrumented and correct IR for all the functions in the Shootout benchmark.\relax }}{74}{figure.caption.650}
 \addvspace {10\p@ }

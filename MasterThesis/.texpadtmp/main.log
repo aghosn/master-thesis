@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 15:35
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2148,16 +2148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 527--535
 
  []
 
-[32] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2014/09/06 1.5e listings language file
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2014/09/06 1.5e listings language file
-)
-(./Code/original.llvm)
+[32] (./Code/original.llvm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2175,7 +2166,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 556--567
 
  []
 
-[33] (./Code/contInstrumented.c)
+[33] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2014/09/06 1.5e listings language file
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2014/09/06 1.5e listings language file
+)
+(./Code/contInstrumented.c)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2596,6 +2596,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [45]
+Overfull \hbox (19.46457pt too wide) in paragraph at lines 189--194
+\T1/ppl/m/n/10.95 In GNUR and RJIT, a func-tion is rep-re-sented by a spe-cial 
+SEXP. This SEXP has a \T1/pcr/m/n/10.95 NATIVESXP
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 189--194
 
  []
@@ -2648,6 +2654,12 @@ er-sion of the LLVM IR is needed.
  []
 
 
+Overfull \hbox (11.9083pt too wide) in paragraph at lines 231--236
+\T1/ppl/m/n/10.95 The non-instrumented IR cor-re-sponds to the com-piler's out-
+put, be-fore call-ing the \T1/pcr/m/n/10.95 jitAll
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 231--236
 
  []
@@ -2678,12 +2690,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--285
  []
 
 (./Code/getFreshIR.h)
-Overfull \hbox (0.29532pt too wide) in paragraph at lines 292--297
-[]\T1/ppl/m/n/10.95 The OSR Han-dler \T1/ppl/m/it/10.95 get-FreshIR \T1/ppl/m/n
-/10.95 func-tion com-piles and reg-is-ters non-NATIVESXP func-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 292--297
 
  []
@@ -3038,24 +3044,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--200
 
  []
 
-(./Code/originalR.r)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./Code/originalouter.llvm)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+[63] (./Code/originalR.r) (./Code/originalouter.llvm)
 (./Code/originalinner.llvm)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 222--228
 
  []
 
-[63] (./Code/outerInliner.llvm)
+(./Code/outerInliner.llvm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -3073,12 +3068,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 267--273
 
  []
 
-
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 287--293
 
  []
 
-[65]
+
 Underfull \hbox (badness 10000) in paragraph at lines 294--304
 
  []
@@ -3192,12 +3187,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 535--541
 
  []
 
-
+[73]
 Underfull \hbox (badness 10000) in paragraph at lines 542--544
 
  []
 
-[73]) (./Chapters/Chapter6.tex
+) (./Chapters/Chapter6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 545--2
 
  []
@@ -3363,10 +3358,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30153 strings out of 493706
- 533475 string characters out of 6145768
- 976610 words of memory out of 5000000
- 33037 multiletter control sequences out of 15000+600000
+ 30124 strings out of 493706
+ 533192 string characters out of 6145768
+ 967254 words of memory out of 5000000
+ 33008 multiletter control sequences out of 15000+600000
  39563 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
