@@ -165,7 +165,7 @@ Then, for each different callee, the OSR inliner proceeds as follows:
             \item Replace all the callee's return instructions by forwarding the return value to a $\phi$-node inserted after the callee's body.\label{step:phinode}
             \item Remove the ic stub.
             \item Replace the ic stub in the transitive mapping between the toInstrument and the outer function by a mapping between the toInstrument corresponding ic stub and the $\phi$-node created in step \ref{step:phinode}.\label{step:updatemap}
-            \item Call the insertOSRExit with the outer function as the from function, the toInstrument as the continuation function, instructions that compare the result of the \codekey{getFunction} call with the hard coded address of the callee's closure as the OSR condition, and the \codekey{constant} call as the transition point, i.e., the instruction that was directly above the ic stub in the original outer function.
+            \item Call the \codekey{insertOSRExit} with the outer function as the from function, the toInstrument as the continuation function, instructions that compare the result of the \codekey{getFunction} call with the hard coded address of the callee's closure as the OSR condition, and the \codekey{constant} call as the transition point, i.e., the instruction that was directly above the ic stub in the original outer function.
         \end{enumerate}
     \item Call the \codekey{resetSafePoints} function to correct the optimized function's IR.
     \item Set the optimized function SEXP inside the closure.
