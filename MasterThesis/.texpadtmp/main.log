@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 13:47
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 15:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1116,23 +1116,23 @@ Package csquotes Info: ... found 'babel' package.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 116.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 118.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1184,17 +1184,17 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \equationnamenname on input line 116.
-Package scrbase Info: activating english \sectionname on input line 116.
-Package scrbase Info: activating english \authorshipname on input line 116.
-Package scrbase Info: activating english \byname on input line 116.
-Package scrbase Info: activating english \abbrevname on input line 116.
-Package scrbase Info: activating english \constantsname on input line 116.
-Package scrbase Info: activating english \symbolsname on input line 116.
-Package scrbase Info: activating english \acknowledgementname on input line 116
+Package scrbase Info: activating english \equationnamenname on input line 118.
+Package scrbase Info: activating english \sectionname on input line 118.
+Package scrbase Info: activating english \authorshipname on input line 118.
+Package scrbase Info: activating english \byname on input line 118.
+Package scrbase Info: activating english \abbrevname on input line 118.
+Package scrbase Info: activating english \constantsname on input line 118.
+Package scrbase Info: activating english \symbolsname on input line 118.
+Package scrbase Info: activating english \acknowledgementname on input line 118
 .
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 116.
+Package hyperref Info: Link coloring OFF on input line 118.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1203,9 +1203,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count349
 )
-LaTeX Info: Redefining \ref on input line 116.
-LaTeX Info: Redefining \pageref on input line 116.
-LaTeX Info: Redefining \nameref on input line 116.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.out)
@@ -1225,14 +1225,14 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 116.
-Package biblatex Info: Reference segment=0 on input line 116.
+Package biblatex Info: Reference section=0 on input line 118.
+Package biblatex Info: Reference segment=0 on input line 118.
 \c@lstlisting=\count350
-Package scrhack Info: undefining \float@addtolists on input line 116.
+Package scrhack Info: undefining \float@addtolists on input line 118.
 \c__siunitx_mathsf_int=\count351
 \c__siunitx_mathtt_int=\count352
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 133.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 135.
 File: Figures/EPFLLogo.jpg Graphic file (type QTm)
 <use  "Figures/EPFLLogo.jpg" > [1
 
@@ -1244,15 +1244,15 @@ File: Figures/EPFLLogo.jpg Graphic file (type QTm)
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 172.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 174.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
 
  []
 
@@ -1262,10 +1262,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--176
 --------------------
  Efficient Runtime Deoptimization for R
 --------------------
-./main.tex:191: Undefined control sequence.
+./main.tex:193: Undefined control sequence.
 \abstract ...orname \par } \bigskip {\normalisize 
                                                   Submitted to the School of...
-l.191 \begin{abstract}
+l.193 \begin{abstract}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1274,20 +1274,20 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (1.34766pt too wide) in paragraph at lines 202--208
+Overfull \hbox (1.34766pt too wide) in paragraph at lines 204--210
 []\T1/ppl/m/n/10.95 R is a dy-namic pro-gram-ming lan-guage that com-bines func
 -tional and object-oriented
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--213
+Underfull \hbox (badness 10000) in paragraph at lines 211--215
 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 215.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 217.
 LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 215.
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 217.
 [5
 
 ] [6
@@ -1300,7 +1300,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 240.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 242.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.toc
 [9])
@@ -1331,62 +1331,59 @@ Chapter 1.
 --------------------
  1. Introduction
 --------------------
+LaTeX Font Info:    Try loading font information for T1+phv on input line 23.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 23.
 
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 Underfull \hbox (badness 10000) in paragraph at lines 18--26
 
  []
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 28.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 28.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
+nput line 30.
 (./Code/Example.cpp
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 33--37
+) (./Code/Example3.cpp)
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
 (./Code/Example2.cpp) [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 42--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
+Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 53.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 58.
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 62--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--71
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
-[2]) (./Chapters/Chapter2.tex [3] [4
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
+
+ []
+
+) (./Chapters/Chapter2.tex [2]
 Chapter 2.
 --------------------
  2. On-Stack Replacement
@@ -1488,7 +1485,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--47
 
  []
 
-[5]
+[3
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 63--69
 
  []
@@ -1508,7 +1507,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--85
 
  []
 
-[6]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
@@ -1535,7 +1534,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--145
 
  []
 
-[7]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 146--149
 
  []
@@ -1555,7 +1554,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-[8]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 204--206
 
  []
@@ -1570,7 +1569,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--258
 
  []
 
-[9]
+[7]
 
 ./Chapters/Chapter2.tex:275: LaTeX Error: There's no line here to end.
 
@@ -1599,7 +1598,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 295--299
 
  []
 
-[10]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 306--312
 
  []
@@ -1625,7 +1624,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 364--372
 
  []
 
-[11] [12]
+[9] [10]
 Underfull \hbox (badness 10000) in paragraph at lines 373--377
 
  []
@@ -1640,7 +1639,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--426
 
  []
 
-[13]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 438--441
 
  []
@@ -1655,7 +1654,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--456
 
  []
 
-[14]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 461--465
 
  []
@@ -1686,7 +1685,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--504
 
  []
 
-[15]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 505--511
 
  []
@@ -1701,7 +1700,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 522--537
 
  []
 
-[16]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 546--552
 
  []
@@ -1711,7 +1710,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 560--570
 
  []
 
-) (./Chapters/Chapter3.tex [17] [18]
+) (./Chapters/Chapter3.tex [15] [16]
 Chapter 3.
 --------------------
  3. Related Work
@@ -1811,7 +1810,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
 
-[19
+[17
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 60--67
@@ -1833,7 +1832,7 @@ File: Figures/Figure2.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
@@ -1843,7 +1842,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--109
 
  []
 
-[21]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
@@ -1868,7 +1867,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--143
 
  []
 
-[22]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 144--153
 
  []
@@ -1883,7 +1882,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--166
 
  []
 
-[23]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 178--186
 
  []
@@ -1899,7 +1898,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--200
 
  []
 
-[24]
+[22]
 File: Figures/FTL.png Graphic file (type QTm)
  <use  "Figures/FTL.png" >
 Overfull \hbox (9.52382pt too wide) in paragraph at lines 208--210
@@ -1921,7 +1920,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--236
 
  []
 
-[25]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 237--248
 
  []
@@ -1941,7 +1940,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--267
 
  []
 
-[26]
+[24]
 File: Figures/SSAForm.png Graphic file (type QTm)
  <use  "Figures/SSAForm.png" >
 Underfull \hbox (badness 10000) in paragraph at lines 277--279
@@ -1958,7 +1957,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
-[27]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 297--300
 
  []
@@ -1981,7 +1980,7 @@ File: Figures/MCJitArchitecture.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28]
+[26]
 
 ./Chapters/Chapter3.tex:350: LaTeX Error: There's no line here to end.
 
@@ -2028,7 +2027,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 375--389
 
  []
 
-[29]
+[27]
 File: Figures/FCFG.png Graphic file (type QTm)
  <use  "Figures/FCFG.png" >
 
@@ -2062,7 +2061,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 412--418
 
  []
 
-[30]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 419--424
 
  []
@@ -2072,12 +2071,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 425--432
 
  []
 
-[31]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 448--452
 
  []
 
-[32]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 453--455
 
  []
@@ -2120,7 +2119,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 493--496
 
  []
 
-[33]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
  []
@@ -2149,7 +2148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 527--535
 
  []
 
-[34] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+[32] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -2176,7 +2175,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 556--567
 
  []
 
-[35] (./Code/contInstrumented.c)
+[33] (./Code/contInstrumented.c)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2190,7 +2189,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 582--584
 
  []
 
-[36] [37] [38]
+[34] [35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 State prop-a-
  []
@@ -2430,10 +2429,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 606--606
 \T1/ppl/m/n/10.95 com-piled
  []
 
-[39
+[37
 
 
-]) (./Chapters/Chapter4new.tex [40
+]) (./Chapters/Chapter4new.tex [38
 
 
 
@@ -2523,17 +2522,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--39
  []
 
 
-Overfull \hbox (16.41911pt too wide) in paragraph at lines 40--48
-\T1/ppl/m/n/10.95 based JIT com-piler for R. The RJIT com-piler plugs into a mo
-d-i-fied ver-sion of the GNUR [[]33[]]
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
-[41]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 49--55
 
  []
@@ -2553,7 +2546,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
-[42]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 82--89
 
  []
@@ -2573,7 +2566,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--115
 
  []
 
-[43]
+[41]
 File: Figures/RJITFlow.png Graphic file (type QTm)
  <use  "Figures/RJITFlow.png" >
 Underfull \hbox (badness 10000) in paragraph at lines 122--126
@@ -2589,7 +2582,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--143
 
  []
 
-[44]
+[42]
 Underfull \hbox (badness 10000) in paragraph at lines 160--164
 
  []
@@ -2598,11 +2591,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--164
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[45] [46] (./Code/InstrumentedIR.c)
+[43] [44] (./Code/InstrumentedIR.c)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[47]
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 189--194
 
  []
@@ -2632,7 +2625,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 223--225
 
  []
 
-[48
+[46
 
 
 
@@ -2674,7 +2667,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
-[49]
+[47]
 Underfull \hbox (badness 10000) in paragraph at lines 272--279
 
  []
@@ -2695,7 +2688,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 292--297
 
  []
 
-[50]
+[48]
 Underfull \hbox (badness 10000) in paragraph at lines 298--303
 
  []
@@ -2719,12 +2712,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 337--349
 
  []
 
-[51]
+[49]
 Underfull \hbox (badness 10000) in paragraph at lines 350--358
 
  []
 
-[52]
+[50]
 Underfull \hbox (badness 10000) in paragraph at lines 361--363
 
  []
@@ -2763,7 +2756,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 403--408
 
  []
 
-[53]
+[51]
 Underfull \hbox (badness 10000) in paragraph at lines 409--418
 
  []
@@ -2778,7 +2771,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 425--433
 
  []
 
-[54]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 435--438
 
  []
@@ -2798,7 +2791,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 456--459
 
  []
 
-[55]
+[53]
 Underfull \hbox (badness 10000) in paragraph at lines 464--469
 
  []
@@ -2818,7 +2811,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 486--490
 
  []
 
-[56]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 491--495
 
  []
@@ -2833,7 +2826,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 526--535
 
  []
 
-[57]
+[55]
 Underfull \hbox (badness 10000) in paragraph at lines 536--541
 
  []
@@ -2858,12 +2851,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 567--576
 
  []
 
-[58]) (./Chapters/Chapter5.tex
+[56]) (./Chapters/Chapter5.tex
 Underfull \hbox (badness 10000) in paragraph at lines 577--2
 
  []
 
-[59] [60
+[57] [58
 
 ]
 Chapter 5.
@@ -2965,7 +2958,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
  []
 
-[61]
+[59]
 Underfull \hbox (badness 10000) in paragraph at lines 48--53
 
  []
@@ -2985,7 +2978,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--86
 
  []
 
-[62]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 87--91
 
  []
@@ -3015,7 +3008,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--125
 
  []
 
-[63]
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 126--134
 
  []
@@ -3025,7 +3018,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--144
 
  []
 
-[64]
+[62]
 Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
@@ -3062,7 +3055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--228
 
  []
 
-[65] (./Code/outerInliner.llvm)
+[63] (./Code/outerInliner.llvm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -3075,7 +3068,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 243--251
 
  []
 
-[66]
+[64]
 Underfull \hbox (badness 10000) in paragraph at lines 267--273
 
  []
@@ -3085,12 +3078,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--293
 
  []
 
-[67]
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 294--304
 
  []
 
-[68]
+[66]
 Overfull \hbox (2.11444pt too wide) in paragraph at lines 305--317
 []\T1/ppl/m/n/10.95 The use of the OSR Han-dler base ver-sion map, for the Shoo
 tout bench-marks, yielded
@@ -3106,13 +3099,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 318--327
 
  []
 
-[69]
+[67]
 File: Figures/execReal5.pdf Graphic file (type QTm)
  <use  "Figures/execReal5.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[70]
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 339--354
 
  []
@@ -3130,12 +3123,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--367
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[71
+[69
 
 
 
 
-] [72]
+] [70]
 Underfull \hbox (badness 10000) in paragraph at lines 427--429
 
  []
@@ -3164,7 +3157,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--488
 
  []
 
-[73
+[71
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 489--499
@@ -3176,7 +3169,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--513
 
  []
 
-[74]
+[72]
 File: Figures/RjitFlowRecomp.png Graphic file (type QTm)
  <use  "Figures/RjitFlowRecomp.png" >
 Underfull \hbox (badness 10000) in paragraph at lines 521--528
@@ -3204,12 +3197,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 542--544
 
  []
 
-[75]) (./Chapters/Chapter6.tex
+[73]) (./Chapters/Chapter6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 545--2
 
  []
 
-[76] [77] [78
+[74] [75] [76
 
 ]
 Chapter 6.
@@ -3302,81 +3295,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--47
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 48--278
+Underfull \hbox (badness 10000) in paragraph at lines 48--280
 
  []
 
-[79] [80
+[77] [78
 
 ]
-Overfull \hbox (0.93102pt too wide) in paragraph at lines 296--296
+Overfull \hbox (0.93102pt too wide) in paragraph at lines 298--298
 []\T1/ppl/m/n/10.95 Craig Cham-bers and David Un-gar. ^^P  Mak-ing pure object-
 oriented lan-guages prac-
  []
 
 
-Overfull \hbox (2.77666pt too wide) in paragraph at lines 296--296
+Overfull \hbox (2.77666pt too wide) in paragraph at lines 298--298
 \T1/ppl/m/n/10.95 MAT-LAB through just-in-time spe-cial-iza-tion^^Q. In: \T1/pp
 l/m/it/10.95 Com-piler Con-struc-tion\T1/ppl/m/n/10.95 . Springer.
  []
 
 
-Overfull \hbox (8.05923pt too wide) in paragraph at lines 296--296
+Overfull \hbox (8.05923pt too wide) in paragraph at lines 298--298
 \T1/pcr/m/n/10.95 / / llvm . org / docs / StackMaps . html # llvm -[] experimen
 tal -[] patchpoint -[]
  []
 
-[81]
-Overfull \hbox (5.35594pt too wide) in paragraph at lines 296--296
+[79]
+Overfull \hbox (5.35594pt too wide) in paragraph at lines 298--298
 []\T1/ppl/m/n/10.95 Jikes RVM Project Or-ga-ni-za-tion. \T1/ppl/m/it/10.95 Jike
 s RVM Jikes RVM\T1/ppl/m/n/10.95 . 2013. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.9
 5 : []$\T1/pcr/m/n/10.95 www . jikesrvm .
  []
 
 
-Overfull \hbox (12.4672pt too wide) in paragraph at lines 296--296
+Overfull \hbox (12.4672pt too wide) in paragraph at lines 298--298
 \T1/ppl/m/it/10.95 minutes his-tory. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : 
 []$\T1/pcr/m/n/10.95 http : / / www . slideshare . net / RevolutionAnalytics /
  []
 
 
-Overfull \hbox (2.60896pt too wide) in paragraph at lines 296--296
+Overfull \hbox (2.60896pt too wide) in paragraph at lines 298--298
 \T1/ppl/m/n/10.95 for Ag-gres-sive Pro-gram Spe-cial-iza-tion.^^Q In: \T1/ppl/m
 /it/10.95 Soft-ware En-gi-neer-ing Re-search and Prac-
  []
 
-[82]
-Overfull \hbox (2.9228pt too wide) in paragraph at lines 296--296
+[80]
+Overfull \hbox (2.9228pt too wide) in paragraph at lines 298--298
 []\T1/ppl/m/n/10.95 The Bio-con-duc-tor Team. \T1/ppl/m/it/10.95 Bio-con-duc-to
 r The Bio-con-duc-tor open source soft-ware for bioin-
  []
 
 
-Overfull \hbox (24.38016pt too wide) in paragraph at lines 296--296
+Overfull \hbox (24.38016pt too wide) in paragraph at lines 298--298
 \T1/ppl/m/it/10.95 for-mat-ics. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : []$\T
 1/pcr/m/n/10.95 http : / / www . bioconductor . org / about/$[] \T1/ppl/m/n/10.
 95 (vis-ited on 02/01/2016). 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
-[83]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+[81]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
 
 (/Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.texpadtmp/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 300.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 300.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 302.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30085 strings out of 493706
- 532561 string characters out of 6145768
- 976497 words of memory out of 5000000
- 32976 multiletter control sequences out of 15000+600000
- 37827 words of font info for 70 fonts, out of 8000000 for 9000
+ 30153 strings out of 493706
+ 533475 string characters out of 6145768
+ 976610 words of memory out of 5000000
+ 33037 multiletter control sequences out of 15000+600000
+ 39563 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/aghosn/Documents/Master/Thesis/report/MasterThesis/.te
-xpadtmp/main.pdf (99 pages).
+xpadtmp/main.pdf (97 pages).

@@ -57,6 +57,8 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \usepackage{rotating}
 \usepackage{pdflscape}
 
+\newcommand{\codekey}[1]{\textsf{\ttfamily #1}}
+
 \newcommand{\includecode}[2][c]{\lstinputlisting[escapechar=, style=custom#1]{#2}}
 
 \lstdefinestyle{customc}{

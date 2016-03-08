@@ -1,4 +1,4 @@
-# Base version of g
+# Base version of g 
 g <- function(x) {
 	H(f(x))
 }

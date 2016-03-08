@@ -17,57 +17,62 @@
 
 Dynamic languages, such as JavaScript, Ruby, Python or R, often suffer from worse performance than statically typed languages, like C, Java or C\#.
 This disparity has multiple causes, among which the execution at runtime of many common programming language constructs, e.g., type tests and method dispatch, that static languages are able to evaluate during compilation.
-In order to improve dynamic languages performance, language designers have started to investigate ways to shift the compilation later in a program's execution, by relying on just-in-time compilers.
-Since in dynamic languages, little is known about the program ahead of time, a just-in-time compiler relies on runtime profiling data to perform adaptative optimizations and generate efficient compiled code at runtime.
-The set of optimizations enabled in a JIT compiler are often more restricted than in a static compiler, where the entire program is available during the compilation.
-For example, in a static compiler, function $g$ in Figure \ref{fig:example} can be type-checked, $H$ and $f$ are known, and their calls can be inlined and optimized.
-In a dynamic language, $H$ and $f$ might not be yet defined or can be modified, their types are unknown, and no optimization can be performed.
-As a result, new techniques are needed to lift restrictions in JIT compilers, and enable more agressive, speculative optimizations.\\
+In order to improve runtime performance, language designers have started to investigate ways to shift the compilation later in a program's execution by relying on just-in-time compilers.
+Since in dynamic languages, little is known about a program ahead of time, a just-in-time compiler relies on runtime profiling data to perform adaptative optimizations and generate efficient code at runtime.
+The set of optimizations enabled in a runtime compiler are often more restricted than in a static compiler, where the entire program is available during the compilation.
+For example, in a static compiler, function \codekey{g} in Figure \ref{fig:example} can be type-checked, \codekey{H} and \codekey{f} are known, and their calls can be inlined and optimized.
+In a dynamic language, \codekey{H} and \codekey{f} might not be yet defined or can be modified, their types are unknown, and no optimization can be performed.
+As a result, new techniques are needed to lift restrictions in JIT compilers, and enable optimizations.\\
 
 \begin{figure}[h]
+\begin{subfigure}{0.49\linewidth}
+\centering
 \includecode{Code/Example.cpp}
+\end{subfigure}
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includecode{Code/Example3.cpp}
+\end{subfigure}
 \caption{Example.}
 \label{fig:example}
 \end{figure}
 
 On-stack replacement (OSR) refers to a runtime compiler technique that allows to replace a program that is executing by another program.
-Being able to change a program, while preserving the progress made so far in the execution, enables JIT compilers to perform speculative optimizations.
+Being able to change a program, while preserving the progress made so far in the execution, enables compilers to perform speculative optimizations.
 The lack of information about a program's possible behavior is compensated by allowing the compiler to take any assumption about the program, and perform optimizations based on this assumption.
-Whenever the assumption fails at runtime, the invalidated compiled program is replaced by a correct version, which resumes the execution.\\
+Whenever the assumption fails at runtime, the invalidated compiled code is replaced by a correct version, and the execution is resumed.\\
 
 \begin{wrapfigure}[13]{l}{6.5cm}
 \includecode{Code/Example2.cpp}
 \caption{Optimized versions.}
 \end{wrapfigure}
-Using OSR, a JIT compiler can assume that $H$ will not be redefined, and inline it during the JIT compilation of $g$.
-It can further resolve $p$ and $y$, type-check them, and optimize the computation of $t * (3 ^ 4)$.
-Whenever the assumption fails, e.g., $f$ triggers a redefinition of $H$, OSR allows to stop the execution of the program between lines 9 and 10, extract the state, and replace the function with the unsugared version.
-The execution resumes at line 9 in Figure \ref{fig:example}.
-On-stack replacement implementations are state-of-the-art features in advanced virtual machines and JIT compilers.\\
+Using OSR, a JIT compiler will assume that \codekey{H} will not be redefined, and inline it during the JIT compilation of \codekey{g}.
+It can further resolve \codekey{p} and \codekey{y}, type-check them, and optimize the computation of \codekey{$t * (3 ^ 4)$}.
+Whenever the assumption fails, for example if \codekey{f} triggers a redefinition of \codekey{H}, OSR stops the program between lines 9 and 10, extracts the state, replaces the function with the unsugared version, and resumes at line 9 in Figure \ref{fig:example}.
+On-stack replacement implementations are state-of-the-art features in commercial virtual machines and JIT compilers.
 
 The poor performance of the R programming language is intimately linked to its semantics~\cite{morandat2012evaluating}. R combines lazy evaluation, lack of type annotations and reflective features that effectively prevent many common compiler optimizations from being performed.
-A JIT compiler for R, equipped with an efficient OSR implementation, could lift such restrictions, by generating more efficient unsound code, while preserving the overall correctness of the program.
-The focus of this thesis is to provide an OSR implementation in RJIT, a JIT compiler for R, that enables to perform speculative optimizations while preserving the correctness of the program's execution.
-The next section gives an overview of our solution and its implementation.\\
+A JIT compiler for R could lift such restrictions, by generating more efficient unsound code, while preserving the overall correctness of the program thanks to on-stack replacement.
+The focus of this thesis is to provide an OSR implementation in RJIT, an experimental compiler for R.\\
 
-\section{Proposed Solution}
+\section{Contributions}
 %First is overview of OSR implementations
 %Second OSR deoptimization for RJIT compiler
 %Third a speculative inliner to test the design
 The first contribution of this thesis is an overview and synthesis of existing on-stack replacement implementations.
-This thesis describes in details the main approaches taken to implement OSR, and their advantages and drawbacks.\\
+This thesis describes in details the main approaches taken to implement OSR, as well as their advantages and drawbacks.\\
 
 The second contribution of this thesis is the implementation of an efficient OSR mechanism in the RJIT compiler. The implementation focuses on the on-stack replacement deoptimization mechanism in RJIT, and strives to provide code instrumentation with as little overhead as possible.\\
 
 The third contribution of this thesis is the implementation of a speculative inliner. Function call inlining presents an interesting challenge in R, that requires to consider most of the language and its specificities. The inliner is used to evaluate our OSR implementation.\\
 
-\section{Paper Overview}
+\section{Overview}
 
 The rest of this thesis is organized as follows: Chapter \ref{Chapter2} provides an overview of the on-stack replacement concept, defines related vocabulary, and gives a high-level description of OSR mechanisms.
-Chapter \ref{Chapter3} presents related work, i.e., on-stack replacement implementations in different virtual machines. It also provides a classification summary that regroups the differences between each implementation.
+Chapter \ref{Chapter3} presents related work, i.e., on-stack replacement implementations in different virtual machines. 
 Chapter \ref{Chapter4New} describes RJIT OSR, the implementation of efficient runtime deoptimization in the RJIT compiler for R.
 Chapter \ref{Chapter5} presents experimental results obtained with a speculative inliner, based on RJIT OSR.
-Finally, Chapter \ref{Chapter6} concludes and presents ideas for future work.\\ 
+Chapter \ref{Chapter6} concludes and presents ideas for future work.\\ 
 
 
 

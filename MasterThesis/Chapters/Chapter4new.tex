@@ -35,16 +35,16 @@ For example, in R, all user data must be heap allocated and garbage collected, w
 Another R behavior that has a large impact on memory consumption is boxing.
 All numeric data have to be boxed into vectors, leading to high overheads in programs containing an important amount of single numbers.
 For example, in the Bioconductor corpus of programs~\cite{Bioconductor}, 36\% of vectors allocated contained only a single number~\cite{morandat2012evaluating}.
-It is important to note that other R specific behaviors, such as looking up variables, matching parameters with arguments, and copy-on-write mechanisms used for call-by-value semantics have non negligible impacts on R programs performances~\cite{morandat2012evaluating}.\\
+It is important to note that other R specific behaviors, such as looking up variables, matching parameters with arguments, and copy-on-write mechanisms used for call-by-value semantics have non negligible impacts on R programs performance~\cite{morandat2012evaluating}.\\
 
-The RJIT project~\cite{Rjit} strives to improve R performances by providing an LLVM based JIT compiler for R.
+The RJIT project~\cite{Rjit} strives to improve R performance by providing an LLVM based JIT compiler for the language.
 The RJIT compiler plugs into a modified version of the GNUR~\cite{RURL} interpreter and enables to JIT compile R programs into native code.
 The RJIT compiler is still pretty young, only a few months old.
 As a result, RJIT is currently trying to identify code behaviors that impact the execution performance, and plans to optimize code compilation to decrease their costs.
 Due to R semantics, such compilation optimizations might be hard to implement.
 More specifically, as explained above, R performance limitations are intrinsically linked to R semantics.
 On-stack replacement therefore appeared as an interesting solution to enable aggressive and speculative optimizations, able to generate compiled code that does not respect R semantics, while preserving the overall program's correctness.
-The goal of this master thesis is thus to prototype a flexible and extensible OSR mechanism for speculative optimizations.\\
+The goal of this master thesis is thus to prototype a flexible and extensible OSR mechanism for speculative optimizations in RJIT.\\
 
 This master thesis prototypes OSR runtime deoptimization mechanisms in RJIT.
 The RJIT OSR implementation relies on the OSR Kit~\cite{OSRKit} library transition mechanism.
@@ -66,12 +66,12 @@ This section lists the OSR Kit library's limitations with regard to OSR exits im
 
 The main advantage of an open OSR is to leverage profiled-guided compilation strategies to generate efficient code.
 However, generating a transformation that removes optimizations is hard and does not play well with the OSR Kit instrumentation.
-Such a transformation needs to take into account other optimizations that might have been performed on the code after the optimization was applied, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on this optimization, and undo them.
+Such a transformation needs to take into account other optimizations that might have been performed on the code after the invalidated one, i.e., deoptimizing requires to keep track of which transformations performed on the code depend on the invalidated optimization, and undo them.
 At the OSR point, the framework relies on a StateMap that matches values in the from and the continuation functions.
 That implies that, in order to generate the continuation function on the fly for the deoptimization case, one is required to 1) be able to reverse an optimization, that might have interfered with other transformations, and 2) to generate a correct StateMap to give as input to the OSR Kit machinery.
 Both of these requirements are hard to satisfy.
 Finally, the deoptimization case is used to preserve correctness in the program and must be conservative. 
-Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not a main objective.\\
+Performance is a soft issue, and hence leveraging profiled-guided compilation strategies is not primordial.\\
 
 Once an OSR exit is taken, it is more likely to be fired in subsequent executions.
 For example, in the case of call site inlining, the OSR exit is fired when the inlined function is redefined.
