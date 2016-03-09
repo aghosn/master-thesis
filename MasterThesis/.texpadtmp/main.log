@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  8 MAR 2016 17:26
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  9 MAR 2016 12:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1347,10 +1347,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--26
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 30.
-(./Code/Example.cpp
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 1.
-) (./Code/Example3.cpp)
+(./Code/Example.cpp) (./Code/Example3.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
@@ -1660,9 +1657,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 461--465
 
  []
 
-File: Figures/wheretoexit.png Graphic file (type QTm)
-<use  "Figures/wheretoexit.png" >
-Overfull \hbox (9.04208pt too wide) in paragraph at lines 468--470
+File: Figures/wheretoexit.pdf Graphic file (type QTm)
+<use  "Figures/wheretoexit.pdf" >
+Overfull \hbox (8.75606pt too wide) in paragraph at lines 468--470
  [][] 
  []
 
@@ -1801,8 +1798,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-File: Figures/Figure1.png Graphic file (type QTm)
-<use  "Figures/Figure1.png" >
+File: Figures/Figure1.pdf Graphic file (type QTm)
+<use  "Figures/Figure1.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1828,8 +1825,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--79
 
  []
 
-File: Figures/Figure2.png Graphic file (type QTm)
-<use  "Figures/Figure2.png" >
+File: Figures/Figure2.pdf Graphic file (type QTm)
+<use  "Figures/Figure2.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1900,9 +1897,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--200
  []
 
 [22]
-File: Figures/FTL.png Graphic file (type QTm)
- <use  "Figures/FTL.png" >
-Overfull \hbox (9.52382pt too wide) in paragraph at lines 208--210
+File: Figures/FTL.pdf Graphic file (type QTm)
+ <use  "Figures/FTL.pdf" >
+Overfull \hbox (9.75983pt too wide) in paragraph at lines 208--210
  [][] 
  []
 
@@ -1942,8 +1939,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--267
  []
 
 [24]
-File: Figures/SSAForm.png Graphic file (type QTm)
- <use  "Figures/SSAForm.png" >
+File: Figures/SSAForm.pdf Graphic file (type QTm)
+ <use  "Figures/SSAForm.pdf" >
 Underfull \hbox (badness 10000) in paragraph at lines 277--279
 
  []
@@ -1973,11 +1970,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 315--317
 
  []
 
-File: Figures/OSRClassification.png Graphic file (type QTm)
-<use  "Figures/OSRClassification.png" >
-File: Figures/MCJitArchitecture.png Graphic file (type QTm)
+File: Figures/OSRClassification.pdf Graphic file (type QTm)
+<use  "Figures/OSRClassification.pdf" >
+File: Figures/MCJitArchitecture.pdf Graphic file (type QTm)
 
-<use  "Figures/MCJitArchitecture.png" >
+<use  "Figures/MCJitArchitecture.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1995,18 +1992,18 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-File: Figures/BaseCFG.png Graphic file (type QTm)
-<use  "Figures/BaseCFG.png" >
+File: Figures/BaseCFG.pdf Graphic file (type QTm)
+<use  "Figures/BaseCFG.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: Figures/InsertCFG.png Graphic file (type QTm)
-<use  "Figures/InsertCFG.png" >
+File: Figures/InsertCFG.pdf Graphic file (type QTm)
+<use  "Figures/InsertCFG.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: Figures/OSRPassCFG.png Graphic file (type QTm)
-<use  "Figures/OSRPassCFG.png" >
+File: Figures/OSRPassCFG.pdf Graphic file (type QTm)
+<use  "Figures/OSRPassCFG.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2029,13 +2026,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 375--389
  []
 
 [27]
-File: Figures/FCFG.png Graphic file (type QTm)
- <use  "Figures/FCFG.png" >
+File: Figures/FCFG.pdf Graphic file (type QTm)
+ <use  "Figures/FCFG.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: Figures/FOptCFG.png Graphic file (type QTm)
-<use  "Figures/FOptCFG.png" >
+File: Figures/FOptCFG.pdf Graphic file (type QTm)
+<use  "Figures/FOptCFG.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2125,8 +2122,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
  []
 
-File: Figures/OSRKitResolvedScenario.png Graphic file (type QTm)
-<use  "Figures/OSRKitResolvedScenario.png" >
+File: Figures/OSRKitResolvedScenario.pdf Graphic file (type QTm)
+<use  "Figures/OSRKitResolvedScenario.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2185,12 +2182,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 574--579
 
  []
 
-
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 582--584
 
  []
 
-[34] [35] [36]
+[35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 State prop-a-
  []
@@ -2568,8 +2565,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--115
  []
 
 [41]
-File: Figures/RJITFlow.png Graphic file (type QTm)
- <use  "Figures/RJITFlow.png" >
+File: Figures/RJITFlow.pdf Graphic file (type QTm)
+ <use  "Figures/RJITFlow.pdf" >
 Underfull \hbox (badness 10000) in paragraph at lines 122--126
 
  []
@@ -3166,8 +3163,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--513
  []
 
 [72]
-File: Figures/RjitFlowRecomp.png Graphic file (type QTm)
- <use  "Figures/RjitFlowRecomp.png" >
+File: Figures/RjitFlowRecomp.pdf Graphic file (type QTm)
+ <use  "Figures/RjitFlowRecomp.pdf" >
 Underfull \hbox (badness 10000) in paragraph at lines 521--528
 
  []
@@ -3347,11 +3344,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30127 strings out of 493706
- 533246 string characters out of 6145768
- 968013 words of memory out of 5000000
- 33011 multiletter control sequences out of 15000+600000
- 41621 words of font info for 73 fonts, out of 8000000 for 9000
+ 30117 strings out of 493706
+ 533172 string characters out of 6145768
+ 966647 words of memory out of 5000000
+ 33008 multiletter control sequences out of 15000+600000
+ 41299 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s
 

@@ -46,7 +46,7 @@ Figure \ref{stackframes}, taken from \cite{holzle1992debugging}, provides anothe
 In this figure, the source-level stack contains activations that were inlined by the compiler. For example, the activation B is inlined into A', and hence disappears from the physical stack.\\
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/Figure1}
+\includegraphics[scale=0.5]{Figures/Figure1.pdf}
 \decoRule
 \caption[physical vs. source-level stacks]{Displaying the stack, figure from \cite{holzle1992debugging}.}
 \label{stackframes}
@@ -79,7 +79,7 @@ At time t2, D is called by C which is called by A, hence, the debugger displays 
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/Figure2}
+\includegraphics[scale=0.5]{Figures/Figure2.pdf}
 \decoRule
 \caption[Recovering the source-level state]{Recovering the source-level state, from \cite{holzle1992debugging}.}
 \label{Holzle2}
@@ -205,7 +205,7 @@ It exhibits a Four-Tier VM architecture.
 The WebKit runtime compilation flow is described by Figure \ref{FTL}.\\
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/FTL}
+\includegraphics[scale=0.5]{Figures/FTL.pdf}
 \decoRule
 \caption[The WebKit FTL]{The WebKit Four-tier optimization flow.}
 \label{FTL}
@@ -267,7 +267,7 @@ Figure \ref{SSA example} provides an example where we have to choose between two
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/SSAForm}
+\includegraphics[scale=0.5]{Figures/SSAForm.pdf}
 \decoRule
 \caption[SSA example]{Example of $\phi$-node in SSA form.}
 \label{SSA example}
@@ -317,7 +317,7 @@ Figure \ref{OSR classification} shows that this feature only allows single-steps
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/OSRClassification}
+\includegraphics[scale=0.5]{Figures/OSRClassification.pdf}
 \decoRule
 \caption[OSR classification]{OSR classification from~\cite{lameed2013modular}.}
 \label{OSR classification}
@@ -326,7 +326,7 @@ Figure \ref{OSR classification} shows that this feature only allows single-steps
 The McOSR library on-stack replacement implementation fits into the regular JIT infrastructure provided by LLVM as described in Figure \ref{McOSRArchitecture} taken from~\cite{lameed2013modular}. 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/MCJitArchitecture}
+\includegraphics[scale=0.5]{Figures/MCJitArchitecture.pdf}
 \decoRule
 \caption[Retrofitting an existing JIT with OSR support]{Retrofitting an existing JIT with OSR support from~\cite{lameed2013modular}.}
 \label{McOSRArchitecture}
@@ -350,7 +350,7 @@ The instrumentation saves the live values and creates a descriptor that contains
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/BaseCFG}
+\includegraphics[scale=0.5]{Figures/BaseCFG.pdf}
 \decoRule
 \caption[A CFG of a loop with no OSR point]{A CFG of a loop with no OSR point from\cite{lameed2013modular}.}
 \label{BaseCFG}
@@ -358,7 +358,7 @@ The instrumentation saves the live values and creates a descriptor that contains
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/InsertCFG}
+\includegraphics[scale=0.5]{Figures/InsertCFG.pdf}
 \decoRule
 \caption[The CFG of the loop in Figure \ref{BaseCFG}, after inserting an OSR point]{The CFG of the loop in Figure \ref{BaseCFG}, after inserting an OSR point from~\cite{lameed2013modular}.}
 \label{InsertCFG}
@@ -366,7 +366,7 @@ The instrumentation saves the live values and creates a descriptor that contains
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/OSRPassCFG}
+\includegraphics[scale=0.5]{Figures/OSRPassCFG.pdf}
 \decoRule
 \caption[The transformed CFG of the loop in Figure \ref{InsertCFG} after the OSR Pass]{The transformed CFG of the loop in Figure \ref{InsertCFG} after the OSR Pass from~\cite{lameed2013modular}.}
 \label{OSRPassCFG}
@@ -389,7 +389,7 @@ If that is the case, it branches to the prologue block that restores the state b
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/FCFG}
+\includegraphics[scale=0.5]{Figures/FCFG.pdf}
 \decoRule
 \caption[A CFG of a running function before inserting the blocks for state recovery]{A CFG of a running function before inserting the blocks for state recovery, from~\cite{lameed2013modular}.}
 \label{FCFG}
@@ -397,7 +397,7 @@ If that is the case, it branches to the prologue block that restores the state b
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/FOptCFG}
+\includegraphics[scale=0.5]{Figures/FOptCFG.pdf}
 \decoRule
 \caption[The CFG of the loop represented in Figure \ref{FCFG} after inserting the state recovery blocks, form~\cite{lameed2013modular}.]{The CFG of the loop represented in Figure \ref{FCFG} after inserting the state recovery blocks, form~\cite{lameed2013modular}.}
 \label{InstFCFG}
@@ -500,7 +500,7 @@ Figure \ref{ResolvedOSRFig} illustrates the resolved OSR scenario.\\
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/OSRKitResolvedScenario}
+\includegraphics[scale=0.5]{Figures/OSRKitResolvedScenario.pdf}
 \decoRule
 \caption[Resolved OSR Scenario]{Resolved OSR scenario, from\cite{OSRKit}.}
 \label{ResolvedOSRFig}

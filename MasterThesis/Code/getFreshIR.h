@@ -1,8 +1,8 @@
 /**
  * @brief      Returns a non-instrumented version
- * 			   of the function contained in the closure.
+ * 			    of the function contained in the closure.
  * 
- * @param[in]  closure  SEXP of type CLOSXP.
+ * @param      closure  SEXP of type CLOSXP.
  * @param      c        Current compiler instance pointer. 
  *
  * @return     A function SEXP containing uninstrumented LLVM IR.

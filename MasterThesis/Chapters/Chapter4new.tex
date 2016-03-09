@@ -114,7 +114,7 @@ The native code is then wrapped into the appropriate SEXP constructs, and return
 Afterwards, the GNUR interpreter executes the native code.\\ 
 
 \begin{figure}[h]
-    \includegraphics[scale=0.5]{Figures/RJITFlow}
+    \includegraphics[scale=0.5]{Figures/RJITFlow.pdf}
     \caption{RJIT compilation flow.}
 \end{figure}
 
@@ -301,7 +301,7 @@ Using the \codekey{getFreshIR} can force the function's compilation to happen at
 As a small optimization, the OSR Handler sets the result of the compilation inside the corresponding closure.
 By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
-The \codekey{getFreshIR} strives to avoid having to re-generate LLVM IR for \codekey{NATIVESXP}s.
+The \codekey{getFreshIR} strives to avoid re-generating LLVM IR for \codekey{NATIVESXP}s.
 When the closure passed as argument to the \codekey{getFreshIR} call has an entry in the base version map, a clone of the stored function SEXP is returned.
 Cloning the function SEXP requires to clone the LLVM IR, and insert it in a new function SEXP with the same constant pool.
 When the closure passed as argument does not have an entry in the base version map, the OSR Handler must determine if the IR is instrumented or not.
