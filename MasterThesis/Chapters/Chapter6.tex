@@ -29,13 +29,13 @@
     %Breaking R performance bottlenecks. 
 We presented RJIT OSR, a prototype for runtime deoptimization in RJIT, based on the OSR Kit library~\cite{OSRKit}.
 We adapted the library to better fit the deoptimization case, and answered challenges particular to the RJIT project.
-Reusing LLVM IR accros different compilation modules proved to be three times more efficient than redoing the AST to LLVM IR translation.
+Reusing LLVM IR across different compilation modules proved to be three times more efficient than redoing the AST to LLVM IR translation.
 Replacing an invalidated function by a correct closure, as part of the exit mechanism, mitigates the overhead introduced by the OSR instrumentation in the presence of assumption failures.\\
 
-This report presents an overview of different OSR implementations, and common OSR mechanisms.
+This report presented an overview of different OSR implementations, and common OSR mechanisms.
 In RJIT OSR, we implemented several prototypes to experiment with different techniques present in the literature.
 We believe that RJIT could greatly benefit from unguarded OSR points and lazy deoptimizations, once a good interaction with the GNUR runtime environment is devised.
-We also think that providing transformation primitives that automatically update the values mapping between a base function, and an optimized one, is of great interest.\\
+We also think that providing transformation primitives that automatically update the value mappings between a base function, and an optimized one, is of great interest.\\
 
 The implementation of a speculative inliner, relying on on-stack-replacement deoptimizations for correctness, enabled to validate our RJIT OSR prototype. 
 Function call inlining is not semantically correct in R.
@@ -47,7 +47,7 @@ LLVM would then only be part of the final compilation steps.\\
 
 We presented interesting future work.
 RJIT will soon be able to gather profiling information about the program at runtime. 
-Once these information become available, RJIT will need to enable runtime recompilation and optimization of code.
-As a result, a better integration of OSR Handler's mechanisms, such as accessing a fresh non-instrumented LLVM IR for each compiled function, might be needed. 
+Once these information become available, RJIT will need to enable runtime recompilation and adaptive optimizations.
+As a result, a better integration of OSR Handler's mechanisms, such as accessing a non-instrumented LLVM IR for each compiled function, might be needed. 
 For example, attaching non-instrumented IR directly to SEXPs, would be a nicely integrated way of providing this functionality.
 We also believe that other on-stack replacement mechanisms, such as unguarded points and open OSR points, will become more attractive once RJIT gains more control over the execution flow.\\

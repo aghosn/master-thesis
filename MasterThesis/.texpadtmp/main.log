@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  9 MAR 2016 13:14
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  9 MAR 2016 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3013,6 +3013,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--125
  []
 
 [61]
+Overfull \hbox (6.75261pt too wide) in paragraph at lines 126--134
+\T1/ppl/m/n/10.95 stub call, the func-tion cre-ates an in-stance of the \T1/pcr
+/m/n/10.95 FunctionCall \T1/ppl/m/n/10.95 class. A \T1/pcr/m/n/10.95 FunctionCa
+ll
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 126--134
 
  []
@@ -3042,13 +3049,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--200
 
  []
 
-[63] (./Code/originalR.r) (./Code/originalouter.llvm)
+(./Code/originalR.r)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./Code/originalouter.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 (./Code/originalinner.llvm)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 222--228
 
  []
 
-(./Code/outerInliner.llvm)
+[63] (./Code/outerInliner.llvm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -3186,6 +3204,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 535--541
  []
 
 [73]
+Overfull \hbox (0.32478pt too wide) in paragraph at lines 542--544
+\T1/ppl/m/n/10.95 com-pen-sates the over-head in-tro-duced while reg-is-ter-ing
+ an en-try in the \T1/pcr/m/n/10.95 baseVersions
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 542--544
 
  []
@@ -3346,7 +3370,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  30117 strings out of 493706
  533172 string characters out of 6145768
- 966647 words of memory out of 5000000
+ 965652 words of memory out of 5000000
  33008 multiletter control sequences out of 15000+600000
  41299 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
