@@ -14,9 +14,9 @@
 \newcommand{\option}[1]{\texttt{\itshape#1}}
 
 %----------------------------------------------------------------------------------------
-This Chapter presents experimental results obtained for the RJIT OSR.
-The first section describes an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR exits to preserve the program's correctness.
-The second section presents benchmarking results obtained while evaluating the OSR inliner, and RJIT OSR main features, i.e., the compensation code to replace invalidated functions, and the \textit{getFreshIR} function.\\
+This chapter presents experimental results obtained for the RJIT OSR.
+The first section describes an implementation of a speculative inliner tool, implemented inside the RJIT compiler, that relies on OSR runtime deoptimization to preserve the program's correctness.
+The second section presents benchmarking results obtained while evaluating the OSR inliner, and RJIT OSR main features, i.e., the compensation code to replace invalidated functions, and the \codekey{getFreshIR} function.\\
 
 \section{A speculative inliner for RJIT}
 \subsection{Justification}\label{section:justificationinlining}
@@ -123,10 +123,10 @@ This section describes the implementation of the OSR inliner.
 The OSR inliner relies on a special C++ class, called \codekey{FunctionCall}, to extract function calls in the LLVM IR and easily access its elements. 
 The OSR inliner also provides different modes of execution, that enable more or less aggressive speculative inlining.\\
 
-The FunctionCall class provides a static function, called \codekey{getFunctionCalls}, that takes an LLVM IR as input, and extracts the function calls it contains.
+The \codekey{FunctionCall} class provides a static function, called \codekey{getFunctionCalls}, that takes an LLVM IR as input, and extracts the function calls it contains.
 For each ic stub call, the function creates an instance of the FunctionCall class. 
 A FunctionCall object gives quick access to each element of the function call, i.e., the \codekey{getFunction} call instruction, the arguments to the call, and the additional elements of the ic stub call.
-The \codekey{getFunctionCalls} returns a list of FunctionCall instances.
+The \codekey{getFunctionCalls} returns a list of \codekey{FunctionCall} instances.
 It is important to note that, for efficiency and better integration, the \codekey{getFunctionCalls}, or any similar function that needs to go through the LLVM IR instructions and match a specific pattern, will be able to rely on the pass \& match mechanism being developed in RJIT.
 RJIT provides a special matcher mechanism, combined to the LLVM passes implementation, that enables to extract special patterns from the LLVM IR.
 One of its main goals is to reduce the number of iterations on the entire LLVM IR, by merging different passes.
@@ -191,12 +191,12 @@ The identifier corresponds to a function SEXP containing the toInstrument versio
 The C++ function uses the identifier to retrieve the toInstrument function SEXP, and replaces the invalidated function in the closure with this SEXP.\\
 
 Consider the small R functions defined in Figure \ref{fig:simplercode}.
-Function $g$ contains two function calls, one to $f$, and another to a function $h$ for which we do not have a definition in the current scope.
-The IR displayed in Figure \ref{fig:originalouter} corresponds to $g$.
-Lines 3 to 6 correspond to the call to $f$.
-Lines 7 to 10 correspond to the call to the unknown function $h$.
-Figure \ref{fig:originalinner} provides the LLVM IR of $f$.
-We apply the OSR inliner on function $g$.\\
+Function \codekey{g} contains two function calls, one to \codekey{f}, and another to a function \codekey{h} for which we do not have a definition in the current scope.
+The IR displayed in Figure \ref{fig:originalouter} corresponds to \codekey{g}.
+Lines 3 to 6 correspond to the call to \codekey{f}.
+Lines 7 to 10 correspond to the call to the unknown function \codekey{h}.
+Figure \ref{fig:originalinner} provides the LLVM IR of \codekey{f}.
+We apply the OSR inliner on function \codekey{g}.\\
 
 \begin{figure}[h!]
 \centering
@@ -269,7 +269,7 @@ As explained in section \ref{section:justificationinlining}, the OSR inliner is 
 In this section, we compare the all inline mode, i.e., the agressive OSR inliner, against the regular mode, i.e., RJIT without any inlining.
 We first report some general numbers and observations gathered in the all inline mode. 
 We then compare the execution time obtained in both modes.
-Finally, we describe some experiments performed on the OSR Exits.\\
+Finally, we describe some experiments performed on the OSR exits.\\
 
 %Stats 
     % No exit. 
