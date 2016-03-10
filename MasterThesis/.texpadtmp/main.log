@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  10 MAR 2016 07:57
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.11.17)  10 MAR 2016 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1387,217 +1387,208 @@ Chapter 2.
  2. On-Stack Replacement
 --------------------
 
-./Chapters/Chapter2.tex:10: LaTeX Error: Command \keyword already defined.
+./Chapters/Chapter2.tex:5: LaTeX Error: Command \keyword already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
+l.5 \newcommand{\keyword}[1]{\textbf{#1}}
+                                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./Chapters/Chapter2.tex:11: LaTeX Error: Command \tabhead already defined.
+./Chapters/Chapter2.tex:6: LaTeX Error: Command \tabhead already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.11 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
+l.6 \newcommand{\tabhead}[1]{\textbf{#1}}
+                                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./Chapters/Chapter2.tex:12: LaTeX Error: Command \code already defined.
+./Chapters/Chapter2.tex:7: LaTeX Error: Command \code already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 \newcommand{\code}[1]{\texttt{#1}}
-                                       
+l.7 \newcommand{\code}[1]{\texttt{#1}}
+                                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./Chapters/Chapter2.tex:13: LaTeX Error: Command \file already defined.
+./Chapters/Chapter2.tex:8: LaTeX Error: Command \file already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.13 \newcommand{\file}[1]{\texttt{\bfseries#1}}
+l.8 \newcommand{\file}[1]{\texttt{\bfseries#1}}
+                                               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Chapters/Chapter2.tex:9: LaTeX Error: Command \option already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \newcommand{\option}[1]{\texttt{\itshape#1}}
                                                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./Chapters/Chapter2.tex:14: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
+
+ []
+
+
+./Chapters/Chapter2.tex:40: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.14 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
+l.40 
+     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--22
-
- []
-
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 24.
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--29
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--47
+Underfull \hbox (badness 10000) in paragraph at lines 45--57
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 63--69
+Underfull \hbox (badness 10000) in paragraph at lines 58--70
 
  []
 
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 74.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--81
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--85
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 86--90
-
- []
-
-
-Overfull \hbox (15.2598pt too wide) in paragraph at lines 112--116
+Overfull \hbox (15.2598pt too wide) in paragraph at lines 93--97
 \T1/ppl/m/n/10.95 data. In the lit-er-a-ture, such bound-aries were given var-i
 -ous names, e.g., \T1/ppl/m/it/10.95 in-ter-rupt points \T1/ppl/m/n/10.95 [[]16
 []],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--128
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Underfull \hbox (badness 10000) in paragraph at lines 120--122
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--145
+Underfull \hbox (badness 10000) in paragraph at lines 127--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 146--149
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 196--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--176
+Underfull \hbox (badness 10000) in paragraph at lines 203--207
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--179
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--238
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--258
-
- []
-
-[7]
-
-./Chapters/Chapter2.tex:275: LaTeX Error: There's no line here to end.
+./Chapters/Chapter2.tex:255: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.275 
+l.255 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--283
+Underfull \hbox (badness 10000) in paragraph at lines 256--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
+Underfull \hbox (badness 10000) in paragraph at lines 264--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--299
+Underfull \hbox (badness 10000) in paragraph at lines 275--279
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 306--312
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 286--292
 
  []
 
@@ -1605,110 +1596,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 306--312
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 3.
 ) (./Code/bufferCont.c)
-Underfull \hbox (badness 10000) in paragraph at lines 330--336
+Underfull \hbox (badness 10000) in paragraph at lines 310--316
 
  []
 
-(./Code/callFrom.c) (./Code/callCont.c)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(./Code/MultipleEntry.c)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--372
+[8] (./Code/callFrom.c) (./Code/callCont.c) (./Code/MultipleEntry.c)
+Underfull \hbox (badness 10000) in paragraph at lines 344--352
 
  []
 
-[9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 373--377
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 353--357
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--395
+Underfull \hbox (badness 10000) in paragraph at lines 366--375
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 399--406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--426
+Underfull \hbox (badness 10000) in paragraph at lines 418--421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--430
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 438--441
+Underfull \hbox (badness 10000) in paragraph at lines 431--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 451--456
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 461--465
+Underfull \hbox (badness 10000) in paragraph at lines 441--445
 
  []
 
 File: Figures/wheretoexit.pdf Graphic file (type QTm)
 <use  "Figures/wheretoexit.pdf" >
-Overfull \hbox (8.75606pt too wide) in paragraph at lines 468--470
+Overfull \hbox (8.75606pt too wide) in paragraph at lines 448--450
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--481
+Underfull \hbox (badness 10000) in paragraph at lines 458--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--486
+Underfull \hbox (badness 10000) in paragraph at lines 462--466
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 467--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--491
+Underfull \hbox (badness 10000) in paragraph at lines 477--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--504
+Underfull \hbox (badness 10000) in paragraph at lines 485--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--517
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 505--511
+Underfull \hbox (badness 10000) in paragraph at lines 526--532
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--521
+Underfull \hbox (badness 10000) in paragraph at lines 540--550
 
  []
 
+[14]) (./Chapters/Chapter3.tex [15] [16
 
-Underfull \hbox (badness 10000) in paragraph at lines 522--537
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 546--552
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 560--570
-
- []
-
-) (./Chapters/Chapter3.tex [15] [16]
+]
 Chapter 3.
 --------------------
  3. Related Work
@@ -1808,9 +1793,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
 
-[17
-
-]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 60--67
 
  []
@@ -2182,12 +2165,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 574--579
 
  []
 
-[34]
+
 Underfull \hbox (badness 10000) in paragraph at lines 582--584
 
  []
 
-[35] [36]
+[34] [35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []|\T1/ppl/m/n/10.95 State prop-a-
  []
@@ -3369,10 +3352,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30117 strings out of 493706
- 533172 string characters out of 6145768
- 965655 words of memory out of 5000000
- 33008 multiletter control sequences out of 15000+600000
+ 30116 strings out of 493706
+ 533160 string characters out of 6145768
+ 965187 words of memory out of 5000000
+ 33007 multiletter control sequences out of 15000+600000
  41299 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,56p,10377b,2388s stack positions out of 5000i,500n,10000p,200000b,80000s

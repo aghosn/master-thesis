@@ -9,29 +9,27 @@
 \contentsline {section}{\numberline {1.2}Overview}{2}{section.44}
 \contentsline {chapter}{\numberline {2}On-Stack Replacement}{3}{chapter.45}
 \contentsline {section}{\numberline {2.1}Overview}{3}{section.46}
-\contentsline {subsection}{\numberline {2.1.1}Definition}{3}{subsection.47}
-\contentsline {subsection}{\numberline {2.1.2}On-Stack Replacement Benefits}{4}{subsection.48}
-\contentsline {section}{\numberline {2.2}Terminology \& Mechanisms}{5}{section.49}
-\contentsline {subsection}{\numberline {2.2.1}Transition Points}{5}{subsection.50}
-\contentsline {subsubsection}{Guarded \& Unguarded}{5}{section*.52}
-\contentsline {subsubsection}{Entries \& Exits}{6}{section*.55}
-\contentsline {subsection}{\numberline {2.2.2}The Transition}{6}{subsection.58}
-\contentsline {subsubsection}{High-Level requirements and challenges for transitions}{7}{section*.62}
-\contentsline {subsubsection}{The low-level transition}{8}{section*.72}
+\contentsline {section}{\numberline {2.2}Terminology \& Mechanisms}{4}{section.49}
+\contentsline {subsection}{\numberline {2.2.1}Transition Points}{4}{subsection.50}
+\contentsline {subsubsection}{Guarded \& Unguarded}{4}{section*.52}
+\contentsline {subsubsection}{Entries \& Exits}{5}{section*.55}
+\contentsline {subsection}{\numberline {2.2.2}The Transition}{5}{subsection.58}
+\contentsline {subsubsection}{High-Level requirements and challenges for transitions}{6}{section*.62}
+\contentsline {subsubsection}{The low-level transition}{7}{section*.72}
 \contentsline {subsubsection}{The transition as a function call}{8}{section*.78}
-\contentsline {subsection}{\numberline {2.2.3}Versioning}{11}{subsection.167}
-\contentsline {subsubsection}{One version}{11}{section*.168}
-\contentsline {subsubsection}{Multiple Versions}{11}{section*.169}
-\contentsline {subsubsection}{Caching vs. Generating on the fly}{12}{section*.170}
-\contentsline {section}{\numberline {2.3}On-Stack Replacement Deoptimization}{12}{section.171}
-\contentsline {subsection}{\numberline {2.3.1}Deoptimization Benefits}{12}{subsection.172}
-\contentsline {subsection}{\numberline {2.3.2}The Exit Target}{13}{subsection.173}
-\contentsline {subsubsection}{The interpreter}{13}{section*.175}
-\contentsline {subsubsection}{The compiled base version}{14}{section*.176}
-\contentsline {subsubsection}{A less optimized version}{14}{section*.177}
-\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{15}{section.178}
-\contentsline {subsection}{\numberline {2.4.1}The OSR Trade-Offs}{15}{subsection.179}
-\contentsline {subsection}{\numberline {2.4.2}Limits on Optimizations}{15}{subsection.180}
+\contentsline {subsection}{\numberline {2.2.3}Versioning}{10}{subsection.167}
+\contentsline {subsubsection}{One version}{10}{section*.168}
+\contentsline {subsubsection}{Multiple Versions}{10}{section*.169}
+\contentsline {subsubsection}{Caching vs. Generating on the fly}{11}{section*.170}
+\contentsline {section}{\numberline {2.3}On-Stack Replacement Deoptimization}{11}{section.171}
+\contentsline {subsection}{\numberline {2.3.1}Deoptimization Benefits}{11}{subsection.172}
+\contentsline {subsection}{\numberline {2.3.2}The Exit Target}{12}{subsection.173}
+\contentsline {subsubsection}{The interpreter}{12}{section*.175}
+\contentsline {subsubsection}{The compiled base version}{13}{section*.176}
+\contentsline {subsubsection}{A less optimized version}{13}{section*.177}
+\contentsline {section}{\numberline {2.4}Constraints on the OSR Mechanism}{14}{section.178}
+\contentsline {subsection}{\numberline {2.4.1}The OSR Trade-Offs}{14}{subsection.179}
+\contentsline {subsection}{\numberline {2.4.2}Limits on Optimizations}{14}{subsection.180}
 \contentsline {chapter}{\numberline {3}Related Work}{17}{chapter.181}
 \contentsline {section}{\numberline {3.1}The Origins: SELF Debugging}{17}{section.182}
 \contentsline {section}{\numberline {3.2}OSR \& VMs}{20}{section.190}

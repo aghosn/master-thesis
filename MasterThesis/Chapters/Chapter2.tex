@@ -1,92 +1,73 @@
 % Chapter 2
-
 \chapter{On-Stack Replacement} % Main chapter title
-
 \label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter2} 
-
 %----------------------------------------------------------------------------------------
-
-% Define some commands to keep the formatting separated from the content 
 \newcommand{\keyword}[1]{\textbf{#1}}
 \newcommand{\tabhead}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{\bfseries#1}}
 \newcommand{\option}[1]{\texttt{\itshape#1}}
-
 %----------------------------------------------------------------------------------------
-This chapter introduces on-stack replacement.
-The first section provides an overview of on-stack replacement principles.
-The second section presents on-stack replacement mechanisms, and defines OSR related vocabulary.
-The third section focuses on the use of on-stack replacement for runtime deoptimization.
-Finally, the fourth section summarizes constraints on OSR implementations.\\
 
-\section{Overview}
-\subsection{Definition}
+This chapter sets the stage for our investigation of on-stack
+replacement. We start with a high-level introduction and motivation for its
+use and subsequently define the terminology used in this document. Then we
+focus on application of the technique to deoptimization of running programs.
+We conclude with a summary of the constraints placed on implementations.
 
-On-stack replacement (OSR) refers to a runtime compiler transformation technique that allows to replace a program that is executing by another program.
-OSR implementations allow to interrupt running code during the execution of a function, transform it, e.g., reoptimize it, and resume the execution in the new function at the correct instruction and state.
-The action of transferring the execution using the OSR mechanism is called a \textit{transition}.\\
+\section{Overview}\label{WhyOSRInteresting}
 
-On-Stack replacement can be viewed, at a high level, as a mechanism that allows to transform the currently executing function into another version of itself.
-This transformation mechanism has been used to allow transitions between different levels of code optimizations.
-We can therefore reduce it to two main purposes: (1) transforming an executing function into a more optimized version of itself, and (2) undoing transformations that were previously performed.
-While similar, these two types of transformations have very different goals.\\
+On-stack replacement (OSR) refers to a runtime compiler transformation that
+replaces a program that is executing by a different program.
+The execution of any function can be interrupted to transform its code.
+After a replacement function is installed, execution resumes in the new function at the corresponding location. 
+At high-level, on-stack replacement is a mechanism for transforming the currently executing function into another version of itself.\\  
 
-In several virtual machines~\cite{paleczny2001java, lameed2013modular, holzle1992debugging, fink2003design, soman2006efficient, duboscq2014speculation, OSRKit, WebKitFTL}, some of which will be presented in Chapter \ref{Chapter3}, on-stack replacement has been used to improve the performance of long running functions.
-When the virtual machine (VM) identifies a piece of code as being "hot", i.e., it hogs the execution, the VM suspends the function's execution, recompiles it to a higher level of optimization, and transfers the execution to the newly generated version of the function.
-This differs from a simple Just-In-Time (JIT) compiler, since the recompilation and transfer of execution both take place during the execution of the function, rather than just before it.
-However, both techniques rely on the same assumption, namely, that runtime profiling data enables to uncover new optimization opportunities.\\
+Compilers use on-stack replacement for two diferent purposes:
+\begin{enumerate}
+\item {\it Optimization}: OSR is used to transfer control to a version
+  of the current function that has been optimized.  Many
+  systems~\cite{paleczny2001java, lameed2013modular, holzle1992debugging,
+    fink2003design, soman2006efficient, duboscq2014speculation, OSRKit,
+    WebKitFTL} do this to speedup long running functions.  When a function
+  is found to be "hot", i.e., the function hogs the CPU, it is paused, its
+  code is recompiled, and execution is resumed in the newly generated
+  function.
+\item {\it Deoptimization}: OSR is used to undo optimizations. This is
+  crucial for compilers that perform speculative transformations which can
+  be invalidated by subsequent program actions.
+\end{enumerate}\\
 
-On-Stack replacement allows a compiler to perform speculative transformations.
-Some optimizations rely on assumptions that are not bound to hold during the entire execution of a program.
-A simple example is function inlining in an environment where functions can be redefined at runtime.
-A regular, and correct, compiler would not allow to inline a function that might be modified during the execution.
-The OSR mechanism, however, enables to perform such an optimization.
-Whenever the assumption fails, i.e., the function is redefined, the OSR mechanism will enable to transfer the execution to a corresponding piece of code where the inlining has not been performed.
-In this case, OSR is used to allow potentially erroneous transformations while preserving correctness.\\
+The main difference between these use-cases is the timing of control transfers.
+In the case of optimization, transfer can happen at any point, the compiler is free to initiate the transition whenever it is convenient.
+In the case of deoptimization, transfer has to complete before the program starts to execute invalid code.\\
 
-In summary, on-stack replacement is a powerful technique that can be used to either improve performance, or enable speculative transformations of the code while preserving correctness.
-The next section presents the advantages that OSR uncovers in both cases.
+On-stack replacement is thus an enabling technology, which makes it possible
+for compiler to better optimize code.  In one direction, OSR increases the
+power of dynamic compilation by allowing the generation of new code for a
+running function. Without it, a just-in-time compiler would have to wait for
+the running function to return before installing an optimized version.  Some
+programs have a single main loop that accounts for the most of the execution
+time, OSR is the only way to optimize them at runtime. In the other
+direction, OSR gives the freedom for the compiler to perform speculative
+transformation that may break the language semantics in certain corner
+cases. It is up to the compiler to emit checks to ensure the soundness of
+those optimizations, if one of those checks fails, on-stack replacement is
+used to return to a safe version of the code.\\
 
-\subsection{On-Stack Replacement Benefits}\label{WhyOSRInteresting}
-%The optimization case
-     %wait until enough profiling information is gathered to make some new assumptions and improve code quality
-    %Some enable to have several specialised versions of the code live at the same time.
-    %Chaining OSR means that we can keep optimising the code -> depends on profiler
-%The deoptimization case
-    %This is the real deal. optimization is not valid without this counter part. 
-    %Enables even more agressive code specialisation. Being able to undo means that we can have virtually any assumption and just revert back to a safe version if it fails. 
-    %The real difference: optimization is for performance, deoptimazation is for correctness.
-    
-%This section highlights the benefits of using on-stack replacement, with respect to both otpimization and deoptimization.\\
+Most dynamic languages rely on code specialization to achieve competitive
+performance~\cite{gal2009trace}. Code specialization is an optimization that
+generates a version of a function tuned to a set of assumptions about its
+environment and arguments. These assumptions are typically obtained from
+profiling the running program and recording some facts about the environment
+and the values of variables. For example a function can be specialized to
+the case where its arguments are both scalar integers and addition maps to
+a hardware operation. But, if at some point, the addition operation is
+redefined, as is allowed in most dynamic languages, the optimized function
+becomes incorrect and will likely lead to a crash or at least will yield
+erroneous results.  With on-stack replacement the compiler can arrange that
+as soon as the addition is redefined.\\
 
-On-Stack replacement increases the power of dynamic compilation.
-A function can be recompiled while it is executing.
-This enables more aggressive adaptative compilation than just-in-time (JIT) compilation.
-In fact, the OSR mechanism, in theory, allows to perform a recompilation at any instruction boundary. 
-As an adaptative compilation mechanism, it enables to delay the compilation of a code artefact and therefore enables to gather more information about the current execution profile.
-These information can then be used to produce higher quality compiled code, with better execution performances.\\
-
-For dynamic languages, code specialization is an efficient technique to improve performances~\cite{gal2009trace}.
-Code specialization consists in tuning the code to better fit a particular use case and set of types, hence yielding better performances.
-Specialization can be viewed as a mechanism relying on the versioning of some piece of code.
-One of the main challenges is to identify which version better fits the current execution need.
-This requires to gather enough profiling information, some of which might not be available until some portion of the code is executed multiple times.
-On-stack replacement enables to speculatively specialize code, while preserving the program's correctness.\\
-
-OSR, coupled with an efficient compiler to generate and keep track of specialized functions, enables to uncover new opportunities to fine tune a portion of code.
-While techniques like JIT compilation can generate specialized code at a function level, i.e., before the function's execution, OSR enables to make such tuning while a function is running.
-For example, in the case of a long running loop inside a function, JIT techniques would need to wait until the function is called anew to improve its run time performance by recompiling it. 
-OSR, on the other hand, gives the compiler the means to make such improvements earlier, hence yielding a better overall performance of program's execution.\\
-
-OSR mechanisms enable the compiler to recompile and optimize at almost any time during the execution of a program.
-A clever compiler can perform iterative recompilation of the code in order to improve the quality of the generated compiled artefact.
-OSR enables these iteration steps to be closer to each other and potentially converge to a better solution faster than other dynamic compilation techniques.\\
-
-On-Stack replacement's most interesting feature is deoptimization. 
-While optimization enables to increase performance, deoptimization's goal is to preserve the program's correctness in the presence of aggressive speculative optimizations. 
-Virtually any assumption can be used to generate compiled code and, if the assumption fails, 
-OSR enables to revert back to a safe version during the execution.\\
 
 \section{Terminology \& Mechanisms}
 
@@ -222,7 +203,7 @@ In the case of a bidirectional mapping between the source and the destination ve
 \[f'(S_d) = S_s\]
 If the source is a less optimized version of the destination, $f'$ is used during the deoptimization case.
 The deoptimization case presents a greater challenge than the optimization one.
-Consider the unoptimized code in Figure \ref{unoptimizedcase}, and its optimized version in Figure \ref{optimizedcase}.
+Consider the unoptimized code in Figure \ref{unoptimizedcase}, and its optimized version in Figure \ref{optimizedcase}.\\
 
 \begin{figure}[h]
 \centering
@@ -249,7 +230,6 @@ c <- 11
 \caption{Variable elimination example.}
 \label{variableEliminationExample}
 \end{figure}
-
 
 The function \textit{f'} must provide a way to re-generate \codekey{a} and \codekey{b} from \codekey{c}. 
 To this end, it must remember the steps that led to the optimized version of the code, and must be able to reverse them.
