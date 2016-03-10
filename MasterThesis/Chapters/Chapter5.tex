@@ -110,7 +110,7 @@ The OSR Kit mechanism requires to associate a \textit{toInstrument} clone to eve
 The continuation function has to be a clone of the base function used to generate the optimized one.
 One challenge is to carefully implement the inlining in order to limit the number of \textit{toInstrument} functions generated.\\
 
-Finally, all the challenges related to the cloned and continuation functions mentioned in Section \ref{additionalchallenges} need to be considered.
+Finally, all the challenges related to the cloned and continuation functions mentioned in section \ref{additionalchallenges} need to be considered.
 Fixing the LLVM IR requires to go through every instruction in the cloned functions.
 As a result, in order to save compilation time, it is important to perform such operations only when they are truly needed.\\
 
@@ -522,7 +522,7 @@ Our second experiment yields encouraging results.
 A first observation is that the time ratio between obtaining the IR via the OSR Handler and via RJIT translation is constant, regardless of the number of LLVM IR instructions generated, with a median value at \textbf{0.33}. 
 In other words, it seems that obtaining a fresh and correct IR, for an arbitrarily sized function, via the OSR Handler, is in average at least \textbf{three} times faster than generating it from the AST.
 These results can further be improved if less instructions need to be fixed.
-As explained in Section \ref{section:cleanerIR}, a future solution would be to save an entire module per function in order to avoid having to fix LLVM IR instructions.
+As explained in section \ref{section:cleanerIR}, a future solution would be to save an entire module per function in order to avoid having to fix LLVM IR instructions.
 With this solution, the cost of obtaining a fresh non-instrumented IR would include the cost of loading an LLVM module into the current compilation module. 
 Since it is not part of our implementation, we do not provide any estimation for this cost.\\
 

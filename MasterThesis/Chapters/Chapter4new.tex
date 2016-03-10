@@ -251,7 +251,7 @@ OSR Kit continuation functions are not compatible with ic stubs.
 The ic stubs expect to receive pointers to their callers as argument.
 In RJIT, every function is supposed to have the following type signature:
 $$T: (\text{SEXP}, \text{SEXP}, i32) \rightarrow \text{SEXP}.$$
-According to Section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the continuation function's signature in order to pass all the live values during an OSR transition.
+According to section \ref{describeOSRKit}, the OSR Kit\cite{OSRKit} library modifies the continuation function's signature in order to pass all the live values during an OSR transition.
 As a result, the continuation function might not be of type $T$.
 Enabling any type in the ic stub is not a viable solution, i.e., it requires too much work and goes against the type policies enforced by the RJIT framework. 
 We therefore have to come up with an alternative solution.\\
@@ -335,7 +335,7 @@ On the other hand, if the inliner's transformations depend on the location of th
 \end{figure}
 
 A cloned function that needs to be fully compiled has to be fixed.
-As explained in Section \ref{additionalchallenges}, the IR of a cloned function has incorrect attributes instrumentation, incorrect arguments to its ic stub calls, and might have missing targets in its call instructions, i.e., the callee has not been declared in the module.
+As explained in section \ref{additionalchallenges}, the IR of a cloned function has incorrect attributes instrumentation, incorrect arguments to its ic stub calls, and might have missing targets in its call instructions, i.e., the callee has not been declared in the module.
 A cloned function also needs to be added to the compilation module in order to be fully compiled.
 The OSR Handler provides utility functions to help the user fix the LLVM IR of cloned functions in RJIT. 
 The \codekey{resetSafepoints} function takes care of adding the proper safepoints and patchpoints to the IR, as well as fixing the ic stubs arguments.
@@ -359,7 +359,7 @@ We however devise an alternative solution in section \ref{section:futurework}.\\
 \subsection{Simplifying the OSR Exit Insertions}
 
 Section \ref{osrkitlimitations} explains our choice to use resolved OSR from the OSR Kit\cite{OSRKit} library.
-The resolved OSR API is provided in Section \ref{describeOSRKit}.\\
+The resolved OSR API is provided in section \ref{describeOSRKit}.\\
 
 RJIT imposes additional constraints on the OSR exits. 
 The continuation instruction needs to be the exact match of the from instruction.
@@ -401,7 +401,7 @@ Section \ref{improvingexits} describes in details the role of the last argument.
 %Hence compensation 
 
 The continuation function mechanism does not fit the OSR exits well.
-As explained in Section \ref{osrkitlimitations}, once an OSR exit is fired, it is likely to be fired in subsequent calls.
+As explained in section \ref{osrkitlimitations}, once an OSR exit is fired, it is likely to be fired in subsequent calls.
 Triggering an OSR exit has a cost that might not be negligible.
 The OSR Kit~\cite{OSRKit} library does not provide any mechanism to improve that special case.
 Moreover, section \ref{additionalchallenges} explains that continuation functions do not have valid signatures for ic stubs, which requires to come up with a special hack to make them work properly.\\

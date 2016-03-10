@@ -122,7 +122,7 @@ OSR points can correspond to several instructions and enable to perform the tran
 
 %TODO continue this part by explaining why we need it to be safe
 An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., instruction boundaries where the state is guaranteed to be consistent.
-For example, as explained in Section \ref{SELF}, the SELF debugger~\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
+For example, as explained in section \ref{SELF}, the SELF debugger~\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
 An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which the execution can resume.
 As a result, different implementations yield different restrictions on the location of OSR points.\\
 
@@ -496,7 +496,7 @@ The question is then the following: can we provide the same correctness guarante
 %Still pretty slow.
 Another option is to OSR exit to a base, compiled version of the function.
 It corresponds to the OSR exit 2 in Figure \ref{OSR exit options}.
-This is the approach taken by the WebKit framework~\cite{WebKitURL}(see Section \ref{webkit}).
+This is the approach taken by the WebKit framework~\cite{WebKitURL}(see section \ref{webkit}).
 It represents a good intermediary between performance and complexity.
 If the OSR framework does not have control over the execution environment, it requires careful instrumentation of the compiled code in order to properly propagate the execution state.
 If the continuation function is generated on the fly, taking this OSR transition implies suffering the cost of compiling a proper continuation function.
@@ -516,7 +516,7 @@ Restarting the optimization process from scratch might therefore yield a more pe
 A third option is to exit to an optimized version of the function that does not rely on the assumption that failed.
 It corresponds to the OSR exit 3 in Figure \ref{OSR exit options}.
 The function to which we exit is a fully optimized one, supposed to yield better performances than both the interpreted and the base versions.
-This behavior can be observed in McOSR~\cite{lameed2013modular} (see Section \ref{McOSR}) and OSR Kit~\cite{OSRKit}(see Section \ref{describeOSRKit}).
+This behavior can be observed in McOSR~\cite{lameed2013modular} (see section \ref{McOSR}) and OSR Kit~\cite{OSRKit}(see section \ref{describeOSRKit}).
 This option strives to get the best possible performance, even in the presence of an assumption's failure.\\
 
 As explained previously, there are two options to get the continuation function: either generate on the fly a new fully optimized version that does not rely on the assumption that failed, or "undo" the optimization that failed.
