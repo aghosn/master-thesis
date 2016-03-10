@@ -36,7 +36,7 @@
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.382}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{45}{figure.caption.391}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces The getFreshIR prototype.\relax }}{48}{figure.caption.411}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces The base version map.\relax }}{49}{figure.caption.423}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The \textsf {\ttfamily baseVersions} map.\relax }}{49}{figure.caption.423}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.427}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.459}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces The \textsf {\ttfamily insertOSRExit} prototype.\relax }}{52}{figure.caption.463}

@@ -302,19 +302,19 @@ As a small optimization, the OSR Handler sets the result of the compilation insi
 By doing so, we ensure that a subsequent call to this function will already benefit from the compiled version, and will not trigger a useless call to the JIT.\\
 
 The \codekey{getFreshIR} strives to avoid re-generating LLVM IR for \codekey{NATIVESXP}s.
-When the closure passed as argument to the \codekey{getFreshIR} call has an entry in the base version map, a clone of the stored function SEXP is returned.
+When the closure passed as argument to the \codekey{getFreshIR} call has an entry in the \codekey{baseVersions} map, a clone of the stored function SEXP is returned.
 Cloning the function SEXP requires to clone the LLVM IR, and insert it in a new function SEXP with the same constant pool.
-When the closure passed as argument does not have an entry in the base version map, the OSR Handler must determine if the IR is instrumented or not.
+When the closure passed as argument does not have an entry in the \codekey{baseVersions} map, the OSR Handler must determine if the IR is instrumented or not.
 RJIT creates one module per compiler instance, and performs the \codekey{jitAll} call just before returning to the interpreter.
 As a result, if an LLVM IR's module is the same as the current compiler's module, the LLVM IR is not instrumented.
 In this case, the \codekey{getFreshIR} function creates an entry for this closure in the \codekey{baseVersions} map and returns the proper clone to the user, as explained before.
-For an LLVM IR with a different module, that does not have an entry in the base version map, the OSR Handler has no other choice than to re-parse the ASTs and generate the non-instrumented LLVM IR.
+For an LLVM IR with a different module, that does not have an entry in the map, the OSR Handler has no other choice than to re-parse the ASTs and generate the non-instrumented LLVM IR.
 In this case, it also creates a proper entry in the \codekey{baseVersions} map and returns a copy to the user.
 This situation can be avoided by making sure that for every function compiled, a proper entry is registered in the OSR Handler's \codekey{baseVersions} map.\\
 
 \begin{figure}[h]
 \includecode{Code/baseVersion.h}
-\caption{The base version map.}
+\caption{The \codekey{baseVersions} map.}
 \label{fig:baseversionmap}
 \end{figure}
 

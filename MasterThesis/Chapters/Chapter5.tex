@@ -302,17 +302,17 @@ In this benchmark, the OSR Handler enabled to provide fresh LLVM IR, without re-
 It is also important to note that the JIT compiler is involved less times, in the all inline mode, than in the regular mode.
 In fact, the inliner performs AOT compilation of callees, and sets the result inside the corresponding closure.\\
 
-The use of the OSR Handler base version map, for the Shootout benchmarks, yielded a disappointing result.
+The use of the OSR Handler's \codekey{baseVersions} map, for the Shootout benchmarks, yielded a disappointing result.
 All the benchmarks, except \textit{pidigits.r}, did not re-use LLVM IR accros different compilation modules.
 This, however, has several explanations.
-First, the OSR Handler base version map is intended to avoid re-translating ASTs to LLVM IR, for already compiled functions.
+First, the \codekey{baseVersions} map is intended to avoid re-translating ASTs to LLVM IR, for already compiled functions.
 A fresh IR is needed when a function is recompiled, or, for the OSR inliner, when a function call is inlined.
 RJIT, for the moment, does not collect any profiling information on the program's execution and does not perform any optimization. 
 Thus, no recompilation is triggered for unmodified, already compiled functions.
 Another explanation is that the OSR inliner mainly inlines user-defined functions, i.e., the functions defined inside the benchmark (as opposed to built-ins functions).
 When the OSR inliner runs on the benchmark's entry point, it recursively inlines calls, hence reaching all the user-defined functions and inlining them whenever it is possible.
-Subsequent JIT compilations correspond to calls that the OSR inliner could not inline previously, mainly library functions, that do not call any of the function's cached in the base version map.
-As a result, in order to evaluate the efficiency of the base version map, another form of experiment is required.
+Subsequent JIT compilations correspond to calls that the OSR inliner could not inline previously, mainly library functions, that do not call any of the function's cached in the OSR Handler's map.
+As a result, in order to evaluate the efficiency of the \codekey{baseVersions} map, another form of experiment is required.
 Section \ref{section:getfreshtest} focuses on the evaluation of the \codekey{getFreshIR} function and the OSR Handler's mechanisms.\\
 
 In a regular execution, the OSR inliner's performance is close to RJIT execution time.
@@ -545,7 +545,7 @@ We can further affirm that the \codekey{getFreshIR} performance compensates the 
 The OSR handler introduces a memory overhead that can be quantified.
 For each live and compiled function, the OSR Handler contains a function SEXP that points to the same constant pool, and contains a clone of the function's non-instrumented LLVM IR.
 Since, for the moment, a garbage collection induces a flush of the OSR Handler's \codekey{baseVersions} map, i.e., all entries are deleted, we can say that only live functions, compiled since the last garbage collection, have an entry in the OSR Handler.
-Flushing the entire base version map is too drastic. 
+Flushing the entire map is too drastic. 
 A more subtle implementation would flush only entries corresponding to collected closures.
 This requires, however, a more complex interaction with the garbage collector, that we did not have time to implement.
 Finally, the solution described in section \ref{section:cleanerIR} will exhibit similar space costs, but will also be easier to integrate with the garbage collector.\\
