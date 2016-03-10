@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{High-Level requirements and challenges for transitions}{7}{section*.62}
 \contentsline {subsubsection}{The low-level transition}{8}{section*.72}
 \contentsline {subsubsection}{The transition as a function call}{8}{section*.78}
-\contentsline {subsection}{\numberline {2.2.3}Versionning}{11}{subsection.167}
+\contentsline {subsection}{\numberline {2.2.3}Versioning}{11}{subsection.167}
 \contentsline {subsubsection}{One version}{11}{section*.168}
 \contentsline {subsubsection}{Multiple Versions}{11}{section*.169}
 \contentsline {subsubsection}{Caching vs. Generating on the fly}{12}{section*.170}

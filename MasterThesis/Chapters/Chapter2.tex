@@ -375,7 +375,7 @@ On the other hand, the second technique that we described to propagate the state
 If the set of values to propagate is different at two points, we need different functions, and hence, should allow only a single entry point for each continuation function.
 Therefore, we can expect the second solution to have, in general, a higher space complexity (i.e., many versions of the function live in memory at the same time) but a better performance during execution (i.e., smaller execution time).\\
 
-\subsection{Versionning}
+\subsection{Versioning}
 On-stack replacement requires, at some point, to have at least two versions of a function: the from function and the continuation function.
 Furthermore, the continuation function can either be generated on the fly, i.e., the OSR transition includes a transformation step to generate the correct continuation function, or a previously compiled and cached version can be used.
 

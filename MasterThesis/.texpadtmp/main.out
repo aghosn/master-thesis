@@ -16,7 +16,7 @@
 \BOOKMARK [3][-]{section*.62}{High-Level\040requirements\040and\040challenges\040for\040transitions}{subsection.58}% 16
 \BOOKMARK [3][-]{section*.72}{The\040low-level\040transition}{subsection.58}% 17
 \BOOKMARK [3][-]{section*.78}{The\040transition\040as\040a\040function\040call}{subsection.58}% 18
-\BOOKMARK [2][-]{subsection.167}{Versionning}{section.49}% 19
+\BOOKMARK [2][-]{subsection.167}{Versioning}{section.49}% 19
 \BOOKMARK [3][-]{section*.168}{One\040version}{subsection.167}% 20
 \BOOKMARK [3][-]{section*.169}{Multiple\040Versions}{subsection.167}% 21
 \BOOKMARK [3][-]{section*.170}{Caching\040vs.\040Generating\040on\040the\040fly}{subsection.167}% 22

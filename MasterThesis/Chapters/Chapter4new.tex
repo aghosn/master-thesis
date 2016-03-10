@@ -530,7 +530,7 @@ We were able to re-use parts of the OSR Kit library to generate the continuation
 Consider the example in Figure \ref{fig:unguardedosrpointexample}.
 The function \codekey{g} is unknown and might reassign \codekey{x} to a new value.
 GNUR is instrumented to detect reassignments to symbols used during a speculative optimization.
-It therefore detects \codekey{x} reassignements, and patches the reserved bytes following the call to \codekey{g} with a call to the OSR exit.
+It therefore detects \codekey{x} reassignments, and patches the reserved bytes following the call to \codekey{g} with a call to the OSR exit.
 When \codekey{g} returns to the invalidated \codekey{f}, the call to the continuation function is executed, hence triggering a lazy deoptimization of \codekey{f}.\\
 
 This prototype was not inserted in the final version of the OSR Handler.
