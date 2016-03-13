@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {1.2}Overview}{2}{section.44}
 \contentsline {chapter}{\numberline {2}On-Stack Replacement}{3}{chapter.45}
 \contentsline {section}{\numberline {2.1}Overview}{3}{section.46}
-\contentsline {section}{\numberline {2.2}Terminology \& Mechanisms}{4}{section.49}
+\contentsline {section}{\numberline {2.2}Terminology}{4}{section.49}
 \contentsline {subsection}{\numberline {2.2.1}Transition Points}{4}{subsection.50}
 \contentsline {subsubsection}{Guarded \& Unguarded}{4}{section*.52}
 \contentsline {subsubsection}{Entries \& Exits}{5}{section*.55}
