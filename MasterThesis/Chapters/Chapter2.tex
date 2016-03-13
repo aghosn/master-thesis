@@ -66,110 +66,104 @@ a hardware operation. But, if at some point, the addition operation is
 redefined, as is allowed in most dynamic languages, the optimized function
 becomes incorrect and will likely lead to a crash or at least will yield
 erroneous results.  With on-stack replacement the compiler can arrange that
-as soon as the addition is redefined.\\
+as soon as the addition is redefined.
 
+\section{Mechanisms}
 
-\section{Terminology}
+This section provides a detailed presentation of on-stack replacement.
+In order to ease the introduction of important implementation concepts, we begin by defining the terminology specific to on-stack replacement.
+Different implementations and papers use different terminologies.
+This report attempts to follow a strict and well-defined terminology introduced by our definitions. 
+The section then proceeds to describe on-stack replacement main feature, i.e., the transition mechanism.
+Finally, it presents how on-stack replacement relates to code versioning.
 
-\subsection{Transition Points}\label{section:osrpoints}
-%TODO do a definition case for that
-%Several names for it 
-%what it is: a point in the code from which we can suspend the exec and optimize the current version of the code
-    %Implies that we need a "safe state”, i.e., we need to be able to find an equivalent point in the optimized version
-    %portions of code that don’t have interrupts
-    %Too many -> bad Too few -> bad
-%Guarded vs Unguarded 
-    %Guarding when there is an explicit condition that we can check locally
-    %What if global/External event? 
-        %Some have a map of such points and fix them whenever an external event happens (citing papers e.g., jikes)
-%OSR exits 
-    %What to do when the condition fails? 
-        %optimization dependent 
-        %for external requires to correct every callee return landing spots. 
-        %Requires corresponding entry in the unoptimized version
-%Examples from existing implementations 
-    %McOSR inserter and instrument passes (need a code transformer + OSR Label)
-    %Jikes
-On-stack replacement is enabled at specific instruction boundaries in the user's code.
-Depending on the implementation, these points can be sparse, restricted to special points in the program control flow, or associated with special framework dependent data.
-In the literature, such boundaries were given various names, e.g., \textit{interrupt points}~\cite{holzle1992debugging}, \textit{OSR points}~\cite{fink2003design, holzle1992debugging, WebKitURL, lameed2013modular}, \textit{OSR entries}, and \textit{OSR exits}~\cite{WebKitURL, lameed2013modular}.
-This section presents the terminology for such points that will be used in the reminder of this report.
+\subsection{Terminology}
 
-\begin{definition}\label{OSRPointDefinition}
-An OSR point is a portion of code that belongs to the OSR instrumentation.
-It is located at an instruction boundary at which the program can be suspended.
-OSR points can correspond to several instructions and enable to perform the transition from one version of the code to another.
-\end{definition}
-
-%TODO continue this part by explaining why we need it to be safe
-An OSR point has to be located at a point of the code where the state is \textit{safe}, i.e., instruction boundaries where the state is guaranteed to be consistent.
-For example, as explained in section \ref{SELF}, the SELF debugger~\cite{holzle1992debugging} considers points at method prologues and at the end of loop bodies.
-An OSR point must be such that the state of the computation can be extracted and transferred to another version of the code from which the execution can resume.
-As a result, different implementations yield different restrictions on the location of OSR points.\\
-
-\subsubsection{Guarded \& Unguarded}
-
-OSR points can be divided into two categories: \textit{guarded} and \textit{unguarded}.
-\begin{definition}
-A guarded OSR point's execution depends on an explicit boolean test, called the OSR condition.
-In other words, the framework has enough information locally to test whether or not an OSR transition should be taken.
-\end{definition}
-\begin{definition}
-An unguarded OSR point does not require to locally check a boolean condition before being executed. 
-\end{definition}
-The distinction between guarded and unguarded points is present in the literature (e.g., Jikes RVM~\cite{fink2003design, soman2006efficient} and WebKit~\cite{WebKitURL}).
-Both solutions present different advantages and fit different use cases.\\
-
-While simple to model at a high-level, a guarded OSR point presents the disadvantage of increasing the code's length. 
-A boolean condition needs to be tested every time the execution comes across an OSR point.
-As a result, the repeated evaluation of conditions might undermine the performance improvements obtain via on-stack replacement, especially in the case of long running loops optimization.\\
-
-Unguarded OSR points enable to avoid this overhead by letting the framework modify the running function on external/environmental events.
-WebKit~\cite{WebKitURL}, for example, overwrites portion of the compiled code, at runtime, in order to introduce an unconditional transition.
-This can be viewed as a lazy triggering of on-stack replacement, i.e., the instrumentation to enable the transition can be added just before being executed.\\
-
-\subsubsection{Entries \& Exits}
-
-There is a further distinction between OSR points that are responsible for optimizing the code, and the ones that are used to deoptimize.
-We adopt the same terminology as in WebKit~\cite{WebKitURL} and McOSR~\cite{lameed2013modular}.
-
-\begin{definition}\label{OSREntryDefinition}
-An OSR point that enables to replace the current version of the code with one in which we expect to have better performance is called an \textbf{entry}.
-OSR entries are used in the optimization process.
-\end{definition}
-
-\begin{definition}
-An OSR point that enables to exit the current version of the code when it is invalidated is called an \textbf{exit}.
-OSR exits are responsible for preserving the correctness of the program.
-They are used in the deoptimization process.
-\end{definition}
-
-At the implementation level, OSR entries and exits are very similar, if not identical. 
-They both are OSR points and will trigger a transition.
-Conceptually, however, an exit is part of the mechanism that enables to protect the correctness of the program.
-Mistakingly not taking an entry is a missed opportunity for better performances.
-Missing a required exit leads to a possibly incorrect behavior of the program.\\
-
-\subsection{The Transition}
-On-stack replacement's core functionality is to allow a transition, at runtime, from the middle of a running function to a corresponding instruction in the middle of another version of this function.
-This transition mechanism is therefore the cornerstone of any OSR implementation.
-This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.\\
-
-In the reminder of this section, we use the terminology introduced by definitions \ref{from}, \ref{base}, and \ref{continuation}, and taken from the OSR Kit~\cite{OSRKit} project.
-These definitions hold, regardless of the type of OSR transition, i.e., OSR exit or OSR entry, being performed.\\
+On-stack replacement lacks a unified terminology.
+Different implementations and papers rely on different names to describe very similar elements or principles.
+This report presents a description of such elements and of various implementations.
+We therefore start by defining the terminology that will be used to describe on-stack replacement mechanisms.
 
 \begin{definition}\label{base}
-A base function is a non-instrumented function. 
-It serves as a base input for compiler transformations and on-stack replacement instrumentations.
+A {\bf base function} is a function which has not been instrumented by the
+compiler to support on-stack replacement.
 \end{definition}
 
 \begin{definition}\label{from}
-A function from which we perform a transition is called a \textbf{from function} or \textbf{source version}.
+A {\bf source function} is a function that has been instrumented to allow
+transferring control flow to another function, via on-stack replacement.
 \end{definition}
 
 \begin{definition}\label{continuation}
-A function in which we resume the execution after a transition is called a \textbf{continuation function} or \textbf{destination version}.
+A {\bf destination function} is a function that has been instrumented to
+receive control from another function, via on-stack replacement.
 \end{definition}
+
+Typically, a compiler will start with a base function and create a source
+function that will be executed. The destination function can be created
+lazily whenever a transition is taken, or can be resolved and compiled ahead of time.\\
+
+The transition from source to destination point can only be done at well
+defined points in the code and requires some instrumentation.
+
+\begin{definition}\label{OSRPointDefinition}
+An {\bf OSR point} is a position in the code at which a transition may occur. An
+OSR point can be viewed as a, possibly empty, sequence of instructions that implement
+the mechanics of the transition.
+\end{definition}
+
+OSR points are located at safe points in the code, i.e., locations where the state
+of the program is consistent. For example, SELF~\cite{holzle1992debugging}
+inserts OSR points at every method entry and at the end of all loop bodies. These
+are points where the state of the computation can be extracted and matched to the
+destination function expected state.\\
+
+A transition is often triggered by evaluating a predicate that checks for 
+some condition in the state of the computation.
+The predicate can either be evaluated by the instrumented function, or by the execution environment.
+
+\begin{definition}
+A {\bf guarded OSR point} is dominated by a predicate that determines
+whether a transition should occur.
+\end{definition}
+
+\begin{definition}
+An {\bf unguarded OSR point} is one that is triggered remotely by the compiler.
+\end{definition}
+
+The distinction between guarded and unguarded ORS points is present in the
+literature (e.g., Jikes RVM~\cite{fink2003design, soman2006efficient} and
+WebKit~\cite{WebKitURL}).  Guarded OSR points are more expensive at runtime
+but they ensure that the transition will occur if the state of the program
+changes, i.e., if an optimization is invalidated.  Unguarded OSR points are
+cheap, but require extra machinery to be triggered.  WebKit~\cite{WebKitURL}, for
+example, overwrites portion of the compiled code, at runtime, in order to
+introduce an unconditional transition.  This can be viewed as a lazy
+triggering, i.e., the instrumentation to enable the transition can be added
+just before being executed.\\
+
+There is a further distinction between OSR points that are responsible for
+optimizing the code, and the ones that are used to deoptimize.
+
+\begin{definition}\label{OSREntryDefinition}
+An {\bf entry} is an OSR point responsible for transferring control to a more optimized version.
+\end{definition}
+
+\begin{definition}
+An {\bf exit} is an OSR point responsible for exiting an invalidated code and transferring control to a correct version.
+\end{definition}
+
+At the implementation level, OSR entries and exits are very similar, if not
+identical.  They both are OSR points and will trigger a transition.
+Conceptually, however, an exit is part of the mechanism that enables to
+protect the correctness of the program.  Mistakingly not taking an entry is
+a missed opportunity for better performances.  Missing a required exit leads
+to a possibly incorrect behavior of the program.
+
+\subsection{The Transition}
+On-stack replacement's core functionality is to allow a transition, at runtime, from a running function to a corresponding instruction in another version of this function.
+This transition mechanism is therefore the cornerstone of any OSR implementation.
+This section strives to unify all the existing implementations under a single, general, high-level list of requirements to perform an OSR transition.
 
 \subsubsection{High-Level requirements and challenges for transitions}\label{HLREQ}
 %OSR transition is a mapping

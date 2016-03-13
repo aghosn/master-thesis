@@ -5,51 +5,51 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Example.\relax }}{1}{figure.caption.7}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Optimized versions.\relax }}{2}{figure.caption.30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Variable elimination example.\relax }}{7}{figure.caption.63}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Using a buffer to pass live values in an OSR transition.\relax }}{8}{figure.caption.81}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Live values as arguments in an OSR transition.\relax }}{9}{figure.caption.114}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{9}{figure.caption.139}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces OSR exit options}}{12}{figure.caption.174}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Variable elimination example.\relax }}{6}{figure.caption.61}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Using a buffer to pass live values in an OSR transition.\relax }}{8}{figure.caption.79}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Live values as arguments in an OSR transition.\relax }}{9}{figure.caption.112}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Instrumented function with multiple entry points.\relax }}{9}{figure.caption.137}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces OSR exit options}}{12}{figure.caption.172}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces physical vs. source-level stacks}}{18}{figure.caption.183}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Recovering the source-level state}}{19}{figure.caption.184}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The WebKit FTL}}{23}{figure.caption.197}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces SSA example}}{25}{figure.caption.200}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces OSR classification}}{26}{figure.caption.208}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Retrofitting an existing JIT with OSR support}}{27}{figure.caption.209}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces A CFG of a loop with no OSR point}}{28}{figure.caption.214}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{28}{figure.caption.215}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{29}{figure.caption.216}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{29}{figure.caption.217}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}.}}{30}{figure.caption.218}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces The DestFunGenerator type.\relax }}{32}{figure.caption.229}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces The insertOpenOSR prototype.\relax }}{33}{figure.caption.243}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Resolved OSR Scenario}}{34}{figure.caption.270}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces The insertResolvedOSR prototype.\relax }}{34}{figure.caption.271}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{35}{figure.caption.292}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Simplified instrumented LLVM IR.\relax }}{35}{figure.caption.305}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{36}{figure.caption.324}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces physical vs. source-level stacks}}{16}{figure.caption.181}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Recovering the source-level state}}{17}{figure.caption.182}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The WebKit FTL}}{21}{figure.caption.195}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces SSA example}}{23}{figure.caption.198}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces OSR classification}}{24}{figure.caption.206}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Retrofitting an existing JIT with OSR support}}{25}{figure.caption.207}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces A CFG of a loop with no OSR point}}{26}{figure.caption.212}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The CFG of the loop in Figure \ref {BaseCFG}, after inserting an OSR point}}{26}{figure.caption.213}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The transformed CFG of the loop in Figure \ref {InsertCFG} after the OSR Pass}}{27}{figure.caption.214}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A CFG of a running function before inserting the blocks for state recovery}}{27}{figure.caption.215}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The CFG of the loop represented in Figure \ref {FCFG} after inserting the state recovery blocks, form~\cite {lameed2013modular}.}}{28}{figure.caption.216}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The DestFunGenerator type.\relax }}{30}{figure.caption.227}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces The insertOpenOSR prototype.\relax }}{31}{figure.caption.241}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Resolved OSR Scenario}}{32}{figure.caption.268}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces The insertResolvedOSR prototype.\relax }}{32}{figure.caption.269}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Simplified original LLVM IR.\relax }}{33}{figure.caption.290}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Simplified instrumented LLVM IR.\relax }}{33}{figure.caption.303}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Simplified continuation function LLVM IR.\relax }}{34}{figure.caption.322}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{42}{figure.caption.351}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of LLVM IR for basic R code.\relax }}{43}{figure.caption.353}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces R simple function.\relax }}{43}{figure.caption.379}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{44}{figure.caption.382}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{45}{figure.caption.391}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The getFreshIR prototype.\relax }}{48}{figure.caption.411}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces The \textsf {\ttfamily baseVersions} map.\relax }}{49}{figure.caption.423}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Utility functions.\relax }}{50}{figure.caption.427}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The statemaps.\relax }}{51}{figure.caption.459}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces The \textsf {\ttfamily insertOSRExit} prototype.\relax }}{52}{figure.caption.463}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Use case for unguarded OSR points.\relax }}{55}{figure.caption.488}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces RJIT compilation flow.\relax }}{40}{figure.caption.349}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of LLVM IR for basic R code.\relax }}{41}{figure.caption.351}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces R simple function.\relax }}{41}{figure.caption.377}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Non-instrumented RJIT LLVM IR.\relax }}{42}{figure.caption.380}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Instrumented RJIT LLVM IR.\relax }}{43}{figure.caption.389}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The getFreshIR prototype.\relax }}{46}{figure.caption.409}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The \textsf {\ttfamily baseVersions} map.\relax }}{47}{figure.caption.421}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Utility functions.\relax }}{48}{figure.caption.425}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The statemaps.\relax }}{49}{figure.caption.457}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The \textsf {\ttfamily insertOSRExit} prototype.\relax }}{50}{figure.caption.461}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Use case for unguarded OSR points.\relax }}{53}{figure.caption.486}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{61}{figure.caption.509}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces A simple R code.\relax }}{64}{figure.caption.537}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The original LLVM IR for function g in Figure \ref {fig:simplercode}.\relax }}{64}{figure.caption.545}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The LLVM IR for function f in Figure \ref {fig:simplercode}.\relax }}{64}{figure.caption.559}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The LLVM IR of g after executing the OSR inliner.\relax }}{65}{figure.caption.568}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces The continuation function corresponding to the LLVM IR in Figure \ref {fig:inlinedouter}.\relax }}{66}{figure.caption.600}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces The execution time ratios, per benchmark, between the all inline and the regular mode.\relax }}{68}{figure.caption.625}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces The micro-benchmark.\relax }}{72}{figure.caption.628}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces The RJIT detailed compilation and possible recompilation flow.\relax }}{73}{figure.caption.649}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a non-instrumented and correct IR for all the functions in the Shootout benchmark.\relax }}{74}{figure.caption.650}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of RJIT LLVM IR for a function call.\relax }}{59}{figure.caption.507}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A simple R code.\relax }}{62}{figure.caption.535}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The original LLVM IR for function g in Figure \ref {fig:simplercode}.\relax }}{62}{figure.caption.543}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The LLVM IR for function f in Figure \ref {fig:simplercode}.\relax }}{62}{figure.caption.557}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The LLVM IR of g after executing the OSR inliner.\relax }}{63}{figure.caption.566}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces The continuation function corresponding to the LLVM IR in Figure \ref {fig:inlinedouter}.\relax }}{64}{figure.caption.598}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The execution time ratios, per benchmark, between the all inline and the regular mode.\relax }}{66}{figure.caption.623}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces The micro-benchmark.\relax }}{70}{figure.caption.626}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces The RJIT detailed compilation and possible recompilation flow.\relax }}{71}{figure.caption.647}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces OSR Handler versus RJIT: histogram of the time required to obtain a non-instrumented and correct IR for all the functions in the Shootout benchmark.\relax }}{72}{figure.caption.648}
 \addvspace {10\p@ }
